@@ -1,0 +1,206 @@
+/* FORECAST
+  ----------------*/
+
+.control-group.datefilter {
+  .controls {
+    margin: 0;
+  }
+
+  select {
+    width: 350px;
+  }
+}
+
+.control-group.filter {
+  .indicator {
+    cursor: pointer;
+  }
+}
+
+#config-accordion {
+  margin-bottom: 0;
+
+  .accordion-heading {
+    padding: 0;
+    height: 48px;
+
+    .accordion-toggle {
+      padding: 14px 16px 16px 20px;
+      background: @white;
+      color: @gray;
+
+      .resetLink {
+        color: @linkColor;
+      }
+
+      &.collapsed {
+        background: @grayLighter;
+      }
+
+      .resetLink:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .accordion-toggle:hover {
+      text-decoration: none;
+    }
+  }
+
+  .accordion-heading.active {
+    background-color: @white;
+  }
+
+  .accordion-group {
+    border-bottom: 1px solid darken(@grayLighter, 10%);
+  }
+
+  .accordion-inner {
+    padding: 10px 0 0;
+    margin: 10px 20px;
+    background-color: @white;
+    border-top: 1px dashed darken(@grayLighter, 10%);
+    border-bottom: none;
+  }
+
+  fieldset {
+    border: 1px dashed darken(@grayLighter, 10%);
+    padding: 8px 10px 0;
+    margin-bottom: 10px;
+  }
+
+  fieldset.disabled {
+    border-color: @grayLight;
+  }
+}
+
+.show_custom_bucketsFields {
+  .noUiSliderEnds {
+    width: 240px;
+
+    .noUiSlider {
+      width: 240px;
+    }
+  }
+
+  #plhExclude,
+  #plhCustomWithoutProbability {
+    input[disabled="disabled"] {
+      visibility: hidden;
+    }
+  }
+
+  #plhCustomProbabilityRanges {
+    div.clearfix {
+      & > div:not(:last-child) {
+        margin-top: 35px;
+      }
+    }
+  }
+
+  #plhCustomWithoutProbability {
+    margin-bottom: 8px;
+
+    div.clearfix {
+      & > div {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  #plhCustomWithoutProbability,
+  #plhCustomProbabilityRanges {
+    div.clearfix {
+      div.btn_group {
+        float: left;
+        margin-top: 32px;
+      }
+    }
+  }
+}
+
+.forecast-details {
+  margin: 0;
+
+  .row-fluid {
+    padding: 10px;
+    border-bottom: @borderWidgetLight;
+    box-sizing: border-box;
+
+    &:not(:last-child) {
+      line-height: 28px;
+    }
+
+    &.deficitRow {
+      background-color: @white;
+      border-top: @borderWidgetLight;
+      font-weight: 600;
+
+      &.font-green {
+        color: @green;
+      }
+
+      &.font-red {
+        color: @red;
+      }
+    }
+
+    &:last-child {
+      background-color: @white;
+
+      div[class*="span"] {
+        padding: 0 5px;
+        line-height: 18px;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+
+        > div:last-child {
+          font-size: @fontSizeSmall;
+          line-height: @fontSizeSmall + 5;
+          padding: 8px;
+          margin-top: 4px;
+          color: @white;
+          border-radius: @baseBorderRadius;
+        }
+      }
+    }
+
+    .forecast_details_label {
+      font-size: @fontSizeSmall;
+    }
+
+    .forecast_details_amount {
+      font-size: @fontSizeMedium;
+    }
+  }
+}
+
+#config-accordion .radioenum-inline {
+  display: inline;
+}
+
+#config-accordion .radioenum-inline label {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+#sales-stage-text {
+  p {
+    font-size: 15px;
+  }
+
+  label {
+    cursor: default;
+  }
+}
+
+.commit_stage_field > * {
+  overflow-y: hidden;
+}

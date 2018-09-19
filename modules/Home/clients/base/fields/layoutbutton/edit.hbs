@@ -1,0 +1,17 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="btn-group" data-toggle="buttons-radio">
+    <button class="btn layout{{#eq value 1}} active{{/eq}}" rel="tooltip" title="{{str "LBL_DASHBOARD_1_COLUMN_LAYOUT" module}}" aria-label="{{str "LBL_DASHBOARD_1_COLUMN_LAYOUT" module}}" aria-pressed="{{#eq value 1}}true{{else}}false{{/eq}}" data-placement="bottom" data-value="1" track="click:1columnlayout"><i class="fa fa-list-alt"></i></button>
+    <button class="btn layout{{#eq value 2}} active{{/eq}}" rel="tooltip" title="{{str "LBL_DASHBOARD_2_COLUMN_LAYOUT" module}}" aria-label="{{str "LBL_DASHBOARD_2_COLUMN_LAYOUT" module}}" aria-pressed="{{#eq value 2}}true{{else}}false{{/eq}}" data-placement="bottom" data-value="2" track="click:2columnlayout"><i class="fa fa-columns"></i></button>
+    <button class="btn layout{{#eq value 3}} active{{/eq}}" rel="tooltip" title="{{str "LBL_DASHBOARD_3_COLUMN_LAYOUT" module}}" aria-label="{{str "LBL_DASHBOARD_3_COLUMN_LAYOUT" module}}" aria-pressed="{{#eq value 3}}true{{else}}false{{/eq}}" data-placement="bottom" data-value="3" track="click:3columnlayout"><i class="fa fa-table"></i></button>
+</div>

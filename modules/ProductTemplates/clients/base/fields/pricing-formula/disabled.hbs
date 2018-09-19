@@ -1,0 +1,29 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#unless showFactorField}}
+<input type="hidden" class="select2" disabled="disabled" name="{{name}}">
+{{#unless hideHelp}}{{#if def.help}}<p class="help-block">{{str def.help module}}</p>{{/if}}{{/unless}}
+{{/unless}}
+
+{{#if showFactorField}}
+    <div class="span8">
+        <input type="hidden" class="select2" name="{{name}}" disabled="disabled">
+        {{#unless hideHelp}}{{#if def.help}}<p class="help-block">{{str def.help module}}</p>{{/if}}{{/unless}}
+    </div>
+    <div class="span4">
+        <label>
+            {{str factorFieldLabel module}}:
+            <input type="text" disabled="disabled" name="pricing_factor" id="pricing_factor" class="pricing-factor" value="{{factorValue}}" maxlength="4">
+        </label>
+    </div>
+{{/if}}

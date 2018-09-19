@@ -1,0 +1,86 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Move existing node before target node.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                module
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The name of sugar module that contains a nested set data and implements the NestedSetInterface.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                target
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The ID of record that will be used as target to move node before
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+    </tbody>
+</table>
+</table>
+
+<h2>Response Arguments</h2>
+<span class="lead">
+    This endpoint does not return any response arguments.
+</span>
+
+<h3>Response</h3>
+<span class="lead">
+This endpoint return a record GUID that was moved
+<div class="code">"1b7b868d-7357-2e29-7513-54169bdc444d"</div>
+</span>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/movebefore/:target</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

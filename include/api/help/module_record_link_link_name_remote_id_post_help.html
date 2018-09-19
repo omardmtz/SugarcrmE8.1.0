@@ -1,0 +1,239 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Creates a relationship to a pre-existing record.
+</span>
+
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            record
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The record linked to the related record.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            related_record
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The record that was associated.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "record":{
+      "id":"da6a3741-2a81-ba7f-f249-512d0932e94e",
+      "name":"Slender Broadband Inc - 1000 units",
+      "date_entered":"2013-02-26T19:12:00+00:00",
+      "date_modified":"2013-02-26T19:12:00+00:00",
+      "modified_user_id":"1",
+      "modified_by_name":"Administrator",
+      "created_by":"1",
+      "created_by_name":"Administrator",
+      "description":"",
+      "img":"",
+      "last_activity_date":"2013-02-28T18:21:00+00:00",
+      "deleted":false,
+      "assigned_user_id":"seed_max_id",
+      "assigned_user_name":"Max Jensen",
+      "team_name":[
+         {
+            "id":"East",
+            "name":"East",
+            "name_2":"",
+            "primary":false
+         },
+         {
+            "id":"West",
+            "name":"West",
+            "name_2":"",
+            "primary":true
+         }
+      ],
+      "opportunity_type":"",
+      "account_name":"Slender Broadband Inc",
+      "account_id":"181461c6-dc81-1115-1fe0-512d092e8f15",
+      "campaign_id":"",
+      "campaign_name":"",
+      "lead_source":"Campaign",
+      "amount":"25000",
+      "base_rate":"1",
+      "amount_usdollar":"25000",
+      "currency_id":"-99",
+      "currency_name":"",
+      "currency_symbol":"",
+      "date_closed":"2013-02-27",
+      "date_closed_timestamp":"1361992480",
+      "next_step":"",
+      "sales_stage":"Needs Analysis",
+      "sales_status":"New",
+      "probability":"90",
+      "best_case":"25000",
+      "worst_case":"25000",
+      "commit_stage":"include",
+      "my_favorite":false,
+      "_acl":{
+         "fields":{
+
+         }
+      }
+   },
+   "related_record":{
+      "id":"e689173e-c953-1e14-c215-512d0927e7a2",
+      "name":"Gus Dales",
+      "date_entered":"2013-02-26T19:12:00+00:00",
+      "date_modified":"2013-02-26T19:12:00+00:00",
+      "modified_user_id":"1",
+      "modified_by_name":"Administrator",
+      "created_by":"1",
+      "created_by_name":"Administrator",
+      "description":"",
+      "img":"",
+      "deleted":false,
+      "assigned_user_id":"seed_sally_id",
+      "assigned_user_name":"Sally Bronsen",
+      "team_name":[
+         {
+            "id":"West",
+            "name":"West",
+            "name_2":"",
+            "primary":true
+         }
+      ],
+      "salutation":"",
+      "first_name":"Gus",
+      "last_name":"Dales",
+      "full_name":"Gus Dales",
+      "title":"Director Operations",
+      "linkedin":"",
+      "facebook":"",
+      "twitter":"",
+      "googleplus":"",
+      "department":"",
+      "do_not_call":false,
+      "phone_home":"(661) 120-2292",
+      "email":[
+         {
+            "email_address":"section.sugar.section@example.it",
+            "opt_out":"1",
+            "invalid_email":"0",
+            "primary_address":"0"
+         },
+         {
+            "email_address":"support.qa.kid@example.co.uk",
+            "opt_out":"0",
+            "invalid_email":"0",
+            "primary_address":"1"
+         }
+      ],
+      "phone_mobile":"(294) 447-9707",
+      "phone_work":"(036) 840-3216",
+      "phone_other":"",
+      "phone_fax":"",
+      "email1":"support.qa.kid@example.co.uk",
+      "email2":"section.sugar.section@example.it",
+      "invalid_email":false,
+      "email_opt_out":false,
+      "primary_address_street":"48920 San Carlos Ave",
+      "primary_address_street_2":"",
+      "primary_address_street_3":"",
+      "primary_address_city":"Persistance",
+      "primary_address_state":"CA",
+      "primary_address_postalcode":"54556",
+      "primary_address_country":"USA",
+      "alt_address_street":"",
+      "alt_address_street_2":"",
+      "alt_address_street_3":"",
+      "alt_address_city":"",
+      "alt_address_state":"",
+      "alt_address_postalcode":"",
+      "alt_address_country":"",
+      "assistant":"",
+      "assistant_phone":"",
+      "picture":"",
+      "email_and_name1":"",
+      "lead_source":"Support Portal User Registration",
+      "account_name":"Arts & Crafts Inc",
+      "account_id":"d43243c6-9b8e-2973-aee2-512d09bc34b4",
+      "opportunity_role_fields":"",
+      "opportunity_role_id":"",
+      "opportunity_role":"Technical Advisor",
+      "reports_to_id":"",
+      "report_to_name":"",
+      "portal_name":"GusDales145",
+      "portal_active":true,
+      "portal_password":"$1$JxYr6tmM$b.O6.KF42jP46RadSwz0N0",
+      "portal_password1":"",
+      "portal_app":"",
+      "preferred_language":"en_us",
+      "campaign_id":"",
+      "campaign_name":"",
+      "c_accept_status_fields":"",
+      "m_accept_status_fields":"",
+      "accept_status_id":"",
+      "accept_status_name":"",
+      "sync_contact":"",
+      "my_favorite":false,
+      "_acl":{
+         "fields":{
+
+         }
+      }
+   }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/link/:link_name/:remote_id</code> POST endpoint.
+        </td>
+    </tr>
+</table>

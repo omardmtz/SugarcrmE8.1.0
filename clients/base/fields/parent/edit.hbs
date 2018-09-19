@@ -1,0 +1,28 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="flex-relate-module">
+    <select class="select2 inherit-width" name="parent_type"{{#if def.tabindex}} tabindex="{{def.tabindex}}"{{/if}}>
+        {{#if noAccessModule}}
+            <option value="{{noAccessModule.key}}" selected>{{noAccessModule.value}}</option>
+        {{/if}}
+        {{#each moduleList}}
+            <option value="{{@key}}" {{#eq @key ../def.module}}selected{{/eq}}>{{this}}</option>
+        {{/each}}
+    </select>
+</div>
+<div class="flex-relate-record">
+    <input type="hidden" name="{{name}}" class="select2 select2-parent inherit-width" value="{{fieldValue this.model "parent_id"}}"
+           data-rname="{{#if hasErasedPlaceholder}}{{str 'LBL_VALUE_ERASED' module}}{{else}}{{value}}{{/if}}"
+        >
+</div>
+{{#unless hideHelp}}{{#if def.help}}<p class="help-block">{{str def.help module}}</p>{{/if}}{{/unless}}

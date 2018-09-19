@@ -1,0 +1,158 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if model.attributes.invitees.isLoading}}
+    {{str "LBL_LOADING" module}}
+{{else}}
+<div class="participants-schedule">
+    <div class="row header">
+        <div class="cell"></div>
+        <div class="cell times" data-render="timeline-header"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="row spacer">
+        <div class="cell"></div>
+    </div>
+    {{#each value}}
+    <div class="row participant" data-module="{{module}}" data-id="{{id}}">
+        <div class="cell profile">
+            <div class="container">
+                <div class="avatar">
+                    {{#if avatar}}
+                    <img class="avatar" src="{{avatar}}" alt="{{name}}" />
+                    {{else}}
+                    <span class="label label-module label-{{module}}" rel="tooltip" title="{{moduleIconToolTip module}}">
+                        {{moduleIconLabel module}}
+                    </span>
+                    {{/if}}
+                </div>
+                <div class="name">
+                    {{#if isNameErased}}
+                        {{partial 'erased' ../../this this fallbackTemplate='erased'}}
+                    {{else}}
+                        <span class="ellipsis_inline" title="{{name}}">{{name}}</span>
+                    {{/if}}
+                    {{#unless email}}
+                    <span class="flag error">
+                        <i class="fa fa-times"></i><i class="fa fa-envelope"></i>
+                    </span>
+                    {{/unless}}
+                </div>
+                <div class="status">
+                    <div class="label{{#if accept_status.css_class}} label-{{accept_status.css_class}}{{/if}}">
+                        {{str accept_status.label ../module}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell times{{#notEq module 'Users'}} unavailable{{/notEq}}">
+            <div data-toggle="loading" class="overlay hide">{{str "LBL_LOADING"}}</div>
+            {{#notEq module 'Users'}}
+                <div class="overlay">
+                    {{str "LBL_CALENDAR_EVENT_SCHEDULE_UNAVAILABLE" ../../module}}
+                </div>
+            {{/notEq}}
+            {{#eq module 'Users'}}
+                <div class="start_end_overlay"></div>
+            {{/eq}}
+            <div class="container">
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="timeblock">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="cell buttons">
+            <div class="btn-toolbar pull-right">
+                <button type="button" class="btn{{#unless deletable}} disabled{{/unless}}" data-action="removeRow" data-id="{{id}}">
+                    <i class="fa fa-minus"></i>
+                </button>
+                {{#if last}}
+                <button type="button" class="btn" data-action="addRow">
+                    <i class="fa fa-plus"></i>
+                </button>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="row spacer">
+        <div class="cell"></div>
+    </div>
+    {{/each}}
+    <div class="row participants-form" name="newRow">
+        <div class="cell profile"></div>
+        <div class="cell select">
+            <div class="field">
+                <input type="hidden" class="select2 inherit-width" name="{{name}}" data-placeholder="{{placeholder}}" />
+            </div>
+        </div>
+        <div class="cell buttons">
+            <div class="btn-toolbar pull-right">
+                <button type="button" class="btn" data-action="removeRow">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn btn-link btn-invisible more" data-action="show-more">{{showMoreTemplate}}</button>
+{{/if}}

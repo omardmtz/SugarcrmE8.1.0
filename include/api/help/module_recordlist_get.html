@@ -1,0 +1,120 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    An API to return record list data
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Get record list data. Only GET request allowed.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>module</td>
+        <td>string</td>
+        <td>
+            Module name
+        </td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>record_list_id</td>
+        <td>guid</td>
+        <td>
+            record list id
+        </td>
+        <td>True</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request Example</h3>
+<pre class="pre-scrollable">
+GET /rest/v10/:module/record_list/:id
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code>id</code></td>
+        <td>guid</td>
+        <td>
+            record list id
+        </td>
+    </tr>
+    <tr>
+        <td><code>assigned_user_id</code></td>
+        <td>guid</td>
+        <td>
+            user id
+        </td>
+    </tr>
+    <tr>
+        <td><code>module_name</code></td>
+        <td>string</td>
+        <td>
+            Module name
+        </td>
+    </tr>
+    <tr>
+        <td><code>records</code></td>
+        <td>array</td>
+        <td>
+            record ids
+        </td>
+    </tr>
+    <tr>
+        <td><code>date modified</code></td>
+        <td>date</td>
+        <td>
+            date modified
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+    "id": "39d2c781-c0b7-446f-1d83-56c6e3cda510",
+    "assigned_user_id": "1",
+    "module_name": "Accounts",
+    "records": [
+        "e5c8bb3b-5eea-3d8a-c278-56c6affa6212",
+        "e49395b4-d3b0-1e3f-600a-56c6afe7e34f",
+        "c03ed8ee-60d3-c6a6-55c3-56c6af95e696",
+        "d65573e3-c25a-f9b4-33f2-56c6afb8d856"
+    ],
+    "date_modified": "2016-02-19 09:42:44"
+}
+</pre>

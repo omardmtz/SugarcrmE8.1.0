@@ -1,0 +1,118 @@
+<?php
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+$mod_strings = array (
+	'ACCOUNT_REMOVE_PROJECT_CONFIRM' => 'Vai tiešām vēlaties noņemt šo uzņēmumu no projekta?',
+	'ERR_DELETE_RECORD' => 'Ir jānorāda ieraksta numurs lai dzēstu uzņēmumu.',
+	'LBL_ACCOUNT_NAME' => 'Uzņēmuma nosaukums:',
+	'LBL_ACCOUNT' => 'Uzņēmums:',
+	'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Darbības',
+	'LBL_ADDRESS_INFORMATION' => 'Adreses informācija',
+	'LBL_ANNUAL_REVENUE' => 'Gada ienākumi:',
+	'LBL_ANY_ADDRESS' => 'Jebkura adrese:',
+    'LBL_ANY_EMAIL' => 'Jebkurš e-pasts:',
+	'LBL_ANY_PHONE' => 'Jebkurš tālrunis:',
+	'LBL_ASSIGNED_TO_NAME' => 'Piešķirts lietotājam:',
+	'LBL_RATING' => 'Vērtējums',
+	'LBL_ASSIGNED_TO' => 'Piešķirts lietotājam:',
+	'LBL_ASSIGNED_USER' => 'Piešķirts lietotājam:',
+	'LBL_ASSIGNED_TO_ID' => 'Piešķirts lietotājam:',
+	'LBL_BILLING_ADDRESS_CITY' => 'Adrese - pilsēta:',
+	'LBL_BILLING_ADDRESS_COUNTRY' => 'Norēķinu adrese - valsts:',
+	'LBL_BILLING_ADDRESS_POSTALCODE' => 'Norēķinu adrese - pasta indekss:',
+	'LBL_BILLING_ADDRESS_STATE' => 'Norēķinu adrese - novads:',
+	'LBL_BILLING_ADDRESS_STREET_2' =>'Norēķinu adrese - iela 2',
+	'LBL_BILLING_ADDRESS_STREET_3' =>'Norēķinu adreses - iela 3',
+	'LBL_BILLING_ADDRESS_STREET_4' =>'Norēķinu adreses - iela 4',
+	'LBL_BILLING_ADDRESS_STREET' => 'Norēķinu adrese - iela',
+	'LBL_BILLING_ADDRESS' => 'Norēķinu adrese:',
+	'LBL_ACCOUNT_INFORMATION' => 'Uzņēmuma informācija',
+	'LBL_CITY' => 'Pilsēta:',
+	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakti',
+	'LBL_COUNTRY' => 'Valsts:',
+	'LBL_DATE_ENTERED' => 'Izveides datums:',
+	'LBL_DATE_MODIFIED' => 'Modificēšanas datums:',
+	'LBL_DESCRIPTION_INFORMATION' => 'Apraksta informācija',
+	'LBL_DESCRIPTION' => 'Apraksts:',
+	'LBL_DUPLICATE' => 'Iespējams uzņēmuma dublikāts',
+    'LBL_EMAIL' => 'E-pasta adrese:',
+	'LBL_EMPLOYEES' => 'Darbinieki:',
+	'LBL_FAX' => 'Fakss:',
+	'LBL_INDUSTRY' => 'Nozare:',
+	'LBL_LIST_ACCOUNT_NAME' => 'Uzņēmuma nosaukums',
+	'LBL_LIST_CITY' => 'Pilsēta',
+    'LBL_LIST_EMAIL_ADDRESS' => 'E-pasta adrese',
+	'LBL_LIST_PHONE' => 'Tālrunis',
+	'LBL_LIST_STATE' => 'Novads',
+	'LBL_LIST_WEBSITE' => 'Vietne',
+	'LBL_MEMBER_OF' => 'Pieder:',
+	'LBL_MEMBER_ORG_FORM_TITLE' => 'Dalīborganizācijas',
+	'LBL_MEMBER_ORG_SUBPANEL_TITLE'=>'Dalīborganizācijas',
+	'LBL_NAME'=>'Nosaukums:',
+    'LBL_OTHER_EMAIL_ADDRESS' => 'Cits e-pasts:',
+	'LBL_OTHER_PHONE' => 'Cits tālrunis:',
+	'LBL_OWNERSHIP' => 'Īpašumtiesības:',
+	'LBL_PARENT_ACCOUNT_ID' => 'Mātesuzņēmuma ID',
+	'LBL_PHONE_ALT' => 'Cits tālrunis:',
+	'LBL_PHONE_FAX' => 'Fakss:',
+	'LBL_PHONE_OFFICE' => 'Biroja tālrunis:',
+	'LBL_PHONE' => 'Tālrunis:',
+    'LBL_EMAIL_ADDRESS' => 'E-pasta adrese',
+    'LBL_EMAIL_ADDRESSES' => 'E-pasta adrese(s)',
+	'LBL_POSTAL_CODE' => 'Pasta indekss:',
+	'LBL_PUSH_BILLING' => 'Rēķinu izūtīšana',
+	'LBL_PUSH_SHIPPING' => 'Piegāžu izsūtīšana',
+	'LBL_SAVE_ACCOUNT' => 'Saglabāt uzņēmumu',
+	'LBL_SHIPPING_ADDRESS_CITY' => 'Piegādes adrese - pilsēta:',
+	'LBL_SHIPPING_ADDRESS_COUNTRY' => 'Piegādes adrese - valsts:',
+	'LBL_SHIPPING_ADDRESS_POSTALCODE' => 'Piegādes adrese - pasta indekss:',
+	'LBL_SHIPPING_ADDRESS_STATE' => 'Piegādes adrese - novads:',
+	'LBL_SHIPPING_ADDRESS_STREET_2' => 'Piegādes adrese - iela 2',
+	'LBL_SHIPPING_ADDRESS_STREET_3' => 'Piegādes adrese - iela 3',
+	'LBL_SHIPPING_ADDRESS_STREET_4' => 'Piegādes adrese - ela 4',
+	'LBL_SHIPPING_ADDRESS_STREET' => 'Piegādes adrese - iela:',
+	'LBL_SHIPPING_ADDRESS' => 'Piegādes adrese:',
+
+	'LBL_STATE' => 'Novads:',
+	'LBL_TEAMS_LINK'=>'Darba grupas',
+	'LBL_TICKER_SYMBOL' => 'Biržas kods:',
+	'LBL_TYPE' => 'Tips:',
+	'LBL_USERS_ASSIGNED_LINK'=>'Piesaistītie lietotāji',
+	'LBL_USERS_CREATED_LINK'=>'Izveidoja lietotāji',
+	'LBL_USERS_MODIFIED_LINK'=>'Modificēja lietotāji',
+	'LBL_VIEW_FORM_TITLE' => 'Uzņēmuma skatījums',
+	'LBL_WEBSITE' => 'Tīmekļa vietne:',
+    'LBL_LINKEDIN' => 'Linkedin uzņēmuma ID',
+    'LBL_FACEBOOK' => 'Facebook konts',
+    'LBL_TWITTER' => 'Twitter konts',
+    'LBL_GOOGLEPLUS' => 'Google Plus ID',
+
+	'LNK_ACCOUNT_LIST' => 'Uzņēmumi',
+	'LNK_NEW_ACCOUNT' => 'Izveidot uzņēmumu',
+
+	'MSG_DUPLICATE' => 'Uzņēmuma ieraksts, kuru veidojat iespējams ir dublikāts jau esošam uzņēmuma ierakstam. Uzņēmuma ieraksts satur  līdzīgus nosaukumus zemāk esošajiem uzņēmuma ierakstiem.<br>Klikšķiniet, Izveidot uzņēmumu, lai turpinātu veidot jaunu ierakstu vai izvēlieties kādu no zemāk redzamajiem uzņēmuma ierakstiem',
+	'MSG_SHOW_DUPLICATES' => 'Uzņēmuma ieraksts, kuru veidojat, iespējams, ir dublikāts jau esošam uzņēmuma ierakstam. Uzņēmumi ar līdzīgiem nosaukumiem ir uzskaitīti zemāk.<br>Spiediet Saglabāt, lai turpinātu veidot jauno uzņēmumu, vai spiediet Atcelt, lai atgrieztos modulī, neveidojot jaunu uzņēmumu.',
+
+	'NTC_COPY_BILLING_ADDRESS' => 'Kopēt norēķinu adresi uz piegādes adresi',
+	'NTC_COPY_BILLING_ADDRESS2' => 'Kopēt uz piegādes adresi',
+	'NTC_COPY_SHIPPING_ADDRESS' => 'Kopēt piegādes adresi uz norēķinu adresi',
+	'NTC_COPY_SHIPPING_ADDRESS2' => 'Kopēt uz norēķinu adresi',
+	'NTC_DELETE_CONFIRMATION' => 'Vai tiešām vēlaties dzēst šo ierakstu?',
+	'NTC_REMOVE_ACCOUNT_CONFIRMATION' => 'Vai tiešām vēlaties noņemt šo ierakstu?',
+	'NTC_REMOVE_MEMBER_ORG_CONFIRMATION' => 'Vai tiešām vēlaties izņemt šo ierakstu no saistītās organizācijas?',
+
+    'LBL_EDIT_BUTTON' => 'Rediģēt',
+    'LBL_REMOVE' => 'Noņemt',
+
+);
+
+

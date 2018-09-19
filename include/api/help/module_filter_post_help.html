@@ -1,0 +1,653 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists filtered records.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will return a set of records filtered by an expression. The filter can be applied to multiple fields
+    and have multiple and/or conditions in it. Alternatively, you may use an existing filter by specifying its id.
+    If both a filter definition and a filter id are passed, the two filters will be joined with an <code>AND</code>.
+    Care will need to be taken to make sure that any filters used have appropriate indexes on the server side otherwise
+    the runtime of the endpoint will be very long. Related fields can be searched by specifying the field name as:
+    "link_name.remote_field", so if you wished to search the Accounts module by a related member account you would
+    use "members.sic_code".
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            filter
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The filter expression. Filter expressions are explained below.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            filter_id
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Identifier for a preexisting filter. If filter is also set, the two
+            filters are joined with an <code>AND</code>.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            max_num
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            A maximum number of records to return. Default is 20.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The number of records to skip over before records are returned. Default is 0.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            fields
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of fields to return. The field date_modified will always be returned.
+            <br>
+            Example: <code>name,account_type,description</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            view
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Instead of defining the fields argument, the view argument can be used instead. The field list is
+            constructed at the server side based on the view definition which is requested. This argument can be used
+            in combination with the fields argument. Common views are "record" and "list".
+            <br>
+            Example: <code>record</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            order_by
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            How to sort the returned records, in a comma delimited list with the direction appended to the column name
+            after a colon.
+            <br>
+            Example: <code>name:DESC,account_type:DESC,date_modified:ASC</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Filter Expressions</h3>
+<span class="lead">
+There are four types of filters:
+</span>
+
+<h4>Basic</h4>
+<div class="well well-small">
+    This will filter the results by checking the field "name" for value "Nelson Inc". This will only find exact matches.
+
+    <h5>Example</h5>
+<pre class="pre-scrollable">
+{
+   "filter":[
+      {
+         "name":"Nelson Inc"
+      }
+   ]
+}
+</pre>
+</div>
+
+<h4>Full</h4>
+
+<div class="well well-small">
+    This expression allows you to specify what operation you want to use for filtering on the field. In the example
+    you would match any record where the field "name" starts with the value "Nelson".
+
+    <h5>Example</h5>
+<pre class="pre-scrollable">
+{
+   "filter":[
+      {
+         "name":{
+            "$starts":"Nelson"
+         }
+      }
+   ]
+}
+</pre>
+
+
+    <span class="lead">
+        Below is a list of operation types:
+    </span>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Operation</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                $equals
+            </td>
+            <td>
+                Performs an exact match on that field.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $not_equals
+            </td>
+            <td>
+                Performs an exact match on that field.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $not_equals
+            </td>
+            <td>
+                Matches on non-matching values.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $starts
+            </td>
+            <td>
+                Matches on anything that starts with the value.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $ends
+            </td>
+            <td>
+                Matches anything that ends with the value.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $contains
+            </td>
+            <td>
+                Matches anything that contains the value
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $in
+            </td>
+            <td>
+                Finds anything where field matches one of the values as specified as an array.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $not_in
+            </td>
+            <td>
+                Finds anything where field does not matches any of the values as specified as an array.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $is_null
+            </td>
+            <td>
+                Checks if the field is null. This operation does not need a value specified.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $not_null
+            </td>
+            <td>
+                Checks if the field is not null. This operation does not need a value specified.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $lt
+            </td>
+            <td>
+                Matches when the field is less than the value.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $lte
+            </td>
+            <td>
+                Matches when the field is less than or equal to the value.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $gt
+            </td>
+            <td>
+                Matches when the field is greater than the value.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $gte
+            </td>
+            <td>
+                Matches when the field is greater than or equal to the value.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<h4>Sub-expressions</h4>
+
+<div class="well well-small">
+    This allows you to group filter expressions into or/and groupings. By default all expressions are and'ed together.
+    The example expression would match if the field "name" was either "Nelson Inc" or "Nelson LLC". The only currently
+    accepted sub-expression types are "$and" and "$or".
+
+    <h5>Example</h5>
+<pre class="pre-scrollable">
+{
+   "filter":[
+      {
+         "$or":[
+            {
+               "name":"Nelson Inc"
+            },
+            {
+               "name":"Nelson LLC"
+            }
+         ]
+      }
+   ]
+}
+</pre>
+</div>
+
+<h4>Modules</h4>
+<div class="well well-small">
+There are two module expressions, they operate on modules instead of fields. The current module can be specified by
+either using the module name "_this" or by leaving the module name as a blank string. The example expression would
+filter the records in the current module to only your favorites. The only currently accepted module expressions are
+"$favorite" and "$owner".
+
+<h5>Example</h5>
+<pre class="pre-scrollable">
+{
+   "filter":[
+      {
+         "$favorite":"_this"
+      }
+   ]
+}
+</pre>
+</div>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            next_offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            Displays the next offset for retrieval of additional results. -1 will be returned when there are no more
+            records.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            records
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            An array of results containing matched records.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "next_offset":-1,
+   "records":[
+      {
+         "id":"fa300a0e-0ad1-b322-9601-512d0983c19a",
+         "name":"Dale Spivey",
+         "date_entered":"2013-02-26T19:12:00+00:00",
+         "date_modified":"2013-02-28T05:03:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"seed_sally_id",
+         "assigned_user_name":"Sally Bronsen",
+         "team_name":[
+            {
+               "id":"East",
+               "name":"East",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":1,
+               "name":"Global",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Dale",
+         "last_name":"Spivey",
+         "full_name":"Dale Spivey",
+         "title":"VP Operations",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"(523) 825-4311",
+         "email":[
+            {
+               "email_address":"sugar.dev.sugar@example.co.jp",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"1"
+            },
+            {
+               "email_address":"the.support@example.biz",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"0"
+            }
+         ],
+         "phone_mobile":"(373) 861-0757",
+         "phone_work":"(212) 542-9596",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"sugar.dev.sugar@example.co.jp",
+         "email2":"the.support@example.biz",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "primary_address_street":"345 Sugar Blvd.",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"Denver",
+         "primary_address_state":"CA",
+         "primary_address_postalcode":"87261",
+         "primary_address_country":"USA",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"Campaign",
+         "account_name":"Smallville Resources Inc",
+         "account_id":"d5db6292-5c24-eb61-e202-512d09f0134e",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"DaleSpivey97",
+         "portal_active":true,
+         "portal_password":"$1$yKMAONHM$Y5S.8CY.WZCZCwfGD1a1Q\/",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      },
+      {
+         "id":"95e17367-9b3d-0e26-22dc-512d0961fedf",
+         "name":"Florence Haddock",
+         "date_entered":"2013-02-26T19:12:00+00:00",
+         "date_modified":"2013-02-26T19:12:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"seed_sally_id",
+         "assigned_user_name":"Sally Bronsen",
+         "team_name":[
+            {
+               "id":"East",
+               "name":"East",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":1,
+               "name":"Global",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Florence",
+         "last_name":"Haddock",
+         "full_name":"Florence Haddock",
+         "title":"Director Sales",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"(729) 845-3137",
+         "email":[
+            {
+               "email_address":"dev.vegan@example.de",
+               "opt_out":"1",
+               "invalid_email":"0",
+               "primary_address":"0"
+            },
+            {
+               "email_address":"section71@example.it",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"1"
+            }
+         ],
+         "phone_mobile":"(246) 233-1382",
+         "phone_work":"(565) 696-6981",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"section71@example.it",
+         "email2":"dev.vegan@example.de",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "primary_address_street":"111 Silicon Valley Road",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"Denver",
+         "primary_address_state":"CA",
+         "primary_address_postalcode":"79900",
+         "primary_address_country":"USA",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"Support Portal User Registration",
+         "account_name":"Smallville Resources Inc",
+         "account_id":"d5db6292-5c24-eb61-e202-512d09f0134e",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"FlorenceHaddock169",
+         "portal_active":true,
+         "portal_password":"$1$nWFhTbK6$JF9BCGSqL\/NCrbhueX5ia0",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      }
+   ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/filter</code> POST endpoint.
+        </td>
+    </tr>
+</table>

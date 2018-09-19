@@ -1,0 +1,121 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists history filtered records.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will return a set of history modules (meetings, calls, notes, tasks, emails) records filtered by an expression.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            filter
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The filter expression. Filter expressions are explained below.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            max_num
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            A maximum number of records to return. Default is 20.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The number of records to skip over before records are returned. Default is 0.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            order_by
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            How to sort the returned records, in a comma delimited list with the direction appended to the column name after a colon.
+            <br>
+            Example: <code>name:DESC,account_type:DESC,date_modified:ASC</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            deleted
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Boolean to show deleted records in the result set.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            module_list
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            A list of modules from the valid modules [Tasks, Calls, Emails, Notes, Meetings] that need to be included
+        </td>
+        <td>
+            False
+        </td>
+    </tr>    
+    </tbody>
+</table>

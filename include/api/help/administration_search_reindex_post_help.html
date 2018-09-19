@@ -1,0 +1,94 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Search schedule reindex
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint schedules a reindex. This endpoint is only available to administrators.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            module_list
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of modules to be reindexed. If omitted, all search enabled modules will be reindexed.
+            <br>
+            Example: <code>Accounts,Contacts</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            clear_data
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            If set the records of the selected modules will be removed from the search backend and the schema will be
+            recreated. All records from given modules will be queued to be reindexed which is orchestrated by the job
+            queue.
+            If not set, nothing is dropped from the search backend and all records of the selected modules are queued
+            for reindexing. This is the default behavior.
+            <br>
+            Example: <code>Accounts,Contacts</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "success": true
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Administration/search/reindex</code> POST endpoint.
+        </td>
+    </tr>
+</table>

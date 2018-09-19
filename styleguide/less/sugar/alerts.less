@@ -1,0 +1,321 @@
+/* ALERTS
+  ----------------*/
+
+// Base alert styles
+
+div.alert { /* rules here do not apply to alert in a list view (<table>) header */
+  display: flex;
+  box-sizing: border-box;
+
+  .indicator {
+    position: relative;
+    flex: none;
+    height: inherit;
+    width: 59px;
+    text-align: center;
+
+    i {
+      position: absolute;
+      display: block;
+      text-align: center;
+      width: 100%;
+      top: calc(~"50% - 15px");
+      font-size: 30px;
+    }
+  }
+}
+
+.alert {
+  position: relative;
+  height: auto;
+  min-height: 58px;
+  text-shadow: none;
+  padding: 0;
+  margin: 0 0 4px;
+  background-color: @white;
+  border: 1px solid darken(@grayLighter, 15%);
+  box-shadow: @shadowWidget;
+  font-size: @alertFontSize;
+
+  &.closeable {
+    padding-right: 40px;
+  }
+
+  .text {
+    height: inherit;
+    padding: 20px 0 20px 18px;
+    box-sizing: border-box;
+  }
+
+  .fa {
+    color: inherit;
+  }
+}
+
+.alert,
+.alert-heading {
+  color: @gray;
+}
+
+// Adjust close link position
+.alert .close {
+  right: 10px;
+  top: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  opacity: 0.2;
+  text-shadow: none;
+  color: @black;
+  position: absolute;
+
+  &:hover {
+    color: inherit;
+    opacity: 1;
+  }
+}
+
+// Alternate styles
+// ----------------
+
+.alert-success,
+.alert-error,
+.alert-danger,
+.alert-info,
+.alert-warning {
+  width: 418px;
+}
+
+.alert-success,
+.alert-success .alert-heading {
+  border-color: @alertSuccess;
+
+  .indicator {
+    background-color: @alertSuccess;
+    color: @alertSuccessText;
+
+    i {
+      color: inherit;
+    }
+  }
+}
+
+.alert-danger,
+.alert-error,
+.alert-danger .alert-heading,
+.alert-error .alert-heading {
+  border-color: @alertError;
+
+  .indicator {
+    background: @alertError;
+    color: @alertErrorText;
+
+    i {
+      color: inherit;
+    }
+  }
+}
+
+.alert-success a,
+.alert-danger a,
+.alert-error a,
+.alert-info a,
+.alert-sucess .alert-heading a,
+.alert-danger .alert-heading a,
+.alert-error .alert-heading a,
+.alert-info .alert-heading a {
+  font-weight: 500;
+}
+
+.alert-warning,
+.alert-warning .alert-heading {
+  border-color: @alertWarning;
+
+  .indicator {
+    background-color: @alertWarning;
+    color: @alertWarningText;
+
+    i {
+      color: inherit;
+    }
+  }
+}
+
+.alert-info,
+.alert-info .alert-heading {
+  border-color: @alertInfo;
+
+  .indicator {
+    background-color: @alertInfo;
+    color: @alertInfoText;
+
+    i {
+      color: inherit;
+    }
+  }
+}
+
+// Block alerts
+// ------------------------
+
+.alert-top {
+  position: fixed;
+  top: 31px;
+  height: 0;
+  width: 100%;
+  z-index: 1060;
+  text-align: center;
+
+  & > div {
+    display: table;
+    margin: auto;
+  }
+}
+
+.alert-top .alert {
+  text-align: left;
+  margin-top: 0;
+}
+
+.alert a.btn {
+  margin-top: 6px;
+}
+
+.alert.modal {
+  display: none;
+}
+
+// Confirmation Alerts
+// ------------------------
+
+// Disable whole screen
+.alert-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1059;
+}
+
+// Alert itself
+.alert-confirmation {
+  width: auto;
+  height: auto;
+  position: fixed;
+  top: 36px;
+  left: 0;
+  right: 0;
+  z-index: 1080;
+
+  > div {
+    display: inline-block;
+  }
+
+  .alert {
+    padding: 0;
+    min-width: 280px;
+    width: auto;
+    max-width: 430px;
+    background: @alertConfirmationBackground;
+
+    .indicator {
+      display: block;
+      width: 100%;
+      height: 48px;
+      line-height: 48px;
+
+      .fa {
+        font-size: @alertIconFontSize;
+        position: relative;
+        display: inline-block;
+        width: auto;
+        top: auto;
+      }
+
+      strong {
+        display: inline;
+      }
+    }
+
+    strong {
+      padding: 0;
+    }
+
+    .alert-messages {
+      text-align: center;
+      display: block;
+      padding: 18px 40px 16px;
+      max-height: 320px;
+      overflow: auto;
+    }
+    //Alert buttons
+    .row-fluid {
+      border-top: 1px solid @warningBorder;
+
+      .alert-btn-cancel {
+        border-right: 1px solid @warningBorder;
+      }
+
+      .alert-btn-confirm {
+        font-weight: bold;
+      }
+
+      .alert-btn-cancel,
+      .alert-btn-confirm {
+        text-align: center;
+        display: inline-block !important;
+        padding: 10px 15px;
+        color: inherit;
+        margin: 0;
+        width: 50%;
+
+        &:hover {
+          background-color: @warningBorder;
+          text-decoration: none;
+          color: @white;
+        }
+      }
+    }
+  }
+}
+
+// Loading indicator Alert
+// ------------------------
+.alert.alert-process {
+  min-height: 0;
+  height: 48px;
+  line-height: 46px;
+  padding: 0 40px;
+  border-color: @loadingBorder;
+  background-color: @loadingBackground;
+}
+
+.field-alert-warning {
+  padding: 5px 7px;
+  margin: 0 7px 14px -7px;
+}
+
+// Information Flags
+// ------------------------
+.flag {
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+  vertical-align: middle;
+
+  .fa {
+    font-size: 11px;
+    margin-left: 1px;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* NEW SKIN START */
+
+.alert {
+  /* override */
+  font-family: inherit;
+}
+
+/* NEW SKIN END */

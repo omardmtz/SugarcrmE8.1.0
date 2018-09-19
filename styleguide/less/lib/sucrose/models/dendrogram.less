@@ -1,0 +1,56 @@
+/**********
+* Dendrogram
+*/
+
+.sc-card {
+  fill: #e9efef;
+  stroke: #aaa;
+  stroke-width: 0.5px;
+
+  .sc-circ-front {
+    stroke-width: 0;
+  }
+
+  line {
+    stroke-width: 2;
+  }
+
+  .sc-expcoll {
+    cursor: pointer;
+  }
+}
+
+.sc-tree {
+  path.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+}
+
+// for org chart demo renderer
+.sc-chart-org {
+  .sc-chart-background {
+    stroke: darken(@grayLighter, 15%);
+    stroke-width: 2px;
+  }
+}
+
+.sc-org-node {
+  text {
+    font: normal normal 300 10px/normal "Helvetica Neue", Arial, sans-serif;
+
+    &.sc-org-name {
+      font-size: 10px;
+      fill: @linkColor;
+
+      &.hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.sc-org-title {
+      font-size: 8px;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div>
+    <div class="record">
+        {{#each meta.panels}}
+            {{#unless header}}
+                {{#if ../labelsOnTop}}
+                    {{#each grid}}
+                        <div class="row-fluid {{../name}}{{#if ../hide}} hide{{/if}}">
+                            {{#each this}}
+                                <div class="span{{span}} record-cell{{#if cell_css_class}} {{cell_css_class}}{{/if}}" data-type="{{type}}" data-name="{{name}}">
+                                    {{#if ../../labels}}
+                                        {{#unless dismiss_label}}
+                                            <div class="record-label" data-name="{{name}}">{{#if label}}{{str label ../../../../../../../../module}}{{/if}}</div>
+                                        {{/unless}}
+                                    {{/if}}
+                                    {{#if name}}
+                                        <span class="normal{{#if css}} {{css}}{{/if}} index{{index}}"{{#if name}} data-fieldname="{{name}}"{{/if}} data-index="{{index}}">
+                                            {{field ../../../../../../this model=../../../../../../settings template='edit'}}
+                                        </span>
+                                    {{/if}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <div class="form-horizontal">
+                        <fieldset class="card2">
+                            {{#each grid}}
+                                <div class="row-fluid control-group {{../name}}{{#if ../hide}} hide{{/if}}">
+                                    {{#each this}}
+                                        {{#if ../../labels}}
+                                            {{#unless dismiss_label}}
+                                                <div class="control-label span{{labelSpan}} {{label_css_class}}">
+                                                    <div class="control-label-background span{{labelSpan}}">
+                                                        <label class="tright record-label" data-name="{{name}}">{{str label ../../../../../../../module}}</label>
+                                                    </div>
+                                                </div>
+                                            {{/unless}}
+                                        {{/if}}
+                                        <div class="controls span{{span}} record-cell {{cell_css_class}}" data-type="{{type}}" data-name="{{name}}">
+                                            {{#if name}}
+                                                <span class="normal{{#if css}} {{css}}{{/if}} index{{index}}"{{#if name}} data-fieldname="{{name}}"{{/if}} data-index="{{index}}">
+                                                    {{field ../../../../../../this model=../../../../../../settings template='edit'}}
+                                                </span>
+                                            {{/if}}
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/each}}
+                        </fieldset>
+                    </div>
+                {{/if}}
+            {{/unless}}
+        {{/each}}
+    </div>
+</div>

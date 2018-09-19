@@ -1,0 +1,53 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">ForecastsApi Timeperiod filter info</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This returns the timeperiods with respect to the forward/backward options selected. For example, if we elect to use
+    quarterly timeperiods and 2 forward and 2 backward timeperiod intervals are set, then 5 years worth of timeperiods
+    will be returned (2 backward + current + 2 forward).
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr><td colspan="3">This endpoint does not accept any parameters.</td></tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+    <code class="codesample">
+    </code>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        { "d181230a-a7e0-3176-d10f-50f8530a51ce" : "Q1 (01/01/2012 - 03/31/2012)",
+          "d2bc58ef-21c4-27d5-e416-50f853db29f9" : "Q2 (04/01/2012 - 06/30/2012)",
+          "d3db853e-94d6-b5ac-98af-50f8530689be" : "Q3 (07/01/2012 - 09/30/2012)",
+          "d519f521-5303-1cfc-24f5-50f8537f5b54" : "Q4 (10/01/2012 - 12/31/2012)",
+          "dcc2885a-5889-ea75-84c8-50f853d1a5ba" : "Q1 (01/01/2013 - 03/31/2013)",
+          "ddc24224-c6c9-04aa-7869-50f853db2ea2" : "Q2 (04/01/2013 - 06/30/2013)",
+          "deadcfd3-41ed-5f6b-ce5b-50f853de6ef6" : "Q3 (07/01/2013 - 09/30/2013)",
+          "dfaa3724-6295-8ddb-6d14-50f853047fcc" : "Q4 (10/01/2013 - 12/31/2013)",
+          "e1ceee19-c8dd-afdd-e797-50f8538d900a" : "Q1 (01/01/2014 - 03/31/2014)",
+          "e307594a-c12a-6be6-74b7-50f85351c574" : "Q2 (04/01/2014 - 06/30/2014)",
+          "e469239c-3f71-a48e-cda1-50f853214b6a" : "Q3 (07/01/2014 - 09/30/2014)",
+          "e57f4889-cefd-4356-6d82-50f85350decd" : "Q4 (10/01/2014 - 12/31/2014)"
+        }
+    </code>
+</div>

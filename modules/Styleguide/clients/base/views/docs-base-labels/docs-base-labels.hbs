@@ -1,0 +1,198 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- Labels
+================================================== -->
+<style>
+  .table-example .label-module {
+    vertical-align: top;
+  }
+  .table-example .span2 {
+    padding: 8px;
+  }
+</style>
+<section id="labels">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Labels</th>
+        <th>Markup</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="label">Default</span></td>
+        <td><code>&lt;span class="label"&gt;Default&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-important">Important</span></td>
+        <td><code>&lt;span class="label label-important"&gt;Important&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-warning">Warning</span></td>
+        <td><code>&lt;span class="label label-warning"&gt;warning&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-pending">Pending</span></td>
+        <td><code>&lt;span class="label label-pending"&gt;warning&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-success">Success</span></td>
+        <td><code>&lt;span class="label label-success"&gt;Success&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">Info</span></td>
+        <td><code>&lt;span class="label label-info"&gt;Info&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-inverse">Inverse</span></td>
+        <td><code>&lt;span class="label label-inverse"&gt;Inverse&lt;/span&gt;</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Module Element Badges</h3>
+
+  <table class="table table-bordered table-striped table-example">
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Labels</th>
+        <th>module Singular</th>
+        <th>Class Name</th>
+      </tr>
+    </thead>
+    <tbody>
+  {{#each module_list}}
+      <tr>
+        <td><b>{{./this}}</b></td>
+        <td>
+          <span class="label label-module label-module-lg label-{{./this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+          <span class="label label-module label-module-md label-{{./this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+          <span class="label label-module label-module-btn label-{{./this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+          <span class="label label-module label-{{./this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+          <span class="label label-module label-module-sm label-{{./this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+          <span class="label label-module label-module-mini label-{{./this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+        </td>
+        <td>{{moduleIconToolTip this}}</td>
+        <td><code>.label-{{./this}}</code></td>
+      </tr>
+  {{/each}}
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Markup</h3>
+
+<pre class="prettyprint linenums">
+&lt;span class="label label-module label-module-lg label-&#123;&#123;this.module}}" rel="tooltip" data-title="&#123;&#123;moduleIconToolTip this.module}}"&gt;&#123;&#123;moduleIconLabel this.module}}&lt;/span&gt;
+</pre>
+
+  <h3>CSS</h3>
+  <p>The <code>.label-module</code> and <code>.avatar</code> classes share the same size suffixes</p>
+  <div class="table-example">
+    <div class="row-fluid">
+      <div class="span2">
+        <code>.label-module-lg</code>
+        <code>.avatar-lg</code>
+      </div>
+      <div class="span2">
+        <span class="label label-module label-module-lg label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+      </div>
+      <div class="span2">
+        <img src="styleguide/content/charts/img/avatar_sabra.jpg" class="avatar avatar-lg">
+      </div>
+      <div class="span2">
+        42px &times; 42px
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+        <code>.label-module-md</code>
+        <code>.avatar-md</code>
+      </div>
+      <div class="span2">
+        <span class="label label-module label-module-md label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+      </div>
+      <div class="span2">
+        <img src="styleguide/content/charts/img/avatar_sabra.jpg" class="avatar avatar-md">
+      </div>
+      <div class="span2">
+        32px &times; 32px
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+        <code>.label-module-btn</code>
+        <code>.avatar-btn</code>
+      </div>
+      <div class="span2">
+        <span class="label label-module label-module-btn label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+      </div>
+      <div class="span2">
+        <img src="styleguide/content/charts/img/avatar_sabra.jpg" class="avatar avatar-btn">
+      </div>
+      <div class="span2">
+        28px &times; 28px
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+        <code>.label-module</code>
+        <code>.avatar</code>
+      </div>
+      <div class="span2">
+        <span class="label label-module label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+      </div>
+      <div class="span2">
+        <img src="styleguide/content/charts/img/avatar_sabra.jpg" class="avatar">
+      </div>
+      <div class="span2">
+        24px &times; 24px
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+        <code>.label-module-sm</code>
+        <code>.avatar-sm</code>
+      </div>
+      <div class="span2">
+        <span class="label label-module label-module-sm label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+      </div>
+      <div class="span2">
+        <img src="styleguide/content/charts/img/avatar_sabra.jpg" class="avatar avatar-sm">
+      </div>
+      <div class="span2">
+        20px &times; 20px
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+        <code>.label-module-mini</code>
+        <code>.avatar-mini</code>
+      </div>
+      <div class="span2">
+        <span class="label label-module label-module-mini label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+      </div>
+      <div class="span2">
+        <img src="styleguide/content/charts/img/avatar_sabra.jpg" class="avatar avatar-mini">
+      </div>
+      <div class="span2">
+        16px &times; 16px
+      </div>
+    </div>
+  </div>
+</section>

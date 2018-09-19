@@ -1,0 +1,68 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+#layoutEditor h4, #layoutEditor h3, #layoutEditor h2, #layoutEditor h1, .panel_name  {
+	font-size:11px;
+	padding-left: 0px;
+	margin: 3px;
+}
+
+.panel_name {
+	font-weight: bold;
+	color: #000000;
+	float:left; 
+	margin:5px;
+}
+#toolbox { float:left; width: 175px; padding:5px; margin:0;    border: 1px dotted black;}
+#panels { 
+	float:right; 
+	padding:5px 10px 5px 5px;
+	margin-left:20px;
+	border: 1px dotted black;
+}
+.le_panel { 
+    background: #eee;
+}
+.le_row { 
+    background: #ddd; 
+}
+
+#layoutEditor .le_panel { 
+	margin: 2px 2px 10px 2px;
+	padding: 5px 15px 15px 15px;
+}
+#layoutEditor .le_row { 
+	margin: 2px 3px; 
+	height: 24px; clear: both; 
+	padding: 5px 15px;
+}
+
+body > .le_panel .le_edit, #toolbox .le_panel .le_edit {  
+	display:none; 
+}
+#toolbox .le_panel, #toolbox .le_row, .le_field { width:150px; float: left; border: 1px solid grey; background: #eee; padding: 2px; margin: 2px 3px; overflow:hidden; }
+
+#delete { width: 52px; padding-top:5px; padding-bottom:10px;}
+
+#panels .le_row .le_field, #availablefields .le_field,  #layoutPreview .le_row .le_field {display:block;}
+.le_row .le_field {display:none;}
+#panels.max-columns-1 .le_row .le_field {
+    width: 330px;
+}
+
+.field_tabindex,.field_label,.field_name, .panel_id, .field_fieldset_fields {display:none;}
+#availablefields .le_field {clear:both;}
+#availablefields {margin-top:20px;}
+
+#layoutEditorButtons div {float:left;}
+.le_edit{
+	cursor:pointer;
+	float:right;
+}

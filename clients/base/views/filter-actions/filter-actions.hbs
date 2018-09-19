@@ -1,0 +1,27 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="row-fluid">
+    <div class="controls span6">
+        <input type="text" class="inherit-width" aria-label="{{str 'LBL_FILTER_NEW_NAME' 'Filters'}}" placeholder="{{str 'LBL_FILTER_NEW_NAME' 'Filters'}}…">
+    </div>
+    {{#if showActions}}
+    <div class="span6">
+        <div class="pull-right">
+            <button type="button" class="btn btn-link btn-invisible" data-action="filter-reset" track="click:filter-reset">{{str "LBL_RESET"}}</button>
+            <button type="button" class="btn btn-link btn-invisible" data-action="filter-close" track="click:filter-close">{{str "LBL_CANCEL_BUTTON_LABEL"}}</button>
+            <button type="button" class="btn btn-link btn-invisible hide" data-action="filter-delete" track="click:filter-delete">{{str "LBL_DELETE"}}</button>
+            <button type="button" class="btn btn-primary disabled" data-action="filter-save" track="click:filter-save">{{str "LBL_SAVE_BUTTON_LABEL"}}</button>
+        </div>
+    </div>
+    {{/if}}
+</div>

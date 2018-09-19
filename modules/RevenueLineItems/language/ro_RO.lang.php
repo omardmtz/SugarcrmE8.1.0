@@ -1,0 +1,207 @@
+<?php
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+$mod_strings = array(
+    // Dashboard Names
+    'LBL_REVENUE_LINE_ITEMS_LIST_DASHBOARD' => 'Tabloul de bord Listă elemente linie venituri',
+    'LBL_REVENUE_LINE_ITEMS_RECORD_DASHBOARD' => 'Tabloul de bord Înregistrare elemente linie venituri',
+
+    'LBL_CAMPAIGN_PRODUCT' => 'Produs campanie',
+    'LBL_MODULE_NAME' => 'Linii de venit',
+    'LBL_MODULE_NAME_SINGULAR' => 'Linie de venit',
+    'LBL_MODULE_TITLE' => 'Linii de venit: Acasa',
+    'LBL_SEARCH_FORM_TITLE' => 'Linii de venit Cautare',
+    'LBL_LIST_FORM_TITLE' => 'Linii de venit Lista',
+    'LBL_NEW_FORM_TITLE' => 'Creeaza linie de venit',
+    'LBL_PRODUCT' => 'Produs:',
+    'LBL_RELATED_PRODUCTS' => 'Linie de venit relationata',
+    'LBL_LEAD_SOURCE' => 'Sursa prospect',
+    'LBL_LIST_NAME' => 'Linie de venit',
+    'LBL_LIST_MANUFACTURER' => 'Producator',
+    'LBL_LIST_LBL_MFT_PART_NUM' => 'Număr componentă',
+    'LBL_LIST_QUANTITY' => 'Cantitate',
+    'LBL_LIST_COST_PRICE' => 'Cost',
+    'LBL_LIST_DISCOUNT_PRICE' => 'Pret',
+    'LBL_LIST_LIST_PRICE' => 'Lista',
+    'LBL_LIST_STATUS' => 'Status',
+    'LBL_LIST_ACCOUNT_NAME' => 'Nume cont',
+    'LBL_LIST_OPPORTUNITY_NAME' => 'Nume oportunitate',
+    'LBL_LIST_PROBABILITY' => 'Probabilitate',
+    'LBL_LIST_SALES_STAGE' => 'Stadiu vanzare',
+    'LBL_LIST_CONTACT_NAME' => 'Nume contact',
+    'LBL_LIST_QUOTE_NAME' => 'Nume ofertă',
+    'LBL_LIST_DATE_PURCHASED' => 'Achizitionat',
+    'LBL_LIST_SUPPORT_EXPIRES' => 'Expira',
+    'LBL_LIST_DATE_CLOSED' => 'Data estimata de inchidere',
+    'LBL_LIST_COMMIT_STAGE' => 'Stadiu asumare',
+    'LBL_LIST_PRODUCT_TEMPLATE' => 'Model produs:',
+    'LBL_NAME' => 'Linie de veni:',
+    'LBL_URL' => 'URL produs:',
+    'LBL_QUOTE_NAME' => 'Nume ofertă:',
+    'LBL_ASSOCIATED_QUOTE' => 'Ofertă asociată:',
+    'LBL_CONTACT_NAME' => 'Nume contact:',
+    'LBL_DATE_PURCHASED' => 'Achizitionat:',
+    'LBL_DATE_SUPPORT_EXPIRES' => 'Serviciul de suport expira:',
+    'LBL_DATE_SUPPORT_STARTS' => 'Serviciul de suport incepe:',
+    'LBL_COST_PRICE' => 'Cost:',
+    'LBL_DISCOUNT_PRICE' => 'Pret per unitate:',
+    'LBL_DEAL_TOT' => 'Reducere:',
+    'LBL_DISCOUNT_RATE' => 'Rata reducere',
+    'LBL_DISCOUNT_RATE_USDOLLAR' => 'Rata reducere (US Dollar)',
+    'LBL_DISCOUNT_TOTAL_USDOLLAR' => 'Reducere (US Dollar)',
+    'LBL_SELECT_DISCOUNT' => 'Reducere in %',
+    'LBL_LIST_PRICE' => 'Pret de lista:',
+    'LBL_VENDOR_PART_NUM' => 'Cod produs revanzator:',
+    'LBL_MFT_PART_NUM' => 'Număr componentă:',
+    'LBL_NEXT_STEP' => 'Pasul urmator:',
+    'LBL_DISCOUNT_PRICE_DATE' => 'Data pretului cu reducere:',
+    'LBL_WEIGHT' => 'Greutate:',
+    'LBL_DESCRIPTION' => 'Descriere:',
+    'LBL_TYPE' => 'Tip:',
+    'LBL_PRODUCT_TYPE' => 'Tip produs:',
+    'LBL_CATEGORY' => 'Categorie produs:',
+    'LBL_CATEGORY_ID' => 'ID categorie produs:',
+    'LBL_QUANTITY' => 'Cantitate:',
+    'LBL_STATUS' => 'Status:',
+    'LBL_TAX_CLASS' => 'Palier de impozitare:',
+    'LBL_MANUFACTURER' => 'Producator:',
+    'LBL_MANUFACTURER_NAME' => 'Nume producator:',
+    'LBL_SUPPORT_DESCRIPTION' => 'Descriere suport:',
+    'LBL_SUPPORT_TERM' => 'Durata suport:',
+    'LBL_SUPPORT_NAME' => 'Functie suport:',
+    'LBL_SUPPORT_CONTACT' => 'Persoana de contact pentru suport:',
+    'LBL_PRICING_FORMULA' => 'Formula de calcul a pretului:',
+    'LBL_ACCOUNT_NAME' => 'Nume cont:',
+    'LNK_REVENUELINEITEM_LIST' => 'Vizualizare linii de venit',
+    'LNK_NEW_REVENUELINEITEM' => 'Creează linie de venit',
+    'NTC_DELETE_CONFIRMATION' => 'Esti sigur ca vrei sa stergi aceasta inregistrare?',
+    'NTC_REMOVE_CONFIRMATION' => 'Esti sigur ca vrei sa elimini relatia cu acest produs?',
+    'ERR_DELETE_RECORD' => 'Trebuie să specifici un număr de înregistrare pentru a șterge produsul.',
+    'LBL_CURRENCY' => 'Valuta:',
+    'LBL_CURRENCY_ID' => 'ID valuta:',
+    'LBL_CURRENCY_NAME' => 'Nume valuta',
+    'LBL_CURRENCY_SYMBOL' => 'Simbol valuta',
+    'LBL_ASSET_NUMBER' => 'Numar bun:',
+    'LBL_SERIAL_NUMBER' => 'Numar de serie:',
+    'LBL_BOOK_VALUE' => 'Valoare de catalog:',
+    'LBL_BOOK_VALUE_USDOLLAR' => 'Valoare de catalog (US Dollar):',
+    'LBL_BOOK_VALUE_DATE' => 'Data valorii de catalog:',
+    'LBL_DEFAULT_SUBPANEL_TITLE' => 'Linii de venit',
+    'LBL_RELATED_PRODUCTS_TITLE' => 'Produse',
+    'LBL_WEBSITE' => 'Site web',
+    'LBL_COST_USDOLLAR' => 'Cost (USD)',
+    'LBL_DISCOUNT_USDOLLAR' => 'Pret per unitate (US Dollar)',
+    'LBL_LIST_USDOLLAR' => 'Pret de lista (US Dollar)',
+    'LBL_PRICING_FACTOR' => 'Factori care influenteaza pretul',
+    'LBL_ACCOUNT_ID' => 'ID cont',
+    'LBL_CONTACT_ID' => 'ID contact',
+    'LBL_ASSIGNED_USER_ID' => 'Alocat catre ID utilizator',
+    'LBL_CATEGORY_NAME' => 'Categorie produs:',
+    'LBL_NOTES_SUBPANEL_TITLE' => 'Note',
+    'LBL_MEMBER_OF' => 'Membru al:',
+    'LBL_PROJECTS_SUBPANEL_TITLE' => 'Proiecte',
+    'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documente',
+    'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Contracte',
+    'LBL_QUOTES_SUBPANEL_TITLE' => 'Oferte',
+    'LBL_LEADS_SUBPANEL_TITLE' => 'Prospecti',
+    'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacte',
+    'LBL_CONTRACTS' => 'Contracte',
+    'LBL_PRODUCT_TEMPLATES' => 'Modele produs',
+    'LBL_PRODUCT_CATEGORIES' => 'Categorii produs',
+    'LBL_PRODUCT_TYPES' => 'Tipuri produs',
+    'LBL_ASSIGNED_TO_NAME' => 'Atribuit lui:',
+    'LBL_ASSIGNED_TO' => 'Atribuit lui:',
+    'LBL_ASSIGNED_TO_ID'=>'ID utilizator alocat',
+    'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Nume utilizator alocat',
+    'LBL_EXPORT_ASSIGNED_USER_ID' => 'ID utilizator alocat',
+    'LBL_CAMPAIGN_ID' => 'ID campanie',
+    'LBL_PRODUCT_TEMPLATE' => 'Model produs:',
+    'LBL_PRODUCT_TEMPLATE_ID' => 'ID model produs:',
+    'LBL_QUOTE_ID' => 'ID ofertă',
+    'LBL_CREATED_USER' => 'Utilizator creat',
+    'LBL_MODIFIED_USER' => 'Utilizator modificat',
+    'LBL_QUOTE' => 'Ofertă',
+    'LBL_OPPORTUNITY_ID' => 'ID oportunitate',
+    'LBL_OPPORTUNITY' => 'Oportunitate',
+    'LBL_MANUFACTURERS' => 'Producatori',
+    'LBL_EXPERT_ID' => 'Expert produs',
+    'LBL_FORECAST' => 'Include in Previziuni',
+    'LBL_CALCULATED_LINE_ITEM_AMOUNT' => 'Suma calculata pentru linia de venit',
+    'LBL_CONTACT' => 'Contact',
+    'LBL_DISCOUNT_TOTAL' => 'Reducere totala',
+    'LBL_DISCOUNT_AMOUNT' => 'Suma reducere',
+    'LBL_TOTAL_DISCOUNT_AMOUNT' => 'Suma totala reducere',
+    'LBL_EXT_PRICE' => 'Preţ ext.',
+    'LBL_CURRENCY_SYMBOL_NAME' => 'Nume simbol valuta',
+    'LBL_RLI_SUBPANEL_TITLE' => 'Linii de venit',
+    'LNK_IMPORT_REVENUELINEITEMS' => 'Importă linii de venit',
+    'LBL_EDITLAYOUT' => 'Modificare Layout' /*for 508 compliance fix*/,
+    //For export labels
+    'LBL_EXPORT_CURRENCY_ID' => 'ID valuta',
+    'LBL_CURRENCY_RATE' => 'Curs de schimb',
+    'LBL_DATE_CLOSED' => 'Data de închidere estimată',
+    'LBL_DATE_CLOSED_TIMESTAMP' => 'Data estimata de inchidere (data si ora)',
+    'LBL_COMMIT_STAGE' => 'Stadiu asumare',
+    'LBL_COMMIT_STAGE_FORECAST' => 'Previziune',
+    'LBL_PROBABILITY' => 'Probabilitate (%)',
+    'LBL_SALES_STAGE' => 'Stadiu vanzari',
+    'LBL_SALES_STATUS' => 'Status linie de venit',
+    'LBL_PIPELINE_TOTAL_IS' => 'Totalul oportunităţilor de vânzări este',
+    'LBL_CONVERT_RLI_TO_QUOTE' => 'Generare ofertă din articol de linie pentru venituri',
+    'LBL_CONVERT_TO_QUOTE' => 'Generează ofertă',
+    'LBL_CONVERT_TO_QUOTE_INFO' => 'Te rugam sa astepti',
+    'LBL_CONVERT_TO_QUOTE_INFO_MESSAGE' => 'Se generează oferta din linia de venit',
+    'LBL_CONVERT_INVALID_RLI' => 'Una sau mai multe linii de venit selectate nu pot fi convertite în ofertă:<br /><br />',
+    'LBL_CONVERT_INVALID_RLI_PRODUCT' => 'Linia de venit trebuie atașată unui produs din catalogul de produse înainte de a genera oferta.',
+    'LBL_CONVERT_INVALID_RLI_PRODUCT_PLURAL' => 'Una sau mai multe linii de venit trebuie atașate unui produs din catalogul de produse înainte de a genera oferta.',
+    'LBL_CONVERT_INVALID_RLI_ALREADYQUOTED' => 'Articolul de linie pentru venituri este deja ofertat.',
+    'LBL_CONVERT_INVALID_RLI_ALREADYQUOTED_PLURAL' => 'Una sau mai multe linii de venit sunt deja convertite în oferte.',
+
+    'LBL_CONVERT_TO_QUOTE_ERROR' => 'Eroare:',
+    'LBL_CONVERT_TO_QUOTE_ERROR_MESSAGE' => 'A apărut o eroare la conversia acestei linii de venit în ofertă',
+
+    'LBL_DISCOUNT_AS_PERCENT' => 'Reducere in %',
+    'SAVE_RLI_QUOTE_NOTICE' => 'Această linie de venit a fost deja convertită în Ofertă. Modificările tale nu vor fi actualizate în oferta respectivă.',
+
+    'LBL_QUOTED' => 'Cotat',
+    'LBL_NOT_QUOTED' => 'Necotat',
+    'WARNING_DELETED_RECORD_LIST_RECOMMIT_1' => 'Una sau mai multe inregistrari au fost incluse intr-un(o)',
+    'WARNING_DELETED_RECORD_LIST_RECOMMIT_2' => 'Acestea vor fi eliminate si va trebuie sa iti asumi din nou',
+    'WARNING_MERGE_RLIS_WITH_DIFFERENT_OPPORTUNITIES' => 'Una sau mai multe inregistrari selectate nu pot fi unite deoarece apartin unor oportunitati diferite',
+
+    // Help Text
+    // List View Help Text
+    'LBL_HELP_RECORDS' => 'Modulul {{plural_module_name}} este format din linii individuale care sunt incluse intr-o oportunitate si sunt urmarite de-a lungul intregului ciclu de vanzari. O oportunitate functioneaza ca un antet pentru una sau mai multe {{module_name}}. Aceasta permite o granularitate mai mare atunci cand lucrezi cu oportunitati si cand faci previziuni deoarece fiecare linie dintr-o oportunitate poate acea propriul sau stadiu de vanzare si probabilitate de inchidere si, de asemenea, poate fi inclusa sau exclusa individual din tabelul de previziuni al unui utilizator. Fiecare {{module_name}} poate fi relationat cu un produs din catalogul de produse al companiei tale. Procendand astfel, valorile aferente produsului vor completa automat campurile corespunzatoare din {{module_name}}.',
+
+    // Record View Help Text
+    'LBL_HELP_RECORD' => 'Modulul {{plural_module_name}} este format din linii individuale care sunt incluse intr-o oportunitate si sunt urmarite de-a lungul intregului ciclu de vanzari. O oportunitate functioneaza ca un antet pentru una sau mai multe {{module_name}}.
+
+- Modifica campurile acestei inregistrari pe fiecare camp individual sau pe butonul Modificare.
+- Vizualizeaza sau modifica link-urile catre alte inregistrari in panourile inferioare, trecand panoul din stanga jos in starea "Vizualizare date".
+- Creeaza si vizualizeaza comentariile utilizatorilor si istoricul modificarilor acestei inregistrari in {{activitystream_singular_module}}, trecand panoul din stanga jos in starea "Flux de activitate".
+- Urmareste sau marcheaza ca favorita aceasta inregistrare folosind pictogramele din dreapta numelui inregistrarii.
+- Alte actiuni sunt disponibile in meniul Actiuni din dreapta butonului Editare.',
+
+    // Create View Help Text
+    'LBL_HELP_CREATE' => 'Modulul {{plural_module_name}} este format din articole de pe linii individuale de afaceri, care sunt incluse într-o înregistrare {{opportunities_singular_module}} şi sunt urmărite de-a lungul întregului ciclu de vânzări. Înregistrarea {{opportunities_singular_module}} funcţionează ca un antet pentru una sau mai multe înregistrări {{module_name}}.
+
+Pentru a crea {{module_name}}:
+1. Introduceţi valori pentru câmpuri după cum doriţi.
+- Câmpurile marcate cu "Obligatoriu" trebuie să fie completate înainte de a salva.
+- Faceţi clic pe "Afişare mai multe" pentru a afişa câmpuri suplimentare, dacă este necesar.
+2. Faceţi clic pe "Salvare" pentru a finaliza noua înregistrare şi pentru a reveni la pagina anterioară.',
+
+    'LBL_DASHLET_TOP10_SALES_OPPORTUNITIES_NAME' => 'Top 10 elemente de venit din vânzări',
+    'LBL_TOP10_OPPORTUNITIES_CHART_DESC' => 'Afişează top 10 elemente de venit într-o diagramă cu bule.',
+    'LBL_TOP10_OPPORTUNITIES_MY_OPP' => 'Elementele mele de venit',
+    'LBL_TOP10_OPPORTUNITIES_MY_TEAMS_OPP' => "Elementele de venit ale echipei mele",
+);

@@ -1,0 +1,59 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+<script type='text/javascript' src='include/javascript/popup_helper.js?v={VERSION_MARK}'></script>
+
+<!-- BEGIN: list_nav_row -->
+
+<!-- END: list_nav_row -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20">
+	<td scope="col" valign=middle >{CHECKALL}</td>
+	<td scope="col" width="25%"  nowrap><slot><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{name_arrow}{arrow_end}</a></slot></td>
+	<td scope="col" width="47%"  nowrap><slot>{MOD.LBL_LIST_DESCRIPTION}</slot></td>
+		<td scope="col" width="4%" ><slot>&nbsp;</slot></td>
+	<td scope="col" width="10%"  nowrap><slot><a href="{ORDER_BY}status" class="listViewThLinkS1">{MOD.LBL_STATUS}{arrow_start}{status_arrow}{arrow_end}</a></slot></td>
+	<td scope="col" width="10%"  nowrap><slot><a href="{ORDER_BY}date_start" class="listViewThLinkS1">{MOD.LBL_DATE_START}{arrow_start}{date_start_arrow}{arrow_end}</a></slot></td>
+	<td scope="col" width="10%"  nowrap><slot><a href="{ORDER_BY}date_end" class="listViewThLinkS1">{MOD.LBL_DATE_END}{arrow_start}{date_end_arrow}{arrow_end}</a></slot></td>
+   	<!-- BEGIN: pro_nav -->
+	<td scope="col" width="10%"  nowrap><slot><a href="{ORDER_BY}team_name" class="listViewThLinkS1">{APP.LBL_LIST_TEAM}{arrow_start}{team_name_arrow}{arrow_end}</a></slot></td>
+	<!-- END: pro_nav -->
+   	<!-- BEGIN: open_source -->
+   	<!-- END: open_source -->
+
+	<td scope="col" width="4%" ><slot>&nbsp;</slot></td>
+	 </tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td valign=TOP>{PREROW}</td>
+		<td scope="row" valign=TOP ><slot><a href="{URL_PREFIX}index.php?action=EditView&module=TeamNotices&record={TEAMNOTICE.ID}" >{TEAMNOTICE.NAME}</a></slot></td>
+		<td valign=TOP ><slot>{TEAMNOTICE.DESCRIPTION}</slot></td>
+		<td valign=TOP ><slot><a href="{TEAMNOTICE.URL}" target='_blank'>{TEAMNOTICE.URL_TITLE}</a></slot></td>
+		<td valign=TOP ><slot>{TEAMNOTICE.STATUS}</slot></td>
+		<td valign=TOP  nowrap><slot>{TEAMNOTICE.DATE_START}</slot></td>
+		<td valign=TOP  nowrap><slot>{TEAMNOTICE.DATE_END}</slot></td>
+		<!-- BEGIN: pro -->
+   		<td nowrap="nowrap" valign="top"><slot>{TEAMNOTICE.TEAM_NAME}</slot></td>
+   		<!-- END: pro -->
+   		<!-- BEGIN: open_source -->
+   		<!-- END: open_source -->
+    	<td nowrap align="center" valign=TOP ><slot><a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_DELETE_CONFIRMATION}')" href="{URL_PREFIX}index.php?action=Delete&module=TeamNotices&record={TEAMNOTICE.ID}&return_module=TeamNotices&return_action=index&return_id=">{DELETE_INLINE_PNG}</a>&nbsp;<a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_DELETE_CONFIRMATION}')" href="{URL_PREFIX}index.php?action=Delete&module=TeamNotices&record={TEAMNOTICE.ID}&return_module=TeamNotices&return_action=index&return_id=">{APP.LNK_DELETE}</a></slot></td>
+ </tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

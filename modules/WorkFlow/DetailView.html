@@ -1,0 +1,80 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" id="tableButtonsWorkFlow">
+<form action="index.php" method="post" name="DetailView" id="form">
+{sugar_csrf_form_token}
+
+			<input type="hidden" name="module" value="WorkFlow">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="isDuplicate" value=false>
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module">
+			<input type="hidden" name="return_action">
+			<input type="hidden" name="return_id">
+		<tr>
+		<td>
+			{ACTION_MENU}
+		</td>
+
+		<td align='right'>{ADMIN_EDIT}</td>
+		</tr></table>
+	</form>
+
+<div class="detail view">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+{PAGINATION}
+<tr>
+
+	<td width="25%" scope="row"><slot>{MOD.LBL_NAME}</slot></td>
+	<td width="25%"><slot>{NAME}&nbsp;</slot></td>
+	<td width="25%" scope="row"><slot>&nbsp;</slot></td>
+	<td width="25%"><slot>&nbsp;</slot></td>
+	</tr><tr>
+	<td width="25%" scope="row"><slot>{MOD.LBL_TYPE}</slot></td>
+	<td width="25%"><slot>{TYPE}&nbsp;</slot></td>
+	<td scope="row"><slot>{MOD.LBL_STATUS}</slot></td>
+	<td><slot>{STATUS}&nbsp;</slot></td>
+	</tr><tr>
+	<td scope="row"><slot>{MOD.LBL_LIST_BASE_MODULE}</slot></td>
+	<td><slot>{BASE_MODULE}&nbsp;</slot></td>
+	<td scope="row"><slot>{MOD.LBL_RECORD_TYPE}</slot></td>
+	<td><slot>{RECORD_TYPE}&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>{MOD.LBL_FIRE_ORDER}</slot></td>
+	<td><slot>{FIRE_ORDER}&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row" valign="top" ><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+	<td colspan='3'><slot>{DESCRIPTION}&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	</tr>
+</table>
+</div>
+
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<div>{SUBTRIGGERS}</div>
+<div>{SUBTRIGGERFILTERS}</div>
+<div>{SUBALERTS}</div>
+<div>{SUBACTIONS}</div>
+<!-- END: subpanel -->

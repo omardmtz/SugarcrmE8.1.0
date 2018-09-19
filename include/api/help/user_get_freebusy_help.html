@@ -1,0 +1,48 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">
+    Get a user's FreeBusy schedule
+</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint returns a list of time slots for which the specified person is busy.
+</div>
+<div class="input">
+    <h2>Request</h2>
+    <code class="codesample">
+        GET /Users/:id/freebusy
+    </code>
+</div>
+<div class="output">
+    <h2>Response</h2>
+    <pre class="pre-scrollable">
+    {
+      "id": "foo"
+      "module": "Users",
+      "freebusy": [
+                    {
+                      "start": "2014-08-24T08:45:00-04:00",
+                      "end": "2014-08-24T09:15:00-04:00"
+                    },
+                    {
+                      "start": "2014-08-30T05:45:00-04:00",
+                      "end": "2014-08-30T06:15:00-04:00"
+                    },
+                    {
+                      "start": "2014-09-12T15:45:00-04:00",
+                      "end": "2014-09-12T16:15:00-04:00"
+                    }
+                  ]
+    }
+    </pre>
+</div>

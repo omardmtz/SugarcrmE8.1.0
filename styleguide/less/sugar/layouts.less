@@ -1,0 +1,120 @@
+/* LAYOUTS
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// Container (centered, fixed-width layouts)
+.container {
+  .container-fixed();
+}
+
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+.container-fluid {
+  padding-right: @gridGutterWidth;
+  padding-left: @gridGutterWidth;
+  .clearfix();
+}
+
+/* twitter-bootstrap import END */
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+#content {
+  position: fixed;
+  width: 100%;
+  right: 0;
+  bottom: 44px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#content:empty,
+.nprogress-busy #content {
+  background: none;
+}
+
+.main-pane {
+  position: absolute;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 0 !important;
+  background: #fff;
+
+  .list-view {
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  .padded {
+    padding: 20px;
+  }
+
+  &.main-pane.span12 {
+    width: 100%;
+  }
+
+  &.span8 {
+    width: calc(~"65.957446802% + 0px");
+    left: 0;
+  }
+}
+
+.touch {
+  .main-pane {
+    padding-top: 60px !important;
+    top: 0;
+    overflow-x: auto;
+  }
+
+  #content {
+    /* fixes iOS intermitent BWC portrait scroll issue */
+    position: absolute;
+    overflow-x: scroll;
+  }
+}
+
+.side.sidebar-content {
+  width: calc(~"34.042553198% + 1px");
+  border-left: @borderWidget;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: @zindexHeaderpane + 1;
+
+  &.hide {
+    display: none;
+  }
+}
+
+.navbar,
+#content,
+#footer footer {
+  min-width: 320px !important;
+}
+
+/* NEW SKIN START */
+
+#content {
+  /* override */
+  top: 45px;
+
+  /* override */
+  background: none;
+}
+
+.main-pane {
+  /* override */
+  top: 51px;
+}
+
+/* NEW SKIN END */

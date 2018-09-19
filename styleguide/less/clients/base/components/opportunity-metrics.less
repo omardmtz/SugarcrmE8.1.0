@@ -1,0 +1,92 @@
+div.opportunity-metrics-wrapper {
+  padding: 0;
+
+  .opportunity-metrics-chart,
+  .nv-chart {
+    height: 250px;
+    min-width: 250px;
+
+    .won {
+      fill: @green;
+    }
+
+    .lost {
+      fill: @red;
+    }
+
+    .active {
+      fill: @blue;
+    }
+  }
+}
+
+div.opportunity-metric {
+  text-align: right;
+  text-align: center;
+  width: 33%;
+  position: relative;
+  border-top: @borderWidgetLight;
+  border-right: @borderWidgetLight;
+  float: left;
+  padding: 20px 0 10px;
+  box-sizing: border-box;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  span.label {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    padding: 3px;
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    margin-left: -14px;
+    line-height: 22px;
+    border: none;
+
+    &.won {
+      background-color: @green;
+    }
+
+    &.lost {
+      background-color: @red;
+    }
+
+    &.active {
+      background-color: @blue;
+    }
+  }
+
+  div.opportunity-metric-description {
+    span {
+      float: none;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 10px;
+      text-align: center;
+      text-shadow: 0 1px 0 #636363;
+      margin-right: 3px !important;
+    }
+  }
+
+  div.deal-amount-metric {
+    font-size: 16px;
+    font-weight: bold;
+    box-sizing: border-box;
+
+    &.won {
+      color: @green;
+    }
+
+    &.lost {
+      color: @red;
+    }
+
+    &.active {
+      color: @blue;
+    }
+  }
+}

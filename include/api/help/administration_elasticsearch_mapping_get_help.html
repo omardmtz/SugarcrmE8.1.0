@@ -1,0 +1,102 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Elasticsearch mapping
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint returns the mapping for every available index. This endpoint is only available to administrators.
+</span>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "autobr2583_shared":{
+        "KBDocuments":{
+            "dynamic":"false",
+            "_all":{
+                "enabled":false
+            },
+            "properties":{
+                "kbdocument_name":{
+                    "type":"string",
+                    "index":"not_analyzed",
+                    "fields":{
+                        "gs_string_default":{
+                            "type":"string",
+                            "analyzer":"gs_analyzer_default"
+                        },
+                        "gs_string_ngram":{
+                            "type":"string",
+                            "index_analyzer":"gs_analyzer_ngram",
+                            "search_analyzer":"gs_analyzer_default"
+                        }
+                    }
+                }
+            }
+        },
+        "RevenueLineItems":{
+            "dynamic":"false",
+            "_all":{
+                "enabled":false
+            },
+            "properties":{
+                "date_modified":{
+                    "type":"string",
+                    "index":"not_analyzed",
+                    "fields":{
+                        "gs_datetime":{
+                            "type":"date",
+                            "index":"no",
+                            "format":"YYYY-MM-dd HH:mm:ss"
+                        }
+                    }
+                },
+                "description":{
+                    "type":"string",
+                    "index":"not_analyzed",
+                    "fields":{
+                        "gs_string_default":{
+                            "type":"string",
+                            "analyzer":"gs_analyzer_default"
+                        },
+                        "gs_string_ngram":{
+                            "type":"string",
+                            "index_analyzer":"gs_analyzer_ngram",
+                            "search_analyzer":"gs_analyzer_default"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Administration/elasticsearch/mapping</code> GET endpoint.
+        </td>
+    </tr>
+</table>

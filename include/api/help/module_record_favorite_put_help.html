@@ -1,0 +1,160 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Updates a record of a specified type as a favorite for the current user.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record field&gt;
+        </td>
+        <td>
+            &lt;record field type&gt;
+        </td>
+        <td>
+            Returns the fields for the selected record.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "id":"bdd59d85-687b-1739-b00a-512d09f6db9e",
+   "name":"Insight Marketing Inc",
+   "date_entered":"2013-02-26T19:12:00+00:00",
+   "date_modified":"2013-02-26T19:12:00+00:00",
+   "modified_user_id":"1",
+   "modified_by_name":"Administrator",
+   "created_by":"1",
+   "created_by_name":"Administrator",
+   "description":"",
+   "img":"",
+   "last_activity_date":"2013-02-26T19:12:00+00:00",
+   "deleted":false,
+   "assigned_user_id":"seed_max_id",
+   "assigned_user_name":"Max Jensen",
+   "team_name":[
+      {
+         "id":"East",
+         "name":"East",
+         "name_2":"",
+         "primary":false
+      },
+      {
+         "id":1,
+         "name":"Global",
+         "name_2":"",
+         "primary":false
+      },
+      {
+         "id":"West",
+         "name":"West",
+         "name_2":"",
+         "primary":true
+      }
+   ],
+   "linkedin":"",
+   "facebook":"",
+   "twitter":"",
+   "googleplus":"",
+   "account_type":"Customer",
+   "industry":"Electronics",
+   "annual_revenue":"",
+   "phone_fax":"",
+   "billing_address_street":"345 Sugar Blvd.",
+   "billing_address_street_2":"",
+   "billing_address_street_3":"",
+   "billing_address_street_4":"",
+   "billing_address_city":"San Mateo",
+   "billing_address_state":"CA",
+   "billing_address_postalcode":"56019",
+   "billing_address_country":"USA",
+   "rating":"",
+   "phone_office":"(927) 136-9572",
+   "phone_alternate":"",
+   "website":"www.sectionvegan.de",
+   "ownership":"",
+   "employees":"",
+   "ticker_symbol":"",
+   "shipping_address_street":"345 Sugar Blvd.",
+   "shipping_address_street_2":"",
+   "shipping_address_street_3":"",
+   "shipping_address_street_4":"",
+   "shipping_address_city":"San Mateo",
+   "shipping_address_state":"CA",
+   "shipping_address_postalcode":"56019",
+   "shipping_address_country":"USA",
+   "email1":"kid.support.vegan@example.info",
+   "parent_id":"",
+   "sic_code":"",
+   "parent_name":"",
+   "email_opt_out":false,
+   "invalid_email":false,
+   "email":[
+      {
+         "email_address":"kid.support.vegan@example.info",
+         "opt_out":"0",
+         "invalid_email":"0",
+         "primary_address":"1"
+      },
+      {
+         "email_address":"phone.kid@example.cn",
+         "opt_out":"0",
+         "invalid_email":"0",
+         "primary_address":"0"
+      }
+   ],
+   "campaign_id":"",
+   "campaign_name":"",
+   "my_favorite":true,
+   "_acl":{
+      "fields":{
+
+      }
+   }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/favorite</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

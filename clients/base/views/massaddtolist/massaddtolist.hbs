@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="filter-header">
+    <div class="row-fluid">
+        <div class="controls span4">
+            <strong>{{str "LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL"}}</strong>
+        </div>
+        <div class="pull-right">
+            {{#each meta.buttons}}
+                {{field ../this}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="filter-body clearfix">
+    <div class="row-fluid">
+        <div class="controls filter-value span7">
+            {{#with this.addToListField}}
+                {{field ../this template="edit"}}
+            {{/with}}
+        </div>
+    </div>
+</div>

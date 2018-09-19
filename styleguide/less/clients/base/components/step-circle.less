@@ -1,0 +1,42 @@
+.step-circle {
+  border-radius: 14px;
+  height: 26px;
+  width: 26px;
+  position: relative;
+  display: inline-block;
+  background: @grayLighter;
+  text-align: center;
+  margin-right: 12px;
+  border: @borderWidget;
+
+  > span {
+    display: inline-block;
+    background: @white;
+    width: 18px;
+    height: 18px;
+    border: @borderWidget;
+    border-radius: 10px;
+    margin-top: 3px;
+    font-weight: bold;
+  }
+
+  .fa-check-circle {
+    display: none;
+    color: @green;
+    font-size: 22px;
+    line-height: 22px;
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+  }
+
+  &.complete {
+    > span {
+      display: none;
+    }
+
+    .fa-check-circle {
+      display: inline-block;
+    }
+  }
+}

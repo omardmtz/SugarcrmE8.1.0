@@ -1,0 +1,68 @@
+/**
+ *
+ * Login and Sign Up views
+ *
+ *
+ */
+#portal {
+  .welcome {
+    .thumbnail {
+      /**
+       * The form is larger
+       */
+      //width: 300px !important;
+
+      div.control-group {
+        input {
+          width: 206px !important;
+        }
+
+        .select2-container {
+          width: 220px !important;
+          margin-bottom: 10px;
+        }
+
+        p.help-block {
+          display: none;
+        }
+      }
+
+      /**
+       * Not float on portal
+       */
+      p.help-block {
+        float: none;
+        margin: 0 auto;
+
+        .btn {
+          margin: 0 auto;
+          text-decoration: none;
+
+          .dotted {
+            border-bottom: 1px dotted;
+          }
+        }
+      }
+
+      /**
+       * Contain buttons
+       */
+      div.login-footer,
+      div.signup-footer {
+        margin: 10px 10px 0 !important;
+        width: 220px !important;
+
+        .btn {
+          margin: 0 !important;
+        }
+      }
+
+      /**
+       * Fix hr margin
+       */
+      hr {
+        margin: 10px 0;
+      }
+    }
+  }
+}

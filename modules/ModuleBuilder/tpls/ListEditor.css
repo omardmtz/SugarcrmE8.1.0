@@ -1,0 +1,72 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+
+table#editor-content{
+	width: 100%;
+	/* hack for scrolling problems in IE6/7 */
+	#table-layout: fixed; 
+}
+#editor-content ul {
+	/* hack for scrolling problems in IE6/7 other browsers should ignor these */
+    #padding-right: 12px; /* IE7 */
+	_padding-right:0px;   /* IE6 */
+	_margin-right:12px;   /* IE6 */
+}
+li {
+	list-style-type: none;
+}
+.fieldValue{
+	font-weight:normal;
+	font-family:times;
+	cursor:move;
+}
+
+.dragProxy , .yui-content .draggable , .draggable {
+	border: 1px solid #333;
+    margin: 2px;
+}
+.dragProxy img , .yui-content .draggable img , .draggable img {
+	border: none;
+}
+
+.listContainer {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.listContainer li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.listContainer li .fieldValue {
+    line-height: 30px;
+}
+
+li.deleted {
+    background-color: #AAA;
+}
+
+.deleted td.first {
+    text-decoration: line-through;
+}
+
+.list-editor ul, .preview-content ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+table.preview-content {
+    width: 650px;
+}

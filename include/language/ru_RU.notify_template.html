@@ -1,0 +1,355 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: Quote_Subject -->
+Ценовое предложение SugarCRM - {QUOTE_SUBJECT}
+<!-- END: Quote_Subject -->
+<!-- BEGIN: Quote -->
+{ASSIGNER} назначил ценовое предложение для {ASSIGNED_USER}.
+
+Тема: {QUOTE_SUBJECT}
+Статус: {QUOTE_STATUS}
+Ожидаемая дата закрытия: {QUOTE_CLOSEDATE}
+Описание: {QUOTE_DESCRIPTION}
+
+Вы можете просмотреть это ценовое предложение:
+<{URL}>
+<!-- END: Quote -->
+
+
+<!-- BEGIN: Account_Subject -->
+Контрагент SugarCRM - {ACCOUNT_NAME}
+<!-- END: Account_Subject -->
+<!-- BEGIN: Account -->
+{ASSIGNER} назначил Контагента для {ASSIGNED_USER}.
+
+Имя: {ACCOUNT_NAME}
+Тип: {ACCOUNT_TYPE}
+Описание: {ACCOUNT_DESCRIPTION}
+
+Вы можете просмотреть этого контрагента:
+<{URL}>
+<!-- END: Account -->
+
+
+<!-- BEGIN: Case_Subject -->
+Обращение SugarCRM - {CASE_SUBJECT}
+<!-- END: Case_Subject -->
+<!-- BEGIN: Case -->
+{ASSIGNER} назначил Обращение для {ASSIGNED_USER}.
+
+Тема: {CASE_SUBJECT}
+Приоритет: {CASE_PRIORITY}
+Статус: {CASE_STATUS}
+Описание: {CASE_DESCRIPTION}
+
+Вы можете просмотреть это Обращение:
+<{URL}>
+<!-- END: Case -->
+
+
+<!-- BEGIN: Task_Subject -->
+Задача SugarCRM - {TASK_SUBJECT}
+<!-- END: Task_Subject -->
+<!-- BEGIN: Task -->
+{ASSIGNER} назначил задачу для {ASSIGNED_USER}.
+
+Тема: {TASK_SUBJECT}
+Приоритет: {TASK_PRIORITY}
+Срок выполнения: {TASK_DUEDATE}
+Статус: {TASK_STATUS}
+Описание: {TASK_DESCRIPTION}
+
+Вы можете просмотреть эту задачу:
+<{URL}>
+<!-- END: Task -->
+
+
+<!-- BEGIN: Meeting_Subject -->
+Встреча SugarCRM - {MEETING_SUBJECT}
+<!-- END: Meeting_Subject -->
+<!-- BEGIN: Meeting -->
+To: {MEETING_TO}
+
+{ASSIGNER} пригласил Вас на встречу
+
+Тема: {MEETING_SUBJECT}
+Дата начала: {MEETING_STARTDATE}
+EДата окончания: {MEETING_ENDDATE}
+<!-- BEGIN: Meeting_External_API -->
+URL встречи: {MEETING_URL}
+<!-- END: Meeting_External_API -->
+Описание: {MEETING_DESCRIPTION}
+
+Я приму участие во встрече:
+<{ACCEPT_URL}&accept_status=accept>
+
+Я не уверена (-а), приму ли участие во встрече:
+<{ACCEPT_URL}&accept_status=tentative>
+
+Я не приму участие во встрече:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Meeting -->
+
+<!-- BEGIN: MeetingSpecial_Subject -->
+Встреча SugarCRM - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingSpecial -->
+{ASSIGNER} назначил встречу для {ASSIGNED_USER}.
+
+Тема: {MEETING_SUBJECT}
+Статус: {MEETING_STATUS}
+Дата начала: {MEETING_STARTDATE}
+Дата окончания: {MEETING_ENDDATE}
+Описание: {MEETING_DESCRIPTION}
+
+Вы можете просмотреть эту встречу:
+<{URL}>
+<!-- END: MeetingSpecial -->
+
+
+<!-- BEGIN: Email_Subject -->
+Email-сообщение SugarCRM - {EMAIL_SUBJECT}
+<!-- END: Email_Subject -->
+<!-- BEGIN: Email -->
+{ASSIGNER} назначил Email-сообщение для {ASSIGNED_USER}.
+
+Тема: {EMAIL_SUBJECT}
+Дата отправки: {EMAIL_DATESENT}
+
+Вы можете просмотреть это Email-сообщение:
+<{URL}>
+<!-- END: Email -->
+
+
+
+
+
+
+<!-- BEGIN: Contact_Subject -->
+Контакт SugarCRM - {CONTACT_NAME}
+<!-- END: Contact_Subject -->
+<!-- BEGIN: Contact -->
+{ASSIGNER} назначил контакт для {ASSIGNED_USER}.
+
+Имя: {CONTACT_NAME}
+Описание: {CONTACT_DESCRIPTION}
+
+Вы можете просмотреть этот контакт:
+<{URL}>
+<!-- END: Contact -->
+
+
+<!-- BEGIN: Lead_Subject -->
+Предварительный контакт SugarCRM - {LEAD_NAME}
+<!-- END: Lead_Subject -->
+<!-- BEGIN: Lead -->
+{ASSIGNER} назначил предварительный контакт для {ASSIGNED_USER}.
+
+Имя: {LEAD_NAME}
+источник предварительного контакта: {LEAD_SOURCE}
+Статус: {LEAD_STATUS}
+Описание: {LEAD_DESCRIPTION}
+
+Вы можете просмотреть этот предварительный контакт:
+<{URL}>
+<!-- END: Lead -->
+
+
+<!-- BEGIN: Opportunity_Subject -->
+Сделка SugarCRM - {OPPORTUNITY_NAME}
+<!-- END: Opportunity_Subject -->
+<!-- BEGIN: Opportunity -->
+{ASSIGNER} назначил сделку для {ASSIGNED_USER}.
+
+Имя: {OPPORTUNITY_NAME}
+Сумма: {OPPORTUNITY_AMOUNT}
+Ожидаемая дата закрытия: {OPPORTUNITY_CLOSEDATE}
+Этап продажи: {OPPORTUNITY_STAGE}
+Описание: {OPPORTUNITY_DESCRIPTION}
+
+Вы можете просмотреть эту сделку:
+<{URL}>
+<!-- END: Opportunity -->
+
+
+<!-- BEGIN: Bug_Subject -->
+Ошибка SugarCRM - {BUG_SUBJECT}
+<!-- END: Bug_Subject -->
+<!-- BEGIN: Bug -->
+{ASSIGNER} назначил ошибку для {ASSIGNED_USER}.
+
+Номер ошибки: {BUG_BUG_NUMBER}
+Тема: {BUG_SUBJECT}
+Тип: {BUG_TYPE}
+Приоритет: {BUG_PRIORITY}
+Статус: {BUG_STATUS}
+Решение: {BUG_RESOLUTION}
+Релиз: {BUG_RELEASE}
+Описание: {BUG_DESCRIPTION}
+рабочий лог: {BUG_WORK_LOG}
+
+Вы можете просмотреть эту ошибку:
+<{URL}>
+<!-- END: Bug -->
+
+
+<!-- BEGIN: Default_Subject -->
+Назначение в SugarCRM {OBJECT}
+<!-- END: Default_Subject -->
+<!-- BEGIN: Default -->
+{ASSIGNER} назначил {OBJECT} для {ASSIGNED_USER}.
+
+Вы можете просмотреть {OBJECT}:
+<{URL}>
+<!-- END: Default -->
+
+<!-- BEGIN: Call_Subject -->
+Звонок SugarCRM - {CALL_SUBJECT}
+<!-- END: Call_Subject -->
+<!-- BEGIN: Call -->
+Кому: {CALL_TO}
+ {ASSIGNER} пригласил Вас принять участие в звонке
+Тема: {CALL_SUBJECT}
+Статус: {CALL_STATUS}
+Дата начала: {CALL_STARTDATE}
+Длительность: {CALL_HOURS}h, {CALL_MINUTES}m
+Описание: {CALL_DESCRIPTION}
+
+Я приму участие во звонке
+<{ACCEPT_URL}&accept_status=accept>
+
+Я не уверена (-а), приму ли участие в звонке
+<{ACCEPT_URL}&accept_status=tentative>
+
+Я не приму участие во звонке
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Call -->
+
+<!-- BEGIN: CallSpecial_Subject -->
+Звонок SugarCRM - {CALL_SUBJECT}
+<!-- END: CallSpecial_Subject -->
+<!-- BEGIN: CallSpecial -->
+{ASSIGNER} назначил звонок для {ASSIGNED_USER}.
+
+Тема: {CALL_SUBJECT}
+Статус: {CALL_STATUS}
+Дата начала: {CALL_STARTDATE}
+Длительность: {CALL_HOURS}h, {CALL_MINUTES}m
+Описание: {CALL_DESCRIPTION}
+
+Вы можете просмотреть этот звонок:
+<{URL}>
+<!-- END: CallSpecial -->
+
+<!-- BEGIN: Campaign_Subject -->
+Кампания SugarCRM - {CAMPAIGN_NAME}
+<!-- END: Campaign_Subject -->
+<!-- BEGIN: Campaign -->
+{ASSIGNER} назначил кампанию для {ASSIGNED_USER}.
+
+Тема: {CAMPAIGN_NAME}
+Сумма: {CAMPAIGN_AMOUNT}
+Дата закрытия: {CAMPAIGN_CLOSEDATE}
+Статус: {CAMPAIGN_STATUS}
+Описание: {CAMPAIGN_DESCRIPTION}
+
+Вы можете просмотреть эту кампанию:
+<{URL}>
+<!-- END: Campaign -->
+
+<!-- BEGIN: Quota_Subject -->
+Квоты SugarCRM - Ваша квота на {QUOTA_TIMEPERIOD}
+<!-- END: Quota_Subject -->
+<!-- BEGIN: Quota -->
+{ASSIGNER} назначил квоту для {ASSIGNED_USER}.
+
+Сумма: {QUOTA_AMOUNT}
+Промежуток времени: {QUOTA_TIMEPERIOD}
+
+Вы можете просмотреть эту квоту:
+<{QUOTA_URL}>
+<!-- END: Quota -->
+
+<!-- BEGIN: KBDocument_Subject -->
+Документ SugarCRM - {KBDOCUMENT_NAME}
+<!-- END: KBDocument_Subject -->
+<!-- BEGIN: KBDocument -->
+
+{NOTIFICATION_MESSAGE}
+
+Название: {KBDOCUMENT_NAME}
+Дата создания: {KBDOCUMENT_DATE_CREATED}
+Создано: {KBDOCUMENT_CREATED_BY}
+Статус: {KBDOCUMENT_STATUS}
+Описание: {KBDOCUMENT_DESCRIPTION}
+
+Вы можете просмотреть этот документ:
+<{URL}>
+<!-- END: KBDocument -->
+
+<!-- BEGIN: Contract_Subject -->
+Контракт SugarCRM - {CONTRACT_NAME}
+<!-- END: Contract_Subject -->
+<!-- BEGIN: Contract-->
+
+{ASSIGNER} назначил контракт для {ASSIGNED_USER}.
+
+Вы можете просмотреть этот контракт:
+<{URL}>
+<!-- END:Contract-->
+
+<!-- BEGIN: ContractSpecial_Subject -->
+Контракт SugarCRM - {CONTRACT_NAME}
+<!-- END: ContractSpecial_Subject -->
+<!-- BEGIN: ContractSpecial -->
+
+Ваш контракт: {CONTRACT_NAME} будет действителен до {CONTRACT_END_DATE}.
+
+Вы можете просмотреть этот контракт:
+<{URL}>
+<!-- END:ContractSpecial-->
+
+<!-- BEGIN: MeetingReminder_Subject -->
+Напоминание о встрече- {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingReminder -->
+Название: {MEETING_SUBJECT}
+Когда: {MEETING_STARTDATE}
+Место: {MEETING_LOCATION}
+Создано: {MEETING_CREATED_BY}
+<!-- END: MeetingReminder -->
+
+<!-- BEGIN: CallReminder_Subject -->
+Напоминание о звонке - {CALL_SUBJECT}
+<!-- END: CallReminder_Subject -->
+<!-- BEGIN: CallReminder -->
+Название: {CALL_SUBJECT}
+Когда: {CALL_STARTDATE}
+Создано: {CALL_CREATED_BY}
+<!-- END: CallReminder -->
+
+<!-- BEGIN: Note_Subject -->
+Заметка SugarCRM - {NOTE_SUBJECT}
+<!-- END: Note_Subject -->
+<!-- BEGIN: Note -->
+{ASSIGNER} назначил ответственным за заметку {ASSIGNED_USER}.
+
+Тема: {NOTE_SUBJECT}
+Описание: {NOTE_DESCRIPTION}
+
+Вы можете просмотреть эту заметку по:
+<{URL}>
+<!-- END: Note -->

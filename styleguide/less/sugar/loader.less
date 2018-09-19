@@ -1,0 +1,50 @@
+/* LOADER
+  ----------------*/
+
+.loading {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loading i {
+  display: inline-block;
+  font-size: 4px;
+  margin: 0 2px;
+  animation: move 1s infinite linear;
+}
+
+.nav li .loading .fa-circle {
+  width: auto;
+}
+
+.loading .l1 {
+  animation-delay: 0.1s;
+}
+
+.loading .l2 {
+  animation-delay: 0.2s;
+}
+
+.loading .l3 {
+  animation-delay: 0.3s;
+}
+
+@keyframes move {
+  0% { opacity: 1; }
+  100% { opacity: 0.1; }
+}
+
+/* NEW SKIN START */
+
+.loading {
+  /* override */
+  color: @loadingColor;
+}
+
+.loading i {
+  /* override */
+  color: @loadingColor;
+}
+
+/* NEW SKIN END */

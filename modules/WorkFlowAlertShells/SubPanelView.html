@@ -1,0 +1,45 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="7%" >{MOD.LBL_LIST_DETAILS}</td>
+	<td scope="col" width="15%" ><slot>{MOD.LBL_LIST_TYPE}</td>
+	<td scope="col" width="15%" ><slot>&nbsp;</td>
+	<td scope="col" width="60%" ><slot>{MOD.LBL_LIST_STATEMENT}</td>
+	<td scope="col" width="5%" ><slot>&nbsp;</td>
+	<td scope="col" width="5%" ><slot><img src="include/images/blank.gif?v={VERSION_MARK}" widht="1" height="1" alt=""></slot></td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    	<td scope='row' nowrap valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot><a class="listViewTdToolsS1" onclick="toggle_div('{ALERT.ID}')"><span id='span_{ALERT.ID}'><img src='index.php?entryPoint=getImage&themeName={THEME}&imageName=advanced_search.gif' width='8' height='8' alt='Advanced' border='0'>&nbsp;{MOD.LBL_SHOW}</span></a></slot></td>
+    	<td scope='row' valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot>{ALERT.TYPE}</slot></td>
+       	<td scope='row' valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot><a href={ALERT.COMPONENT_HREF_EDIT}>{ALERT.COMPONENT_STATEMENT}</a></slot></td>
+		<td scope='row' valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot>{ALERT.STATEMENT_NOTICE}<a href={ALERT.HREF_EDIT}>{ALERT.STATEMENT}</a></slot></td>
+		<td nowrap align="center" valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot><a href={ALERT.HREF_EDIT} >{EDIT_INLINE_PNG}&nbsp;{APP.LNK_EDIT}</a></td>
+		<td nowrap align="center" valign=TOP><slot><a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_REMOVE_ALERT}')" href="{URL_PREFIX}{ALERT.HREF_DELETE}{RETURN_URL}">{DELETE_INLINE_PNG}&nbsp;{APP.LNK_REMOVE}</a></slot></td>
+
+</tr>
+<span><tr><td colspan="5">{ALERT.DETAILS_TABLE}</td></tr></span>
+<!-- END: row -->
+
+<script type="text/javascript" src="include/workflow/jutils.js?v={VERSION_MARK}"></script>
+<script>
+    function get_popup(workflow_id, id){
+        window.open('index.php?module=WorkFlowActionShells&action=CreateStep2&sugar_body_only=true&workflow_id=' + workflow_id + '&record=' + id + '','new','width=400,height=500,resizable=1,scrollbars=1');
+    }
+</script>
+
+</table>
+<!-- END: main -->

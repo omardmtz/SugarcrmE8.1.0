@@ -1,0 +1,192 @@
+/* Drawer Layout */
+#drawers > .drawer {
+  top: 45px;
+  z-index: 1;
+}
+
+.drawer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  /* backdrop cover */
+  .drawer-backdrop {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: (@zindexFixedNavbar - 2);
+    background-color: @black;
+    border-top: 4px solid lighten(@gray, 20%);
+    opacity: 0.5;
+    .user-select(none);
+  }
+
+  /* expand/collapse tab */
+  .drawer-tab .btn {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    height: 15px;
+    width: 20px;
+    margin-left: -10px;
+    z-index: (@zindexFixedNavbar - 1);
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* set drawer transitions */
+  &.transition {
+    transition: top 300ms;
+
+    .main-pane {
+      top: 0;
+    }
+
+    .headerpane,
+    .preview-headerbar {
+      position: relative;
+      top: 0;
+      width: 100%;
+    }
+  }
+}
+
+/* disables scrolling */
+#content.noscroll {
+  overflow: hidden;
+  z-index: 0;
+}
+
+body.noscroll {
+  overflow: hidden;
+}
+
+.drawer.inactive {
+  overflow: hidden;
+
+  .main-pane {
+    top: 5px;
+  }
+
+  .dashboard {
+    top: 5px;
+    padding-top: 0;
+  }
+
+  .preview-pane {
+    padding-top: 5px;
+  }
+  //FIXME: SC-4915 will improve this.
+  .headerpane,
+  .preview-headerbar,
+  .help-headerbar {
+    position: relative;
+    top: 0;
+    width: 100%;
+
+    .btn-toolbar {
+      visibility: hidden;
+    }
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  .touch {
+    .drawer {
+      &.active {
+        .main-pane > div:not(.dropdown-menu) {
+          display: inline;
+
+          .flex-list-view-content {
+            display: inline;
+          }
+
+          .list-view {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.touch {
+  .drawer {
+    &.active {
+      -webkit-overflow-scrolling: touch;
+
+      &.transition .main-pane {
+        padding-top: 0 !important;
+      }
+    }
+
+    &.inactive {
+      .main-pane {
+        padding-top: 0 !important;
+      }
+
+      .dashboard {
+        padding-top: 0 !important;
+      }
+    }
+  }
+}
+
+.selection-context {
+  padding: 5px 8px;
+  background: #f6f6f6;
+
+  .reset-block {
+    margin-right: 5px;
+  }
+
+  .selected-records {
+    width: 100%;
+  }
+
+  .label-selected-records {
+    padding-left: 1px;
+  }
+
+  .selected-records-container {
+    padding-right: 63px;
+  }
+
+  .max-pills-label,
+  .more-pills-label {
+    padding-top: 2px;
+    padding-left: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .transition {
+    .main-pane.span8,
+    .main-pane.span12 {
+      margin: 0;
+    }
+  }
+
+  .drawer.active {
+    overflow: auto;
+
+    .main-pane {
+      background: @white;
+    }
+  }
+
+  .drawer.inactive {
+    .sidebar-toggle {
+      display: none;
+    }
+
+    .main-pane {
+      margin-top: 0;
+    }
+
+    .preview-pane {
+      position: relative;
+    }
+  }
+}

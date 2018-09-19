@@ -1,0 +1,75 @@
+{
+    "name": "sugarcrm/identity-provider",
+    "version": "1.1.5",
+    "description": "SugarCRM Identity Provider",
+    "type": "project",
+    "license": "proprietary",
+    "homepage": "http://www.sugarcrm.com",
+    "support": {
+        "wiki": "http://support.sugarcrm.com",
+        "forum": "https://community.sugarcrm.com/sugarcrm",
+        "irc": "irc://irc.freenode.org/sugarcrm"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sugarcrm\\IdentityProvider\\App\\": "./src/App/",
+            "Sugarcrm\\IdentityProvider\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sugarcrm\\IdentityProvider\\Tests\\": "tests/",
+            "Sugarcrm\\IdentityProvider\\IntegrationTests\\": "tests/behat/",
+            "Sugarcrm\\IdentityProvider\\IntegrationTests\\Bootstrap\\": "tests/behat/bootstrap/"
+        }
+    },
+    "require": {
+        "php": "^7.1",
+        "silex/silex": "~2.0",
+        "symfony/security-core": "^3.1",
+        "symfony/security-csrf": "^3.1",
+        "symfony/ldap": "^3.1",
+        "symfony/expression-language": "^3.1",
+        "monolog/monolog": "^1.21",
+        "doctrine/dbal": "~2.2",
+        "twig/twig": "^1.24",
+        "symfony/asset": "~2.8|^3.0",
+        "symfony/twig-bridge": "^3.1",
+        "symfony/validator": "^3.1",
+        "symfony/console": "^3.1",
+        "onelogin/php-saml": "2.11.0",
+        "paragonie/random_compat": "^2.0",
+        "etechnika/idna-convert": "1.0.3",
+        "league/oauth2-client": "2.2.1",
+        "spomky-labs/jose": "6.1.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.5",
+        "friendsofphp/php-cs-fixer": "^2.1",
+        "symfony/browser-kit": "^3.2",
+        "symfony/css-selector": "^3.2",
+        "behat/behat": "3.3.0",
+        "behat/mink-extension": "2.2",
+        "behat/mink-goutte-driver": "1.2.1",
+        "behat/mink-selenium2-driver": "1.3.1",
+        "behat/soap-extension": "0.1.1",
+        "doctrine/doctrine-migrations-bundle": "~1.1.1",
+        "guzzlehttp/guzzle": "^6.2",
+        "rezzza/rest-api-behat-extension": "^6.1",
+        "guzzlehttp/psr7": "^1.4",
+        "php-http/curl-client": "^1.7",
+        "ramsey/uuid": "2.9.0"
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/kolotaev/SoapExtension"
+        }
+    ]
+}

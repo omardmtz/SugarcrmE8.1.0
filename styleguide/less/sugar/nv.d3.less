@@ -1,0 +1,874 @@
+/* NVD3
+  ----------------*/
+
+/********************
+ * SVG CSS
+ */
+
+svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* Trying to get SVG to act like a greedy block in all browsers */
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+}
+
+svg text {
+  font: normal @chartTextSize 'Helvetica Neue', Arial, sans-serif;
+  fill: @textColor;
+  stroke: none;
+  cursor: default;
+}
+
+svg .title {
+  font: bold @fontSizeMedium @sansFontFamily;
+}
+
+/********************
+ * General CSS
+ */
+
+/* Chart colors defined in colors.less */
+
+.nv-background {
+  fill: @white;
+}
+
+.nv-chart-background {
+  fill: transparent;
+  stroke-width: 0.5px;
+  stroke: @grayLight;
+}
+
+.nv-chart-texture {
+  background: url(@textureTertiary);
+}
+
+.nv-image-canvas {
+  visibility: hidden;
+  position: absolute;
+  left: -10000px;
+}
+
+.nv-chart-print {
+  visibility: hidden;
+  position: absolute !important;
+  left: -10000px;
+  width: 720px;
+  height: 480px;
+
+  svg text {
+    font-size: 15px;
+  }
+
+  .nv-y.nv-axis text,
+  .nv-x.nv-axis text {
+    font-size: @fontSizeMedium;
+  }
+
+  text.nv-title {
+    font-size: @fontSizeLarge;
+  }
+
+  .nv-legend text {
+    font-size: @fontSizeMedium;
+  }
+}
+
+.nv-chart {
+  height: 400px;
+  min-width: 300px;
+  min-height: 100px;
+  overflow: hidden;
+  position: relative;
+
+  /*
+    Minimum height and width is a good idea to prevent negative SVG dimensions...
+    For example width should be =< margin.left + margin.right + 1,
+    of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+  */
+  svg {
+    max-height: none;
+  }
+}
+
+.nv-noData {
+  font-size: @fontSizeLarge;
+  font-weight: bold;
+}
+
+.nv-title {
+  font-size: @fontSizeMedium;
+}
+
+.nv-labels text {
+  font-weight: bold;
+  fill: #666;
+}
+
+.nv-label-value text,
+text.nv-label-value {
+  font-size: @fontSizeMedium;
+}
+
+.nv-label-box {
+  fill: transparent;
+}
+
+.nvtooltip {
+  pointer-events: none;
+}
+
+.nvtooltip-pending-removal {
+  position: absolute;
+  pointer-events: none;
+}
+
+/**********
+*  Brush
+*/
+
+.nv-brush .extent {
+  fill-opacity: 0.125;
+  shape-rendering: crispEdges;
+}
+
+.nv-brush .resize path {
+  fill: #eee;
+  stroke: #666;
+}
+
+.nv-brush .extent {
+  fill-opacity: 0 !important;
+}
+
+.nv-brushBackground rect {
+  stroke: @black;
+  stroke-width: 0.4;
+  fill: @white;
+  fill-opacity: 0.7;
+}
+
+/**********
+*  Legend
+*/
+
+.nv-legend .nv-series {
+  cursor: pointer;
+  font-size: @chartTextSize;
+
+  line {
+    fill: none;
+  }
+
+  text {
+    cursor: pointer;
+  }
+}
+
+.nv-legend .disabled circle {
+  fill: #fff;
+}
+
+.nv-legend-background {
+  fill: rgba(255, 255, 255, 0.9);
+  stroke: rgba(161, 160, 160, 0.75);
+  stroke-width: 1px;
+}
+
+.nv-legend-link {
+  cursor: pointer;
+  fill: @linkColor;
+
+  &:hover {
+    fill: @linkColorHover;
+    text-decoration: underline;
+  }
+}
+
+.nv-lineLegend .nv-series {
+  cursor: default;
+
+  text {
+    cursor: default;
+  }
+}
+
+/**********
+*  Axes
+*/
+
+.nv-axis path,
+.nv-axis line,
+.nv-axis polyline {
+  fill: none;
+  stroke: @chartTickColor;
+  stroke-width: @chartTickWidth;
+  shape-rendering: crispEdges;
+  pointer-events: none;
+}
+
+.nv-axis line,
+.nv-axis polyline {
+  stroke-opacity: 0.3;
+}
+
+.nv-axis path,
+.nv-axis line.zero {
+  stroke-opacity: 0.75;
+}
+
+.nv-axis path.domain {
+  stroke-width: 2px;
+  stroke: #bbb;
+}
+
+.nv-axis .nv-axisMaxMin text {
+  font-weight: bold;
+}
+// .nv-axis .nv-axisMaxMin line {
+//   stroke-opacity: .75;
+// }
+.nv-x.nv-axis text {
+  font-size: @chartTextSize;
+}
+
+.nv-axislabel {
+  font-weight: 900;
+  font-style: italic;
+}
+
+/**********
+*  MultiBars
+*/
+
+.nv-multibar {
+  .nv-group rect {
+    stroke-opacity: 1;
+    stroke-width: 2px;
+    stroke: @white;
+  }
+
+  .nv-group.hover rect {
+    fill-opacity: 0.75;
+  }
+}
+
+/**********
+*  Texture
+*/
+
+.nv-texture {
+  fill-opacity: 0 !important;
+  pointer-events: none;
+}
+
+.texture-line {
+  stroke-width: 1px;
+}
+
+.nv-active {
+  .nv-texture {
+    fill-opacity: 1 !important;
+  }
+
+  .nv-label-box {
+    fill: inherit;
+  }
+}
+
+.nv-inactive {
+  .nv-texture {
+    fill-opacity: 0 !important;
+  }
+}
+
+.calc-text-strings,
+.nv-multibar .nv-groups text {
+  fill: rgba(0, 0, 0, 1);
+  stroke: rgba(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+/***********
+*  Pie Chart
+*/
+
+.nv-pie .nv-slice.hover path {
+  fill-opacity: 0.75;
+}
+
+.nv-holeWrap text {
+  text-anchor: middle;
+}
+
+text.nv-pie-hole-value {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+text.nv-pie-hole-label {
+  font-size: 11px;
+}
+
+/**********
+* Lines
+*/
+
+.nv-groups path.nv-line {
+  fill: none;
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  shape-rendering: geometricPrecision;
+}
+
+.nv-groups path.nv-area {
+  stroke: none;
+  stroke-linecap: round;
+  shape-rendering: geometricPrecision;
+}
+
+.nv-line.hover path {
+  stroke-width: 6px;
+}
+
+.nv-line .nv-scatter .nv-groups .nv-point {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+  stroke: #fff;
+}
+
+.nv-scatter.nv-single-point .nv-groups .nv-point {
+  stroke-width: 2px;
+}
+
+.nv-scatter .nv-groups .nv-point.hover,
+.nv-groups .nv-point.hover {
+  stroke-width: 16px;
+  stroke-opacity: 0.5 !important;
+  stroke: inherit;
+}
+
+.nv-point-paths path {
+  stroke: transparent;
+  stroke-opacity: 0;
+  fill: transparent;
+  fill-opacity: 0;
+}
+
+.nv-indexLine {
+  cursor: ew-resize;
+}
+
+/**********
+* Distribution
+*/
+
+.nv-distribution {
+  pointer-events: none;
+}
+
+/**********
+*  Scatter
+*/
+
+.nv-groups .nv-point {
+  pointer-events: none;
+}
+
+.nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  stroke-opacity: 0.5;
+}
+
+.nv-scatter .nv-point.hover {
+  fill-opacity: 1;
+}
+
+/**********
+*  Stacked Area
+*/
+
+.nv-stackedarea path.nv-area {
+  fill-opacity: 0.7;
+  stroke-opacity: 0;
+}
+
+.nv-stackedarea path.nv-area.hover {
+  fill-opacity: 0.9;
+}
+
+.nv-stackedarea .nv-groups .nv-point {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+
+.nv-stackedarea .nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  stroke-opacity: 0.75;
+  fill-opacity: 1;
+}
+
+/**********
+*  Line Plus Bar
+*/
+
+.nv-linePlusBar .nv-bar rect {
+  fill-opacity: 0.75;
+}
+
+.nv-linePlusBar .nv-bar rect:hover {
+  fill-opacity: 1;
+}
+
+/**********
+* Sparkline plus
+*/
+
+.nv-sparklineplus .nv-hoverValue line {
+  stroke: #f44;
+  stroke-width: 1.5px;
+}
+
+.nv-sparklineplus,
+.nv-sparklineplus g {
+  pointer-events: all;
+}
+
+.nv-hoverArea {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+.nv-sparklineplus .nv-xValue,
+.nv-sparklineplus .nv-yValue {
+  stroke: #666;
+  font-size: 0.5em;
+  font-weight: normal;
+}
+
+.nv-sparklineplus .nv-yValue {
+  stroke: #f66;
+}
+
+/**********
+* Guage
+*/
+
+.nv-odomText {
+  font-weight: bold;
+  fill: @black;
+}
+
+.nv-arc-group {
+  fill: steelblue;
+}
+
+.nv-pointer {
+  fill: #888;
+  stroke: @white;
+}
+
+/**********
+* Funnel
+*/
+
+.nv-funnelChart {
+  .nv-slice.hover polygon {
+    fill-opacity: 0.75;
+  }
+
+  .nv-y path {
+    stroke: none;
+  }
+
+  .nv-label-value {
+    text.nv-label {
+      font-size: @fontSizeSmall;
+    }
+
+    text.nv-value {
+      font-size: @fontSizeMedium;
+    }
+  }
+}
+
+/**********
+* Bubble
+*/
+
+.nv-bubbleChart .nv-scatter.nv-single-point .nv-groups .nv-point {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+
+/**********
+* Pareto
+*/
+
+.nv-multiBarWithLegend .nv-line .nv-scatter .nv-groups .nv-point {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+
+.nv-pareto {
+  .nv-quotaWrap line {
+    opacity: 0.8;
+    stroke: #444;
+    stroke-width: 4px;
+    fill: none;
+
+    /*stroke-dasharray: '20, 5'; dashed lines must be defined in JS*/
+  }
+
+  .nv-quotaWrap line.nv-quotaLineTarget {
+    stroke: #777;
+  }
+
+  .nv-quotaWrap line.nv-quotaLineBackground {
+    opacity: 0;
+    stroke-width: 12px;
+  }
+
+  .nv-y.nv-axis .domain {
+    display: none;
+  }
+
+  .nv-y.nv-axis text.nv-quotaValue,
+  .nv-y.nv-axis text.nv-targetQuotaValue {
+    font-weight: bold;
+  }
+
+  .nv-line .nv-groups path {
+    stroke-width: 4px;
+  }
+
+  .nv-linesWrap1 .nv-line .nv-groups path {
+    stroke-width: 6px;
+  }
+
+  .nv-linesWrap2 .nv-scatter .nv-groups circle {
+    stroke: @white;
+  }
+}
+
+/**********
+* Treemap
+*/
+
+.nv-treemap svg {
+  background-color: @white;
+
+  text {
+    pointer-events: none;
+    fill: @white;
+  }
+
+  .nv-depth text {
+    fill: @white;
+  }
+
+  .nv-grandparent text {
+    font-weight: bold;
+    fill: @gray;
+  }
+
+  rect {
+    //fill: none;
+    stroke: @white;
+  }
+
+  .nv-children.hover .nv-parent {
+    fill: @white;
+    opacity: 0.3;
+  }
+
+  .nv-parent,
+  .nv-grandparent rect {
+    stroke-width: 3px;
+  }
+
+  .nv-child {
+    stroke-width: 1px;
+  }
+
+  .nv-parent {
+    fill: none;
+    font-weight: normal;
+  }
+
+  .nv-grandparent rect {
+    fill: @white;
+  }
+
+  .nv-children .nv-parent,
+  .nv-grandparent rect {
+    cursor: pointer;
+  }
+
+  .nv-parent {
+    pointer-events: all;
+  }
+}
+
+/**********
+* Dendrogram
+*/
+
+.nv-card {
+  fill: #e9efef;
+  stroke: #aaa;
+  stroke-width: 0.5px;
+
+  .nv-circ-front {
+    stroke-width: 0;
+  }
+
+  line {
+    stroke-width: 2;
+  }
+
+  .nv-expcoll {
+    cursor: pointer;
+  }
+}
+
+.nv-tree {
+  path.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+}
+
+/**********
+* Globe
+*/
+
+/*.nv-chart-globe {
+  svg {
+    pointer-events: all;
+  }
+  .globe {
+    fill: #6699cc;
+    fill-opacity: .5;
+  }
+  .sphere {
+    fill: #dbe4f0;
+  }
+  .graticule {
+    fill: none;
+    stroke: #777;
+    stroke-width: .5px;
+    stroke-opacity: .5;
+  }
+  .countries path {
+    fill: #AAA;
+    stroke: @white;
+  }
+  .states path {
+    fill: #CCC;
+    stroke: @white;
+  }
+}*/
+
+/***********
+* Colors
+*/
+
+.nv-fill-green {
+  fill: @green;
+  background-color: @green;
+}
+
+.nv-fill-red {
+  fill: @red;
+  background-color: @red;
+}
+
+.nv-fill-blue {
+  fill: @blue;
+  background-color: @blue;
+}
+
+@media all and (monochrome) {
+  @fill00: darken(@gray, 30%);
+  @fill01: lighten(@gray, 30%);
+  @fill02: darken(@gray, 15%);
+  @fill03: lighten(@gray, 35%);
+  @fill04: darken(@gray, 10%);
+  @fill05: lighten(@gray, 40%);
+  @fill06: darken(@gray, 05%);
+  @fill07: lighten(@gray, 45%);
+  @fill08: darken(@gray, 0%);
+  @fill09: lighten(@gray, 48%);
+  @fill10: lighten(@gray, 5%);
+  @fill11: lighten(@gray, 51%);
+  @fill12: lighten(@gray, 10%);
+  @fill13: lighten(@gray, 54%);
+}
+
+.nv-fill00 {
+  fill: @fill00;
+  background-color: @fill00;
+}
+
+.nv-fill01 {
+  fill: @fill01;
+  background-color: @fill01;
+}
+
+.nv-fill02 {
+  fill: @fill02;
+  background-color: @fill02;
+}
+
+.nv-fill03 {
+  fill: @fill03;
+  background-color: @fill03;
+}
+
+.nv-fill04 {
+  fill: @fill04;
+  background-color: @fill04;
+}
+
+.nv-fill05 {
+  fill: @fill05;
+  background-color: @fill05;
+}
+
+.nv-fill06 {
+  fill: @fill06;
+  background-color: @fill06;
+}
+
+.nv-fill07 {
+  fill: @fill07;
+  background-color: @fill07;
+}
+
+.nv-fill08 {
+  fill: @fill08;
+  background-color: @fill08;
+}
+
+.nv-fill09 {
+  fill: @fill09;
+  background-color: @fill09;
+}
+
+.nv-fill10 {
+  fill: @fill10;
+  background-color: @fill10;
+}
+
+.nv-fill11 {
+  fill: @fill11;
+  background-color: @fill11;
+}
+
+.nv-fill12 {
+  fill: @fill12;
+  background-color: @fill12;
+}
+
+.nv-fill13 {
+  fill: @fill13;
+  background-color: @fill13;
+}
+
+.nv-legend {
+  .nv-fill00 { stroke: @fill00; }
+  .nv-fill01 { stroke: @fill01; }
+  .nv-fill02 { stroke: @fill02; }
+  .nv-fill03 { stroke: @fill03; }
+  .nv-fill04 { stroke: @fill04; }
+  .nv-fill05 { stroke: @fill05; }
+  .nv-fill06 { stroke: @fill06; }
+  .nv-fill07 { stroke: @fill07; }
+  .nv-fill08 { stroke: @fill08; }
+  .nv-fill09 { stroke: @fill09; }
+  .nv-fill10 { stroke: @fill10; }
+  .nv-fill11 { stroke: @fill11; }
+  .nv-fill12 { stroke: @fill12; }
+  .nv-fill13 { stroke: @fill13; }
+}
+
+.nv-stroke00 {
+  stroke: @stroke00;
+  color: @stroke00;
+}
+
+.nv-stroke01 {
+  stroke: @stroke01;
+  color: @stroke01;
+}
+
+.nv-stroke02 {
+  stroke: @stroke02;
+  color: @stroke02;
+}
+
+.nv-stroke03 {
+  stroke: @stroke03;
+  color: @stroke03;
+}
+
+.nv-stroke04 {
+  stroke: @stroke04;
+  color: @stroke04;
+}
+
+.nv-stroke05 {
+  stroke: @stroke05;
+  color: @stroke05;
+}
+
+.nv-stroke06 {
+  stroke: @stroke06;
+  color: @stroke06;
+}
+
+.nv-stroke07 {
+  stroke: @stroke07;
+  color: @stroke07;
+}
+
+.nv-stroke08 {
+  stroke: @stroke08;
+  color: @stroke08;
+}
+
+.nv-stroke09 {
+  stroke: @stroke09;
+  color: @stroke09;
+}
+
+.nv-stroke10 {
+  stroke: @stroke10;
+  color: @stroke10;
+}
+
+.nv-stroke11 {
+  stroke: @stroke11;
+  color: @stroke11;
+}
+
+.nv-stroke12 {
+  stroke: @stroke12;
+  color: @stroke12;
+}
+
+.nv-stroke13 {
+  stroke: @stroke13;
+  color: @stroke13;
+}

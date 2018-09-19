@@ -1,0 +1,35 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="25%" >{MOD.LBL_LIST_NAME}</td>
+	<td scope="col" width="15%" >{MOD.LBL_LIST_USER_NAME}</td>
+	<td scope="col" width="25%" >{MOD.LBL_LIST_TITLE}</td>
+	<td colspan="2" scope="col" width="35%" >{MOD.LBL_LIST_DEPARTMENT}</td>
+	</tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope="row" valign=TOP><a href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.ID}"  >{USER.FIRST_NAME} {USER.LAST_NAME}</a></td>
+		<td scope="row" valign=TOP><a href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.ID}"  >{USER.USER_NAME}</a></td>
+		<td scope="row" valign=TOP><a href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.ID}"  >{USER.TITLE}</a></td>
+		<td scope="row" valign=TOP><a href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.ID}"  >{USER.DEPARTMENT}</a></td>
+    	<td nowrap align="right" valign=TOP><a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Users&record={USER.ID}{RETURN_URL}">{EDIT_INLINE_PNG}</a>&nbsp;<a  class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Users&record={USER.ID}{RETURN_URL}">{APP.LNK_EDIT}</a> &nbsp; <a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=DeleteUserRelationship&module=Roles&record={ROLE_RECORD}&user_id={USER.ID}{RETURN_URL}">{REMOVE_INLINE_PNG}</a>&nbsp;<a  class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=DeleteUserRelationship&module=Roles&record={ROLE_RECORD}&user_id={USER.ID}{RETURN_URL}">{APP.LNK_REMOVE}</a></td>
+</tr>
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

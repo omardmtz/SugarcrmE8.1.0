@@ -1,0 +1,355 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<section id="datepicker">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span3 columns">
+      <h3>About</h3>
+      <p>Add a time/date picker UI to a field or to any other element using bootstrap-datepicker.js and jquery.timepicker.js.</p>
+      <ul>
+        <li>Datepicker</li>
+        <ul>
+          <li>can be used as a component</li>
+          <li>formats: dd, d, mm, m, yyyy, yy</li>
+          <li>separators: -, /, .</li>
+        </ul>
+        <li>Timepicker</li>
+        <ul>
+          <li>formats: uses <a href="http://php.net/manual/en/function.date.php" target="_blank">PHP date formatting</a>
+          <li>separators: :, ., -</li>
+        </ul>
+      </ul>
+      <p>The bootstrap-datepicker.js [<a href="http://www.eyecon.ro/bootstrap-datepicker/" target="_blank"><i class="fa fa-book"></i> Datepicker Docs</a>] and jquery.timepicker.js [<a href="http://jonthornton.github.com/jquery-timepicker/" target="_blank"><i class="fa fa-book"></i> Timepicker Docs</a>] plugins are included in the default build of SugarCRM.</p>
+    </div>
+
+    <div class="span9 columns">
+      <h2>Sugar7 Examples</h2>
+
+      <p>Date field rendered with default values in edit mode.</p>
+      <div class="well" id="sugar7_date">
+      </div>
+      <p>Datetimecombo field rendered with default values in edit mode.</p>
+      <div class="well" id="sugar7_datetimecombo">
+      </div>
+
+      <p>View the <a href="#Styleguide/field/date">date test page</a> for all rendering modes.</p>
+
+      <h2>Static Examples</h2>
+
+      <p>Attached to a field with default formatting.</p>
+      <div class="well">
+        <input type="text" class="span2" value="" placeholder="mm-dd-yyyy" id="dp1" rel="datepicker">
+        <input type="text" class="span2" placeholder="hh:mm" id="tp1" rel="timepicker">
+      </div>
+      <pre class="prettyprint">
+&lt;input type="text" class="span2" value="" placeholder="mm-dd-yyyy" id="dp1" rel="datepicker"&gt;
+&lt;input type="text" class="span2" placeholder="hh:mm" id="tp1" rel="timepicker"&gt;
+
+$('#dp1').datepicker();
+$('#tp1').timepicker();</pre>
+
+      <p>Attached to a field with custom formatting - date and time format specified in options.</p>
+      <div class="well">
+        <input type="text" class="span2" value="" placeholder="mm-dd-yyyy" data-date-format="mm/dd/yy" id="dp2" rel="datepicker">
+        <input type="text" class="span2" placeholder="hh.mm.ss" id="tp2" rel="timepicker">
+      </div>
+      <pre class="prettyprint">
+&lt;input type="text" class="span2" value="" placeholder="mm-dd-yyyy" data-date-format="mm/dd/yy" id="dp2" rel="datepicker"&gt;
+&lt;input type="text" class="span2" placeholder="hh.mm.ss" id="tp2" rel="timepicker"&gt;
+
+$('#dp2').datepicker({format: 'mm-dd-yyyy'});
+$('#tp2').timepicker({timeFormat:'H.i.s'});</pre>
+
+      <p>Date picker as component - format specified via data tag .</p>
+      <div class="well">
+        <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="mm-dd-yyyy" rel="datepicker">
+          <input class="span2" size="16" type="text" value="" placeholder="mm-dd-yyyy">
+          <span class="add-on"><i class="fa fa-calendar"></i></span>
+        </div>
+      </div>
+      <pre class="prettyprint">
+&lt;div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="mm-dd-yyyy" rel="datepicker"&gt;
+  &lt;input class="span2" size="16" type="text" value="" placeholder="mm-dd-yyyy"&gt;
+  &lt;span class="add-on"&gt;&lt;i class="fa fa-calendar">&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+$('#dp3').datepicker();</pre>
+
+      <p>Date picker attached to other element then field and using events to work with the date values.</p>
+      <div class="well">
+        <div class="alert alert-error hide" id="alert">
+          <strong>Oh snap!</strong>
+        </div>
+        <div class="row-fluid">
+          <div class="span6"><b>Start date: </b><span id="startDate">2012-02-20</span></div>
+          <div class="span6"><b>End date: </b><span id="endDate">2012-02-25</span></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span6" style="position:relative"><a class="btn small" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a></div>
+          <div class="span6" style="position:relative"><a class="btn small" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a></div>
+        </div>
+      </div>
+      <pre class="prettyprint">
+var startDate = new Date(2012,1,20);
+var endDate = new Date(2012,1,25);
+
+$('#dp4').datepicker()
+  .on('changeDate', function(ev){
+    if (ev.date.valueOf() &gt; endDate.valueOf()){
+      $('#alert').show().find('strong').text('The start date can not be greater then the end date');
+    } else {
+      $('#alert').hide();
+      startDate = new Date(ev.date);
+      $('#startDate').text($('#dp4').data('date'));
+    }
+    $('#dp4').datepicker('hide');
+  });
+
+$('#dp5').datepicker()
+  .on('changeDate', function(ev){
+    if (ev.date.valueOf() &lt; startDate.valueOf()){
+      $('#alert').show().find('strong').text('The end date can not be less then the start date');
+    } else {
+      $('#alert').hide();
+      endDate = new Date(ev.date);
+      $('#endDate').text($('#dp5').data('date'));
+    }
+    $('#dp5').datepicker('hide');
+  });</pre>
+
+      <p>Time picker focused on current time.</p>
+      <div class="well">
+        <input type="text" class="span2" placeholder="hh:mm" id="tp3" rel="timepicker">
+      </div>
+      <pre class="prettyprint">
+&lt;input type="text" class="span2" placeholder="hh:mm" id="tp3" rel="timepicker"&gt;
+
+$('#tp3').timepicker({'scrollDefaultNow': true});</pre>
+
+      <p>Time picker with a button triggering current time.</p>
+      <div class="well">
+        <input id="tp4" type="text" class="span2" autocomplete="off">
+        <button id="tp4_button" class="btn">Set current time</button>
+      </div>
+      <pre class="prettyprint">
+&lt;input id="tp4" type="text" class="span2" autocomplete="off"&gt;
+&lt;button id="tp4_button" class="btn" style="margin-bottom:9px"&gt;Set current time&lt;/button&gt;
+
+$('#tp4').timepicker();
+$('#tp4_button').on('click', function (){
+  $('#tp4').timepicker('setTime', new Date());
+});</pre>
+
+      <p>Time picker with custom start/end point and duration</p>
+      <div class="well">
+        <input id="tp5" type="text" class="span2" autocomplete="off">
+      </div>
+      <pre class="prettyprint">
+&lt;input id="tp5" type="text" class="span2" autocomplete="off"&gt;
+
+$('#tp5').timepicker({
+  'minTime': '2:00pm',
+  'maxTime': '6:00pm',
+  'showDuration': true
+});</pre>
+
+      <p>Time picker showing trigger an event after time selected</p>
+      <div class="well">
+<input id="tp6" type="text" class="span2" autocomplete="off">
+<span id="tp6_legend"></span>
+      </div>
+      <pre class="prettyprint">
+&lt;input id="tp6" type="text" class="span2" autocomplete="off"&gt;
+&lt;span id="tp6_legend"&gt;&lt;/span&gt;
+
+$('#tp6').timepicker();
+$('#tp6').on('changeTime', function() {
+  $('#tp6_legend').text('You selected: ' + $(this).val());
+});</pre>
+
+      <p>Time picker customizing time steps</p>
+      <div class="well">
+        <input id="tp7" type="text" class="span2" autocomplete="off">
+      </div>
+      <pre class="prettyprint">
+&lt;input id="tp7" type="text" class="span2" autocomplete="off"&gt;
+
+$('#tp7').timepicker({ 'step': 5 });</pre>
+
+    </div>
+  </div>
+
+  <h2>Usage</h2>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>Datepicker markup</h3>
+      <p>Format a component.</p>
+      <pre class="prettyprint linenums">
+&lt;div class=&quot;input-append date&quot; id=&quot;dp3&quot; data-date=&quot;12-02-2012&quot; data-date-format=&quot;dd-mm-yyyy&quot; rel=&quot; datepicker&quot;&gt;
+&lt;input class=&quot;span2&quot; size=&quot;16&quot; type=&quot;text&quot; value=&quot;12-02-2012&quot;&gt;
+&lt;span class=&quot;add-on&quot;&gt;&lt;i class=&quot;fa fa-th&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+    </div>
+    <div class="span6">
+      <h3>Timepicker markup</h3>
+      <p>Format a component.</p>
+      <pre class="prettyprint linenums">
+&lt;input type=&quot;text&quot; class=&quot;span2&quot; placeholder=&quot;hh:mm&quot; id=&quot;tp1&quot; rel=&quot;timepicker&quot;&gt;</pre>
+    </div>
+  </div>
+
+
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>Methods</h3>
+      <p>Initializes a datepicker.</p>
+      <pre class="prettyprint linenums">$('[rel=datepicker]').datepicker(options)</pre>
+    </div>
+    <div class="span6">
+      <h3>Methods</h3>
+      <p>Initializes a timepicker.</p>
+      <pre class="prettyprint linenums">$('[rel=timepicker]').timepicker(options)</pre>
+    </div>
+  </div>
+
+
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>Events</h3>
+      <p>Datepicker class exposes a few events for manipulating the dates.</p>
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th style="width: 150px;">Event</th>
+           <th>Description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>show</td>
+           <td>This event fires immediately when the date picker is displayed.</td>
+         </tr>
+         <tr>
+           <td>hide</td>
+           <td>This event is fired immediately when the date picker is hidden.</td>
+         </tr>
+         <tr>
+           <td>changeDate</td>
+           <td>This event is fired when the date is changed.</td>
+         </tr>
+        </tbody>
+      </table>
+      <pre class="prettyprint linenums">
+$(&#039;#dpX&#039;).datepicker()
+  .on(&#039;changeDate&#039;, function(ev){
+    if (ev.date.valueOf() &lt; startDate.valueOf()){
+      ....
+    }
+  });</pre>
+      <h3>Options</h3>
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th style="width: 100px;">Name</th>
+           <th style="width: 50px;">type</th>
+           <th style="width: 100px;">default</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+           <td>format</td>
+           <td>string</td>
+           <td>'mm/dd/yyyy'</td>
+           <td>the date format, combination of  d, dd, m, mm, yy, yyy.</td>
+         </tr>
+          <tr>
+           <td>weekStart</td>
+           <td>integer</td>
+           <td>0</td>
+           <td>day of the week start. 0 for Sunday -  6 for Saturday</td>
+         </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="span6">
+      <h3>Events</h3>
+      <p>Timepicker class exposes a singel events for manipulating the times.</p>
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th style="width: 150px;">Event</th>
+           <th>Description</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>changeTime</td>
+           <td>Trigger an event after selecting a value.</td>
+         </tr>
+        </tbody>
+      </table>
+      <pre class="prettyprint linenums">
+$(&#039;#tpX&#039;).on(&#039;changeTime&#039;, function() {
+  $(&#039;#timeDisplay&#039;).text($(this).val());
+});</pre>
+      <h3>Options</h3>
+      <table class="table table-bordered table-striped">
+        <thead>
+         <tr>
+           <th style="width: 50px;">name</th>
+           <th style="width: 100px;">value</th>
+           <th>description</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>timeFormat</td>
+            <td>'H:i:s'</td>
+            <td>Set scroll position to local time (<a href="http://php.net/manual/en/function.date.php" target="_blank">PHP formatting</a>)</td>
+          </tr>
+          <tr>
+            <td>scrollDefaultNow</td>
+            <td>true</td>
+            <td>Set scroll position to local time</td>
+          </tr>
+          <tr>
+            <td>minTime</td>
+            <td>'2:30pm'</td>
+            <td>Set starting time</td>
+          </tr>
+          <tr>
+            <td>maxTime</td>
+            <td>'11:30pm'</td>
+            <td>Set end time</td>
+          </tr>
+          <tr>
+            <td>showDuration</td>
+            <td>true</td>
+            <td>Show duration between time intervals</td>
+          </tr>
+          <tr>
+            <td>step</td>
+            <td>15</td>
+            <td>Set length of time</td>
+         </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>

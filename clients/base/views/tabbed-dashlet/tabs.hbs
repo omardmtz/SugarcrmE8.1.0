@@ -1,0 +1,30 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="dashlet-tabs-row">
+    {{#each this.tabs}}
+        <div class="dashlet-tab{{#eq ../settings.attributes.activeTab @index}} active{{/eq}}">
+            <a data-toggle="tab" data-action="tab-switcher" data-index="{{@index}}">
+                <span class="count" data-action="count">{{#if collection.dataFetched}}{{../collection.length}}{{#notEq ../collection.next_offset "-1"}}+{{/notEq}}{{else}}-{{/if}}</span>
+                {{#if label}}
+                    {{str label module}}
+                {{else}}
+                    {{#eq collection.length "1"}}
+                        {{#if labels.singular}}{{str labels.singular module}}{{else}}{{getModuleName module}}{{/if}}
+                    {{else}}
+                        {{#if labels.plural}}{{str labels.plural module}}{{else}}{{getModuleName module plural=true}}{{/if}}
+                    {{/eq}}
+                {{/if}}
+            </a>
+        </div>
+    {{/each}}
+</div>

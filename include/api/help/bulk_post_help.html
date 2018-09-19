@@ -1,0 +1,239 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Run API calls in bulk.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This request will run a sequence of API requests within one query. The requests are executed sequentially and their results
+    are returned as one response. Some requests may return failure code, that does not interrupt the execution of the batch, 
+    and the overall request will still be considered successful. 
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            requests
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The list of requests
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<span class="lead">
+Each of the requests can have the following fields:
+</span>
+<br>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            url
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The request URL, starting with version.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            data
+        </td>
+        <td>
+            JSON String
+        </td>
+        <td>
+            The data for the POST/PUT body. Must be a JSON-encoded string.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            headers
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The request headers
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            method
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The HTTP method (default is GET)
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request Example</h3>
+<pre class="pre-scrollable">
+{"requests":
+[
+  {
+    "url": "/v10/Accounts", "method": "POST", "data": "{\"name\": \"test123\"}"
+  },
+  {
+    "url": "/v10/Accounts", "method": "GET"
+  }
+]
+}
+</pre>
+
+
+<h2>Response</h2>
+<span class="lead">
+The response will contain an array of response objects, each of them will correspond to the individual request. The following fields are in the response objects:
+</span>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            contents
+        </td>
+        <td>
+            Array or String
+        </td>
+        <td>
+            The response contents, can be JSON object or string depending on what the individual request is supposed to return. 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            headers
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The response headers 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            status
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            HTTP status code of the response. Will be 2XX for successful requests and 4XX or 5XX for errors. 
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response Example</h3>
+<pre class="pre-scrollable">
+[
+    {
+        "contents": {
+            "my_favorite": false,
+            "following": true,
+            "id": "7d2e21a6-8a76-a74f-bb53-535620211304",
+            "name": "test123",
+            "date_entered": "2014-04-22T03:56:24-04:00",
+            "_module": "Accounts"
+        },
+        "headers": [],
+        "status": 200
+    },
+    {
+        "contents": {
+            "next_offset": -1,
+            "records": [
+                {
+                    "my_favorite": false,
+                    "following": true,
+                    "id": "7d2e21a6-8a76-a74f-bb53-535620211304",
+                    "name": "test123",
+                    "date_entered": "2014-04-22T03:56:24-04:00",
+                    "date_modified": "2014-04-22T03:56:24-04:00",
+				}
+            ]
+        },
+        "headers": [],
+        "status": null
+    }
+]</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/bulk</code> POST endpoint.
+        </td>
+    </tr>
+</table>

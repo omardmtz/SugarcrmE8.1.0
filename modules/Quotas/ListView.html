@@ -1,0 +1,39 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{CURRENT_USER_QUOTA}
+{PAGINATION}
+<!-- END: list_nav_row -->
+	<tr height="20">
+	<td scope="col" width="25%" ><slot><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_DIRECT_REPORT}{arrow_start}{name_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="25%" ><slot><a href="{ORDER_BY}amount" class="listViewThLinkS1">{MOD.LBL_QUOTA_AMOUNT}{arrow_start}{amount_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="25%" ><slot><a href="{ORDER_BY}date_modified" class="listViewThLinkS1">{MOD.LBL_LAST_MODIFIED}{arrow_start}{date_modified_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="25%" ><slot><a href="{ORDER_BY}committed" class="listViewThLinkS1">{MOD.LBL_COMMIT_STATUS}{arrow_start}{committed_arrow}{arrow_end}</a></slot></td>				
+	 </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+	<td scope="row" valign=TOP ><slot><a href="{URL_PREFIX}index.php?edit=true&action=index&module=Quotas&record={QUOTA.ID}&user_id={QUOTA.USER_ID}&timeperiod_id={QUOTA.TIMEPERIOD_ID}" >{QUOTA.USER_FULL_NAME}</a></slot></td>
+	<td valign=TOP ><slot>{QUOTA.AMOUNT}</slot></td>
+	<td valign=TOP ><slot>{QUOTA.DATE_MODIFIED}</slot></td>
+	<td valign=TOP ><slot><input type="checkbox" {QUOTA.COMMITTED_FLAG} disabled /></slot></td>		
+</tr>
+<!-- END: row -->
+{GROUP_QUOTA}
+<!--{PAGINATION}-->
+</table>
+{NOQUOTA}
+{JAVASCRIPT2}
+<!-- END: main -->

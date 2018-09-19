@@ -1,0 +1,45 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">Retrieves info about launching an external meeting</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to retrieve info about launching an external meeting. This includes whether the current user
+    has permission to host and/or join the meeting along with the host/join URLs.
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td colspan="3">This endpoint does not accept any parameters.</td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        {
+            "is_host_option_allowed": false,
+            "host_url": "",
+            "is_join_option_allowed": true,
+            "join_url": "//link.to/external/meeting"
+        }
+    </code>
+</div>

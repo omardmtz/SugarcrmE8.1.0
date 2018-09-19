@@ -1,0 +1,43 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+                <input type="hidden" name="module" value="WorkFlow">
+                <input type="hidden" name="record" value="">
+                <input type="hidden" name="action" value="WorkFlowEditView">
+                <input type="hidden" name="return_module" value="WorkFlow">
+                <input type="hidden" name="return_id" value="">
+                <input type="hidden" name="return_action" value="WorkFlowListView">
+    </tr>
+    </table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td scope="row" noWrap><slot>{MOD.LBL_CREATE_ALERT_TEMPLATE}&nbsp;&nbsp;</slot>
+		<select id='base_module' name='base_module' tabindex='2'>{BASE_MODULE}</select>
+		<input title="{APP.LBL_NEW_BUTTON_TITLE}" class="button" type="submit" name="button" value="{APP.LBL_NEW_BUTTON_LABEL}"/>
+		</td>
+		<td scope="row" noWrap><slot>&nbsp;</slot>&nbsp;&nbsp;<slot>&nbsp;</slot></td>
+		<td scope="row" noWrap><slot>&nbsp;</slot>&nbsp;&nbsp;<slot>&nbsp;</slot></td>
+		<td rowspan='2' align="right">
+		<br></td>
+	</tr>
+	</table>
+</form>
+</td>
+</tr></table>
+<!-- END: main -->

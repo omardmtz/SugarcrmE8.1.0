@@ -1,0 +1,619 @@
+/* RESPONSIVE
+  ----------------*/
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+// IPHONE PORTRAIT MODE
+// ---------------------
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (orientation: portrait) {
+  .nav {
+    > li.dropdown,
+    > li.dropdown > .open {
+      position: static;
+    }
+  }
+}
+
+// UP TO LANDSCAPE PHONE
+// ---------------------
+@media (max-width: 480px) {
+  .welcome .modal-body.record {
+    padding-left: 0;
+
+    .record-cell {
+      padding-left: 15px;
+    }
+  }
+
+  .navbar {
+    min-width: 320px;
+
+    .module-list {
+      > .nav.megamenu {
+        li:not(:first-child) {
+          > .btn-group {
+            padding-right: 1px;
+            padding-left: 1px;
+
+            > .btn {
+              width: 58px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding-left: 2px;
+            }
+
+            .dropdown-toggle {
+              padding-right: 0;
+              padding-left: 0;
+              width: 18px;
+            }
+          }
+
+          &.more {
+            padding-right: 2px;
+            padding-left: 2px;
+            width: 36px;
+          }
+        }
+
+        li:first-child > .btn-group {
+          &.home,
+          &.home.open {
+            padding-right: 2px;
+            padding-left: 2px;
+          }
+        }
+      }
+    }
+
+    .module-list,
+    .search {
+      z-index: 1;
+    }
+
+    .search.expanded {
+      padding: 7px 6px;
+    }
+
+    .avatar-btn .fa-caret-down {
+      margin-left: -4px;
+    }
+
+    #userActions > .btn-group {
+      padding-right: 0;
+    }
+  }
+
+  .preview-pane {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  footer .pull-right.btn-toolbar .btn .action-label {
+    display: none;
+  }
+
+  // Block level the page header small tag for readability
+  .page-header h1 small {
+    display: block;
+    line-height: @baseLineHeight;
+  }
+
+  // Make span* classes full width
+  input[class*="span"],
+  select[class*="span"],
+  textarea[class*="span"],
+  .uneditable-input {
+    display: block;
+    width: 100%;
+    min-height: 28px; /* Make inputs at least the height of their button counterpart */
+
+    /* Makes inputs behave like true block-level elements */
+    box-sizing: border-box;
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input[class*="span"],
+    .input-append input[class*="span"] {
+    width: auto;
+  }
+
+  // Update checkboxes for iOS
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+
+  // Remove the horizontal form styles
+  .form-horizontal .control-group > label {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+  // Move over all input controls and content
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+  // Move the options list down to align with labels
+  .form-horizontal .control-list {
+    padding-top: 0; // has to be padding because margin collaspes
+  }
+
+  // Carousel
+  .carousel-caption {
+    position: static;
+  }
+  //54580: use media queries to also position symbol properly
+  //43d1a253e5dae2f5d02b9273f527f9e43ff2dd6c
+  .row > .empty,
+  .row-fluid > .empty {
+    display: none !important;
+  }
+
+  //from responsive-forecast.less
+  .span2 .block > * {
+    display: none !important;
+  }
+
+  .span2 .block > h4 {
+    display: block !important;
+  }
+
+  #stream tbody tr td {
+    #gradient > .vertical(@white, lighten(@grayLighter, 1%));
+
+    border-top: 1px solid @white;
+    border-bottom: 1px solid darken(@white, 10%);
+    vertical-align: middle;
+  }
+
+  /* Change up some type stuff */
+  h2 {
+    margin-top: 27px;
+  }
+
+  h2 small {
+    display: block;
+    line-height: 18px;
+  }
+
+  h3 {
+    margin-top: 18px;
+  }
+
+  /* Don't space out quick links so much */
+  .quick-links {
+    margin: 40px 0 0;
+  }
+
+  /* hide the bullets on mobile since our horizontal space is limited */
+  .quick-links .divider {
+    display: none;
+  }
+
+  table code {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  /* Modal example */
+  .modal-example .modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  // Revert back to normal size on smaller screens
+  .modal-wide {
+    width: 560px;
+    margin-left: -280px;
+  }
+
+  .record {
+    .record-cell {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  .filter-value [rel=datepicker] .add-on .fa-calendar {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .navbar {
+    .search {
+      min-width: 8px !important;
+
+      .navbar-search {
+        display: none;
+      }
+
+      .quicksearch-button-wrapper {
+        > .btn {
+          background-color: black;
+          border-radius: 3px;
+
+          .fa-search {
+            color: white;
+          }
+        }
+      }
+
+      &.expanded {
+        position: absolute;
+        left: 1px;
+        z-index: 2001;
+        background-color: black;
+        padding-left: 6px;
+
+        .navbar-search {
+          display: inherit;
+          width: inherit !important;
+        }
+
+        .quicksearch-button-wrapper {
+          > .btn {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    .dropdown.notification-list > .btn-group {
+      padding: 8px 4px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  // GRID & CONTAINERS
+  // -----------------
+  // Remove width from containers
+  .container,
+  .container-fluid {
+    width: auto;
+    padding: 0;
+  }
+  // Fluid rows
+  .container-fluid .row-fluid {
+    width: 100%;
+  }
+  // Undo negative margin on rows
+  .row {
+    margin-left: 0;
+  }
+  // Make all columns even
+  .row > [class*="span"],
+    .container-fluid .row-fluid > [class*="span"] {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 10px;
+  }
+
+  .subnav {
+    margin-top: 17px;
+  }
+
+  #searchForm {
+    right: auto;
+
+    .navbar-search {
+      .search-query {
+        min-width: inherit !important;
+        width: 120px;
+      }
+    }
+
+    .typeahead {
+      left: auto;
+    }
+  }
+
+  .dashlet {
+    border-radius: 0;
+    overflow: auto;
+  }
+
+  .modal {
+    width: 100%;
+    top: 0;
+    bottom: 44px;
+    left: 0;
+    margin: 0;
+    padding: 4px 0;
+    border: 0;
+  }
+
+  .touch .content-overflow-visible { /* UIUX-1236 */
+    overflow: visible !important;
+    z-index: 1040;
+  }
+
+  .row > .empty,
+  .row-fluid > .empty {
+    display: none !important;
+  }
+
+  #content {
+    overflow: auto;
+  }
+
+  .dashboard {
+    position: relative;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  .touch .dashboard {
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  // Homepage dashboard
+  #content > .row-fluid > .dashboard { /* specific selector to avoid applying it to .side-pane dashboard */
+    //padding-top: 61px !important;
+    .dashlets.row-fluid > li {
+      width: 100%;
+
+      .dashlet-container {
+        width: 100%;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  //for safari's totally busted fixed position modal on login
+  #header[style*="display: none;"] + #content {
+    top: 0;
+    margin-top: 0;
+  }
+
+  #portal #content > .row-fluid > .dashboard {
+    padding-top: 0 !important;
+  }
+
+  .main-pane.span8,
+  .main-pane.span12 {
+    float: none;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+    width: 100%;
+    border-bottom: @borderWidget;
+    z-index: initial;
+  }
+
+  .touch .main-pane {
+    margin-top: 0 !important;
+  }
+
+  .side.sidebar-content {
+    float: none;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+    border-right: none;
+    width: 100%;
+    z-index: initial;
+    box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.2);
+
+    .dashboard {
+      top: auto;
+      bottom: auto;
+      padding-top: 0;
+
+      .headerpane {
+        position: relative;
+        width: 100%;
+        top: auto;
+        z-index: 1;
+      }
+    }
+
+    .dashlet-cell.row-fluid > li {
+      width: 100%;
+    }
+
+    .side-pane.active {
+      .block.thumbnail {
+        margin: 0;
+        width: 94%;
+      }
+    }
+
+    .help-pane {
+      .help-headerbar {
+        position: relative;
+        width: 100%;
+        top: auto;
+        z-index: 1;
+        background: transparent;
+      }
+
+      .helplet-list-container {
+        padding: 8px 1.5% 0;
+      }
+    }
+  }
+
+  .touch .side.sidebar-content .dashboard {
+    padding-top: 0;
+  }
+
+  .headerpane {
+    .sidebar-toggle {
+      display: none;
+    }
+
+    .btn-toolbar {
+      padding-right: 16px;
+    }
+  }
+
+  .main-pane.span8 .headerpane {
+    width: 100%;
+    border-right: none;
+  }
+
+  .preview-pane {
+    position: fixed;
+    left: 100%;
+    margin-left: 25%;
+    width: 75%;
+    height: ~"-moz-calc(100% - 93px) !important";
+    height: ~"-webkit-calc(100% - 93px) !important";
+    height: ~"calc(100% - 93px) !important";
+    z-index: 1090;
+    overflow: scroll;
+
+    &.active {
+      box-shadow: -3px 0 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .preview-headerbar {
+      box-shadow: none !important;
+      border-top: none;
+      top: auto;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .side > .preview-pane {
+    display: block;
+    opacity: 0;
+  }
+
+  .preview-pane.active {
+    opacity: 1;
+    left: 0;
+    -webkit-animation: preview-in 0.3s;
+    animation-name: preview-in;
+    animation-duration: 0.3s;
+  }
+
+  .preview-pane {
+    -webkit-animation: preview-out 0.3s;
+    animation-name: preview-out;
+    animation-duration: 0.3s;
+    display: block;
+  }
+
+  .card2 .row-fluid.control-group .control-label .span2,
+  .card2 .row-fluid.control-group .control-label .span10 {
+    text-align: left;
+    background: none;
+    padding: 0 10px;
+    border: none;
+  }
+
+  .uxs-scroll-bar {
+    width: 98.6%;
+  }
+
+  // Scheduler UI profile row
+  .record div[data-name="invitees"] {
+    .participants-schedule .participant .profile .name .ellipsis_inline {
+      width: 72px;
+    }
+  }
+
+  .flex-list-view.right-actions.scroll-width .dataTable {
+    td:last-child > span,
+    th:last-child .dropdown,
+    th:last-child > span {
+      width: 55px;
+      right: 0;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #searchForm .typeahead {
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+  }
+
+  .navbar-inner .nav-collapse ul.nav.megamenu {
+    position: static;
+  }
+
+  .navbar ul.nav.megamenu li.dropdown.notification-list div.btn-group.open .dropdown-menu { /* long selector to override similar long selector in notifications.less and avoid using !important*/
+    width: 100%;
+
+    ul {
+      border-radius: 0;
+    }
+  }
+}
+
+/* iPad dirty hacks follow in the next three selectors */
+@media only screen and (orientation: landscape) {
+  .touch {
+    .main-pane.span8 > div:first-child {
+      /* This fixes vertical scroll on landscape mode,
+      for the instance when user navigates from portrait to landscape mode */
+      border-bottom: 1px solid transparent;
+      -webkit-transition-delay: 0.1s;
+    }
+
+    .span8 .main-content > div {
+      /* This and the following selector take care of scroll fix when user
+      toggles right hand side panel back and forth */
+      display: inline;
+    }
+
+    .span12 .main-content > div {
+      display: block;
+    }
+  }
+}
+
+/* NEW SKIN START */
+
+@media (max-width: 768px) {
+  .main-pane.span8,
+  .main-pane.span12 {
+    /* override */
+    margin-top: 52px;
+  }
+
+  .preview-pane {
+    /* override */
+    top: 45px;
+  }
+
+  /* additive */
+  .megamenu > .dropdown .btn-group > .dropdown-toggle .fa-caret-down,
+  th.sorting_asc span::after,
+  th.sorting_desc span::after,
+  th.sorting span::after,
+  .dashlet .btn-toolbar {
+    visibility: visible;
+  }
+}
+
+/* NEW SKIN END */

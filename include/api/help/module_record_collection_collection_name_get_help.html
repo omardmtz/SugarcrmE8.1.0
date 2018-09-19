@@ -1,0 +1,176 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists related records from multiple links at a time.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will return a set of related records fetched from multiple links defined by <code>:collection_name</code>.
+    The records will be filtered, sorted and truncated to <code>max_num</code> as a single collection.
+    Collections may use a field mapping. For instance, the <code>due_date</code> of Tasks may be referred to as <code>date_end</code>.
+    In this case the alias (<code>date_end</code>) should be used in <code>filter</code> and <code>order_by</code> expressions instead of real field name.
+    Note that response data still contains the original fields for the module.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>fields</td>
+        <td>String</td>
+        <td>
+            See <a onclick="openLongHelp('3d2524f2398c30db68af051c799f3c18');">Filter API</a>. If collection definition uses aliases, then aliases should be used instead of real field names.
+        </td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>view</td>
+        <td>String</td>
+        <td>
+            See <a onclick="openLongHelp('3d2524f2398c30db68af051c799f3c18');">Filter API</a>.
+        </td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>max_num</td>
+        <td>Integer</td>
+        <td>
+            See <a onclick="openLongHelp('3d2524f2398c30db68af051c799f3c18');">Filter API</a>.
+        </td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>filter</td>
+        <td>String</td>
+        <td>
+            See <a onclick="openLongHelp('3d2524f2398c30db68af051c799f3c18');">Filter API</a>. If collection definition uses aliases, then aliases should be used instead of real field names.
+        </td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>order_by</td>
+        <td>String</td>
+        <td>
+            See <a onclick="openLongHelp('3d2524f2398c30db68af051c799f3c18');">Filter API</a>. If collection definition uses aliases, then aliases should be used instead of real field names.
+        </td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>offset</td>
+        <td>Map</td>
+        <td>
+            Individual offset for each link which the collection consists of.
+            -1 (or any negative value) denotes that the link should be skipped.
+            If link offset is not specified, it defaults to 0.
+        </td>
+        <td>False</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>next_offset</td>
+        <td>Map</td>
+        <td>
+            The next offset to retrieve records. -1 will be returned for the given link when there are no more records.
+        </td>
+    </tr>
+    <tr>
+        <td>records</td>
+        <td>Array</td>
+        <td>The record result set.</td>
+    </tr>
+    <tr>
+        <td>errors</td>
+        <td>Map</td>
+        <td>Errors encountered while making requests for the individual links. These errors are returned for the client to consume, but do not affect the response status of the request.</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "next_offset": {
+        "calls": 1,
+        "meetings": -1,
+        "tasks": -1,
+    },
+    "records": [
+        {
+            "_module": "Calls",
+            "_link": "calls",
+            "id": "8703fbf3-0ffa-c288-8d2c-512f943ecdc3",
+            "name": "Discuss review process",
+            "date_end": "2014-02-26T19:12:00+00:00"
+        },
+        {
+            "_module": "Tasks",
+            "_link": "tasks",
+            "id": "e1c495cb-af17-1b37-dd66-512f934fe155",
+            "name": "Introduce all players",
+            "due_date": "2014-02-26T19:12:00+00:00"
+        },
+        {
+            "_module": "Tasks",
+            "_link": "tasks",
+            "id": "456b7848-9959-5a64-cd34-512d0938addd",
+            "name": "Follow-up on proposal",
+            "due_date": "2014-02-26T19:12:00+00:00"
+        }
+    ],
+    "errors": {
+        "meetings": {
+            "code": 403,
+            "error": "not_authorized",
+            "error_message": "You are not authorized to perform this action. Contact your administrator if you need access."
+        }
+    }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/collection/:collection_name</code> GET endpoint.
+        </td>
+    </tr>
+</table>

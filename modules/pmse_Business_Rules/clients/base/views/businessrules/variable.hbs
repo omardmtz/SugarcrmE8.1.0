@@ -1,0 +1,28 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<td class={{#if isCondition}}"decision-table-condition-column"{{else}}"decision-table-conclusion-column"{{/if}}>
+    <div class={{#if isCondition}}"decision-table-conditions-header"{{else}}"decision-table-conclusions-header{{#if isReturn}}-return{{/if}}"{{/if}}>
+        {{#if isReturn}}
+            <span class="decision-table-return">{{returnTitle}}</span>
+        {{else}}
+            <div id="select"></div>
+        {{/if}}
+    </div>
+    {{#unless isReturn}}
+        <div style="float; right;">
+            <button class="btn decision-table-close-element" title="{{title}}">
+                <span class="fa fa-minus"></span>
+            </button>
+        </div>
+    {{/unless}}
+</td>

@@ -1,0 +1,111 @@
+/* twitter-bootstrap import START */
+
+/* original file twitter-bootstrap/component-animations.less */
+
+//
+// Component animations
+// --------------------------------------------------
+
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+
+  &.in {
+    opacity: 1;
+  }
+}
+
+.collapse {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+
+  &.in {
+    height: auto;
+  }
+}
+
+/* twitter-bootstrap import END */
+
+@-webkit-keyframes preview-in {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes preview-in {
+  from {
+    left: 200px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes preview-out {
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes preview-out {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes preview-in-rtl {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes preview-in-rtl {
+  from {
+    right: 100%;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+@-webkit-keyframes preview-out-rtl {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes preview-out-rtl {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+

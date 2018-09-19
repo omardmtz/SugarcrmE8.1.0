@@ -1,0 +1,124 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Elasticsearch index statistics
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint returns the index statistics for the Elasticsearch backend. This endpoint is only available to
+    administrators.
+</span>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "autobr2583_shared":{
+        "_shards":{
+            "total":1,
+            "successful":1,
+            "failed":0
+        },
+        "indices":{
+            "autobr2583_shared":{
+                "index":{
+                    "primary_size_in_bytes":1134148,
+                    "size_in_bytes":1134148
+                },
+                "translog":{
+                    "operations":1100
+                },
+                "docs":{
+                    "num_docs":1100,
+                    "max_doc":1100,
+                    "deleted_docs":0
+                },
+                "merges":{
+                    "current":0,
+                    "current_docs":0,
+                    "current_size_in_bytes":0,
+                    "total":1,
+                    "total_time_in_millis":103,
+                    "total_docs":1000,
+                    "total_size_in_bytes":1138070
+                },
+                "refresh":{
+                    "total":13,
+                    "total_time_in_millis":177
+                },
+                "flush":{
+                    "total":0,
+                    "total_time_in_millis":0
+                },
+                "shards":[[{
+                    "routing":{
+                        "state":"STARTED",
+                        "primary":true,
+                        "node":"4rjVEVuYQQqKl4sT1FUxNA",
+                        "relocating_node":null,
+                        "shard":0,
+                        "index":"autobr2583_shared"
+                    },
+                    "state":"STARTED",
+                    "index":{
+                        "size_in_bytes":1134148
+                    },
+                    "translog":{
+                        "id":1427003304006,
+                        "operations":1100
+                    },
+                    "docs":{
+                        "num_docs":1100,
+                        "max_doc":1100,
+                        "deleted_docs":0
+                    },
+                    "merges":{
+                        "current":0,
+                        "current_docs":0,
+                        "current_size_in_bytes":0,
+                        "total":1,
+                        "total_time_in_millis":103,
+                        "total_docs":1000,
+                        "total_size_in_bytes":1138070
+                    },
+                    "refresh":{
+                        "total":13,
+                        "total_time_in_millis":177
+                    },
+                    "flush":{
+                        "total":0,
+                        "total_time_in_millis":0
+                    }
+                }]]
+            }
+        }
+    }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Administration/elasticsearch/indices</code> GET endpoint.
+        </td>
+    </tr>
+</table>

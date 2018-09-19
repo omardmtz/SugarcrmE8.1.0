@@ -1,0 +1,561 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the schema data to be used by the Process Definition designer
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will retrieve the JSON encoded schema data for the Process
+    Definition identified by the <code>record</code> input parameter.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>record</td>
+            <td>String</td>
+            <td>The Process Definition record ID</td>
+            <td>True</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>success</td>
+            <td>Boolean</td>
+            <td>The status of the response</td>
+        </tr>
+        <tr>
+            <td>project</td>
+            <td>Object</td>
+            <td>The schema data for the Process Definition</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "success":true,
+    "project":
+    {
+        "id":"2119da13-f748-4741-3858-573caddda034",
+        "name":"PD_AC",
+        "date_entered":"2016-05-18 17:58:07",
+        "date_modified":"2016-05-18 18:41:45",
+        "modified_user_id":"1",
+        "created_by":"1",
+        "description":null,
+        "deleted":"0",
+        "prj_uid":"2119da13-f748-4741-3858-573caddda034",
+        "prj_target_namespace":null,
+        "prj_expression_language":null,
+        "prj_type_language":null,
+        "prj_exporter":null,
+        "prj_exporter_version":null,
+        "prj_author":null,
+        "prj_author_version":null,
+        "prj_original_source":null,
+        "prj_status":"INACTIVE",
+        "prj_module":"Accounts",
+        "team_id":"1",
+        "team_set_id":"1",
+        "team_set_selected_id":"",
+        "assigned_user_id":"1",
+        "au_first_name":null,
+        "au_last_name":"Administrator",
+        "cbu_first_name":null,
+        "cbu_last_name":"Administrator",
+        "mbu_first_name":null,
+        "mbu_last_name":"Administrator",
+        "tn_name":"Global",
+        "tn_name_2":"",
+        "my_favorite":null,
+        "following":"0",
+        "pro_id":"9f8c4fcd-8d4c-949d-50b8-573caddf8c0c",
+        "diagram":
+        [
+            {
+                "id":"9ce21d87-f81a-5be2-86e8-573cad955d06",
+                "name":"PD_AC",
+                "date_entered":"2016-05-18 17:58:07",
+                "date_modified":"2016-05-18 17:58:07",
+                "modified_user_id":"1",
+                "created_by":"1",
+                "description":null,
+                "deleted":"0",
+                "dia_uid":"343198086573cad309cc1d6078585899",
+                "prj_id":"2119da13-f748-4741-3858-573caddda034",
+                "dia_is_closable":"0",
+                "assigned_user_id":"1",
+                "activities":
+                [
+                    {
+                        "id":"9ce21d87-f81a-5be2-86e8-573cad955d06",
+                        "name":"PD_AC",
+                        "date_entered":"2016-05-18 17:58:07",
+                        "date_modified":"2016-05-18 17:58:07",
+                        "modified_user_id":"1",
+                        "created_by":"1",
+                        "description":null,
+                        "deleted":"0",
+                        "dia_uid":"343198086573cad309cc1d6078585899",
+                        "prj_id":"2119da13-f748-4741-3858-573caddda034",
+                        "dia_is_closable":"0",
+                        "assigned_user_id":"1",
+                        "activities":
+                        [
+                            {
+                                "id":"566f0156-0ce3-75b4-da56-573cb73984aa",
+                                "name":"Action # 1",
+                                "date_entered":"2016-05-18 18:41:29",
+                                "date_modified":"2016-05-18 18:41:45",
+                                "created_by":"1",
+                                "description":"",
+                                "deleted":"0",
+                                "act_uid":"552527013573cb7565825f2050463919",
+                                "act_type":"TASK",
+                                "act_is_for_compensation":"0",
+                                "act_start_quantity":"1",
+                                "act_completion_quantity":"0",
+                                "act_task_type":"SCRIPTTASK",
+                                "act_implementation":"",
+                                "act_instantiate":"0",
+                                "act_script_type":"CHANGE_FIELD",
+                                "act_script":"",
+                                "act_loop_type":"NONE",
+                                "act_test_before":"0",
+                                "act_loop_maximum":"0",
+                                "act_loop_condition":"",
+                                "act_loop_cardinality":"0",
+                                "act_loop_behavior":"",
+                                "act_is_adhoc":"0",
+                                "act_is_collapsed":"0",
+                                "act_completion_condition":"",
+                                "act_ordering":"PARALLEL",
+                                "act_cancel_remaining_instances":"1",
+                                "act_protocol":"",
+                                "act_method":"",
+                                "act_is_global":"0",
+                                "act_referer":"",
+                                "act_default_flow":"0",
+                                "act_master_diagram":"",
+                                "bou_x":"245",
+                                "bou_y":"106",
+                                "bou_width":"35",
+                                "bou_height":"35",
+                                "bou_container":"bpmnDiagram",
+                                "act_name":"Action # 1"
+                            }
+                        ],
+                        "id":"566f0156-0ce3-75b4-da56-573cb73984aa",
+                        "name":"Action # 1",
+                        "date_entered":"2016-05-18 18:41:29",
+                        "date_modified":"2016-05-18 18:41:45",
+                        "created_by":"1",
+                        "description":"",
+                        "deleted":"0",
+                        "act_uid":"552527013573cb7565825f2050463919",
+                        "act_type":"TASK",
+                        "act_is_for_compensation":"0",
+                        "act_start_quantity":"1",
+                        "act_completion_quantity":"0",
+                        "act_task_type":"SCRIPTTASK",
+                        "act_implementation":"",
+                        "act_instantiate":"0",
+                        "act_script_type":"CHANGE_FIELD",
+                        "act_script":"",
+                        "act_loop_type":"NONE",
+                        "act_test_before":"0",
+                        "act_loop_maximum":"0",
+                        "act_loop_condition":"",
+                        "act_loop_cardinality":"0",
+                        "act_loop_behavior":"",
+                        "act_is_adhoc":"0",
+                        "act_is_collapsed":"0",
+                        "act_completion_condition":"",
+                        "act_ordering":"PARALLEL",
+                        "act_cancel_remaining_instances":"1",
+                        "act_protocol":"",
+                        "act_method":"",
+                        "act_is_global":"0",
+                        "act_referer":"",
+                        "act_default_flow":"0",
+                        "act_master_diagram":"",
+                        "bou_x":"245",
+                        "bou_y":"106",
+                        "bou_width":"35",
+                        "bou_height":"35",
+                        "bou_container":"bpmnDiagram",
+                        "act_name":"Action # 1"
+                    }
+                ],
+                "events":
+                [
+                    {
+                        "id":"80a37c82-8be8-c668-a547-573cb791b905",
+                        "name":"Start Event # 1",
+                        "date_entered":"2016-05-18 18:41:29",
+                        "date_modified":"2016-05-18 18:41:29",
+                        "created_by":"1",
+                        "description":"",
+                        "deleted":"0",
+                        "evn_uid":"632263607573cb74a582507093735454",
+                        "evn_type":"START",
+                        "evn_marker":"MESSAGE",
+                        "evn_is_interrupting":"1",
+                        "evn_attached_to":"",
+                        "evn_cancel_activity":"0",
+                        "evn_activity_ref":"",
+                        "evn_wait_for_completion":"1",
+                        "evn_error_name":"",
+                        "evn_error_code":"",
+                        "evn_escalation_name":"",
+                        "evn_escalation_code":"",
+                        "evn_condition":"",
+                        "evn_message":"",
+                        "evn_operation_name":"",
+                        "evn_operation_implementation":"",
+                        "evn_time_date":"",
+                        "evn_time_cycle":"",
+                        "evn_time_duration":"",
+                        "evn_behavior":"CATCH",
+                        "bou_x":"132",
+                        "bou_y":"108",
+                        "bou_width":"33",
+                        "bou_height":"33",
+                        "bou_container":"bpmnDiagram",
+                        "evn_name":"Start Event # 1"
+                    },
+                    {
+                        "id":"82894d13-1af8-f039-2cd3-573cb755559e",
+                        "name":"End Event # 1",
+                        "date_entered":"2016-05-18 18:41:29",
+                        "date_modified":"2016-05-18 18:41:29",
+                        "created_by":"1",
+                        "description":"",
+                        "deleted":"0",
+                        "evn_uid":"282428179573cb7585826d6045140545",
+                        "evn_type":"END",
+                        "evn_marker":"EMPTY",
+                        "evn_is_interrupting":"1",
+                        "evn_attached_to":"",
+                        "evn_cancel_activity":"0",
+                        "evn_activity_ref":"",
+                        "evn_wait_for_completion":"1",
+                        "evn_error_name":"",
+                        "evn_error_code":"",
+                        "evn_escalation_name":"",
+                        "evn_escalation_code":"",
+                        "evn_condition":"",
+                        "evn_message":"",
+                        "evn_operation_name":"",
+                        "evn_operation_implementation":"",
+                        "evn_time_date":"",
+                        "evn_time_cycle":"",
+                        "evn_time_duration":"",
+                        "evn_behavior":"THROW",
+                        "bou_x":"349",
+                        "bou_y":"107",
+                        "bou_width":"33",
+                        "bou_height":"33",
+                        "bou_container":"bpmnDiagram",
+                        "evn_name":"End Event # 1"
+                    }
+                ],
+                "gateways":[],
+                "artifacts":[],
+                "flows":
+                [
+                    {
+                        "id":"974e5216-9d76-5e30-7241-573cb73b7761",
+                        "name":"",
+                        "date_entered":"2016-05-18 18:41:36",
+                        "date_modified":"2016-05-18 18:41:36",
+                        "created_by":"1",
+                        "description":"",
+                        "deleted":"0",
+                        "flo_uid":"287649205573cb75b582a78086279138",
+                        "flo_type":"SEQUENCE",
+                        "flo_element_origin":"632263607573cb74a582507093735454",
+                        "flo_element_origin_type":"bpmnEvent",
+                        "flo_element_origin_port":"0",
+                        "flo_element_dest":"552527013573cb7565825f2050463919",
+                        "flo_element_dest_type":"bpmnActivity",
+                        "flo_element_dest_port":"0",
+                        "flo_is_inmediate":"",
+                        "flo_condition":"",
+                        "flo_eval_priority":"0",
+                        "flo_x1":"165",
+                        "flo_y1":"125",
+                        "flo_x2":"243",
+                        "flo_y2":"122",
+                        "flo_state":
+                        [
+                            {
+                                "x":165,
+                                "y":125
+                            },
+                            {
+                                "x":204,
+                                "y":125
+                            },
+                            {
+                                "x":204,
+                                "y":122
+                            },
+                            {
+                                "x":243,
+                                "y":122
+                            }
+                        ],
+                        "prj_id":"2119da13-f748-4741-3858-573caddda034"
+                    },
+                    {
+                        "id":"9fc25911-3e2d-89f1-8d37-573cb73639bd",
+                        "name":"",
+                        "date_entered":"2016-05-18 18:41:36",
+                        "date_modified":"2016-05-18 18:41:36",
+                        "created_by":"1",
+                        "description":"",
+                        "deleted":"0",
+                        "flo_uid":"121706749573cb75d582c86016080199",
+                        "flo_type":"SEQUENCE",
+                        "flo_element_origin":"552527013573cb7565825f2050463919",
+                        "flo_element_origin_type":"bpmnActivity",
+                        "flo_element_origin_port":"0",
+                        "flo_element_dest":"282428179573cb7585826d6045140545",
+                        "flo_element_dest_type":"bpmnEvent",
+                        "flo_element_dest_port":"0",
+                        "flo_is_inmediate":"",
+                        "flo_condition":"",
+                        "flo_eval_priority":"0",
+                        "flo_x1":"282",
+                        "flo_y1":"122",
+                        "flo_x2":"349",
+                        "flo_y2":"124",
+                        "flo_state":
+                        [
+                            {
+                                "x":282,
+                                "y":122
+                            },
+                            {
+                                "x":315,
+                                "y":122
+                            },
+                            {
+                                "x":315,
+                                "y":124
+                            },
+                            {
+                                "x":349,
+                                "y":124
+                            }
+                        ],
+                        "prj_id":"2119da13-f748-4741-3858-573caddda034"
+                    }
+                ]
+            }
+        ],
+        "process_definition":
+        {
+            "id":"9f8c4fcd-8d4c-949d-50b8-573caddf8c0c",
+            "name":"",
+            "date_entered":"2016-05-18 17:58:07",
+            "date_modified":"2016-05-18 17:58:07",
+            "created_by":"1",
+            "description":null,
+            "deleted":"0",
+            "pro_module":"Accounts",
+            "pro_status":"INACTIVE",
+            "pro_locked_variables":[],
+            "pro_terminate_variables":"",
+            "execution_mode":"SYNC"
+        },
+        "prj_name":"PD_AC",
+        "prj_description":null,
+        "script_tasks":
+        {
+            "add_related_record":
+            {
+               "1":
+                {
+                    "value":"members",
+                    "text":"Accounts (Members: members)",
+                    "module":"Accounts",
+                    "module_label":"Accounts",
+                    "module_name":"Accounts",
+                    "relationship":"member_accounts"
+                },
+                "2":
+                {
+                    "value":"bugs",
+                    "text":"Bugs (Bugs: bugs)",
+                    "module":"Bugs",
+                    "module_label":"Bugs",
+                    "module_name":"Bugs",
+                    "relationship":"accounts_bugs"
+                },
+                "3":
+                {
+                    "value":"calls",
+                    "text":"Calls (Calls: calls)",
+                    "module":"Calls",
+                    "module_label":"Calls",
+                    "module_name":"Calls",
+                    "relationship":"account_calls"
+                },
+                "4":
+                {
+                    "value":"cases",
+                    "text":"Cases (Cases: cases)",
+                    "module":"Cases",
+                    "module_label":"Cases",
+                    "module_name":"Cases",
+                    "relationship":"account_cases"
+                },
+                "5":
+                {
+                    "value":"contacts",
+                    "text":"Contacts (Contacts: contacts)",
+                    "module":"Contacts",
+                    "module_label":"Contacts",
+                    "module_name":"Contacts",
+                    "relationship":"accounts_contacts"
+                },
+                "6":
+                {
+                    "value":"contracts",
+                    "text":"Contracts (Contracts: contracts)",
+                    "module":"Contracts",
+                    "module_label":"Contracts",
+                    "module_name":"Contracts",
+                    "relationship":"account_contracts"
+                },
+                "7":
+                {
+                    "value":"documents",
+                    "text":"Documents (Documents: documents)",
+                    "module":"Documents",
+                    "module_label":"Documents",
+                    "module_name":"Documents",
+                    "relationship":"documents_accounts"
+                },
+                "8":
+                {
+                    "value":"leads",
+                    "text":"Leads (Leads: leads)",
+                    "module":"Leads",
+                    "module_label":"Leads",
+                    "module_name":"Leads",
+                    "relationship":"account_leads"
+                },
+                "9":
+                {
+                    "value":"meetings",
+                    "text":"Meetings (Meetings: meetings)",
+                    "module":"Meetings",
+                    "module_label":"Meetings",
+                    "module_name":"Meetings",
+                    "relationship":"account_meetings"
+                },
+                "10":
+                {
+                    "value":"notes",
+                    "text":"Notes (Notes: notes)",
+                    "module":"Notes",
+                    "module_label":"Notes",
+                    "module_name":"Notes",
+                    "relationship":"account_notes"
+                },
+                "11":
+                {
+                    "value":"opportunities",
+                    "text":"Opportunities (Opportunity: opportunities)",
+                    "module":"Opportunities",
+                    "module_label":"Opportunities",
+                    "module_name":"Opportunities",
+                    "relationship":"accounts_opportunities"
+                },
+                "12":
+                {
+                    "value":"project",
+                    "text":"Projects (Projects: project)",
+                    "module":"Projects",
+                    "module_label":"Projects",
+                    "module_name":"Project",
+                    "relationship":"projects_accounts"
+                },
+                "13":
+                {
+                    "value":"products",
+                    "text":"Quoted Line Items (Products: products)",
+                    "module":"Quoted Line Items",
+                    "module_label":"Quoted Line Items",
+                    "module_name":"Products",
+                    "relationship":"products_accounts"
+                },
+                "14":
+                {
+                    "value":"quotes_shipto",
+                    "text":"Quotes (Quotes Ship to: quotes_shipto)",
+                    "module":"Quotes",
+                    "module_label":"Quotes",
+                    "module_name":"Quotes",
+                    "relationship":"quotes_shipto_accounts"
+                },
+                "15":
+                {
+                    "value":"quotes",
+                    "text":"Quotes (Quotes: quotes)",
+                    "module":"Quotes",
+                    "module_label":"Quotes",
+                    "module_name":"Quotes",
+                    "relationship":"quotes_billto_accounts"
+                },
+                "16":
+                {
+                    "value":"tasks",
+                    "text":"Tasks (Tasks: tasks)",
+                    "module":"Tasks",
+                    "module_label":"Tasks",
+                    "module_name":"Tasks",
+                    "relationship":"account_tasks"
+                }
+            }
+        }
+    }
+}
+</pre>

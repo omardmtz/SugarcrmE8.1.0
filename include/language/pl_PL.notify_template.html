@@ -1,0 +1,355 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: Quote_Subject -->
+Oferta SugarCRM - {QUOTE_SUBJECT}
+<!-- END: Quote_Subject -->
+<!-- BEGIN: Quote -->
+{ASSIGNER} przydzielił/a tę ofertę użytkownikowi {ASSIGNED_USER}.
+
+Temat: {QUOTE_SUBJECT}
+Status: {QUOTE_STATUS}
+Planowana data zamknięcia: {QUOTE_CLOSEDATE}
+Opis: {QUOTE_DESCRIPTION}
+
+Ofertę możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Quote -->
+
+
+<!-- BEGIN: Account_Subject -->
+Nazwa kontrahenta: {ACCOUNT_NAME}
+<!-- END: Account_Subject -->
+<!-- BEGIN: Account -->
+{ASSIGNER} przydzielił/a tego kontrahenta użytkownikowi {ASSIGNED_USER}.
+
+Nazwa: {ACCOUNT_NAME}
+Typ: {ACCOUNT_TYPE}
+Opis: {ACCOUNT_DESCRIPTION}
+
+Szczegóły odnośnie kontrahenta odnajdziesz pod adresem:
+<{URL}>
+<!-- END: Account -->
+
+
+<!-- BEGIN: Case_Subject -->
+Zgłoszenie SugarCRM - {CASE_SUBJECT}
+<!-- END: Case_Subject -->
+<!-- BEGIN: Case -->
+{ASSIGNER} przydzielił/a to zgłoszenie użytkownikowi {ASSIGNED_USER}.
+
+Temat: {CASE_SUBJECT}
+Priorytet: {CASE_PRIORITY}
+Status: {CASE_STATUS}
+Opis: {CASE_DESCRIPTION}
+
+Zgłoszenie możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Case -->
+
+
+<!-- BEGIN: Task_Subject -->
+Zadanie SugarCRM - {TASK_SUBJECT}
+<!-- END: Task_Subject -->
+<!-- BEGIN: Task -->
+{ASSIGNER} przydzielił/a Zadanie użytkownikowi {ASSIGNED_USER}.
+
+Temat: {TASK_SUBJECT}
+Priorytet: {TASK_PRIORITY}
+Data wykonania: {TASK_DUEDATE}
+Status: {TASK_STATUS}
+Opis: {TASK_DESCRIPTION}
+
+Zadanie możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Task -->
+
+
+<!-- BEGIN: Meeting_Subject -->
+Spotkanie SugarCRM - {MEETING_SUBJECT}
+<!-- END: Meeting_Subject -->
+<!-- BEGIN: Meeting -->
+Do: {MEETING_TO}
+
+{ASSIGNER} zaprosił/a Cię na spotkanie
+
+Temat: {MEETING_SUBJECT}
+Data rozpoczęcia: {MEETING_STARTDATE}
+Data zakończenia: {MEETING_ENDDATE}
+<!-- BEGIN: Meeting_External_API -->
+Adres URL spotkania: {MEETING_URL}
+<!-- END: Meeting_External_API -->
+Opis: {MEETING_DESCRIPTION}
+
+Zaakceptuj zaproszenie:
+<{ACCEPT_URL}&accept_status=accept>
+
+Tymczasowo zaakceptuj:
+<{ACCEPT_URL}&accept_status=tentative>
+
+Odrzuć zaproszenie:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Meeting -->
+
+<!-- BEGIN: MeetingSpecial_Subject -->
+Spotkanie SugarCRM - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingSpecial -->
+{ASSIGNER} przydzielił/a to spotkanie użytkownikowi {ASSIGNED_USER}.
+
+Temat: {MEETING_SUBJECT}
+Status: {MEETING_STATUS}
+Data rozpoczęcia: {MEETING_STARTDATE}
+Data zakończenia: {MEETING_ENDDATE}
+Opis: {MEETING_DESCRIPTION}
+
+Spotkanie możesz obejrzeć pod adresem:
+<{URL}>
+
+<!-- END: MeetingSpecial --> 
+
+
+<!-- BEGIN: Email_Subject -->
+Wiadomość SugarCRM  - {EMAIL_SUBJECT}
+<!-- END: Email_Subject -->
+<!-- BEGIN: Email -->
+{ASSIGNER} przydzielił/a tę wiadomość użytkownikowi {ASSIGNED_USER}.
+
+Temat: {EMAIL_SUBJECT}
+Data wysłania: {EMAIL_DATESENT}
+
+Wiadomość możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Email -->
+
+
+
+
+
+<!-- BEGIN: Contact_Subject -->
+Kontakt SugarCRM - {CONTACT_NAME}
+<!-- END: Contact_Subject -->
+<!-- BEGIN: Contact -->
+{ASSIGNER} przydzielił/a ten kontakt użytkownikowi {ASSIGNED_USER}.
+
+Nazwa: {CONTACT_NAME}
+Opis: {CONTACT_DESCRIPTION}
+
+Kontakt możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Contact -->
+
+
+<!-- BEGIN: Lead_Subject -->
+Namiar SugarCRM - {LEAD_NAME}
+<!-- END: Lead_Subject -->
+<!-- BEGIN: Lead -->
+{ASSIGNER} przydzielił/a ten Namiar użytkownikowi {ASSIGNED_USER}.
+
+Nazwa: {LEAD_NAME}
+Źródło pozyskania: {LEAD_SOURCE}
+Status: {LEAD_STATUS}
+Opis: {LEAD_DESCRIPTION}
+
+Namiar możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Lead -->
+
+
+<!-- BEGIN: Opportunity_Subject -->
+Szansa SugarCRM - {OPPORTUNITY_NAME}
+<!-- END: Opportunity_Subject -->
+<!-- BEGIN: Opportunity -->
+{ASSIGNER} przydzielił/a tę szansę użytkownikowi {ASSIGNED_USER}.
+
+Nazwa: {OPPORTUNITY_NAME}
+Kwota: {OPPORTUNITY_AMOUNT}
+Spodziewana data zakończenia: {OPPORTUNITY_CLOSEDATE}
+Etap sprzedaży: {OPPORTUNITY_STAGE}
+Opis: {OPPORTUNITY_DESCRIPTION}
+
+Szansę możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Opportunity -->
+
+
+<!-- BEGIN: Bug_Subject -->
+Błąd SugarCRM - {BUG_SUBJECT}
+<!-- END: Bug_Subject -->
+<!-- BEGIN: Bug -->
+{ASSIGNER} przydzielił/a ten błąd użytkownikowi {ASSIGNED_USER}.
+
+Numer błędu: {BUG_BUG_NUMBER}
+Temat: {BUG_SUBJECT}
+Typ: {BUG_TYPE}
+Priorytet: {BUG_PRIORITY}
+Status: {BUG_STATUS}
+Stan: {BUG_RESOLUTION}
+Wydanie: {BUG_RELEASE}
+Opis: {BUG_DESCRIPTION}
+Dziennik prac: {BUG_WORK_LOG}
+
+Błąd możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Bug -->
+
+
+<!-- BEGIN: Default_Subject -->
+Przydzielony {OBJECT} SugarCRM
+<!-- END: Default_Subject -->
+<!-- BEGIN: Default -->
+{ASSIGNER} przydzielił/a ten {OBJECT} użytkownikowi {ASSIGNED_USER}.
+
+{OBJECT} możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Default -->
+
+<!-- BEGIN: Call_Subject -->
+Rozmowa telefoniczna SugarCRM  - {CALL_SUBJECT}
+<!-- END: Call_Subject -->
+<!-- BEGIN: Call -->
+Do: {CALL_TO}
+ {ASSIGNER} przydzielił/a Ci rozmowę telefoniczną
+Temat: {CALL_SUBJECT}
+Status: {CALL_STATUS}
+Data rozpoczęcia: {CALL_STARTDATE}
+Czas trwania: {CALL_HOURS}h, {CALL_MINUTES}m
+Opis: {CALL_DESCRIPTION}
+
+Zaakceptuj uczestnictwo w rozmowie
+<{ACCEPT_URL}&accept_status=accept>
+
+Do dyskusji
+<{ACCEPT_URL}&accept_status=tentative>
+
+Odmów uczestnictwa w rozmowie
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Call -->
+
+<!-- BEGIN: CallSpecial_Subject -->
+SugarCRM Rozmowa telefoniczna - {CALL_SUBJECT}
+<!-- END: CallSpecial_Subject -->
+<!-- BEGIN: CallSpecial -->
+{ASSIGNER} przydzielił/a rozmowę telefoniczną użytkownikowi {ASSIGNED_USER}.
+
+Temat: {CALL_SUBJECT}
+Status: {CALL_STATUS}
+Data rozpoczęcia: {CALL_STARTDATE}
+Czas trwania: {CALL_HOURS}h, {CALL_MINUTES}m
+Opis: {CALL_DESCRIPTION}
+
+Możesz obejrzeć tę rozmowę pod adresem:
+<{URL}>
+<!-- END: CallSpecial -->
+
+<!-- BEGIN: Campaign_Subject -->
+Kampania SugarCRM - {CAMPAIGN_NAME}
+<!-- END: Campaign_Subject -->
+<!-- BEGIN: Campaign -->
+{ASSIGNER} przdzielił/a kampanię użytkownikowi {ASSIGNED_USER}.
+
+Temat: {CAMPAIGN_NAME}
+Kwota: {CAMPAIGN_AMOUNT}
+Data zakończenia: {CAMPAIGN_CLOSEDATE}
+Status: {CAMPAIGN_STATUS}
+Opis: {CAMPAIGN_DESCRIPTION}
+
+Kampanię możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: Campaign -->
+
+<!-- BEGIN: Quota_Subject -->
+Twój Przedział Sugar CRM dla {QUOTA_TIMEPERIOD}
+<!-- END: Quota_Subject -->
+<!-- BEGIN: Quota -->
+{ASSIGNER} przydzielił/a ten przedział użytkownikowi {ASSIGNED_USER}.
+
+Kwota: {QUOTA_AMOUNT}
+Okres czasu: {QUOTA_TIMEPERIOD}
+
+Przedział możesz obejrzeć pod adresem:
+<{QUOTA_URL}>
+<!-- END: Quota -->
+
+<!-- BEGIN: KBDocument_Subject -->
+Dokument SugarCRM - {KBDOCUMENT_NAME}
+<!-- END: KBDocument_Subject -->
+<!-- BEGIN: KBDocument -->
+
+{NOTIFICATION_MESSAGE}
+
+Nazwa: {KBDOCUMENT_NAME}
+Data utworzenia: {KBDOCUMENT_DATE_CREATED}
+Utworzony przez: {KBDOCUMENT_CREATED_BY}
+Status: {KBDOCUMENT_STATUS}
+Opis: {KBDOCUMENT_DESCRIPTION}
+
+Dokument możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END: KBDocument -->
+
+<!-- BEGIN: Contract_Subject -->
+Umowa SugarCRM - {CONTRACT_NAME}
+<!-- END: Contract_Subject -->
+<!-- BEGIN: Contract-->
+
+{ASSIGNER} przydzielił/a tę umowę użytkownikowi {ASSIGNED_USER}.
+
+Umowę możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END:Contract-->
+
+<!-- BEGIN: ContractSpecial_Subject -->
+Umowa SugarCRM - {CONTRACT_NAME}
+<!-- END: ContractSpecial_Subject -->
+<!-- BEGIN: ContractSpecial -->
+
+Twoja umowa: {CONTRACT_NAME} zakończy się z dniem {CONTRACT_END_DATE}.
+
+Umowę możesz obejrzeć pod adresem:
+<{URL}>
+<!-- END:ContractSpecial-->
+
+<!-- BEGIN: MeetingReminder_Subject -->
+Przypomnienie o spotkaniu - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingReminder -->
+Temat: {MEETING_SUBJECT}
+Kiedy: {MEETING_STARTDATE}
+Lokalizacja: {MEETING_LOCATION}
+Utworzył(a): {MEETING_CREATED_BY}
+<!-- END: MeetingReminder -->
+
+<!-- BEGIN: CallReminder_Subject -->
+Przypomnienie i rozmowie tel. - {CALL_SUBJECT}
+<!-- END: CallReminder_Subject -->
+<!-- BEGIN: CallReminder -->
+Temat: {CALL_SUBJECT}
+Kiedy: {CALL_STARTDATE}
+Utworzył(a): {CALL_CREATED_BY}
+<!-- END: CallReminder -->
+
+<!-- BEGIN: Note_Subject -->
+Notatka SugarCRM - {NOTE_SUBJECT}
+<!-- END: Note_Subject -->
+<!-- BEGIN: Note -->
+{ASSIGNER} przydzielił(a) notatkę użytkownikowi {ASSIGNED_USER}.
+
+Temat: {NOTE_SUBJECT}
+Opis: {NOTE_DESCRIPTION}
+
+Możesz zobaczyć tę notatkę tutaj:
+<{URL}>
+<!-- END: Note -->

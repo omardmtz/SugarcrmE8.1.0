@@ -1,0 +1,27 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if showProcesses}}
+    <div class="control-group dashlet-options">
+        <div class="row-fluid">
+            <div class="span12">{{#each dashletConfig.processes_selector}}
+                {{field ../this model=../this.settings template="edit"}}
+            {{/each}}</div>
+        </div>
+    </div>
+{{/if}}
+<div class="process-users-chart">
+    <div class="sc-chart" data-content="chart">
+        <svg id="{{cid}}"></svg>
+    </div>
+    <div class="block-footer hide" data-content="nodata">{{str "LBL_NO_DATA_AVAILABLE"}}</div>
+</div>

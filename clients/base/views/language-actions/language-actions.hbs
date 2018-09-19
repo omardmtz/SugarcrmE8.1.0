@@ -1,0 +1,27 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+
+{{#unless isAuthenticated}}
+<span class="dropdown" data-action="languageList" id="languageList">
+        <button title="{{str 'LBL_LANGUAGE'}}" aria-label="{{str 'LBL_LANGUAGE'}}" class="btn btn-invisible dropdown-toggle" data-toggle="dropdown" role="button" type="button">
+            <i class="fa fa-globe"></i><span class="action-label">{{str 'LBL_LANGUAGE'}}</span>
+        </button>
+        <div class="dropdown-menu bottom-up">
+            <ul role="menu">
+                {{#each languageList}}
+                <li><a data-lang-key="{{key}}" href="javascript:void(0)" tabindex="-1">{{#eq ../currentLang key}}<strong>{{value}}</strong>{{else}}{{value}}{{/eq}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+</span>
+{{/unless}}

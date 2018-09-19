@@ -1,0 +1,55 @@
+.welcome {
+  .modal-header-firstlogin {
+    .step-circle {
+      right: 8px;
+    }
+
+    .firstlogin-title {
+      padding-left: 0;
+      padding-right: 45px;
+    }
+  }
+
+  .modal-body {
+    &.record .record-cell {
+      padding-left: 0;
+      padding-right: 11px;
+    }
+  }
+
+  .modal-footer {
+    text-align: left;
+
+    .btn {
+      float: none;
+    }
+  }
+
+  .record-cell .normal .select2-container .select2-choice {
+    padding-right: 0;
+    padding-left: 6px;
+  }
+
+  .modal ul {
+    margin: 0 0 9px 25px;
+  }
+  .thumbnails.row-fluid [class*="span"]:last-child {
+    margin-left: 0;
+  }
+  .thumbnails.row-fluid [class*="span"]:first-child {
+    margin-left: @fluidGridGutterWidth;
+  }
+}
+
+.thumbnail.signup .help-block,
+.thumbnail.login .help-block,
+.thumbnail .opportunity-metric {
+  float: right;
+}
+
+.signup-footer,
+.login-footer {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 0;
+}

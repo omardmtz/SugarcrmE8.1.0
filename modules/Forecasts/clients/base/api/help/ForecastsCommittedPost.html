@@ -1,0 +1,104 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">A list of forecasts entries matching filter criteria</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to save the json Data for the committed values of a user's forecast based on the passed in filter criteria, apparently saving worksheet data as well at the same time
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr><td colspan="3">This endpoint does not accept any parameters.</td></tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+    <code class="codesample">
+        { "amount" : 174000,
+          "base_rate" : 1,
+          "best_case" : 185000,
+          "currency_id" : -99,
+          "forecast_type" : "Direct",
+          "likely_case" : 174000,
+          "opp_count" : 2,
+          "timeperiod_id" : "dcc2885a-5889-ea75-84c8-50f853d1a5ba",
+          "worksheetData" : { "current" : [ { "amount" : "50000.000000",
+                    "assigned_user_id" : "seed_max_id",
+                    "base_rate" : "1",
+                    "best_case" : "50000.000000",
+                    "commit_stage" : "exclude",
+                    "currency_id" : "-99",
+                    "date_closed" : "2013-01-21",
+                    "date_modified" : "2013-01-17T14:39:13-05:00",
+                    "id" : "2fa54fdf-317e-dd20-81b2-50f853c2c5ef",
+                    "likely_case" : "50000.000000",
+                    "name" : "XY&Z Funding Inc - 1000 units",
+                    "probability" : "40",
+                    "product_id" : "2fdadb4d-32fc-8d9e-ae01-50f8532fcae4",
+                    "sales_stage" : "Id. Decision Makers",
+                    "version" : 1,
+                    "w_date_modified" : "2013-01-17T14:39:13-05:00",
+                    "worksheet_id" : "7edd076a-e1b9-8c29-c827-50f8533079c8",
+                    "worst_case" : "50000.000000"
+                  },
+                  { "amount" : "75000.000000",
+                    "assigned_user_id" : "seed_max_id",
+                    "base_rate" : "1",
+                    "best_case" : "75000.000000",
+                    "commit_stage" : "include",
+                    "currency_id" : "-99",
+                    "date_closed" : "2013-01-22",
+                    "date_modified" : "2013-01-17T14:39:13-05:00",
+                    "id" : "61f6ad39-6951-5f84-8fa8-50f85303b521",
+                    "likely_case" : "75000.000000",
+                    "name" : "XY&Z Funding Inc - 1000 units",
+                    "probability" : "90",
+                    "product_id" : "6233c9f1-bb28-3907-cee8-50f853bcc6d1",
+                    "sales_stage" : "Needs Analysis",
+                    "version" : 1,
+                    "w_date_modified" : "2013-01-17T14:39:13-05:00",
+                    "worksheet_id" : "86c2d323-4855-8655-a48a-50f853bf6a3b",
+                    "worst_case" : "75000.000000"
+                  }
+                ],
+              "new" : [  ]
+            },
+          "worst_case" : 150000
+        }
+    </code>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        { "base_rate" : 1,
+          "best_case" : 185000,
+          "currency_id" : "-99",
+          "date_entered" : "2013-01-18T09:29:10-05:00",
+          "date_modified" : "2013-01-18T09:29:10-05:00",
+          "deleted" : 0,
+          "forecast_type" : "Direct",
+          "id" : "a424a223-e55f-d2a9-50ff-50f95ca5e3ff",
+          "likely_case" : 174000,
+          "opp_count" : 2,
+          "opp_weigh_value" : 87000,
+          "timeperiod_id" : "dcc2885a-5889-ea75-84c8-50f853d1a5ba",
+          "user_id" : "seed_max_id",
+          "worst_case" : 150000
+        }
+    </code>
+</div>

@@ -1,0 +1,36 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class='row-fluid last-commit'>
+    <div class="span8 datapoints">
+        <div class="pull-right">
+            {{#each this.data_points}}
+                <div class="datapoint pull-left">
+                    {{#if this.value}}
+                        {{formatCurrency this.value}}
+                    {{else}}
+                        {{{this.error}}}
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="hr hide"></div>
+    <div class="span4 commit-date">
+        {{#if this.commit_date}}
+            <span class="relativetime">
+                {{str 'LBL_LAST_COMMIT'}}{{relativeTime commit_date class='date'}}
+                &nbsp;<i id="show_hide_history_log" class="fa fa-caret-down fa-sm"></i>
+            </span>
+        {{/if}}
+    </div>
+</div>

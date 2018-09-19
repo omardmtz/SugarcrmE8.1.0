@@ -1,0 +1,229 @@
+/* ACTIVITY
+  ----------------*/
+
+.activitystream-list {
+  width: 100%;
+  margin: 0;
+  list-style: none;
+}
+
+.activitystream-posts-comments-container {
+  border-bottom: @borderWidget;
+  padding: 10px 68px 0 52px;
+  position: relative;
+  font-size: @fontSizeLarge;
+  min-height: 46px;
+
+  &.highlighted {
+    background: @dropdownLinkBackgroundHover;
+  }
+
+  .avatar,
+  .label-module {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  .tagged {
+    max-width: 100%;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    margin-top: -2px;
+
+    span.label {
+      font-size: @baseFontSize - 1;
+      padding: 2px 4px 1px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .details {
+    font-size: @fontSizeSmall;
+    line-height: 14px;
+  }
+
+  .embed {
+    min-height: 18px;
+    max-width: 480px;
+
+    iframe,
+    img {
+      margin-top: 11px;
+    }
+  }
+
+  .comments {
+    margin: 10px -68px 0 0;
+
+    .avatar {
+      left: 0;
+    }
+
+    .comment {
+      list-style: none;
+      border-top: 1px dotted darken(@grayLighter, 10%);
+      padding: 10px 10px 10px 37px;
+      font-size: @baseFontSize;
+      position: relative;
+    }
+
+    .date {
+      font-size: @fontSizeSmall;
+    }
+
+    .more-comments {
+      padding: 10px 0;
+      font-size: @baseFontSize;
+    }
+  }
+
+  .reply-area {
+    .reply-input {
+      position: relative;
+      margin-left: -37px;
+
+      .reply {
+        padding: 10px 58px 10px 10px;
+      }
+    }
+
+    .reply-btn {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+    }
+
+    .reply {
+      min-height: 18px;
+      padding: 10px;
+      border: dashed 1px darken(@grayLighter, 10%);
+      color: @grayLight;
+      font-size: @baseFontSize;
+
+      &:focus {
+        border: @borderWidget;
+        color: @gray;
+      }
+    }
+  }
+
+  .actions {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: normal;
+  }
+}
+
+//for activity stream in preview
+.preview-pane {
+  .activitystream-layout {
+    padding: 28px 5% 0;
+    margin: 8px;
+  }
+
+  .activitystream-list {
+    background-color: @white;
+    border: @borderWidget;
+  }
+
+  .activitystream-posts-comments-container {
+    padding: 8px 14px 8px 54px;
+    font-size: @baseFontSize;
+    min-height: 36px;
+
+    .avatar,
+    .label-module {
+      left: 12px;
+      top: 12px;
+    }
+
+    .embed {
+      iframe,
+      img {
+        margin-top: 5px;
+      }
+    }
+
+    .comments {
+      margin: 8px -14px -8px -54px;
+
+      .comment {
+        padding: 8px 8px 4px 54px;
+      }
+
+      .avatar {
+        left: 20px;
+      }
+
+      .more-comments {
+        padding: 4px 8px 4px 18px;
+      }
+    }
+
+    > .comment:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.activitystream-pending-attachment {
+  position: relative;
+  width: 140px;
+  border: 4px solid @grayLighter;
+  background: @grayLighter;
+  float: left;
+  height: 141px;
+  font-size: @fontSizeSmall;
+  overflow: hidden;
+  margin: 5px 5px 5px 0;
+  color: #767676;
+
+  .close {
+    font-size: 16px;
+    line-height: 14px;
+    padding: 0 2px;
+    margin-left: 5px;
+  }
+
+  img {
+    margin-top: 4px;
+  }
+}
+
+div[data-placeholder]:not(:focus):not([data-hide-placeholder])::before {
+  content: attr(data-placeholder);
+  color: @grayLight;
+}
+
+// Fix for activity stream dashlet for record view
+.dashboard .well .dashlet-content .activitystream-posts-comments-container {
+  padding-bottom: 8px;
+}
+
+// Fix for activity stream dashlet actions
+.dashlet .activitystream-posts-comments-container .actions {
+  position: absolute;
+  top: 10px;
+}
+
+/* NEW SKIN START */
+
+.activitystream-posts-comments-container {
+  .avatar img {
+    /* override */
+    border: none;
+
+    /* additive */
+    box-shadow: 0 0 2px rgba(0, 0, 0, 1);
+  }
+}
+
+/* NEW SKIN END */

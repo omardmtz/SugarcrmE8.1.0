@@ -1,0 +1,17 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if isAuthenticated}}
+   {{#if isShortcutsEnabled}}<button data-action="shortcuts" class="btn btn-invisible" aria-label="{{str "LBL_SHORTCUTS"}}" role="link"><i class="fa fa-keyboard-o"></i><span class="action-label">  {{str "LBL_SHORTCUTS"}}</span></button>{{/if}}
+   <button data-action="feedback" class="btn btn-invisible" role="link"><i class="fa fa-comment"></i><span class="action-label"> {{str "LBL_FEEDBACK"}}</span></button>
+   <button data-action="help" data-modal="help" class="btn btn-invisible" aria-pressed="false" role="link"><i class="fa fa-question-circle"></i><span class="action-label"> {{str "LBL_HELP"}}</span></button>
+{{/if}}

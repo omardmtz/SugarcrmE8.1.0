@@ -1,0 +1,161 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- jstree
+================================================== -->
+<section id="jstree">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span3 columns">
+      <h3>About</h3>
+      <p>jsTree is a javascript based, cross browser tree component.</p>
+      <p>The jquery.jstree.js plugin is included in the default build of SugarCRM. [<a href="http://www.jstree.com/documentation" target="_blank"><i class="fa fa-book"></i> Docs</a>]</p>
+    </div>
+    <div class="span9 columns">
+      <h2>Example</h2>
+      <p>Click on the folder icons to expand/collapse children</p>
+      <div id="people">
+      </div>
+      <hr>
+      <h2>Using jquery.jstree.js</h2>
+      <p>Call jstree via javascript:</p>
+<pre class="prettyprint linenums">
+$("#people").jstree({
+    // generating tree from json data
+    "json_data" : {
+        "data" : [
+            {
+                "data" : "Sabra Khan",
+                "state" : "open",
+                "metadata" : { id : 1 },
+                "children" : [
+                    {"data" : "Mark Gibson","metadata" : { id : 2 }},
+                    {"data" : "James Joplin","metadata" : { id : 3 }},
+                    {"data" : "Terrence Li","metadata" : { id : 4 }},
+                    {
+                        "data" : "Amy McCray",
+                        "metadata" : { id : 5 },
+                        "children" : [
+                            {"data" : "Troy McClure","metadata" : {id : 6}},
+                            {"data" : "James Kirk","metadata" : {id : 7}}
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    // plugins used for this tree
+    "plugins" : [ "json_data", "ui", "types" ]
+})
+.bind("loaded.jstree", function () {
+    // do stuff when tree is loaded
+    $("#people").addClass("jstree-sugar");
+    $("#people > ul").addClass("list");
+    $("#people > ul > li > a").addClass("jstree-clicked");
+})
+.bind("select_node.jstree", function (e, data) {
+    // do stuff when a node is selected
+    data.inst.toggle_node(data.rslt.obj);
+});</pre>
+      <h3>Plugins</h3>
+      <p>As of version 1.0 jsTree is extremely plugin friendly, so all functionality is now wrapped in plugins, which take care of various aspects of the tree and can be removed without affecting the functionality of other plugins. Below you will find a list of plugins - each with its own documentation page. Probably a good place to start is the core.</p>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Name</th>
+            <th>description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/html_data" target="_blank">HTML_DATA plugin</a></td>
+            <td>enables jsTree to convert nested unordered lists to interactive trees, an already existing UL may be used or data could be retrieved from a server</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/json_data" target="_blank">JSON_DATA plugin</a></td>
+            <td>enables jsTree to convert JSON objects to interactive trees, data can be set up in the config or retrieved from a server.</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/xml_data" target="_blank">XML_DATA plugin</a></td>
+            <td>enables jsTree to convert XML objects to interactive trees (using XSL), data can be set up in the config or retrieved from a server</td>
+          </tr>
+          <!--tr>
+          <td>Themes plugin</td>
+          <td>controls the looks of jstree - without this plugin you will get a functional tree, but it will look just like an ordinary UL list</td>
+          </tr-->
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/ui" target="_blank">UI plugin</a></td>
+            <td>handles selecting, deselecting and hovering tree items</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/crrm" target="_blank">CRRM plugin</a></td>
+            <td>handles creating, renaming, removing and moving nodes by the user, also includes cut/copy/paste functions</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/hotkeys" target="_blank">Hotkeys plugin</a></td>
+            <td>enables support for keyboard navigation & shortcuts, highly configurable</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/languages" target="_blank">Languages plugin</a></td>
+            <td>enables multilanguage support - each node can have multiple titles, but only one is visible</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/cookies" target="_blank">Cookies plugin</a></td>
+            <td>enables jstree to save the state of the tree across sessions, by saving selected and opened nodes in a cookie</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/sort" target="_blank">Sort plugin</a></td>
+            <td>enables jstree to automatically sort all nodes
+            using a specified function</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/dnd" target="_blank">DND plugin</a></td>
+            <td>enables drag'n'drop support for jstree, also using foreign nodes and drop targets</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/checkbox" target="_blank">Checkbox plugin</a></td>
+            <td>makes multiselection possible using three-state checkboxes</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/search" target="_blank">Search plugin</td>
+            <td>enables searching for nodes whose title contains a given string, works on async trees too</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/contextmenu" target="_blank">Contextmenu plugin</a></td>
+            <td>enables a multilevel context menu on tree items</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/types" target="_blank">Types plugin</a></td>
+            <td>each node can have a type, and you can define rules on how that type should behave</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/themeroller" target="_blank">Themeroller plugin</a></td>
+            <td>adds support for jQuery UI's themes</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.jstree.com/documentation/unique" target="_blank">Unique plugin</a></td>
+            <td>adds unique checking to jsTree</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Markup</h3>
+      <p>The basic structure you need when generating a tree from JSON data.</p>
+<pre class="prettyprint linenums">
+&lt;div id="people"&gt;&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</section>

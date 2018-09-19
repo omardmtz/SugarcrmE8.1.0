@@ -1,0 +1,30 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div>
+    {{#if value.short}}
+        {{#if collapsed}}
+            {{nl2br value.short}}&hellip;
+        {{else}}
+            {{nl2br value.long}}
+        {{/if}}
+        <button data-action="toggle" class="btn btn-link btn-invisible toggle-text">
+            {{#if collapsed}}
+                {{str 'LBL_TEXTAREA_MORE' module}}
+            {{else}}
+                {{str 'LBL_TEXTAREA_LESS' module}}
+            {{/if}}
+        </button>
+    {{else}}
+        {{nl2br value.long}}
+    {{/if}}
+</div>

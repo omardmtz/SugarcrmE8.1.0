@@ -1,0 +1,37 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="tabbable tabs-full {{tabClass}}" data-content="chart">
+    <ul id="tab" class="nav nav-tabs">
+        <li class="active"><a class="ellipsis_inline" data-original-title="{{str "LBL_DASHLET_CASESSUMMARY_SUMMARY"}}" data-casessummary-status="Summary" href="#tab-chart" data-toggle="tab">{{str "LBL_DASHLET_CASESSUMMARY_SUMMARY"}}<br><span class="label label-important count sc-fill00">{{total}}</span></a></li>
+        {{#each tabData}}
+            <li><a class="ellipsis_inline" data-original-title="{{statusLabel}}" data-casessummary-status="{{status}}" href="#tab-{{index}}" data-toggle="tab">{{statusLabel}}<br><span class="label count {{cssClass}}">{{models.length}}</span></a></li>
+        {{/each}}
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active" id="tab-chart">
+            <div id="casesSummaryPie" class="cases-summary-chart sc-chart">
+                <svg class="sucrose" id="{{cid}}"></svg>
+            </div>
+        </div>
+        {{#each tabData}}
+            <div class="tab-pane fade" id="tab-{{index}}">
+                <ul class="listed">
+                {{#each models}}
+                    <li><span data-model-id="{{fieldValue this "id"}}"></span>&nbsp;<a href="#{{buildRoute model=this}}">{{attributes.name}}</a></li>
+                {{/each}}
+                </ul>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<div class="block-footer hide" data-content="nodata">{{str "LBL_NO_DATA_AVAILABLE"}}</div>

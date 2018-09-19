@@ -1,0 +1,186 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the definition data for an event
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will retrieve the JSON encoded definition data for the Process
+    Definition event identified by the <code>record</code> input parameter.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>record</td>
+            <td>String</td>
+            <td>The value for the evn_uid field in the pmse_bpmn_event record</td>
+            <td>True</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<strong>Note:</strong> Additional input parameters can be provided in the form
+of a URL query string.
+<pre class="pre-scrollable">
+    /rest/v11/pmse_Project/EventDefinition/632263607573cb74a582507093735454?related=modules
+</pre>
+
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&lt;field&gt;</td>
+            <td>&lt;value&gt;</td>
+            <td>Field value in the pmse_bpmn_activity record</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "id":"80a37c82-8be8-c668-a547-573cb791b905",
+    "name":"",
+    "date_entered":"2016-05-18 18:41:29",
+    "date_modified":"2016-05-18 18:41:42",
+    "created_by":"1",
+    "description":null,
+    "deleted":"0",
+    "evn_status":"ACTIVE",
+    "evn_type":"START",
+    "evn_module":"Accounts",
+    "evn_criteria":"",
+    "evn_params":"new",
+    "evn_script":"",
+    "execution_mode":"DEFAULT",
+    "au_first_name":null,
+    "au_last_name":null,
+    "cbu_first_name":null,
+    "cbu_last_name":"Administrator",
+    "mbu_first_name":null,
+    "mbu_last_name":"Administrator",
+    "my_favorite":null,
+    "evn_uid":"632263607573cb74a582507093735454",
+    "related":
+    {
+        "modules":
+        [
+            {
+                "value":"Accounts",
+                "text":"Accounts"
+            },
+            {
+                "value":"Bugs",
+                "text":"Bugs"
+            },
+            {
+                "value":"Calls",
+                "text":"Calls"
+            },
+            {
+                "value":"Campaigns",
+                "text":"Campaigns"
+            },
+            {
+                "value":"Cases",
+                "text":"Cases"
+            },
+            {
+                "value":"Contacts",
+                "text":"Contacts"
+            },
+            {
+                "value":"Contracts",
+                "text":"Contracts"
+            },
+            {
+                "value":"Documents",
+                "text":"Documents"
+            },
+            {
+                "value":"KBContents",
+                "text":"Knowledge Base"
+            },
+            {
+                "value":"Leads",
+                "text":"Leads"
+            },
+            {
+                "value":"Meetings",
+                "text":"Meetings"
+            },
+            {
+                "value":"Notes",
+                "text":"Notes"
+            },
+            {
+                "value":"Opportunities",
+                "text":"Opportunities"
+            },
+            {
+                "value":"ProductTemplates",
+                "text":"Product Catalog"
+            },
+            {
+                "value":"ProjectTask",
+                "text":"Project Tasks"
+            },
+            {
+                "value":"Project",
+                "text":"Projects"
+            },
+            {
+                "value":"Products",
+                "text":"Quoted Line Items"
+            },
+            {
+                "value":"Quotes",
+                "text":"Quotes"
+            },
+            {
+                "value":"RevenueLineItems",
+                "text":"Revenue Line Items"
+            },
+            {
+                "value":"Prospects",
+                "text":"Targets"
+            },
+            {
+                "value":"Tasks",
+                "text":"Tasks"
+            }
+        ]
+    }
+}
+</pre>

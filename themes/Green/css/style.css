@@ -1,0 +1,167 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+/*********************************************************************************
+
+ * Description:  Contains a variety of utility functions used to display UI 
+ * components such as form headers and footers.  Intended to be modified on a per 
+ * theme basis.
+ ********************************************************************************/
+
+/** From default style.css file **/
+
+.dcmenu .inner {
+    height: 44px;
+    min-width: 950px;
+    background-color:#79a300;
+    background-image:-moz-linear-gradient(top,#90c200,#577500);
+    background-image:-ms-linear-gradient(top,#90c200,#577500);
+    background-image:-webkit-gradient(linear,0 0,0 100%,from(#90c200),to(#577500));
+    background-image:-webkit-linear-gradient(top,#90c200,#577500);
+    background-image:-o-linear-gradient(top,#90c200,#577500);
+    background-image:linear-gradient(top,#90c200,#577500);
+    background-repeat:repeat-x;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#90c200', endColorstr='#577500', GradientType=0);
+    -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.1), 0 4px 0 #2f3a11;
+    -moz-box-shadow:0 1px 3px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.1), 0 4px 0 #2f3a11;
+    box-shadow:0 1px 3px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.1), 0 4px 0 #2f3a11;
+}
+
+#dcmenuSugarCube.focused {
+    background-color: #314200;
+}
+
+.dashletPanel.dc {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.dashletPanel.dc .hd {
+    background-color:#79a300;
+    background-image:-moz-linear-gradient(top,#90c200,#577500);
+    background-image:-ms-linear-gradient(top,#90c200,#577500);
+    background-image:-webkit-gradient(linear,0 0,0 100%,from(#90c200),to(#577500));
+    background-image:-webkit-linear-gradient(top,#90c200,#577500);
+    background-image:-o-linear-gradient(top,#90c200,#577500);
+    background-image:linear-gradient(top,#90c200,#577500);
+    background-repeat:repeat-x;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#90c200', endColorstr='#577500', GradientType=0);
+}
+
+
+#dcboxbody .hd .close a {
+    color: #90c200;
+}
+
+.dashletPanel .sugarFeedDashlet {
+    position:inherit;
+}
+
+#ie8GradientFix{
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#90c200', endColorstr='#577500');
+}
+
+.dcmenuDivider  {
+	border-left: 1px solid #577500;
+	border-right: 1px solid #90c200;
+	background-image: none;
+	width: 0px;
+}
+
+#moduleList .sf-menu > li.current > a {
+    background-color:#445c00 !important;
+    border-bottom:4px solid #000000;
+}
+
+ul.megamenu .MMShortcuts li.sfHover a.sf-with-ul,
+ul.moduleTabMore li.sfHover a.sf-with-ul,
+ul.sf-sub-modulelist li.sfHover > a.sf-with-ul,
+ul.filter-menu li a.selected,
+ul.megamenu ul a:hover,
+ul.moduleTabMore li a:hover,
+ul.sf-sub-modulelist li a:hover,
+#moduleList .sf-menu li:hover,
+#moduleList .sf-menu li.sfHover,
+#moduleList .sf-menu li a:focus,
+#moduleList .sf-menu li a:hover,
+#moduleList .sf-menu li a:active {
+	background:		#7da800;
+	outline:		0;
+}
+
+
+#moduleList .more .selected {
+	background:		#314200;
+}
+#globalLinksModule ul.clickMenu.SugarActionMenu li a:hover,
+#globalLinksModule ul.clickMenu li:hover span,
+ul.SugarActionMenuIESub li a:hover, ul.clickMenu.SugarActionMenu li a:hover, ul.clickMenu.SugarActionMenu li span.subhover:hover,
+ul#globalLinksSubnav li a:hover, ul#quickCreateULSubnav li a:hover,
+ul.clickMenu:hover, ul.clickMenu li ul.subnav li a:hover,ul.clickMenu li ul.subnav li input:hover, ul.clickMenu.subpanel.records li ul.subnav li a:hover, ul.clickMenu ul.subnav-sub li a:hover { /*--Hover effect for subnav links--*/
+	background-color:		#7da800;
+    color:#ffffff !important;
+}
+
+#globalLinksModule:hover, #quickCreate ul.clickMenu > li:hover {
+	background-color: #7da800;
+}
+
+#dcmenuSugarCube:hover {
+	background-color: #7da800;
+}
+
+.button.primary, .yui-dialog .ft span.default button {
+    *background-color:#456500;
+    border-color:#456500 #456500 #111900;
+    border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    background-color:#5a8400;
+    background-image:-moz-linear-gradient(top,#689800,#456500);
+    background-image:-ms-linear-gradient(top,#689800,#456500);
+    background-image:-webkit-gradient(linear,0 0,0 100%,from(#689800),to(#456500));
+    background-image:-webkit-linear-gradient(top,#689800,#456500);
+    background-image:-o-linear-gradient(top,#689800,#456500);
+    background-image:linear-gradient(top,#689800,#456500);
+    background-repeat:repeat-x;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#689800', endColorstr='#456500', GradientType=0);
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+.button.primary:hover,.button.primary:focus ,button.primary[selected],.yui-dialog .ft span.default button:hover{
+    background-color:#456500;
+    *background-color:#344c00;
+}
+
+#glblSearchBtn .searchIconLink {
+    *background-color:#0b0f00;
+    border-color:#0b0f00 #0b0f00 #000000;
+    border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    background-color:#222e00;
+    background-image:-moz-linear-gradient(top,#314200,#0b0f00);
+    background-image:-ms-linear-gradient(top,#314200,#0b0f00);
+    background-image:-webkit-gradient(linear,0 0,0 100%,from(#314200),to(#0b0f00));
+    background-image:-webkit-linear-gradient(top,#314200,#0b0f00);
+    background-image:-o-linear-gradient(top,#314200,#0b0f00);
+    background-image:linear-gradient(top,#314200,#0b0f00);
+    background-repeat:repeat-x;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#314200', endColorstr='#0b0f00', GradientType=0);
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    top: 0px;
+}
+
+#sugar_spot_search {
+    border: 1px solid #0b0f00;
+}

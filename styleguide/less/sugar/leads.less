@@ -1,0 +1,183 @@
+/* LEADS
+  ----------------*/
+
+//Converted Results View
+.dataTable.converted-results {
+  .associated {
+    font-weight: bold;
+  }
+
+  .preview-list-item {
+    width: 14px;
+  }
+}
+
+// ACCORDION
+// ---------
+.accordion {
+  // Header
+  .accordion-heading {
+    background-color: @grayLighter;
+    border-bottom: 0;
+    position: relative;
+    padding: 10px 8px 10px 16px;
+    min-height: 48px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+
+    .title {
+      line-height: 26px;
+    }
+
+    &.active {
+      background-color: @white;
+
+      .subview-toggle-indicator .fa-caret-down::before {
+        content: "\f0d8";
+      }
+    }
+
+    &.enabled {
+      cursor: pointer;
+
+      .module-number {
+        font-weight: bold;
+      }
+
+      .title {
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: lighten(@grayLighter, 2%);
+      }
+    }
+
+    &:not(.enabled) {
+      color: @grayLight;
+    }
+
+    .subview-toggle {
+      line-height: 26px;
+
+      .toggle-link {
+        padding: 15px 0;
+      }
+    }
+
+    .subview-toggle-indicator {
+      float: right;
+      margin-left: 12px;
+
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .convert-options {
+    border-bottom: 1px solid #ddd;
+    padding-top: 14px;
+    padding-left: 24px;
+
+    .transfer-activities-label {
+      margin-left: 5px;
+    }
+  }
+
+  .accordion-body {
+    clear: both;
+
+    &.collapse.in {
+      overflow: visible;
+    }
+  }
+  // Inner needs the styles because you can't animate properly with any styles on the element
+  .accordion-inner {
+    padding: 0;
+    border-top: 1px dotted darken(@grayLighter, 10%);
+    border-bottom: @borderWidget;
+  }
+
+  .accordion-group {
+    margin-bottom: 0;
+    border: none;
+    border-bottom: @borderWidget;
+    // for record edit view in duplist
+    .headerpane {
+      background: none;
+      border: none;
+      margin-top: 8px;
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 55px;
+      min-height: 55px;
+
+      span[data-type="fullname"].edit {
+        width: 100%;
+
+        .table-cell-wrapper {
+          width: 100%;
+        }
+      }
+      .record-cell[data-type="avatar"] {
+        padding: 4px 0 0 13px;
+
+        &.edit {
+          padding: 4px 0 0 17px;
+        }
+      }
+      .record-cell[data-type="follow"],
+        .record-cell[data-type="favorite"] {
+        display: none;
+      }
+
+      h1 {
+        margin-top: 26px;
+      }
+
+      .btn-toolbar.pull-right.dropdown {
+        display: none;
+      }
+
+      .label-module {
+        top: -7px;
+      }
+    }
+
+    .content-tabs .nav.nav-tabs .tab.active {
+      margin-top: 0;
+
+      a {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .record.tab-layout {
+    margin-top: 6px;
+  }
+}
+
+#convert-accordion {
+  .want_filter {
+    display: none;
+  }
+}
+
+// Want Filter for Duplist
+div.want_filter {
+  line-height: 20px;
+  border-bottom: 1px solid @warningBorder;
+
+  &.highlight {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid @warningBorder;
+    background-color: @warningBorder;
+    font-size: @fontSizeLarge;
+    color: @white;
+  }
+}

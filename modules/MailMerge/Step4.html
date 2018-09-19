@@ -1,0 +1,84 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<!-- BEGIN: error -->
+<span class="error">{ERROR}</span>
+<!-- END: error -->
+
+
+			<form enctype="multipart/form-data" name="MailMerge" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="MailMerge">
+			<input type="hidden" name="step" value="5">
+			<input type="hidden" name="action" value="Merge">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+			<input type="hidden" name="mailmerge_module" value="{MAILMERGE_MODULE}">
+			<input type="hidden" name="document_id" value="{MAILMERGE_DOCUMENT_ID}">
+			<input type="hidden" name="selected_objects_def" value="{MAILMERGE_SELECTED_OBJECTS_DEF}">				
+			<input type="hidden" name="record" value="{RECORD}">
+<p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+<td>
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<th align="left" scope="row" colspan="2"><h4 class="">{STEP_NUM}&nbsp;{MOD.LBL_STEP_4}</h4></th>
+	</tr>
+	<tr><td><slot>&nbsp;</slot></td></tr>
+	<tr>
+	<td scope="row"><slot>{MOD.LBL_SELECTED_MODULE}</slot></td>
+	<td></td>
+		<td >
+		<slot>{MAILMERGE_MODULE}</slot>
+		</td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>{MOD.LBL_SELECTED_TEMPLATE}</slot></td>
+	<td></td>
+		<td >
+		<slot>{MAILMERGE_TEMPLATE}</slot>
+		</td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>{MOD.LBL_SELECTED_ITEMS}</slot></td>
+	<td></td>
+	<td >
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td><slot><select id="selected_objs" name="selected_objs[]" size="10">{MAILMERGE_SELECTED_OBJECTS}</select></slot></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+	</tr>
+</table>
+</td>
+</tr>
+</table>
+</p>
+<p><table width="100%" cellpadding="2" cellspacing="0" border="0"><tr> 
+	<td align="left"><input title="{MOD.LBL_BACK}"  class="button" type="submit" name="button" value="  {MOD.LBL_BACK}  "  onclick="this.form.action.value='index'; this.form.step.value='{PREV_STEP}'; return true;"></td>
+	<td align="right"><input title="{MOD.LBL_FINISH}"  class="button" type="submit" name="button" value="  {MOD.LBL_FINISH}  "></td>
+</tr>
+</table>  </p>
+	</form>
+{JAVASCRIPT}
+
+<!-- END: main -->

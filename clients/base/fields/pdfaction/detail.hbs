@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<a class="rowaction" href="javascript:void(0);"
+   data-action="link"
+    {{#if def.tooltip}}
+   rel="tooltip"
+   data-container="body"
+   data-placement="bottom"
+   data-original-title="{{str def.tooltip module}}"
+    {{/if}}
+   name="{{name}}">
+    {{#if def.icon}}<i class="fa {{def.icon}}"></i>{{/if}}{{str label}}</a>
+{{#if fetchCalled}}
+    {{#if templateCollection.length}}
+        <ul class="dropdown-inset">
+            {{#each templateCollection.models}}
+                <li>
+                    <a href="javascript:void(0);" data-action="{{../../../def.action}}" data-id="{{attributes.id}}">{{attributes.name}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+{{/if}}

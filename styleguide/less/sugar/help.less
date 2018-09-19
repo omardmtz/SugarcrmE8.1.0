@@ -1,0 +1,112 @@
+/* HELP + HELP COMPONENT
+  ----------------*/
+//FIXME: UIUX-2174 will remove/refactor this part.
+.help-pane {
+  display: none;
+
+  .help-headerbar {
+    width: 34%;
+    position: fixed;
+    right: 0;
+    top: 48px;
+    height: 60px;
+    border-bottom: @borderWidget;
+    z-index: 1002;
+
+    h1 {
+      float: left;
+      margin-top: 18px;
+      margin-left: 20px;
+      font-size: @fontSizeHeader;
+    }
+
+    .btn-toolbar {
+      margin: 16px 10px 9px;
+    }
+  }
+
+  .helplet-list-container {
+    padding: 80px 1.5% 0;
+    margin: 0 7px;
+
+    .helplet-container {
+      margin-bottom: 25px;
+    }
+
+    .helplet {
+      padding: 0;
+      box-shadow: @shadowWidget;
+      background: @white;
+      transition: 0;
+
+      .helplet-content {
+        min-height: 140px;
+
+        .helplet-body,
+        .helplet-more {
+          margin: 15px 20px;
+        }
+      }
+
+      .collapsed {
+        .helplet-header {
+          border-radius: 4px;
+        }
+
+        h4 {
+          border-radius: @baseBorderRadius 0 0 @baseBorderRadius;
+        }
+      }
+
+      h4,
+      .helplet-options {
+        font-size: @baseFontSize;
+        line-height: @baseLineHeight;
+        font-weight: 500;
+        color: @gray;
+        background: @grayLighter;
+        border-bottom: @borderWidget;
+        margin: 0;
+
+        a {
+          color: @gray;
+        }
+      }
+
+      .helplet-header {
+        border-radius: @baseBorderRadius @baseBorderRadius 0 0;
+        background: @grayLighter;
+      }
+
+      h4 {
+        padding: 7px 80px 8px 10px;
+        border-radius: @baseBorderRadius 0 0 0;
+        font-size: @fontSizeLarge;
+      }
+
+      .btn-toolbar.pull-right {
+        margin: 3px;
+      }
+
+      .helplet-options {
+        padding: 5px 8px;
+
+        &.control-group {
+          .row-fluid {
+            [class*="span"] {
+              max-width: 280px;
+            }
+          }
+
+          [class*="span"]:first-of-type:last-of-type {
+            min-width: 108px;
+          }
+
+          .span6.hide + .span6 {
+            min-width: 108px;
+          }
+        }
+      }
+    }
+  }
+}

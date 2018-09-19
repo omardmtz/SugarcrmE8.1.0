@@ -1,0 +1,48 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: teams -->
+<script type="text/javascript" src="modules/Users/DetailView.js?v={VERSION_MARK}"></script>
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20">
+		<th scope="col" width="15%"><slot>{MOD.LBL_LIST_NAME}</slot></td>
+		<th scope="col" width="75%"><slot>{MOD.LBL_LIST_DESCRIPTION}</slot></td>
+		<th scope="col" width="10%"><slot>&nbsp;</slot></td>
+	</tr>
+	<!-- BEGIN: row -->
+	<tr height="20" class="{ROW_COLOR}S1">
+		<!-- BEGIN: admin_team -->
+		<td scope="row" valign="top" ><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Teams&record={TEAM.ID}" >{TEAM.NAME}</a></slot></td>
+    	<!-- END: admin_team -->
+    	<!-- BEGIN: user_team -->
+		<td valign="top"><slot>{TEAM.NAME}</slot></td>
+    	<!-- END: user_team -->
+    	<td valign="top"><slot>{TEAM.DESCRIPTION}</slot></td>
+		<td valign="top" align="left" nowrap="nowrap">
+		<!-- BEGIN: admin_edit -->
+		<a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Teams&record={TEAM.ID}{RETURN_URL}">{EDIT_INLINE_PNG}</a> <a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Teams&record={TEAM.ID}{RETURN_URL}">{APP.LNK_EDIT}</a>&nbsp; 
+		<!-- END: admin_edit -->
+    	<!-- BEGIN: admin_rem -->
+		<a class="listViewTdToolsS1" onClick="if (confirm('{MOD.NTC_REMOVE_TEAM_MEMBER_CONFIRMATION}')) relationship_remove('Teams', 'RemoveUserFromTeam', {team_record: '{TEAM.ID}', return_url: '{RETURN_URL}'});return false;" href="">{DELETE_INLINE_PNG}</a> <a class="listViewTdToolsS1" onClick="if (confirm('{MOD.NTC_REMOVE_TEAM_MEMBER_CONFIRMATION}')) relationship_remove('Teams', 'RemoveUserFromTeam', {team_record: '{TEAM.ID}', return_url: '{RETURN_URL}'});return false;" href="">{APP.LNK_REMOVE}</a>
+		<!-- END: admin_rem -->
+		<!-- BEGIN: user_edit -->
+		&nbsp;
+    	<!-- END: user_edit -->
+    	<!-- BEGIN: user_rem -->
+		&nbsp;
+    	<!-- END: user_rem -->
+    	</td>
+    </tr>
+	<!-- END: row -->
+
+</table>
+<!-- END: teams -->

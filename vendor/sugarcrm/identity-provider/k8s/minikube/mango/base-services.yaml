@@ -1,0 +1,38 @@
+# Your installation or use of this SugarCRM file is subject to the applicable
+# terms available at
+# http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+# If you do not agree to all of the applicable terms or do not have the
+# authority to bind the entity as an authorized representative, then do not
+# install or use this SugarCRM file.
+#
+# Copyright (C) SugarCRM Inc. All rights reserved.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: behat-tests-env-elastic
+  labels:
+    app: behat-tests-elastic
+spec:
+  type: NodePort
+  ports:
+  - name: elastic-data
+    port: 9200
+    protocol: TCP
+  selector:
+    app: behat-tests-elastic
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: behat-tests-mango
+  labels:
+    app: behat-tests-mango
+spec:
+  type: NodePort
+  ports:
+  - name: mango-web
+    port: 80
+    protocol: TCP
+  selector:
+    app: behat-tests-mango

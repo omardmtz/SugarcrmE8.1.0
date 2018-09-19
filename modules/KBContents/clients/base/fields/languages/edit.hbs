@@ -1,0 +1,41 @@
+{{!
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+}}
+{{#each value}}
+    <div class="control-group" data-name="languages_{{name}}">
+        <div class="controls controls-three btn-fit row{{#if @first}} first-row{{/if}}">
+            {{#eachOptions items}}
+                <div class="span3">
+                    {{#if @first}}<label class="control-label">{{str "LBL_CONFIG_LANGUAGES_LABEL_KEY" ../../../module}}</label>{{/if}}
+                    <input type="text" name="key_{{../name}}" class="inherit-width span12" value="{{key}}" data-id="{{../id}}" data-index="{{@index}}" maxlength="2">
+                </div>
+                <div class="span3">
+                    {{#if @first}}<label class="control-label">{{str "LBL_CONFIG_LANGUAGES_LABEL_NAME" ../../../module}}</label>{{/if}}
+                    <input type="text" name="value_{{../name}}" class="inherit-width span12" value="{{value}}" data-id="{{../id}}" data-index="{{@index}}">
+                </div>
+            {{/eachOptions}}
+            <div class="span6">
+                {{#if @first}}<label>&nbsp;</label>{{/if}}
+                <div class="span12">
+                    <button type="button" class="btn third {{#if primary}}active{{/if}}" name="primary" data-action="set-primary-field" data-index="{{@index}}" rel="tooltip" title="{{str "LBL_SET_ITEM_PRIMARY" ../module}}"><i class="fa fa-star"></i></button>
+                    {{#if remove_button}}
+                        <button type="button" class="btn second" name="remove" data-action="remove-field" data-index="{{@index}}" rel="tooltip" title="{{str "LBL_ITEM_REMOVE" ../../module}}"><i class="fa fa-minus"></i></button>
+                    {{/if}}
+                    {{#if add_button}}
+                        <button type="button" class="btn first" name="add" data-action="add-field" data-index="{{@index}}" rel="tooltip" title="{{str "LBL_ITEM_ADD" ../../module}}"><i class="fa fa-plus"></i></button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
+{{#unless hideHelp}}{{#if def.help}}<p class="help-block">{{str def.help module}}</p>{{/if}}{{/unless}}

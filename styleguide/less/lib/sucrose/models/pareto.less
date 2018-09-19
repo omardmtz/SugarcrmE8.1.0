@@ -1,0 +1,56 @@
+
+/**********
+* Pareto
+*/
+
+.sc-chart-pareto {
+  .sc-quota-wrap line {
+    opacity: 0.8;
+    stroke: #444;
+    stroke-width: 4px;
+    fill: none;
+
+    &.sc-quota-target {
+      stroke: #777;
+    }
+    &.sc-quota-background {
+      opacity: 0;
+      stroke-width: 12px;
+    }
+  }
+
+  .sc-axis-y {
+    .domain {
+      display: none;
+    }
+
+    text {
+      &.sc-quota-value,
+      &.sc-target-quota-value {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .sc-line .sc-group path {
+    stroke-width: 4px;
+  }
+
+  .sc-lines-wrap1 .sc-line .sc-group path {
+    stroke-width: 6px;
+  }
+
+  .sc-scatter .sc-group .sc-point {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+    stroke-width: 2px;
+
+    &.hover {
+      stroke-width: 10px;
+    }
+  }
+
+  .sc-lines-wrap2 .sc-scatter .sc-group circle {
+    stroke: @white;
+  }
+}

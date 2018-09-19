@@ -1,0 +1,233 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<style>
+    div.designer
+    {
+        padding-top: 0;
+    }
+</style>
+<link type="text/css" href="modules/pmse_Project/css/jcore.libraries.css?v={{cacheKiller}}" rel="stylesheet" />
+<link type="text/css" href="modules/pmse_Project/css/jcore.adam-ui.css?v={{cacheKiller}}" rel="stylesheet" />
+<link type="text/css" href="modules/pmse_Project/css/jcore.adam.css?v={{cacheKiller}}" rel="stylesheet" />
+<link type="text/css" href="modules/pmse_Project/css/pmse.css?v={{cacheKiller}}" rel="stylesheet" />
+<style>
+    /* TODO remove this section and put in the sass file */
+    #ProjectTitle {
+        font-family: Arial,Verdana,Helvetica,sans-serif;
+        color: #000000;
+        font-weight: bold;
+        font-size: 15px;
+        margin: 2px 0 0 0;
+    }
+
+    .pmse-toolbar-buttons {
+        width: 83%;
+        padding: 3px 0 0 10px;
+        position: absolute;
+        left: 0;
+    }
+
+    .pmse-toolbar-title {
+        width: 17%;
+        position: absolute;
+        right: 0;
+    }
+    .pmse-toolbar-title .icon-remove {
+        margin: 5px 6px 0 0;
+    }
+    .pmse-toolbar-title .icon-edit-title {
+        margin-top: 5px;
+    }
+    .navbtn {
+        width: 28px;
+        height: 28px;
+        margin: 0 5px 0 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        display: block;
+        float: left;
+        position: relative;
+        text-align: center;
+        background-color: #f6f6f6;
+    }
+    .navbtn.mod {
+        color: white;
+        font-family: Helvetica;
+        font-size: 10px;
+        line-height: 17px;
+        text-indent: 2px;
+        text-align: left;
+    }
+    .navbtn > [class*="fa-"] {
+        font-size: 1.35em;
+        line-height: 1.75em;
+    }
+    .navbtn .fa-rotate-45 {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=.5);
+    }
+    /*
+    .navbtn .fa-stack {
+        margin-left: -2px;
+    }
+    .navbtn .fa-small {
+        font-size: 1.05em;
+    }
+    .navbtn .fa-xsmall {
+        font-size: .70em;
+    }
+    */
+    .navbtn .overlay {
+        position: absolute;
+        top: 5px;
+        left: 10.3px;
+        z-index: 1;
+        font-size: .85em;
+        color: #fff;
+    }
+    /* Leads */
+    .navbtn.leads {
+        background-color: #176DE5;
+    }
+    /* Opportunity */
+    .navbtn.opportunity {
+        background-color: #6D17E5;
+    }
+    /* Documents */
+    .navbtn.documents {
+        background-color: #6F1C0B;
+    }
+    /* Undo, Redo, Save */
+    .navbtn i[class*="-off"] {
+        color: #ccc;
+    }
+
+    .navdiv {
+        width: 10px;
+        height: 7px;
+        /*border-radius: 15px;*/
+        /*background-color: #ccc;*/
+        margin: 12px 5px 0 0;
+        float: left;
+    }
+    .navdiv.lg {
+        width: 50px;
+    }
+
+</style>
+<!--RECIPES HTML BEGINNIG-->
+<div id="container">
+    <div class="pane ui-layout-center">
+        <div id="jcore_designer" style='background-image: url("modules/pmse_Project/img/grid_20.png");'></div>
+    </div>
+    <div class="pane ui-layout-east">
+        <div id="div-bpmn-error" style="padding: 14px; width: 100%; background-color: #f6f6f6; height: 95%; box-sizing: border-box; overflow:auto"></div>
+        <div id="statusBar" class="adam-error-color" style="height: 5%; width: auto; background: #f6f6f6; position: relative; border-top:1px solid #ddd; box-sizing: border-box; padding: 2px 0 0 5px;">
+            <div id = "error-div" style="display: none;">
+                <i class="fa fa-exclamation-circle fa-error fa-md"></i>
+                <span id="countErrors" style="position: absolute; left: 28px; padding-top: 2px; top: 2px"></span>
+            </div>
+        </div>
+        <!--<div class="pane east-center no-border"><div id="adam_tree"></div></div>
+        <div class="pane east-south no-border">
+            <div id="properties-grid">
+            </div>
+        </div>-->
+    </div>
+    <div class="pane ui-layout-north no-border" style="background-color: #f6f6f6;">
+        <div id="adam_toolbar">
+            <div class="pmse-toolbar-buttons">
+
+                <!-- Other Modules -->
+                <span id="AdamEventOtherModule" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_OTHER_MODULE_EVENT" this.module}}" class="navbtn othermods"><i class="fa fa-cube"></i></span>
+
+                <span class="navdiv"></span>
+
+                <!-- Wait -->
+                <span id="AdamEventTimer" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_WAIT" this.module}}" class="navbtn"><i class="fa fa-clock-o"></i></span>
+
+                <!-- Receive Message -->
+                <span id="AdamEventReceiveMessage" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_RECEIVE_MESSAGE" this.module}}" class="navbtn"><i class="fa fa-inbox"></i></span>
+
+                <!-- Send Message -->
+                <span id="AdamEventMessage" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_SEND_MESSAGE" this.module}}" class="navbtn"><i class="fa fa-envelope"></i></span>
+
+                <span class="navdiv"></span>
+
+                <!-- User Task -->
+                <span id="AdamUserTask" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_USER_TASK" this.module}}" class="navbtn"><i class="fa fa-stop"></i></span>
+
+                <!-- Action -->
+                <span id="AdamScriptTask" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_ACTION" this.module}}" class="navbtn"><i class="fa fa-cogs"></i></span>
+
+                <span class="navdiv"></span>
+
+                <!-- Exclusive -->
+                <span id="AdamGatewayExclusive" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_EXCLUSIVE" this.module}}" class="navbtn"><i class="fa fa-stop fa-rotate-45"></i></span>
+
+                <!-- Parallel -->
+                <span id="AdamGatewayParallel" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_PARALLEL" this.module}}" class="navbtn"><i class="fa fa-plus overlay"></i><i class="fa fa-stop fa-rotate-45"></i></span>
+
+                <span class="navdiv"></span>
+
+                <!-- End Event -->
+                <span id="AdamEventEnd" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_END_EVENT" this.module}}" class="navbtn"><i class="fa fa-circle"></i></span>
+
+                <span class="navdiv"></span>
+
+                <!-- Comment -->
+                <span id="AdamTextAnnotation" type="draggable" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_COMMENT" this.module}}" class="navbtn"><i class="fa fa-comment"></i></span>
+
+                <span class="navdiv lg"></span>
+
+                <!-- Undo -->
+                <span id="ButtonUndo" type="" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_UNDO" this.module}}" class="navbtn"><i class="fa fa-undo"></i></span>
+
+                <!-- Redo -->
+                <span id="ButtonRedo" type="" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_REDO" this.module}}" class="navbtn"><i class="fa fa-undo fa-flip-horizontal"></i></span>
+
+                <!-- Save -->
+                <span id="ButtonSave" type="" rel="tooltip" title="" data-placement="bottom" data-original-title="{{str "LBL_PMSE_ADAM_DESIGNER_SAVE" this.module}}" class="navbtn"><i class="fa fa-save"></i></span>
+
+                <!-- Zoom -->
+                <select id="zoom" class="friendly-select">
+                    <option value="1">50%</option>
+                    <option value="2">75%</option>
+                    <option value="3" selected= "selected">100%</option>
+                    <option value="4">150%</option>
+                    <option value="5">175%</option>
+                </select>
+
+            </div>
+            <div class="pmse-toolbar-title">
+                <div style="display:block; float:right;"><button class="btn btn-invisible btn-close-designer" rel="tooltip" title="" data-placement="bottom" data-original-title="Close Designer">
+                    <i class="fa fa-times"></i>
+                </button>
+                </div>
+                <div style="display:block; float:right;">
+                    <div id="ProjectTitle"></div>
+                    <input id="txt-title" class="input-small" style="margin: 7px 0 0 0; display: none;">
+                </div>
+                <div class="icon-edit-title" style="display:none; float:right;">
+                    <a class="record-edit-link btn btn-invisible" data-type="url" data-name="website"><i class="fa fa-pencil"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--ADAM HTML ENDING-->

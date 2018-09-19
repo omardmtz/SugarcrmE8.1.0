@@ -1,0 +1,85 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<tr>
+    {{#each view.leftColumns}}
+        <th{{#if name}} data-fieldname="{{name}}"{{/if}}>
+            <span>
+                {{field ../view template="list-header"}}
+            </span>
+        </th>
+    {{/each}}
+    {{#each view._fields.visible}}
+        <th class="{{#if isSortable}}sorting{{#eq ../../view.orderBy.field name}}_{{../../../view.orderBy.direction}}{{/eq}} orderBy{{name}}{{/if}}{{#if widthClass}} {{widthClass}}{{/if}}"
+            {{#if styles}} style="{{styles}}"{{/if}}
+            {{#if name}} data-fieldname="{{name}}"{{/if}} data-orderby="{{orderBy}}">
+            {{#has "ReorderableColumns" ../view.plugins}}
+                {{! Insert a <div> around all the inner element of the column.
+                               This is a fix for firefox because the <th> does not support
+                               a relative positioning.}}
+            <div>
+                <div class="th-droppable-placeholder" data-droppableindex="{{@index}}"></div>
+                {{! Insert a <div> around the <span> containing the field label.
+                    That <div> is the draggable element.
+                    This is a fix for firefox because dragging a <th> is not
+                    supported.}}
+            <div{{#has "ReorderableColumns" ../../view.plugins}} data-draggable="true"{{/has}}>
+            {{/has}}
+            <span>
+                {{str label ../view.module}}
+            </span>
+            {{#has "ReorderableColumns" ../view.plugins}}
+            </div>
+                {{#if @last}}
+                    <div class="th-droppable-placeholder th-droppable-placeholder-last" data-droppableindex="{{../../../view._fields.visible.length}}"></div>
+                {{/if}}
+            </div>
+            {{/has}}
+        </th>
+    {{/each}}
+    {{#each view.rightColumns}}
+        {{#if isColumnDropdown}}
+            <th class="nosort morecol">
+                <div class="dropdown">
+                    <button class="btn btn-invisible" data-toggle="dropdown" rel="tooltip" title="{{str 'LBL_COLUMNS'}}" data-placement="bottom" data-action="fields-toggle" track="click:morecol" aria-label="{{str 'LBL_COLUMNS'}}" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i></button>
+                    <ul class="dropdown-menu left">
+                        {{#each ../../view._fields.all}}
+                            <li>
+                                <button class="{{#if selected}}active{{/if}}" data-field-toggle="{{name}}" track="click:{{name}}">
+                                    {{#if selected}}<i class="fa fa-check"></i> {{/if}}{{str label ../../../view.module}}
+                                </button>
+                            </li>
+                        {{/each}}
+                        <li class="divider" data-settings-li="order"></li>
+                        <li data-settings-li="order">
+                            <button data-columns-order="reset">
+                                <i class="icon fa fa-exchange"></i> {{str 'LBL_RESET_DEFAULT_VIEW' ../../../view.module}}
+                            </button>
+                        </li>
+                        <li class="divider" data-settings-li="widths"></li>
+                        <li data-settings-li="widths">
+                            <button data-widths="reset">
+                                <i class="icon fa fa-arrows-h"></i> {{str 'LBL_RESET_DEFAULT_WIDTHS' ../../../view.module}}
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </th>
+        {{else}}
+            <th{{#if name}} data-fieldname="{{name}}"{{/if}}>
+                <span>
+                    {{field ../view template="list-header"}}
+                </span>
+            </th>
+        {{/if}}
+    {{/each}}
+</tr>

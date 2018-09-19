@@ -1,0 +1,288 @@
+/* CHARTS
+  ----------------*/
+
+//HOMEPAGE
+.dashboard {
+  .thumbnail.dashlet:not(.collapsed) {
+    //500 (max) - 34 (menubar) = 466
+    .dashlet-content > div {
+      max-height: 466px;
+    }
+    //466 (max) - 40 (block footer) = 426
+    .dashlet-content .list-view {
+      max-height: 426px;
+      overflow: auto;
+    }
+    //466 (max) - 40 (block footer) = 426
+    .dashlet-content .activitystream-list {
+      max-height: 426px;
+    }
+    //466 (max) - 16 (chart margins) = 450 - 2 border
+    .sc-chart,
+    .nv-chart {
+      height: 448px;
+      margin: 8px;
+    }
+    //448 (chart height) - 41 (dashlet options) = 407
+    .dashlet-options + .sc-chart,
+    .dashlet-options + .nv-chart,
+    .process-users-chart .sc-chart,
+    .process-users-chart .nv-chart,
+    .sales-pipeline-chart,
+    .opportunity-pipeline-wrapper .nv-chart,
+    .forecast-pareto-chart,
+    .forecasts-chart-wrapper .nv-chart {
+      height: 409px;
+    }
+    //466 (max) - 39 (block footer) = 427
+    .twitter-widget.scroll {
+      max-height: 427px;
+    }
+  }
+}
+
+//SIDEBAR
+.sidebar-content {
+  .thumbnail.dashlet:not(.collapsed) {
+    //400 (max) - 34 (menubar) = 366
+    .dashlet-content > div {
+      max-height: 366px;
+    }
+    //366 (max) - 40 (block footer) = 326
+    .dashlet-content .list-view {
+      max-height: 326px;
+    }
+
+    .dashlet-content .activitystream-list {
+      max-height: 326px;
+    }
+    //366 (max) - 16 (chart margins) - 2 border = 350
+    .sc-chart,
+    .nv-chart {
+      height: 348px;
+      margin: 8px;
+    }
+    //350 (chart height) - 41 (dashlet options) = 309
+    .dashlet-options + .sc-chart,
+    .dashlet-options + .nv-chart,
+    .process-users-chart .sc-chart,
+    .process-users-chart .nv-chart,
+    .sales-pipeline-chart,
+    .opportunity-pipeline-wrapper .nv-chart,
+    .forecast-pareto-chart,
+    .forecasts-chart-wrapper .nv-chart {
+      height: 309px;
+    }
+    //366 (max) - 67 (tabs) - 22 (chart margins) - 2 border = 275
+    .opportunity-metrics-chart,
+    .opportunity-metrics-wrapper .nv-chart {
+      height: 275px;
+      margin-bottom: 14px;
+    }
+    //366 (max) - 60 (tabs) - 16 (chart margins) = 288
+    .cases-summary-chart,
+    .nv-chart-cases {
+      height: 288px;
+    }
+    //366 (max) - 39 (block footer) = 327
+    .twitter-widget.scroll {
+      max-height: 327px;
+    }
+  }
+}
+
+//interactions
+//opportunity-metrics
+//casessummary
+span.count {
+  font-size: 16px;
+  display: block;
+
+  &.label {
+    font-size: 14px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 22px;
+    padding: 3px;
+  }
+}
+
+.rotatedLabel {
+  transform: rotate(-90deg);
+}
+
+.rotatedLabelReverse {
+  transform: rotate(90deg);
+}
+
+// org tree chart
+
+@-webkit-keyframes animaopacity {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes animaopacity {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes animaopacity {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes animaopacity {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.organization-chart,
+.nv-chart-org {
+  .sc-org-bkgd,
+  .nv-org-bkgd {
+    stroke: darken(@grayLighter, 15%);
+    stroke-width: 2px;
+  }
+
+  .sc-org-node,
+  .nv-org-node {
+    text {
+      font: normal normal 300 10px/normal "Helvetica Neue", Arial, sans-serif;
+      font-stretch: normal;
+
+      &.sc-org-name,
+      &.nv-org-name {
+        font-size: 10px;
+        fill: @linkColor;
+
+        &.hover {
+          text-decoration: underline;
+        }
+      }
+
+      &.sc-org-title,
+      &.nv-org-title {
+        font-size: 8px;
+      }
+    }
+  }
+}
+
+// org chart zoom control
+.btn-slider {
+  display: inline-block;
+  padding: 5px;
+
+  .noUiSlider {
+    width: 50px;
+    height: 4px;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    top: -1px;
+  }
+
+  .noUiSliderEnds {
+    width: 50px;
+    margin: 0 30px 0 0;
+
+    .zoom-control {
+      position: absolute;
+      top: 1px;
+      font-size: 18px;
+      cursor: pointer;
+
+      &.disabled {
+        color: lighten(@grayLight, 10%) !important;
+      }
+    }
+
+    i[data-control="zoom-out"] {
+      left: -26px;
+    }
+
+    i[data-control="zoom-in"] {
+      right: -26px;
+    }
+
+    &::before,
+    &::after {
+      top: 6px;
+      height: 4px;
+    }
+
+    &::before {
+      border-radius: 2px 0 0 2px;
+      left: -6px;
+    }
+
+    &::after {
+      border-radius: 0 2px 2px 0;
+      right: -6px;
+    }
+  }
+}
+
+.chart-icon svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  display: block;
+  padding: 3px;
+}
+
+//Opportunities Treemap
+.stage_closedwon {
+  fill: #2ca02c;
+}
+
+.stage_prospecting {
+  fill: darken(#ff7f0e, 35%);
+}
+
+.stage_closedlost {
+  fill: #d62728;
+}
+
+.stage_qualification {
+  fill: #ff7f0e;
+}
+
+.stage_thisopp {
+  fill: #1f77b4;
+}
+
+.stage_negotiationreview {
+  fill: darken(#2ca02c, 40%);
+}
+
+.stage_perceptionanalysis {
+  fill: darken(#2ca02c, 30%);
+}
+
+.stage_proposalpricequote {
+  fill: darken(#2ca02c, 45%);
+}
+
+.stage_valueproposition {
+  fill: #ff7f0e;
+}
+
+.stage_iddecisionmakers {
+  fill: #9467bd;
+}
+
+.stage_needsanalysis {
+  fill: darken(@yellow, 10%);
+}
+
+// needed so that the report chart print to image canvas is off-screen
+.sc-print {
+  visibility: hidden;
+  position: absolute !important;
+  left: -10000px;
+  width: 720px;
+  height: 480px;
+}

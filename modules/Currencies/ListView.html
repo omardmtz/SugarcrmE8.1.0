@@ -1,0 +1,42 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+{PRETABLE}
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	
+	<tr height="20">
+	<td scope="col" width="1%" >{CHECKALL}</td>
+		<td scope="col" width="20%"  nowrap><slot>{MOD.LBL_LIST_NAME}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_ISO4217}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_SYMBOL}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_RATE}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_STATUS}</slot></td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    			<td >{PREROW}&nbsp;</td>
+				<td scope='row'  valign=TOP><slot>{CURRENCY.HIDE}<a href="{URL_PREFIX}index.php?action=index&module=Currencies&record={CURRENCY.ID}" >{CURRENCY.UNHIDE}{CURRENCY.NAME}{CURRENCY.HIDE}</a>{CURRENCY.UNHIDE}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.ISO4217}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.SYMBOL}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.CONVERSION_RATE}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.STATUS}</slot></td>
+
+</tr>
+
+<!-- END: row -->
+
+	</table>
+	{POSTTABLE}
+<!-- END: main -->

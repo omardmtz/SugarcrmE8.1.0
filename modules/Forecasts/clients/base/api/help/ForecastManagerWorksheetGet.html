@@ -1,0 +1,196 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">Returns a collection of ForecastManagerWorksheet models</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    <p>This end point is used to return the ManagerWorksheets for a user at a given timeperiod.  If no timeperiod is provide it
+    will use the default timeperiod, likewise if no user is provided, it will default to the logged in user.</p>
+</div>
+<div class="params">
+    <h2>Url Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td>timeperiod_id</td>
+            <td>Show for a specific time period, defaults to the current time period if one is not passed</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>user_id</td>
+            <td>Show for a specific user, defaults to current user if not defined</td>
+            <td>Optional</td>
+        </tr>
+    </table>
+
+    <h2>Possible Errors</h2>
+    <table>
+        <tr>
+            <td><strong>Error</strong></td>
+            <td><strong>Description</strong></td>
+        </tr>
+        <tr>
+            <td>412 - Invalid Parameter</td>
+            <td>When the passed in timeperiod and/or user can not be found</td>
+        </tr>
+        <tr>
+            <td>403 - Not Authorized</td>
+            <td>If you are not an administrator, but you are trying to view another managers forecast manager worksheet, you will receive a 403 Not Authorized Error</td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Url Example:</h2>
+    <code class="codesample">
+        /rest/v10/ForecastManagerWorksheets/:timeperiod_id/:user_id
+    </code>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+    {  
+        "next_offset":-1,
+        "records":[  
+        {  
+            "id":"401594f5-5b46-fb66-1627-55771fe8723e",
+            "name":"Sally Bronsen",
+            "date_modified":"2015-06-09T13:13:26-04:00",
+            "created_by":"1",
+            "quota":"1932.444445",
+            "best_case":"29848.000000",
+            "best_case_adjusted":"37310.000000",
+            "likely_case":"28694.444445",
+            "likely_case_adjusted":"35868.055556",
+            "worst_case":"27540.888889",
+            "worst_case_adjusted":"34426.111111",
+            "timeperiod_id":"adb78e81-3fbd-b4e0-287f-55771fd04a06",
+            "draft":true,
+            "is_manager":false,
+            "user_id":"seed_sally_id",
+            "opp_count":10,
+            "pipeline_opp_count":3,
+            "pipeline_amount":"2415.555556",
+            "closed_amount":"26278.888889",
+            "manager_saved":true,
+            "show_history_log":0,
+            "following":false,
+            "assigned_user_id":"seed_sarah_id",
+            "assigned_user_name":"Sarah Smith",
+            "team_name":[  
+                {  
+                    "id":"1",
+                    "name":"Global",
+                    "name_2":"",
+                    "primary":true
+                }
+            ],
+            "currency_id":"-99",
+            "base_rate":"1.000000",
+            "_acl":{  
+                "fields":{  
+
+                }
+            },
+            "_module":"ForecastManagerWorksheets"
+        },
+        {  
+            "id":"28226f12-a3c9-bd84-041e-55771f064c4e",
+            "name":"Max Jensen",
+            "date_modified":"2015-06-09T13:13:26-04:00",
+            "created_by":"1",
+            "quota":"3141.333332",
+            "best_case":"15848.222223",
+            "best_case_adjusted":"13206.851853",
+            "likely_case":"14928.222222",
+            "likely_case_adjusted":"12440.185185",
+            "worst_case":"14008.222223",
+            "worst_case_adjusted":"11673.518519",
+            "timeperiod_id":"adb78e81-3fbd-b4e0-287f-55771fd04a06",
+            "draft":true,
+            "is_manager":false,
+            "user_id":"seed_max_id",
+            "opp_count":12,
+            "pipeline_opp_count":3,
+            "pipeline_amount":"2617.777777",
+            "closed_amount":"12310.444445",
+            "manager_saved":true,
+            "show_history_log":0,
+            "following":false,
+            "assigned_user_id":"seed_sarah_id",
+            "assigned_user_name":"Sarah Smith",
+            "team_name":[  
+                {  
+                    "id":"1",
+                    "name":"Global",
+                    "name_2":"",
+                    "primary":true
+                }
+            ],
+            "currency_id":"-99",
+            "base_rate":"1.000000",
+            "_acl":{  
+                "fields":{  
+
+                }
+            },
+            "_module":"ForecastManagerWorksheets"
+        },
+        {  
+            "id":"1aca66af-f069-bba4-28a1-55771fe27506",
+            "name":"",
+            "date_modified":"2015-06-09T13:13:26-04:00",
+            "created_by":"1",
+            "quota":"10142.333333",
+            "best_case":"37625.000000",
+            "best_case_adjusted":"37625.000000",
+            "likely_case":"34241.333333",
+            "likely_case_adjusted":"34241.333333",
+            "worst_case":"30857.666667",
+            "worst_case_adjusted":"30857.666667",
+            "timeperiod_id":"adb78e81-3fbd-b4e0-287f-55771fd04a06",
+            "draft":true,
+            "is_manager":true,
+            "user_id":"seed_sarah_id",
+            "opp_count":13,
+            "pipeline_opp_count":6,
+            "pipeline_amount":"10142.333333",
+            "closed_amount":"24099.000000",
+            "manager_saved":true,
+            "show_history_log":0,
+            "following":false,
+            "assigned_user_id":"seed_sarah_id",
+            "assigned_user_name":"Sarah Smith",
+            "team_name":[  
+                {  
+                    "id":"1",
+                    "name":"Global",
+                    "name_2":"",
+                    "primary":true
+                }
+            ],
+            "currency_id":"-99",
+            "base_rate":"1.000000",
+            "_acl":{  
+                "fields":{  
+
+                }
+            },
+            "_module":"ForecastManagerWorksheets"
+        }
+        ]
+    }
+    </code>
+</div>

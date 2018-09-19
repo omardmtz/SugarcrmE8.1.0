@@ -1,0 +1,58 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#eq customType 'custom_default'}}
+    <div id="{{name}}" class="clearfix">
+        <div class="control-group pull-left checkbox">
+            <input type="checkbox" {{#if isExclude}}
+                disabled="disabled"
+            {{else}}
+               value="1" {{#if in_included_total}}checked="true"{{/if}} name="in_included_total_{{def.name}}" data-key="{{def.name}}" data-category="{{category}}"
+            {{/if}}>
+            <input type="text" placeholder="{{str "LBL_FORECASTS_CONFIG_RANGES_ENTER_RANGE" module}}" class="span12" value="{{label}}" data-key="{{def.name}}" data-category="{{category}}">
+        </div>
+        <div class="noUiSliderEnds pull-right">
+            <div class="rangeSlider noUiSlider"></div>
+        </div>
+    </div>
+{{/eq}}
+
+{{#notEq customType 'custom_default'}}
+    <div id="{{name}}" class="clearfix">
+        <div class="control-group checkbox pull-left">
+            <input type="checkbox"
+                {{#eq customType 'custom_without_probability'}}
+                disabled="disabled"
+               {{/eq}}
+                {{#eq customType 'custom'}}
+                    value="1" {{#if in_included_total}}checked="true"{{/if}} name="in_included_total_{{def.name}}" data-key="{{def.name}}" data-category="{{category}}"
+                {{/eq}}
+            >
+            <input type="text" placeholder="{{str "LBL_FORECASTS_CONFIG_RANGES_ENTER_RANGE" module}}" class="span12" value="{{label}}" data-key="{{def.name}}" data-category="{{category}}">
+        </div>
+        <div class="btn-group">
+            <a class="btn removeCustomRange" href="javascript:void(0)" data-key="{{def.name}}" data-category="{{category}}">
+                <i class="fa fa-minus"></i>
+            </a>
+        </div>
+        <div class="btn-group">
+            <a class="btn addCustomRange" href="javascript:void(0)" data-type="{{customType}}" data-category="{{category}}">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+        {{#eq customType 'custom'}}
+        <div class="noUiSliderEnds pull-right">
+            <div class="rangeSlider noUiSlider"></div>
+        </div>
+        {{/eq}}
+    </div>
+{{/notEq}}

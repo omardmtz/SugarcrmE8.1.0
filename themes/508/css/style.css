@@ -1,0 +1,52 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+body
+{
+	color: #444;
+	background-color: #fff;
+	background-image:none;
+	background-repeat:no-repeat;
+}
+
+
+#welcome {
+	color: #222;
+
+}
+
+#globalLinks span {
+	color: #222;	
+}
+
+
+button, input[type="submit"], input[type="reset"], input[type="button"], .button, .buttons .button, .yui-button button {
+	color: #000000;	
+}
+
+.detail tr td[scope="row"] {
+    color: #222222;
+}
+
+#moduleList.yuimenubar .yuimenuitemlabel.group {
+    color: #666666;
+}
+
+.skipHeader, .pageContent {
+    position: absolute;
+    text-indent: -9999px;	
+}
+
+
+.accessKeyHelp{
+    cursor:pointer;
+    cursor:hand;
+    text-decoration:underline;
+}

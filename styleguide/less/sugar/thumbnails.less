@@ -1,0 +1,155 @@
+/* THUMBNAILS
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// Note: `.thumbnails` and `.thumbnails > li` are overriden in responsive files
+
+// Make wrapper ul behave like the grid
+.thumbnails {
+  margin-left: -@gridGutterWidth;
+  list-style: none;
+  .clearfix();
+}
+// Fluid rows have no left margin
+.row-fluid .thumbnails {
+  margin-left: 0;
+}
+
+// Float li to make thumbnails appear in a row
+.thumbnails > li {
+  float: left; // Explicity set the float since we don't require .span* classes
+  margin-bottom: @baseLineHeight;
+  margin-left: @gridGutterWidth;
+}
+
+// The actual thumbnail (can be `a` or `div`)
+.thumbnail {
+  display: block;
+  padding: 4px;
+  line-height: @baseLineHeight;
+  border: 1px solid #ddd;
+  border-radius: @baseBorderRadius;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  transition: all 0.2s ease-in-out;
+}
+// Add a hover state for linked versions only
+a.thumbnail:hover {
+  border-color: @linkColor;
+  box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+// Images and captions
+.thumbnail > img {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail .caption {
+  padding: 9px;
+  color: @gray;
+}
+
+/* twitter-bootstrap import END */
+
+//filetype icons
+span.filetype-thumbnail {
+  position: relative;
+
+  svg {
+    height: 33px;
+    width: 28px;
+  }
+}
+
+span.filetype-thumbnail {
+  .ft-ribbon {
+    fill: @gray;
+  }
+
+  &::before {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    color: @white;
+    width: 25px;
+    height: 14px;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    background-color: @gray;
+    content: attr(data-filetype);
+  }
+}
+
+span.filetype-thumbnail[data-filetype="PDF"] {
+  .ft-ribbon {
+    fill: @red;
+  }
+
+  &::before {
+    background-color: @red;
+  }
+}
+
+span.filetype-thumbnail[data-filetype="DOC"] {
+  .ft-ribbon {
+    fill: darken(@blue, 10%);
+  }
+
+  &::before {
+    background-color: darken(@blue, 10%);
+  }
+}
+
+span.filetype-thumbnail[data-filetype="XLS"] {
+  .ft-ribbon {
+    fill: @green;
+  }
+
+  &::before {
+    background-color: @green;
+  }
+}
+
+span.filetype-thumbnail[data-filetype="PPT"] {
+  .ft-ribbon {
+    fill: @orange;
+  }
+
+  &::before {
+    background-color: @orange;
+  }
+}
+
+span.filetype-thumbnail[data-filetype="JPG"] {
+  .ft-ribbon {
+    fill: lighten(@purple, 5%);
+  }
+
+  &::before {
+    background-color: lighten(@purple, 5%);
+  }
+}
+
+span.filetype-thumbnail[data-filetype="PNG"] {
+  .ft-ribbon {
+    fill: lighten(@purple, 5%);
+  }
+
+  &::before {
+    background-color: lighten(@purple, 5%);
+  }
+}
+
+span.filetype-thumbnail[data-filetype="GIF"] {
+  .ft-ribbon {
+    fill: lighten(@purple, 5%);
+  }
+
+  &::before {
+    background-color: lighten(@purple, 5%);
+  }
+}

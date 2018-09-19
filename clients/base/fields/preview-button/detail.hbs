@@ -1,0 +1,23 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<a class="rowaction{{#if isBwcEnabled}} disabled{{/if}}" href="{{#if fullRoute}}#{{fullRoute}}{{else}}{{#if def.route}}#{{buildRoute context=context model=model action=def.route.action}}{{else}}javascript:void(0);{{/if}}{{/if}}"
+{{#if def.event}}
+   data-event="{{def.event}}"
+{{/if}}
+{{#if tooltip}}
+   rel="tooltip"
+   data-placement="bottom"
+   title="{{str tooltip module}}"
+{{/if}}
+   name="{{name}}" track="click:{{#if name}}{{name}}{{else}}{{label}}{{/if}}">
+{{#if def.icon}}<i class="fa {{def.icon}}"></i>{{/if}}{{str label}}</a>

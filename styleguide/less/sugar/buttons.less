@@ -1,0 +1,492 @@
+/* BUTTONS
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  line-height: @baseLineHeight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+
+  border-radius: @baseBorderRadius;
+
+  /*sugar mods*/
+  padding: 4px 6px;
+  color: @gray;
+  font-weight: 600;
+
+  &.down {
+    .buttonBackground(@btnBackgroundHighlight,@btnBackground);
+  }
+
+  /*end sugar mods*/
+
+  // Hover state
+  &:hover {
+    color: @grayDark;
+    text-decoration: none;
+    background-position: 0 -15px;
+  }
+
+  // Focus state for keyboard and accessibility
+  &:not(.disabled):not(:active):focus {
+    .tab-focus();
+  }
+
+  // Active state
+  &.active,
+  &:active {
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    background-image: none;
+    opacity: 0.65;
+    box-shadow: none;
+  }
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+// Large
+.btn-large {
+  padding: @paddingLarge;
+  font-size: @fontSizeLarge;
+  border-radius: @borderRadiusLarge;
+}
+
+.btn-large .fa {
+  margin-top: 4px;
+}
+
+// Small
+.btn-small {
+  padding: @paddingSmall;
+  font-size: @fontSizeSmall;
+  border-radius: @borderRadiusSmall;
+}
+
+.btn-small .fa {
+  margin-top: 0;
+}
+
+.btn-mini .fa {
+  margin-top: -1px;
+}
+
+// Mini
+.btn-mini {
+  padding: @paddingMini;
+  font-size: @fontSizeMini;
+  border-radius: @borderRadiusSmall;
+}
+
+// Block button
+// -------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Provide *some* extra contrast for those who can get it
+.btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-inverse.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-primary {
+  .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+}
+// Warning appears are orange
+.btn-warning {
+  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+}
+// Danger and error appear as red
+.btn-danger {
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+}
+// Success appears as green
+.btn-success {
+  .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+}
+// Info appears as a neutral blue
+.btn-info {
+  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+}
+// Inverse appears as dark gray
+.btn-inverse {
+  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+}
+
+// Link buttons
+// --------------------------------------------------
+
+// Make a button look and behave like a link
+.btn-link,
+.btn-link:active,
+.btn-link[disabled] {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.btn-link {
+  border-color: transparent;
+  cursor: pointer;
+  color: @linkColor;
+  border-radius: 0;
+}
+
+.btn-link:hover {
+  color: @linkColorHover;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn-link[disabled]:hover {
+  color: @grayDark;
+  text-decoration: none;
+}
+
+/* twitter-bootstrap import END */
+
+.btn {
+  font-size: @fontSizeSmall;
+  box-shadow: none;
+  margin-left: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-shadow: none;
+
+  /* keeps button widths with icons the same regardless of icon width */
+  > .fa {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    line-height: 14px;
+    font-size: @baseFontSize + 2;
+    position: relative;
+    top: 1px;
+  }
+  // Hover state
+  &:not(.disabled):hover,
+  &.focus {
+    box-shadow: inset 0 0 10px fade(@black, 10%);
+  }
+
+  // Active state
+  &:not(.disabled):active {
+    box-shadow: inset 0 3px 4px fade(@black, 15%), 0 0 10px fade(@black, 5%);
+
+    &.btn-primary:hover {
+      box-shadow: inset 0 3px 4px fade(@black, 25%), 0 0 10px fade(@black, 5%);
+    }
+  }
+
+  &.active {
+    color: @white !important;
+    text-shadow: none;
+    box-shadow: none;
+
+    > .fa {
+      color: @grayLighter !important;
+    }
+
+    &:focus {
+      background: @grayDark !important;
+    }
+  }
+
+  &.active:hover {
+    > .fa {
+      color: @white !important;
+    }
+  }
+}
+
+// invisible appears as no button
+.btn.btn-invisible {
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-weight: normal;
+  font-size: @baseFontSize;
+  box-shadow: none;
+
+  &:not(.disabled):hover {
+    box-shadow: none;
+    border-color: transparent;
+    background-color: transparent;
+
+    > .fa {
+      color: @grayDark;
+      text-shadow: none;
+    }
+  }
+
+  &.active {
+    color: @grayLighter;
+    box-shadow: none;
+    background: @gray;
+  }
+
+  &.disabled {
+    text-decoration: none;
+    color: @grayLight;
+    opacity: 0.65;
+
+    .fa {
+      opacity: 0.65;
+      color: @grayLight;
+    }
+  }
+  //a darker version of btn-invisible
+  &.btn-dark {
+    background-color: darken(@grayLighter, 5%);
+
+    > .fa {
+      color: darken(@grayLight, 10%);
+    }
+  }
+}
+
+// Buttons styled as links
+.btn.btn-link {
+  color: @linkColor;
+
+  &:not(.disabled):hover {
+    text-decoration: underline;
+    color: @linkColorHover;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  &.active,
+  &:not(.disabled):active {
+    color: @linkColor;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.btn.btn-inline {
+  padding: 0;
+  margin: 0;
+  border: none;
+  height: auto;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  vertical-align: baseline;
+}
+
+// Reposition the caret
+.btn:hover .fa-caret-down,
+.open.btn-group .fa-caret-down {
+  opacity: 1;
+}
+
+// Small dropdowns caret
+.btn-small .fa-caret-down {
+  margin-top: 6px;
+}
+//
+.btn-fixed {
+  width: 178px;
+  margin-right: 10px;
+}
+
+// Account for other colors
+.btn-primary,
+.btn-danger,
+.btn-info,
+.btn-success,
+.btn-inverse {
+  .fa-caret-down {
+    opacity: 0.6;
+  }
+}
+
+// Set caret text color
+.btn-primary,
+.btn-primary:hover,
+.btn-danger,
+.btn-danger:hover,
+.btn-success,
+.btn-success:hover,
+.btn-info,
+.btn-info:hover,
+.btn-inverse,
+.btn-inverse:hover {
+  color: @white;
+
+  .fa {
+    color: @white;
+  }
+
+  &:not(.disabled):hover {
+    box-shadow: inset 0 0 10px fade(@black, 20%);
+
+    .fa {
+      color: @white;
+    }
+  }
+}
+
+.btn-warning,
+.btn-warning:hover {
+  color: darken(@yellow, 70%);
+
+  .fa {
+    color: darken(@yellow, 70%);
+  }
+
+  &:not(.disabled):hover {
+    .fa {
+      color: darken(@yellow, 70%);
+    }
+  }
+}
+
+.btn.btn-input-addon {
+  z-index: 2;
+  position: absolute;
+  right: 0;
+}
+
+input.required + .btn.btn-input-addon {
+  border-bottom: 1px solid @grayLight;
+  border-top: 1px solid @grayLight;
+  border-right: 1px solid @grayLight;
+}
+
+/* NEW SKIN START */
+
+.btn {
+  /* override */
+  > .fa {
+    color: @btnIconColor;
+  }
+
+  &:not(.disabled):not(.btn-invisible):active {
+    box-shadow: inset 0 3px 4px fade(@black, 15%), 0 0 10px fade(@black, 5%);
+  }
+
+  /* override */
+  &.active {
+    background: @btnActiveBackground !important;
+  }
+
+  /* override */
+  &.btn-invisible.disabled {
+    background: none;
+  }
+
+  &.disabled {
+    > .fa {
+      color: @btnDisabledIconColor;
+    }
+
+    &.btn-primary {
+      > .fa {
+        /* override */
+        color: inherit;
+      }
+    }
+  }
+}
+
+/* additive */
+.btn-primary {
+  border-color: @PrimaryButtonBorder;
+  background-color: @PrimaryButton;
+
+  &:not(.disabled):not(.btn-invisible):hover {
+    box-shadow: none;
+    border: solid 1px @btnPrimaryHoverBorder;
+    background: @btnPrimaryHoverBackground;
+  }
+
+  &:not(.disabled):not(.btn-invisible):active.btn {
+    /* .btn at the end of this selector is necessary to override default theme */
+    box-shadow: inset 0 1px 3px @btnPrimaryHoverActiveBgGrad;
+    border: solid 1px @btnPrimaryActiveBorder;
+    background-color: @btnPrimaryActiveBackground;
+  }
+}
+
+.btn.btn-secondary {
+  background-color: @btnSecondaryBackground;
+  border-color: @btnSecondaryBorder;
+  color: @btnSecondaryColor;
+
+  &:hover {
+    background-color: @btnSecondaryBackgroundHover;
+    box-shadow: none;
+    background-image: none;
+  }
+
+  &:active:not(.disabled):not(.btn-invisible) {
+    background: @btnSecondaryBackgroundActive;
+    box-shadow: @btnSecondaryBoxShadowActive;
+  }
+
+  &:focus {
+    background: @btnSecondaryBackgroundFocus;
+  }
+
+  &.disabled,
+  &[disabled] {
+    background-color: @btnSecondaryBackgroundDisabled;
+    color: @btnSecondaryColorDisabled;
+  }
+}
+
+.btn-group {
+  &,
+  &.open {
+    .btn-primary.dropdown-toggle .fa {
+      /* override */
+      color: @white;
+    }
+  }
+}
+
+/* NEW SKIN END */

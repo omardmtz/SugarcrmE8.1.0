@@ -1,0 +1,70 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="tab-pane active">
+    {{#if collection.length}}
+        <ul class="unstyled listed">
+            {{#each collection.models}}
+                {{#if attributes.in_time}}
+                <li>
+                {{#if attributes.act_expected_time}}
+                    {{#if attributes.expected_time_warning}}
+                        <div class="actions pull-right">
+                            <date class="label label-important">{{str "LBL_PMSE_LABEL_ERROR_EXPECTED_OVERDUE" this.module}}</date><date>{{attributes.expected_time}}</date>
+                        </div>
+                    {{else}} <div class="actions pull-right">
+                        {{#if attributes.expected_time}}
+                            {{str "LBL_PMSE_LABEL_ERROR_EXPECTED_DUE_DATE" this.module}} <date>{{attributes.expected_time}}</date>
+                        {{else}}
+                            {{str "LBL_PMSE_LABEL_ERROR_EXPECTED_DUE_DATE" this.module}} <code  class="relativetime" style="border: 0; background-color: transparent;"> {{str "LBL_PMSE_LABEL_ERROR_EXPECTED_DUE_DATE_NO_SET" this.module}}</code>
+                        {{/if}}
+                    </div>
+                    {{/if}}
+                {{/if}}
+                    <p style="margin-left: 0;padding-left: 0px;">
+                        <a href="#{{fieldValue this "show_case_url"}}">{{str "LBL_PMSE_LABEL_PROCESS" this.module}}&nbsp;&nbsp;#&nbsp;&nbsp;{{fieldValue this "cas_id"}}{{#if attributes.name}}&nbsp;-&nbsp;{{fieldValue ../this "name"}}{{/if}}</a>
+                    </p>
+                    {{#if ../overdueBadge}}
+                        {{#with ../../overdueBadge}}
+                            {{field ../../../this model=../../this template='detail'}}
+                        {{/with}}
+                    {{/if}}
+                    <div class="details" style="margin-left: 0;padding-left: 0px;">
+                        {{#if attributes.is_assigned}}
+                            <a href="#{{buildRoute module="Employees" id=attributes.cas_user_id action="detail"}}">
+                                {{fieldValue this "cas_user_id_full_name"}}
+                            </a>
+                        {{else}}
+                            {{str "LBL_UNASSIGNED" this.module}}
+                        {{/if}}
+                        <date class="date">{{relativeTime attributes.date_modified}}</date>
+                        <strong>{{fieldValue this "task_name"}}</strong>
+                                <br/>
+                        <strong>{{fieldValue this "pro_title"}}</strong>
+                        {{#if useRelativeTime}}
+                            Due
+                            {{relativeTime attributes.cas_due_date class='date'}}
+                        {{else}}
+                            {{#if useAbsoluteTime}}
+                                Due on
+                                {{formatDate attributes.cas_due_date class='date'}}
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                </li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    {{else}}
+        <div class="block-footer">{{#if ../collection.dataFetched}}{{str "LBL_NO_DATA_AVAILABLE" this.module}}{{else}}{{str "LBL_LOADING" this.module}}{{/if}}</div>
+    {{/if}}
+</div>

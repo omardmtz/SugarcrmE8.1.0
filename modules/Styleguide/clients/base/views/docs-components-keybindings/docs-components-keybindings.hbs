@@ -1,0 +1,211 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- Keybindings
+================================================== -->
+<section id="keybindings">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span3 columns">
+      <h3>About key bindings</h3>
+      <p>Key bindings allow user to navigate and perform various actions within SugarCRM app using keyboard.</p>
+    </div>
+    <div class="span9 columns">
+
+          <h2>Global shortcuts</h2>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th>Key</th>
+               <th>Function</th>
+             </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>s, ctrl+alt+0</td>
+                <td>Focus on global search field</td>
+              </tr>
+              <tr>
+                <td>c</td>
+                <td>Toggle the quick create menu</td>
+              </tr>
+              <tr>
+                <td>?</td>
+                <td>Show shortcuts help page</td>
+              </tr>
+              <tr>
+                <td>mod+shift+space</td>
+                <td>Toggle the Sweet Spot bar</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>List view shortcuts</h2>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th>Key</th>
+               <th>Function</th>
+             </tr>
+            </thead>
+            <tbody data-display="contextual">
+               <tr>
+                  <td>t</td>
+                  <td>Toggle sidebar</td>
+               </tr>
+               <tr>
+                  <td>a</td>
+                  <td>Create new record</td>
+               </tr>
+               <tr>
+                  <td>j</td>
+                  <td>Select next record on the list</td>
+               </tr>
+               <tr>
+                  <td>k</td>
+                  <td>Select previous record on the list</td>
+               </tr>
+               <tr>
+                  <td>h</td>
+                  <td>Scroll list left</td>
+               </tr>
+               <tr>
+                  <td>l</td>
+                  <td>Scroll list right</td>
+               </tr>
+               <tr>
+                  <td>o</td>
+                  <td>Open selected record on the list</td>
+               </tr>
+               <tr>
+                  <td>e</td>
+                  <td>Edit selected record on the list</td>
+               </tr>
+               <tr>
+                  <td>d</td>
+                  <td>Delete record</td>
+               </tr>
+               <tr>
+                  <td>esc, ctrl+alt+l</td>
+                  <td>Exit out of list inline edit mode without saving</td>
+               </tr>
+               <tr>
+                  <td>ctrl+s, ctrl+alt+a</td>
+                  <td>Save record</td>
+               </tr>
+               <tr>
+                  <td>f a</td>
+                  <td>Mark record as favorite</td>
+               </tr>
+               <tr>
+                  <td>f o</td>
+                  <td>Follow record</td>
+               </tr>
+               <tr>
+                  <td>p</td>
+                  <td>Preview record</td>
+               </tr>
+               <tr>
+                  <td>x</td>
+                  <td>Mark record as selected</td>
+               </tr>
+               <tr>
+                  <td>ctrl+a</td>
+                  <td>Select all</td>
+               </tr>
+               <tr>
+                  <td>m</td>
+                  <td>Open mass action dropdown menu</td>
+               </tr>
+               <tr>
+                  <td>f i, ctrl+alt+9</td>
+                  <td>Focus on list filter field</td>
+               </tr>
+               <tr>
+                  <td>f c, ctrl+alt+8</td>
+                  <td>Create a new list filter</td>
+               </tr>
+               <tr>
+                  <td>f e</td>
+                  <td>Edit current list filter</td>
+               </tr>
+               <tr>
+                  <td>f m</td>
+                  <td>Open list filter menu</td>
+               </tr>
+            </tbody>
+          </table>
+
+          <h2>Record view shortcuts</h2>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th>Key</th>
+               <th>Function</th>
+             </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>t</td>
+                  <td>Toggle sidebar</td>
+               </tr>
+               <tr>
+                  <td>e, ctrl+alt+i</td>
+                  <td>Edit record</td>
+               </tr>
+               <tr>
+                  <td>d, ctrl+alt+d</td>
+                  <td>Delete record</td>
+               </tr>
+               <tr>
+                  <td>ctrl+s, ctrl+alt+a</td>
+                  <td>Save record</td>
+               </tr>
+               <tr>
+                  <td>esc, ctrl+alt+l</td>
+                  <td>Clear out any changes to the record</td>
+               </tr>
+               <tr>
+                  <td>h</td>
+                  <td>Open previous record</td>
+               </tr>
+               <tr>
+                  <td>l</td>
+                  <td>Open next record</td>
+               </tr>
+               <tr>
+                  <td>f a</td>
+                  <td>Mark record as favorite</td>
+               </tr>
+               <tr>
+                  <td>f o</td>
+                  <td>Follow record</td>
+               </tr>
+               <tr>
+                  <td>shift+c, ctrl+alt+u</td>
+                  <td>Copy current record</td>
+               </tr>
+               <tr>
+                  <td>m</td>
+                  <td>Open primary action dropdown menu</td>
+               </tr>
+            </tbody>
+          </table>
+
+          <h2>Custom shortcuts</h2>
+          <p>SugarCRM developer can register new shortcuts per view, module, or custom view. Find more information in <a href="https://github.com/sugarcrm/devdocs/blob/master/Shortcuts/Shortcuts.md">Shortcuts framework documentation</a>.</p>
+    </div>
+  </div>
+</section>

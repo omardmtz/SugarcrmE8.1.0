@@ -1,0 +1,44 @@
+/* CARD2
+  ----------------*/
+
+.card2 {
+  margin: 0 0 10px;
+
+  & > span[sfuuid] {
+    display: block;
+    clear: left;
+  }
+  .address > span[sfuuid] {
+    display: block;
+  }
+
+  form,
+  input,
+  select,
+  textarea {
+    position: relative;
+    margin: 0;
+  }
+
+  div [class^="span"] {
+    position: relative;
+  }
+
+  .extend + .row-fluid,
+  .card2 span:last-child .row-fluid {
+    border-bottom: none;
+  }
+
+  .row-fluid .btn-small {
+    margin-top: -4px;
+    margin-right: 8px;
+    height: 16px;
+    width: 16px;
+  }
+
+  .row-fluid,
+  span .row-fluid {
+    position: relative;
+    padding: 8px 0 0;
+  }
+}

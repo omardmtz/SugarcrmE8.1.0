@@ -1,0 +1,40 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+.pmse-form-error {
+    color: #e61718;
+    font-size: 13px;
+}
+
+.pmse-form-error .fa-warning {
+    color: #e61718;
+    font-size: 14px;
+    margin: auto 6px;
+}
+
+.pmse-form-error-off {
+    display: none;
+}
+
+.pmse-form-error-on {
+    display: inline;
+}
+
+.pmse-field-error {
+    border-color: #e61718;
+    border-style: solid;
+    border-width: 2px;
+}
+
+input.pmse-field-error {
+    border-color: #e61718;
+    border-width: 2px;
+}

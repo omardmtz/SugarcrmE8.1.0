@@ -1,0 +1,68 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- $Id: Popup_picker.html 42215 2008-11-26 20:35:04Z jmertic $ -->
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+<script type="text/javascript" src="include/javascript/popup_helper.js?v={VERSION_MARK}"></script>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr>
+<td>
+<form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
+{sugar_csrf_form_token}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td scope="row" nowrap="nowrap">{MOD.LBL_SEARCH_TP_NAME}&nbsp;&nbsp;<input type="text" name="name"  size="10" value="{NAME}" /></td>
+<td scope="row" nowrap="nowrap">{MOD.LBL_SEARCH_TP_START_DATE}&nbsp;&nbsp;<input type="text" name="start_date"  size="10" value="{START_DATE}" /></td>
+<td scope="row" nowrap="nowrap">{MOD.LBL_SEARCH_TP_END_DATE}&nbsp;&nbsp;<input type="text" name="end_date"  size="10" value="{END_DATE}" /></td>
+<td align="right">
+<input type="hidden" name="module" value="{MODULE_NAME}" />
+<input type="hidden" name="action" value="Popup" />
+<input type="hidden" name="query" value="true" />
+<input type="hidden" name="func_name" value="" />
+<input type="hidden" name="request_data" value="{request_data}" />
+<input type="hidden" name="populate_parent" value="false" />
+<input type="hidden" name="record_id" value="" />
+<input type="submit" name="button" class="button" id="search_form_submit"
+	title="{APP.LBL_SEARCH_BUTTON_TITLE}"
+	value="{APP.LBL_SEARCH_BUTTON_LABEL}" />
+</td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</table>
+
+<!-- END: SearchHeader -->
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+<tr height="20" >
+<td scope="col" width="33%"  nowrap="nowrap"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_TP_NAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="33%"  nowrap="nowrap">{MOD.LBL_TP_START_DATE}</td>
+<td scope="col" width="34%"  nowrap="nowrap">{MOD.LBL_TP_END_DATE}</td>
+</tr>
+<!-- BEGIN: row -->
+<tr height="20" class="{ROW_COLOR}S1">
+<td scope="row" valign="top"><a href="#" onclick="send_back('TimePeriods','{TIMEPERIOD.ID}');" >{TIMEPERIOD.NAME}</a></td>
+<td valign="top">{TIMEPERIOD.START_DATE}</td>
+<td valign="top">{TIMEPERIOD.END_DATE}</td>
+</tr>
+
+<!-- END: row -->
+</table>
+{ASSOCIATED_JAVASCRIPT_DATA}
+<!-- END: main -->

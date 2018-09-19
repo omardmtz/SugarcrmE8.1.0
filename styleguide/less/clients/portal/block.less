@@ -1,0 +1,57 @@
+.block {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.block.tabs-left .nav-tabs {
+  float: none;
+  margin: 9px 0;
+  border: none;
+}
+
+.block.thumbnail .nav-tabs {
+  margin: 0;
+  border: none;
+}
+
+.block.thumbnail .nav-tabs li,
+.block.tabs-left .nav-tabs li {
+  border-bottom: @borderWidgetLight;
+  margin-bottom: 10px;
+}
+
+.block.tabs-left .nav-tabs li .actions a {
+  text-decoration: none;
+
+  i {
+    padding: 4px 3px 4px 5px;
+  }
+}
+
+.block.tabs-left .nav-tabs li.on .actions .fa-eye {
+  color: @gray;
+  opacity: 1;
+  #gradient > .horizontal(darken(@grayLighter, 4%), darken(@grayLighter, 4%));
+
+  text-shadow: 0 1px @white;
+  border-radius: 4px;
+  position: absolute;
+  right: -2px;
+}
+
+.block .nav-tabs li {
+  position: relative;
+}
+
+.block h4 {
+  padding: 0 0 10px;
+  font-weight: 600;
+  border-bottom: @borderWidget;
+  margin-bottom: 10px;
+}
+
+.block .actions {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}

@@ -1,0 +1,124 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<section id="edit-documentation">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <h2>Themeable Colors</h2>
+  <div class="row-fluid">
+    <div class="span12">
+      <p>There are three colors in a basic theme that can be customized:</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Usage</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>@BorderColor</code>
+        </td>
+        <td>
+          Accent border under top navigation menu.
+        </td>
+        <td class="swatch-col"><span class="swatch BorderColor"></span></td>
+      </tr>
+      <tr>
+        <td>
+          <code>@NavigationBar</code>
+        </td>
+        <td>
+          Background color of top navigation menu.
+        </td>
+        <td class="swatch-col"><span class="swatch NavigationBar"></span></td>
+      </tr>
+      <tr>
+        <td>
+          <code>@PrimaryButton</code>
+        </td>
+        <td>
+          Background color of primary action buttons like "Save" and "Create".
+        </td>
+        <td class="swatch-col"><span class="swatch PrimaryButton"></span></td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+
+    <h2>Create your own theme</h2>
+
+    <div class="row-fluid">
+        <div class="span5">
+            <p>To override the default theme colors, a new variables.php file will need to be created.</p>
+
+            <p>Copy the <code>/sugarcrm/styleguide/themes/clients/base/default/variables.php</code> to <code>/sugarcrm/custom/themes/clients/base/default/variables.php</code>
+                and edit the following three HEX color values.</p>
+
+            <p>Anytime you make a change, go to <code>Administration > Repair > Quick Repair and Rebuild</code> in order
+                to rebuild css files.</p>
+        </div>
+        <div class="span7">
+<pre class="prettyprint linenums">
+'BorderColor' => '#1977cb',
+'NavigationBar' => '#d4742f',
+'PrimaryButton' => '#f54d27',
+</pre>
+        </div>
+    </div>
+
+    <h2>Add your own CSS</h2>
+
+    <div class="row-fluid">
+        <div class="span5">
+            <p>The application allows you to write custom CSS and have it loaded automatically.</p>
+
+            <p>You need to create a custom.less file in <code>/sugarcrm/custom/themes/custom.less</code>.
+                Then you are free to use any bootstrap variables, as well as the 3 themeable variables.
+                However, you can define your own variables but it is not the right place to override existing variables.</p>
+
+            <p>Anytime you make a change, go to <code>Administration > Repair > Quick Repair and Rebuild</code> in order
+                to rebuild css files.</p>
+        </div>
+        <div class="span7">
+  <pre class="prettyprint linenums">
+  //You can import any less file you want and define your own file structure
+  //@import 'anyotherfile.less
+
+  @myCustomBgColor: lighten(@NavigationBar,10%); //variable defined on a custom variable.
+
+  .myCustomClass {
+      color: @linkColor; //bootstrap variable
+      background-color: @myCustomBgColor;
+  }
+  </pre>
+        </div>
+    </div>
+
+    <h2>Revert customizations</h2>
+
+    <div class="row-fluid">
+        <p>If you are not satisfied by your customizations, just remove <code>/sugarcrm/custom/themes/custom.less</code>.
+        </p>
+
+        <p>If you want to delete your custom theme, remove <code>/sugarcrm/custom/themes/clients/base/default/variables.php</code>
+            and go to <code>Administration > Repair > Quick Repair and Rebuild</code> in order to rebuild css
+            files.</p>
+    </div>
+
+</section>
+

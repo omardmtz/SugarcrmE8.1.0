@@ -1,0 +1,116 @@
+.dashboard {
+  .headerpane {
+    h1 {
+      > .record-cell.edit {
+        padding: 15px 20px 0 0;
+
+        input[type="text"] {
+          margin: 0 -7px 0 0;
+        }
+      }
+    }
+  }
+
+  .dashlet-content {
+    .forecast-details {
+      .span6.tright {
+        text-align: left !important; /*cannot avoid using !important since low level .tright is using important*/
+      }
+    }
+
+    .bestNumbers {
+      .span6.tcenter:not(:first-child) {
+        margin-right: @fluidGridGutterWidth;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.dashboard .btn-slider .noUiSliderEnds {
+  margin: 0 0 0 30px;
+}
+
+.dashboard .dashlet-content .dashlet-options > .row-fluid > div:last-child {
+  float: left;
+  margin-left: 0;
+}
+
+.dashlet {
+  h4 {
+    padding: 7px 10px 8px 80px;
+  }
+
+  .kbcontents h4 {
+    padding: 0;
+  }
+}
+
+.resource-info {
+  margin-right: 44px;
+  margin-left: 0;
+}
+
+#tutorial .resource-info {
+  text-align: right;
+}
+
+.dashboard .dashlets .dashlet-row .rows.well > .btn {
+  left: 0;
+  right: auto;
+}
+
+.dashboard .dashlets .dashlet-row .rows.well > .btn:not(:nth-child(1)) {
+  left: 20px;
+}
+
+.news-article .avatar {
+  float: right;
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+.sidebar-content {
+  .dashboard {
+    .headerpane {
+      h1 {
+        div.dropdown {
+          padding-right: 4px;
+
+          > a {
+            padding: 4px 2px 4px 16px;
+
+            .fa-caret-down {
+              left: 0;
+              right: auto;
+            }
+          }
+        }
+      }
+    }
+
+    .cols .dashlets {
+      margin-right: 1.5%;
+
+      > li:last-child {
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+/* NEW SKIN START */
+
+.sidebar-content {
+  .dashboard {
+    .headerpane {
+      h1 {
+        div.dropdown > a {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+/* NEW SKIN END */

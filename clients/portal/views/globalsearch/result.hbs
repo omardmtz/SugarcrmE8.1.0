@@ -1,0 +1,35 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if data.records}}
+    {{#each data.records}}
+    <li>
+        <a href="{{link}}">
+            <strong>{{getModuleName module plural=true}}</strong> {{name}}{{#if field_name}}, <strong>{{field_name}}</strong> {{field_value}}{{/if}}
+        </a>
+    </li>
+    {{/each}}
+    <li>
+        <a href="#search/{{term}}">{{str "LNK_SEARCH_FTS_VIEW_ALL"}}</a>
+    </li>
+{{else}}
+    {{#eq data.records.length "0"}}
+        <li>
+            <a href="javascript:void(0)">{{str "LNK_SEARCH_NO_RESULTS"}}</a>
+        </li>
+        {{#each data.module_list}}
+            <li>
+                <a href="#{{this}}/create">{{str "LNK_CREATE_WHEN_EMPTY" this}}</a>
+            </li>
+        {{/each}}
+    {{/eq}}
+{{/if}}

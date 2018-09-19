@@ -1,0 +1,196 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Runs a duplicate check against specified data.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record field&gt;
+        </td>
+        <td>
+            &lt;record field type&gt;
+        </td>
+        <td>
+            The name value list of fields to populate.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+{
+    "name":"Airline"
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record field&gt;
+        </td>
+        <td>
+            &lt;record field type&gt;
+        </td>
+        <td>
+            Returns the potential duplicate records.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "next_offset":-1,
+   "records":[
+      {
+         "id":"c4c26496-5dbc-67dd-bf5c-512d0923889e",
+         "name":"Airline Maintenance Co",
+         "date_entered":"2013-02-26T19:12:00+00:00",
+         "date_modified":"2013-02-26T19:12:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "last_activity_date":"2013-02-26T19:12:00+00:00",
+         "deleted":false,
+         "assigned_user_id":"seed_sally_id",
+         "assigned_user_name":"Sally Bronsen",
+         "team_name":[
+            {
+               "id":"East",
+               "name":"East",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":1,
+               "name":"Global",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "account_type":"Customer",
+         "industry":"Other",
+         "annual_revenue":"",
+         "phone_fax":"",
+         "billing_address_street":"123 Anywhere Street",
+         "billing_address_street_2":"",
+         "billing_address_street_3":"",
+         "billing_address_street_4":"",
+         "billing_address_city":"Sunnyvale",
+         "billing_address_state":"CA",
+         "billing_address_postalcode":"48566",
+         "billing_address_country":"USA",
+         "rating":"",
+         "phone_office":"(648) 452-3486",
+         "phone_alternate":"",
+         "website":"www.kidqa.it",
+         "ownership":"",
+         "employees":"",
+         "ticker_symbol":"",
+         "shipping_address_street":"123 Anywhere Street",
+         "shipping_address_street_2":"",
+         "shipping_address_street_3":"",
+         "shipping_address_street_4":"",
+         "shipping_address_city":"Sunnyvale",
+         "shipping_address_state":"CA",
+         "shipping_address_postalcode":"48566",
+         "shipping_address_country":"USA",
+         "email1":"vegan.im@example.tw",
+         "parent_id":"",
+         "sic_code":"",
+         "parent_name":"",
+         "email_opt_out":false,
+         "invalid_email":false,
+         "email":[
+            {
+               "email_address":"vegan.im@example.tw",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"1"
+            },
+            {
+               "email_address":"phone85@example.tv",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"0"
+            }
+         ],
+         "campaign_id":"",
+         "campaign_name":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         },
+         "duplicate_check_rank":0
+      }
+   ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/duplicateCheck</code> POST endpoint.
+        </td>
+    </tr>
+</table>

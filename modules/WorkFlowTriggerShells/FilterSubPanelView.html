@@ -1,0 +1,38 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<script>
+function get_popup_new(parent_id, record, action){
+	
+	window.open('index.php?module=WorkFlowTriggerShells&action='+ action +'&workflow_id=' + parent_id + '&record=' + record + '','new','width=500,height=400,resizable=1,scrollbars=1');
+	
+}	
+</script>
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="90%" ><slot>{MOD.LBL_LIST_NAME}</td>
+	<td scope="col" width="5%" ><slot>&nbsp;</td>
+	<td scope="col" width="5%" ><slot><img src="include/images/blank.gif?v={VERSION_MARK}" widht="1" height="1" alt=""></slot></td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    	<td scope='row' valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot>{TRIGGER.STATEMENT}<a href='javascript:get_popup_new("{TRIGGER.PARENT_ID}","{TRIGGER.ID}", "{TRIGGER.ACTION}")'>{TRIGGER.STATEMENT1}</a>{TRIGGER.STATEMENT2}</slot></td>
+    	<td nowrap align="center" valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot><a href="{URL_PREFIX}index.php?action=EditView&module=WorkFlowTriggerShells&record={TRIGGER.ID}&workflow_id={WORKFLOW_ID}" >{EDIT_INLINE_PNG}&nbsp;{APP.LNK_EDIT}</a></td>
+		<td nowrap align="center" valign=TOP><slot><a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_REMOVE_TRIGGER}')" href="{URL_PREFIX}index.php?action=Delete&module=WorkFlowTriggerShells&record={TRIGGER.ID}{RETURN_URL}">{DELETE_INLINE_PNG}&nbsp;{APP.LNK_REMOVE}</a></slot></td>
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

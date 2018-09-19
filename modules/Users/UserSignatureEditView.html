@@ -1,0 +1,102 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<style>
+	#subjectfield { height: 1.6em; }
+</style>
+
+{JAVASCRIPT}
+<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+	function checkSignatureForm() {
+		if(document.getElementById('name').value == "") {
+			alert('{MOD.LBL_EMAIL_SIGNATURE_ERROR1}');
+			return false;
+		} else {
+			return true;
+		}
+	}
+</script>
+
+<form name="EditView" method="POST" action="index.php" enctype="multipart/form-data">
+{sugar_csrf_form_token}
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<input type="hidden" name="module" value="Users">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="form">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+			<input type="hidden" name="inpopupwindow" value="{INPOPUPWINDOW}">
+			<input type="hidden" name="old_id" value="{OLD_ID}">
+			<input type="hidden" name="the_user_id" value="{THE_USER_ID}">
+		
+			<input 	title="{APP.LBL_SAVE_BUTTON_TITLE}" 
+					accessKey="{APP.LBL_SAVE_BUTTON_KEY}" 
+					class="button" 
+					onclick="this.form.action.value='SaveSignature'; return checkSignatureForm();" 
+					type="submit" 
+					name="button" 
+					value="  {APP.LBL_SAVE_BUTTON_LABEL}  " >
+			<input	title="{APP.LBL_CANCEL_BUTTON_TITLE}" 
+					accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" 
+					class="button" 
+					onclick="{CANCEL_SCRIPT}" 
+					type="submit" 
+					name="button" 
+					value="  {APP.LBL_CANCEL_BUTTON_LABEL}  ">
+		</td>
+		<td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+		<td align='right'>{ADMIN_EDIT}</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="edit view">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="15%" scope="row">
+						<slot>
+							{MOD.LBL_SIGNATURE_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span>
+						</slot>
+					</td>
+					<td width="85%" >
+						<slot>
+							<input id="name" name='name' tabindex="10" type="text" size='30' maxlength="255" value="{NAME}">
+						</slot>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>&nbsp;</td>
+				</tr>
+				<tr>
+					<td valign="top" scope="row">
+						<slot>
+							{MOD.LBL_SIGNATURE}:
+						</slot>
+					</td>
+			        <td >
+		        		<textarea id="sigText" cols="100" rows="10" name="description">{SIGNATURE_TEXT}</textarea></div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</form>
+{tinyjs}
+<!-- END: main -->

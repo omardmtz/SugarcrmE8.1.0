@@ -1,0 +1,122 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Creates a record list from a saved report.
+</span>
+
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record ID&gt;
+        </td>
+        <td>
+            &lt;string&gt;
+        </td>
+        <td>
+            Target record ID.
+        </td>
+        <td>
+            True.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h3>Input Example</h3>
+<pre class="pre-scrollable">
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            record
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The record linked to related records.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            records
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Record ids in the record list.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+  {
+    "id":"e22803ee-e89e-9f20-78a8-52e2c6c6601c",
+    "assigned_user_id":"1",
+    "module_name":"Reports",
+    "records":[
+        "137e6b6d-2647-7e57-df30-52dea83c622d",
+        "13ae7ea4-ef13-b024-c07d-52dea80c97e4",
+        "1410df78-4bef-a263-ebf2-52dea85ca781"
+    ],
+    "date_modified":"2014-01-24 20:02:50"
+  }
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10 (7.2.0)
+        </td>
+        <td>
+            Added <code>/Reports/:record/record_list</code> POST endpoint.
+        </td>
+    </tr>
+</table>

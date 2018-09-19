@@ -1,0 +1,231 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves an Emails record.
+</span>
+
+<h3>Fields</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                &lt;record field&gt;
+            </td>
+            <td>
+                &lt;record field type&gt;
+            </td>
+            <td>
+                Returns the fields for the selected record.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                from_collection
+            </td>
+            <td>
+                List
+            </td>
+            <td>
+                The email's sender.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                to_collection
+            </td>
+            <td>
+                List
+            </td>
+            <td>
+                The email's recipients found in the TO field.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                cc_collection
+            </td>
+            <td>
+                List
+            </td>
+            <td>
+                The email's recipients found in the CC field.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                bcc_collection
+            </td>
+            <td>
+                List
+            </td>
+            <td>
+                The email's recipients found in the BCC field.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                attachments_collection
+            </td>
+            <td>
+                List
+            </td>
+            <td>
+                The email's attachments.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h5>Request</h5>
+<pre class="pre-scrollable">
+GET /Emails/a028341c-ba92-9343-55e7-56cf5beda121?fields=name,state,
+{"name":"from_collection","fields":["email_address","email_address_id",
+"parent_type","parent_id","parent_name"]},
+{"name":"to_collection","fields":["email_address","email_address_id",
+"parent_type","parent_id","parent_name"]},
+{"name":"cc_collection","fields":["email_address","email_address_id",
+"parent_type","parent_id","parent_name"]},
+{"name":"bcc_collection","fields":["email_address","email_address_id",
+"parent_type","parent_id","parent_name"]},
+{"name":"attachments_collection","fields":["name","filename","file_size",
+"file_source","file_mime_type","file_ext","upload_id"]}
+</pre>
+<h5>Response</h5>
+<pre class="pre-scrollable">
+{
+  "id": "a028341c-ba92-9343-55e7-56cf5beda121",
+  "state": "Archived",
+  "name": "Re: Discuss Proposal",
+  "from_collection": {
+    "next_offset": {
+      "from": -1
+    },
+    "records": [{
+      "id": "ec113d14-7d27-11e7-a951-3c15c2d582c6",
+      "email_address": "tdavis@example.com",
+      "email_address_id": "ec05a896-7d27-11e7-a51e-3c15c2d582c6",
+      "parent_type": "Leads",
+      "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6",
+      "parent_name": "Tom Davis",
+      "_acl": {
+        "fields": {}
+      },
+      "_link": "from",
+      "_module": "EmailParticipants"
+    }]
+  },
+  "to_collection": {
+    "next_offset": {
+      "to": -1
+    },
+    "records": [{
+      "id": "ec0f1278-7d27-11e7-8d1f-3c15c2d582c6",
+      "email_address": "ssmith@example.com",
+      "email_address_id": "ec0fb516-7d27-11e7-b7ad-3c15c2d582c6",
+      "parent_type": "Users",
+      "parent_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+      "parent_name": "Sarah Smith",
+      "_acl": {
+        "fields": {}
+      },
+      "_link": "to",
+      "_module": "EmailParticipants"
+    }]
+  },
+  "cc_collection": {
+    "next_offset": {
+      "cc": -1
+    },
+    "records": [{
+      "id": "eafa7e9a-7d27-11e7-aa2b-3c15c2d582c6",
+      "email_address": "broland@example.com",
+      "email_address_id": "ea1cec7e-7d27-11e7-9845-3c15c2d582c6",
+      "parent_type": "Users",
+      "parent_id": "e087e79a-7d27-11e7-b02c-3c15c2d582c6",
+      "parent_name": "Brian Roland",
+      "_acl": {
+        "fields": {}
+      },
+      "_link": "cc",
+      "_module": "EmailParticipants"
+    }, {
+      "id": "df5eb204-7d27-11e7-b363-3c15c2d582c6",
+      "email_address": "twallace@example.com",
+      "email_address_id": "ddf1d9e6-7d27-11e7-bb17-3c15c2d582c6",
+      "parent_type": "",
+      "parent_id": "",
+      "parent_name": "",
+      "_acl": {
+        "fields": {}
+      },
+      "_link": "cc",
+      "_module": "EmailParticipants"
+    }]
+  },
+  "bcc_collection": {
+    "next_offset": {
+      "bcc": -1
+    },
+    "records": []
+  },
+  "attachments_collection": {
+    "next_offset": {
+      "attachments": -1
+    },
+    "records": [{
+      "id": "afe9702e-53a3-0efb-6bbe-56c3580885ef",
+      "name": "Quote.pdf",
+      "filename": "Quote.pdf",
+      "upload_id": "",
+      "file_mime_type": "application/pdf",
+      "file_size": 158589,
+      "file_source": "DocumentRevisions",
+      "file_ext": "pdf"
+      "_acl": {
+        "fields": {}
+      },
+      "_link": "attachments",
+      "_module": "Notes"
+    }]
+  }
+  "_acl": {
+    "fields": [
+    ]
+  },
+  "_module": "Emails"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Emails/:record</code> GET endpoint.
+        </td>
+    </tr>
+</table>

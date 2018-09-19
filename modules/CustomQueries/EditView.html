@@ -1,0 +1,77 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+<script type="text/javascript">
+function check_lock(){
+
+	if(document.getElementById('query_locked').checked==true){
+		document.getElementById('custom_query').disabled = true;
+	} else {
+		document.getElementById('custom_query').disabled = false;
+	}		
+	
+	
+}	
+</script>
+
+<form id='EditView' name='EditView' method='POST' action='index.php'>
+{sugar_csrf_form_token}
+<input type='hidden' name='module' value='CustomQueries'>
+<input type='hidden' name='record' value='{ID}'>
+<input type='hidden' name='action' value=''>
+<input type='hidden' name='edit' value=''>
+<input type='hidden' name='isDuplicate' value=''>		
+<input type='hidden' name='return_module' value='CustomQueries'>
+<input type='hidden' name='return_action' value='index'>
+<input type='hidden' name='return_id' value=''>
+<input accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="document.EditView.action.value='Save'; return check_form('EditView');" type="submit" name="button" title="{APP.LBL_SAVE_BUTTON_TITLE}" value="{APP.LBL_SAVE_BUTTON_LABEL}">
+
+<table cellspacing="0" cellpadding="0" border="0" class="edit view" width="100%">
+<tr>
+    <td>
+<table width="100%" align='left' border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td width="85%"><slot><input name='name' tabindex='1' size='50' maxlength='50' type="text" value="{NAME}"></slot></td>
+</tr>
+<tr>
+<td width="15%"scope="row"><slot>{MOD.LBL_QUERY_LOCKED}</slot></td>
+<td width="85%" ><slot><input id='query_locked' name='query_locked' class="checkbox" type="checkbox" tabindex='1' {QUERY_LOCKED} onchange='return check_lock();'></slot></td>
+</tr>
+<tr>
+	<td  scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+</tr>
+<tr>
+<td width="15%"scope="row"><slot>{APP.LBL_TEAM}</slot></td>
+<td width="85%" >{TEAM_SET_FIELD}</td>
+</tr>
+<tr>
+	<td  scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+</tr>
+<tr>
+<td width="15%" valign='top' scope="row"><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+<td width="85%"><slot><textarea cols="45" rows="3" name='description' tabindex='2'>{DESCRIPTION}</textarea></slot></td>
+</tr>
+<tr>
+<td width="15%" valign='top' scope="row"><slot>{MOD.LBL_CUSTOMQUERY}</slot></td>
+<td width="85%"><slot><textarea cols="100" rows="16" id='custom_query' name='custom_query' tabindex='2' {QUERY_DISABLED}>{CUSTOM_QUERY}</textarea></slot></td>
+</tr></table>
+</td>
+</tr>
+</table>
+</form>
+{JAVASCRIPT}
+<!-- END: main -->

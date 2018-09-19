@@ -1,0 +1,79 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+.crumbLink {
+	color: #444;
+}
+a.crumbLink {
+	text-decoration: none;
+}
+.wizardButton {
+border:0px;
+
+}
+.relTable{
+border:0px solid #FFFFFF;
+padding: 4px 8px 4px 8px;
+}
+.wizardButton TD{
+padding: 0px 0px 0px 0px;
+}
+.wizardButton TD:hover    {
+cursor:pointer
+}
+.wizardButtonDown TD   {
+border:1px solid #000000;
+background-color:#C0C0C0;
+cursor:pointer
+}
+a.studiolink {text-decoration:none; text-align:center}
+div.bodywrapper{padding: 4px 4px 4px 4px}
+
+.oddListRowS1{
+	background-color:WhiteSmoke;
+}
+.x-panel-body th {
+	background-color:#C0C0C0;
+	border:1px solid #808080;
+	font-weight:bold;	
+}
+
+.spantitle {
+	font-size: 14px;
+	font-weight:normal;
+    color:#666666;
+} 
+
+.yui-dt-scrollable .yui-dt-bd {
+	width:190px;
+	border:none;
+}
+
+.yui-dt-scrollable .yui-dt-hd {
+	width:190px;
+	border:none;
+}
+
+.autocompletewrapper {
+	padding:4px;
+}
+.yui-dt table {
+	width:183px;
+}
+
+.ygtvlabel {
+white-space: nowrap;
+};
+.bold {
+    font-weight:bold;
+}
+td.number_align {
+    text-align: right;
+}

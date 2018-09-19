@@ -1,0 +1,96 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieve information to reassign processes 
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint gets information necessary to reassign a process 
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>record</td>
+            <td>string</td>
+            <td>The id of the process trigger sequence</td>
+            <td>true</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>success</td>
+            <td>boolean</td>
+            <td>Result of the routing operation</td>
+        </tr>
+        <tr>
+            <td>next_offset</td>
+            <td>integer</td>
+            <td>Next offset for more results</td>
+        </tr>
+        <tr>
+            <td>records</td>
+            <td>&lt;field&gt;:&lt;value&gt;</td>
+            <td>List of process attributes </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "success":true,
+    "next_offset":-1,
+    "records":
+    [
+        {
+            "cas_id":"2",
+            "cas_index":"3",
+            "cas_task_start_date":null,
+            "cas_delegate_date":"2016-06-01T16:18:59-07:00",
+            "cas_flow_status":"FORM",
+            "cas_user_id":"seed_sarah_id",
+            "cas_due_date":"",
+            "cas_sugar_module":"Accounts",
+            "bpmn_id":"7c62acc2-2842-11e6-9b9c-6c4008960436",
+            "act_name":"Activity # 1",
+            "act_assignment_method":"static",
+            "act_expected_time":"eyJ0aW1lIjpudWxsLCJ1bml0IjoiaG91ciJ9",
+            "cas_expected_time":"",
+            "assigned_user":"Sarah Smith"
+        }
+    ]
+}
+</pre>

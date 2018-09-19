@@ -1,0 +1,44 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="ellipsis_inline primary" data-placement="bottom" title="" data-original-title="">
+    {{#each model.primaryFields}}
+        {{#notEq type 'avatar'}}<h3>{{/notEq}}
+        {{#if highlighted}}
+            {{#if ../../model.viewAccess}}
+                {{#if link}}
+                    <span><a href="#{{buildRoute model=../../../../model}}">{{value}}</a></span>
+                {{else}}
+                    <span>{{value}}</span>
+                {{/if}}
+            {{else}}
+                <span>{{value}}</span>
+            {{/if}}
+        {{else}}
+            {{field ../../view model=../../model template='list'}}
+        {{/if}}
+        {{#notEq type 'avatar'}}</h3>{{/notEq}}
+    {{/each}}
+</div>
+<div class="ellipsis_inline secondary" data-placement="bottom" title="" data-original-title="">
+    {{#each model.secondaryFields}}
+        {{~#if highlighted~}}
+        <span>{{str ../label ../../module}}:</span> <span>{{../value}}</span>{{#unless @last}}, {{/unless}}
+        {{~^~}}
+        <span>{{str ../label ../../module}}: </span>{{field ../../view model=../../model template='list'}}{{#unless @last}}, {{/unless}}
+        {{~/if~}}
+    {{/each}}
+</div>
+
+{{#each view.meta.rowactions.actions}}
+    {{field ../view model=../model}}
+{{/each}}

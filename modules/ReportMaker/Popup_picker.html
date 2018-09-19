@@ -1,0 +1,75 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+
+{SET_RETURN_JS}
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+<form>
+		<td scope="row" noWrap><slot>{MOD.LBL_NAME}</slot></td>
+		<td ><slot><input type=text size="20" name="name" class=dataField value="{LAST_SEARCH.NAME}">
+		<td scope="row" noWrap><slot>{MOD.LBL_TYPE}</slot></td>
+		<td ><slot><input type=text size="20" name="type_name" class=dataField  value="{LAST_SEARCH.TYPE_NAME}">
+		<td rowspan=2 valign=top align="right">
+			<input type="hidden" name="action" value="Popup"/>
+			<input type="hidden" name="query" value="true"/>
+			<input type="hidden" name="module" value="{MODULE_NAME}" />
+			<input type="hidden" name="form_submit" value="{FORM_SUBMIT}" />
+			<input type="hidden" name="form" value="{FORM}" />
+			<input type="hidden" name="row_id" value="{ROW_ID}" />
+		<input title="{APP.LBL_SEARCH_BUTTON_TITLE}" class="button" type="submit" name="button" value="{APP.LBL_SEARCH_BUTTON_LABEL}" id="search_form_submit"/></td>
+		</tr><tr>
+		<td scope="row" noWrap><slot>{MOD.LBL_CATEGORY}</slot></td>
+		<td ><slot><input type=text size="20" name="category_name" class=dataField  value="{LAST_SEARCH.CATEGORY_NAME}" />
+		<td scope="row" noWrap><slot>{MOD.LBL_MANUFACTURER}</slot></td>
+		<td ><slot><input type=text size="20" name="manufacturer_name" class=dataField  value="{LAST_SEARCH.MANUFACTURER_NAME}" />
+</form>
+	</tr>
+	</table>
+</td></tr></table>
+<!-- END: SearchHeader -->
+<!-- BEGIN: SearchHeaderEnd -->
+
+
+<!-- END: SearchHeaderEnd -->
+
+
+<!-- BEGIN: list_nav_row -->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list view">
+{PAGINATION}
+	<!-- END: list_nav_row -->
+	<tr height="20">
+	<td scope="col"  scope="col"  width="20%" ><slot><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{name_arrow}{arrow_end}</a></slot></td>
+	<td scope="col"  width="10%" ><slot><a href="{ORDER_BY}status" class="listViewThLinkS1">{MOD.LBL_LIST_OUTPUT_DEFAULT}{arrow_start}{status_arrow}{arrow_end}</a></slot></td>
+	<td scope="col"  width="10%" ><slot><a href="{ORDER_BY}qty_in_stock" class="listViewThLinkS1">{MOD.LBL_LIST_LIST_ORDER_Y}{arrow_start}{qty_in_stock_arrow}{arrow_end}</a></slot></td>
+	<td scope="col"  width="10%" ><slot><a href="{ORDER_BY}cost_price" class="listViewThLinkS1">{MOD.LBL_LIST_VISIBLE}{arrow_start}{cost_price_arrow}{arrow_end}</a></slot></td>
+	<td scope="col"  width="10%"  nowrap><slot><a href="{ORDER_BY}discount_price" class="listViewThLinkS1">{MOD.LBL_LIST_EXPORTABLE}{arrow_start}{discount_price_arrow}{arrow_end}</a></slot></td>
+	<td scope="col"  width="20%"  NOWRAP><slot>&nbsp;{MOD.LBL_LIST_QUERY_NAME}</slot></td> 
+	  </tr>
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+  		<td scope="row" valign=TOP><a  href="#" LANGUAGE=javascript onclick='set_return("{DATA_SET.ID}", "{DATA_SET.NAME}"); window.close()'>{DATA_SET.NAME}</a></slot></td>
+  		<td nowrap="nowrap" valign="top"><slot>{DATA_SET.OUTPUT_DEFAULT}</slot></td>
+		<td nowrap="nowrap" valign="top"><slot>{DATA_SET.LIST_ORDER_Y}</slot></td>
+    	<td nowrap="nowrap" valign="top"><slot>{DATA_SET.VISIBLE}</slot></td>
+    	<td nowrap="nowrap" valign="top"><slot>{DATA_SET.EXPORTABLE}</slot></td>
+    	<td nowrap="nowrap" valign="top"><slot>{DATA_SET.QUERY_NAME}</slot></td>
+	</tr>
+
+<!-- END: row -->
+	</table>
+<!-- END: main -->

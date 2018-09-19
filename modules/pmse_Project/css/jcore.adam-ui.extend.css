@@ -1,0 +1,77 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+.adam-button.btn.btn-primary:hover{
+    border: transparent;
+}
+.btn.btn-invisible {
+    background-image:  none;
+    background-color:  transparent;
+    border:  1px solid transparent;
+    font-weight:  normal;
+    font-size:  12px;
+    -webkit-box-shadow:  none;
+    -moz-box-shadow:  none;
+    box-shadow:  none;
+    outline:  none;
+}
+.btn.btn-invisible:not(.disabled):hover {
+    -webkit-box-shadow:  none;
+    -moz-box-shadow:  none;
+    box-shadow:  none;
+    border-color:  transparent;
+    background-color:  transparent;
+}
+.btn.btn-invisible:not(.disabled):hover > .fa {
+    color:  #222;
+    text-shadow:  none;
+}
+.btn.btn-invisible.active {
+    color:  #f6f6f6;
+    -webkit-box-shadow:  none;
+    -moz-box-shadow:  none;
+    box-shadow:  none;
+    background:  #555;
+}
+.btn.btn-invisible.disabled {
+    text-decoration:  none;
+    color:  #717171;
+    opacity:  .65;
+    filter:  alpha(opacity=65);
+}
+.btn.btn-invisible.disabled .fa {
+    opacity:  .65;
+    filter:  alpha(opacity=65);
+    color:  #717171;
+}
+.btn.btn-invisible.btn-dark {
+    background-color:  #e9e9e9;
+}
+.btn.btn-invisible.btn-dark > .fa {
+    color:  #585858;
+}
+.btn.btn-link {
+    color:  #176de5;
+}
+.btn.btn-link:not(.disabled):hover {
+    text-decoration:  underline;
+    color:  #1257b7;
+    -webkit-box-shadow:  none;
+    -moz-box-shadow:  none;
+    box-shadow:  none;
+    background:  transparent;
+}
+.btn.btn-link.active, .btn.btn-link:not(.disabled):active {
+    color:  #176de5;
+    background:  transparent;
+    -webkit-box-shadow:  none;
+    -moz-box-shadow:  none;
+    box-shadow:  none;
+}

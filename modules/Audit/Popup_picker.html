@@ -1,0 +1,35 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- $Id: Popup_picker.html 42215 2008-11-26 20:35:04Z jmertic $ -->
+<!-- BEGIN: audit -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view" style="table-layout:fixed">
+<tr height="20" >
+<td width="1%" ><img src="include/images/blank.gif?v={VERSION_MARK}" width="1" height="1" alt=""></td>
+<td width="15%" >{MOD.LBL_FIELD_NAME}</td>
+<td width="25%" >{MOD.LBL_OLD_NAME}</td>
+<td width="25%" >{MOD.LBL_NEW_VALUE}</td>
+<td width="15%" >{MOD.LBL_CREATED_BY}</td>
+<td width="19%"  nowrap>{MOD.LBL_LIST_DATE}</td>
+</tr>
+<!-- BEGIN: row -->
+<tr height="20">
+<td nowrap="nowrap" valign="top">{ACTIVITY_MODULE_PNG}</td>
+<td valign="top">{ACTIVITY.NAME}</td>
+<td valign="top" ><div style="word-wrap: break-word;">{ACTIVITY.BEFORE_VALUE}</div></td>
+<td valign="top" ><div style="word-wrap: break-word;">{ACTIVITY.AFTER_VALUE}</div></td>
+<td valign="top">{ACTIVITY.CREATED_BY}</td>
+<td valign="top">{ACTIVITY.DATE_CREATED}</td>
+</tr>
+<!-- END: row -->
+</table>
+<!-- END: audit -->

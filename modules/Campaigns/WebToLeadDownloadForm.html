@@ -1,0 +1,81 @@
+
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<style>
+	#subjectfield { height: 1.6em; }
+
+    .charset_notice  { color:red; }
+    .charset_headtag { color:#880000; }
+    .charset_metatag { color:blue; }
+</style>
+
+{JAVASCRIPT}
+<script type="text/javascript" language="Javascript" src="modules/Emails/javascript/Email.js?v={VERSION_MARK}"></script>
+<script type="text/javascript" language="Javascript" src="cache/include/javascript/sugar_grp1_yui.js?v={VERSION_MARK}"></script>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+		<form name="WebToLeadDownloadForm" id="WebToLeadDownloadForm" method="POST" action="index.php"
+			enctype="multipart/form-data"><input type="hidden" name="module" value="Campaigns"> <input
+			type="hidden" name="record" value="{ID}"> <input type="hidden" name="action"> <input type="hidden"
+			name="form"> <input type="hidden" name="return_module" value="{RETURN_MODULE}"> <input type="hidden"
+			name="return_id" value="{RETURN_ID}"> <input type="hidden" name="return_action" value="{RETURN_ACTION}">
+		<input type="hidden" name="inpopupwindow" value="{INPOPUPWINDOW}"> <input type="hidden" name="old_id"
+			value="{OLD_ID}">
+		{sugar_csrf_form_token}
+		<td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+		<td align='right'>{ADMIN_EDIT}</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+	<tr>
+		<td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td colspan=4>&nbsp;</td>
+			</tr>
+			<tr>
+				{LINK_TO_WEB_FORM}
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<!-- BEGIN: copy_source -->
+	<tr>
+		<td>
+			<b>{MOD.LBL_COPY_AND_PASTE_CODE}</b>
+            <p>
+                <b><span class='charset_notice'>{MOD.LBL_CHARSET_NOTICE}</span></b><br/>
+                <span class='charset_headtag'>
+                    &lt;head&gt;<br />
+                    ...<br />
+                </span>
+                <span class='charset_metatag'>
+                    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;<br />
+                </span>
+                <span class='charset_headtag'>
+                    ...<br />
+                    &lt;/head&gt;<br />
+                </span>
+                <br />
+            </p>
+			<textarea rows="6" cols="80">{RAW_SOURCE}</textarea>
+		</td>
+	</tr>
+	<!-- END: copy_source -->
+</table>
+</form>
+<!-- END: main -->

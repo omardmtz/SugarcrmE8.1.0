@@ -1,0 +1,72 @@
+/**********
+* Tooltips
+* Twitter bootstrap classes
+* with
+* Sucrose Customizations
+  -----------------------*/
+
+.sc-tooltip {
+  &.tooltip {
+    pointer-events: none;
+    &.in { opacity: 1; }
+  }
+
+  .tooltip-inner {
+    max-width: 220px;
+    padding: 3px 6px;
+    background-color: @tooltipBackground;
+    line-height: 15px;
+    text-align: left;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .tooltip-header {
+    padding-bottom: 1px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .tooltip-grid {
+    display: table;
+
+    p {
+      display: table-row;
+    }
+
+    span {
+      display: table-cell;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: pre-line;
+      word-wrap: normal;
+    }
+
+    span:first-child {
+      color: darken(@grayLighter, 10%);
+      padding-right: 6px;
+      box-sizing: border-box;
+      text-align: right;
+      max-width: 90px;
+    }
+    span:last-child {
+      max-width: 130px;
+    }
+  }
+
+  .tooltip-status {
+    padding-top: 2px;
+    margin-top: 3px;
+    border-top: 1px solid lighten(@gray, 15%);
+    color: darken(@grayLighter, 10%);
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.sctooltip-pending-removal {
+  position: absolute;
+  pointer-events: none;
+}

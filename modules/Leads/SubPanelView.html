@@ -1,0 +1,34 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" nowrap width="15%" ><slot>{MOD.LBL_LIST_NAME}</slot></td>
+	<td scope="col" nowrap width="15%" ><slot>{MOD.LBL_LIST_REFERED_BY}</slot></td>
+	<td scope="col" nowrap width="15%" ><slot>{MOD.LBL_LIST_LEAD_SOURCE}</slot></td>
+	<td scope="col" width="45%" ><slot>{MOD.LBL_LIST_LEAD_SOURCE_DESCRIPTION}</slot></td>
+	</tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+				<td scope="row" nowrap valign=TOP ><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Leads&record={LEAD.ID}" >{LEAD.FIRST_NAME} {LEAD.LAST_NAME}</a></slot></td>
+    	    	<td nowrap valign=TOP ><slot>{LEAD.REFERED_BY}</slot></td>
+    			<td nowrap valign=TOP ><slot>{LEAD.LEAD_SOURCE}</slot></td>
+    	<td valign=TOP ><slot>{LEAD.LEAD_SOURCE_DESCRIPTION}</slot></td>
+    	
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

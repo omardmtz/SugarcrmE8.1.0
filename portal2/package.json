@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "devDependencies": {
+    "commander": "^2.9.0",
+    "gulp": "^3.9.0",
+    "jasmine-sinon": "^0.3.2",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "~0.1.5",
+    "karma-junit-reporter": "^1.1.0",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-sauce-launcher": "^1.0.0",
+    "lodash": "~2.4.1",
+    "sinon": "1.6.0",
+    "socket.io": "0.9.16",
+    "strip-json-comments": "^2.0.1"
+  }
+}

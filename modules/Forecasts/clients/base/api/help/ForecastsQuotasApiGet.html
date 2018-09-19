@@ -1,0 +1,57 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">ForecastsQuotasApi - Get</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to return quota information for a specific user ID, in a specific timeperiod and by a specifc type..
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td>timeperiod_id</td>
+            <td>Show for a specific time period</td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>quota_type</td>
+            <td>"rollup" or "direct" quota</td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>user_id</td>
+            <td>Show for a specific user</td>
+            <td>Required</td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+</div>
+<div class="output">
+<h2>Output Example:</h2>
+<code class="codesample">
+{
+    "currency_id":"-99",
+    "amount":"75.000000",
+    "date_modified":"2013-09-17 21:23:32",
+    "formatted_amount":"$75.00",
+    "is_top_level_manager":true
+}
+</code>
+</div>

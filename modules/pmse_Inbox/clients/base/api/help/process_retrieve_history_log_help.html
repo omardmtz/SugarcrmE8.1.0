@@ -1,0 +1,87 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Gets the history log for a process 
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint gets the history log for a process 
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>filter</td>
+            <td>string</td>
+            <td>The id of the process trigger sequence (cas_id)</td>
+            <td>true</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>success</td>
+            <td>boolean</td>
+            <td>Result of the operation</td>
+        </tr>
+        <tr>
+            <td>result</td>
+            <td>&lt;field&gt;:&lt;value&gt;</td>
+            <td>History records</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "success":true,
+    "result":
+    [
+        {
+            "image":"index.php?entryPoint=download\u0026id=0b2dc2f0-2377-11e6-9d2a-6c4008960436\u0026type=SugarFieldImage\u0026isTempFile=1",
+            "user":"Administrator",
+            "current_user":"Administrator",
+            "due_date":"2016-06-03T16:18:59-07:00",
+            "end_date":"2016-06-01T16:18:59-07:00",
+            "current_date":"2016-06-02T10:53:14-07:00",
+            "delegate_date":"2016-06-01T16:18:59-07:00",
+            "start_date":"2016-06-01T16:18:59-07:00",
+            "completed":true,
+            "cas_user_id":"1",
+            "data_info":"has created Process #2  on the Account record  with the event \u0027Start Event # 1\u0027."
+        },
+    ]
+}
+</pre>

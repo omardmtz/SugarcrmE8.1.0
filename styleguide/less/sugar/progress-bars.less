@@ -1,0 +1,402 @@
+/* PROGRESS BARS
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// ANIMATIONS
+// ----------
+
+// Spec
+@keyframes progress-bar-stripes {
+  from { background-position: 40px 0; }
+  to { background-position: 0 0; }
+}
+
+// THE BARS
+// --------
+
+// Outer container
+.progress {
+  overflow: hidden;
+  #gradient > .vertical(#f5f5f5, #f9f9f9);
+
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: @baseBorderRadius;
+}
+
+// Bar of progress
+.progress .bar {
+  width: 0%;
+  color: @white;
+  float: left;
+  font-size: 12px;
+  text-align: center;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  transition: width 0.6s ease;
+}
+
+.progress .bar + .bar {
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+// Striped bars
+.progress-striped .bar {
+  #gradient > .striped(#149bdf);
+
+  background-size: 40px 40px;
+}
+
+// Call animation for the active one
+.progress.active .bar {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -moz-animation: progress-bar-stripes 2s linear infinite;
+  -ms-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+
+// COLORS
+// ------
+
+// Danger (red)
+.progress-danger .bar,
+.progress .bar-danger {
+  #gradient > .vertical(#ee5f5b, #c43c35);
+}
+
+.progress-danger.progress-striped .bar,
+.progress-striped .bar-danger {
+  #gradient > .striped(#ee5f5b);
+}
+
+// Success (green)
+.progress-success .bar,
+.progress .bar-success {
+  #gradient > .vertical(#62c462, #57a957);
+}
+
+.progress-success.progress-striped .bar,
+.progress-striped .bar-success {
+  #gradient > .striped(#62c462);
+}
+
+// Info (teal)
+.progress-info .bar,
+.progress .bar-info {
+  #gradient > .vertical(#5bc0de, #339bb9);
+}
+
+.progress-info.progress-striped .bar,
+.progress-striped .bar-info {
+  #gradient > .striped(#5bc0de);
+}
+
+// Warning (orange)
+.progress-warning .bar,
+.progress .bar-warning {
+  #gradient > .vertical(lighten(@orange, 15%), @orange);
+}
+
+.progress-warning.progress-striped .bar,
+.progress-striped .bar-warning {
+  #gradient > .striped(lighten(@orange, 15%));
+}
+
+/* twitter-bootstrap import END */
+
+.loading .progress {
+  width: 100%;
+
+  .bar {
+    height: 4px;
+    background: @BorderColor;
+  }
+}
+
+.progress .bar {
+  height: 8px;
+  border-radius: 4px;
+  background-color: @blue;
+
+  b {
+    color: @gray;
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    font-weight: normal;
+  }
+}
+
+.progress {
+  height: 8px;
+}
+
+#nprogress {
+  position: fixed;
+  height: 0;
+  width: 100%;
+  z-index: 1040;
+
+  & > div {
+    text-align: center;
+    display: inline-block;
+  }
+
+  .loading.gate {
+    width: inherit;
+
+    .progress {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+.progress-striped .bar {
+  background: fade(@black, 90%);
+}
+
+.progress-success .bar,
+.bar-success .bar {
+  background: @successBackground;
+}
+
+.progress-info .bar,
+.bar-info .bar {
+  background: @infoBackground;
+}
+
+.progress-danger .bar,
+.bar-danger .bar {
+  background: @errorBackground;
+}
+
+.progress-files .bar {
+  background: @orange;
+}
+
+.progress-leads .bar {
+  background: @green;
+}
+
+.progress-notes .bar {
+  background: @yellow;
+}
+
+.progress-contacts .bar {
+  background: @blue;
+}
+
+.progress-documents .bar {
+  background: @purple;
+}
+
+.progress-min .bar {
+  background: @red;
+}
+
+.progress-mid .bar {
+  background: @orange;
+}
+
+.progress-near .bar {
+  background: @yellow;
+}
+
+.progress-closed .bar {
+  background: @green;
+}
+
+.progress-halt .bar {
+  background: @gray;
+}
+
+// COMMUNICATIONS STYLES
+.progress-bar-container.custom {
+  width: 98%;
+  display: table;
+  border-collapse: separate;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+
+  .progress-bar-col {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: rgba(0, 0, 0, 0.03);
+
+    &:first-child {
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    .progress {
+      height: inherit;
+      margin: 2px;
+      border-radius: 50px;
+      box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 0.4);
+
+      .bar {
+        height: 20px;
+        box-shadow: inset -2px 0 0 0 white;
+        border-radius: 0;
+
+        &:first-child {
+          border-top-left-radius: 50px;
+          border-bottom-left-radius: 50px;
+        }
+
+        &:last-child {
+          box-shadow: none;
+          border-top-right-radius: 50px;
+          border-bottom-right-radius: 50px;
+        }
+      }
+    }
+  }
+
+  .click-count {
+    width: 1px;
+
+    span {
+      display: block;
+      padding: 2px 10px 0 5px;
+      font-size: 10px;
+      line-height: 1px;
+      color: rgba(0, 0, 0, 0.7);
+      font-weight: bold;
+      text-align: right;
+      min-width: 12px;
+    }
+  }
+}
+
+.progress.custom {
+  height: inherit;
+
+  .bar {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+
+    &.bar-pending {
+      background: @yellow !important;
+
+      &::before {
+        content: "Pending...";
+      }
+    }
+
+    &.bar-sending {
+      background: @green !important;
+
+      &::before {
+        content: "Sending...";
+      }
+    }
+
+    &.bar-scheduled {
+      background: @yellow !important;
+
+      &::before {
+        content: "Scheduled";
+      }
+    }
+
+    &.bar-draft {
+      background: transparent !important;
+      border: 1px solid @gray;
+      color: @gray;
+
+      &::before {
+        content: "Draft";
+      }
+    }
+
+    &.bar-optout {
+      background: @gray !important;
+    }
+
+    &.bar-bounce {
+      background: @red !important;
+    }
+
+    &.bar-open {
+      background: @green !important;
+    }
+
+    &.bar-blank {
+      background: darken(@grayLighter, 10%) !important;
+    }
+  }
+}
+
+/**
+  * Start of nprogress.css from https://github.com/rstacruz/nprogress
+  * MIT License
+  * https://github.com/rstacruz/nprogress/blob/master/License.md
+  * Modified to match Sugar7 Color scheme
+  */
+
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  width: 100%;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px @BorderColor, 0 0 5px @BorderColor;
+  opacity: 1;
+  transform: rotate(3deg) translate(0, -4px);
+}
+
+/* NEW SKIN START */
+
+.loading .progress {
+  /* override */
+  margin-top: 0;
+
+  /* override */
+  height: 1px;
+}
+
+.progress {
+  /* unset */
+  margin: 0;
+}
+
+#nprogress {
+  /* override */
+  top: 32px;
+
+  .loading.gate {
+    .progress {
+      /* additive */
+      background: @white;
+      box-shadow: none;
+    }
+  }
+}
+
+#nprogress .bar {
+  /* override with variable */
+  background: @navbarBorder;
+}
+
+/* NEW SKIN END */

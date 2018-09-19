@@ -1,0 +1,647 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- Form inputs
+================================================== -->
+<script src="styleguide/content/charts/js/chart-utils.js"></script>
+
+<section id="select2">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <h3>About Select2</h3>
+      <p>Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.</p>
+      <p>The Select2.js plugin is included in the default build of SugarCRM. [<a href="http://ivaynberg.github.io/select2/" target="_blank"><i class="fa fa-book"></i> Docs</a>]</p>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>Single Select</h2>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Basic Example</h3>
+      <select name="priority" class="select2" data-placeholder="Choose a priority...">
+        <option></option>
+        <option value="Urgent">Urgent</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option disabled value="Low">Low</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+ &lt;select class="select2"
+      data-placeholder="Choose a priority..."&gt;
+  &lt;option&gt;&lt;/option&gt;
+  &lt;option value="Urgent"&gt;Urgent&lt;/option&gt;
+  ...
+&lt;/select&gt;
+&lt;script&gt;
+  var $select = $('select.select2');
+  $select.select2();
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>Select2 has many of the same features as Chosen with greater flexibility for customization. Configuration options are passed to Select2 in a constructor object <code>$select.select2({allowClear:true})</code>. All of the configuration options can be found at the <a href="http://ivaynberg.github.com/select2/" target="_blank">Select2 homepage</a>.</p>
+      <p>Select2 creates two distinct containers for the select input elements. The first is the <b>container</b> that wraps the original form control and the stylized input divs. The second is the <b>dropdown</b> that wraps the select options and option filter input control.</p>
+      <p class="alert alert-info"><b>Note:</b> Any classes that are assigned to the original select input will be added to the container and dropdown divs.</p>
+    </div>
+  </div>
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Retreive Selected Value</h3>
+      <select id="priority" data-placeholder="Choose a priority...">
+        <option></option>
+        <option value="Urgent">Urgent</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option disabled value="Low">Low</option>
+      </select>
+      <a class="btn btn-primary" onclick="$('#priority').select2('val','High');return false;">Set Value</a>
+      <a class="btn btn-primary" onclick="alert($('#priority').select2('val'));return false">Get Value</a>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;a class="btn btn-primary" onclick="alert($('#priority').select2('val,'High')"&gt;Set Value&lt;/a&gt;
+&lt;a class="btn btn-primary" onclick="alert($('#priority').select2('val'))"&gt;Get Value&lt;/a&gt;
+&lt;script&gt;
+  $('#priority').select2({width:'200px'});
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>The selected value of a Select2 input can be retrieved by passing the "val" parameter <code>$select.select2('val')</code> and assigned by passing the "val" parameter and a "value" <code>$select.select2('val','CA')</code></p>
+      <p>The width of the Select2 container can be defined explicitly, or ...</p>
+    </div>
+  </div>
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Loading results from json</h3>
+     <input type="hidden" class="bigdrop" id="e6" style="width:600px"/></p>
+    </div>
+  </div>
+  <hr>
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Full Width Dynamic</h3>
+      <select id="priority2" class="select2 inherit-width" data-placeholder="Choose a priority...">
+        <option></option>
+        <option value="Urgent">Urgent</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option disabled value="Low">Low</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+ &lt;select
+      class="select2 inherit-width"
+      data-placeholder="Choose a priority..."&gt;
+  &lt;option&gt;&lt;/option&gt;
+  &lt;option value="Urgent"&gt;Urgent&lt;/option&gt;
+  ...
+&lt;/select&gt;
+&lt;script&gt;
+  var $this = $('#priority2')
+    , ctor = getSelect2Constructor($this);
+  $this.select2( ctor );
+&lt;/script&gt;
+</pre>
+
+      <div class="padded">
+        <h3>Small Select Container Width</h3>
+        <select id="state" class="select2 narrow" tabindex="3" data-placeholder="State...">
+          <option></option>
+          <option value="NC">North Carolina</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="WA">Washington</option>
+          <option value="CA">California</option>
+        </select>
+      </div>
+
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+ &lt;select
+      id="state" class="select2 narrow"
+      data-placeholder="Choose a priority..."&gt;
+  &lt;option&gt;&lt;/option&gt;
+  &lt;option value="Urgent"&gt;Urgent&lt;/option&gt;
+  ...
+&lt;/select&gt;
+&lt;script&gt;
+  function formatStateSelection (state) {
+    return state.id;
+  }
+
+  var $select = $('#state')
+    , ctor = getSelect2Constructor($this);
+      ctor.formatSelection = formatStateSelection;
+
+  $select.select2( ctor );
+&lt;/script&gt;
+</pre>
+
+    </div>
+
+    <div class="span6">
+      <p>We can leverage custom SugarCRM classes to control the select container width. One is <b>inherit-width</b> which expands the container and dropdown to 100% of the parent div of the original select input. The other is <b>narrow</b> which collapses the width of the Select2 container but expands the dropdown to allow for auto width of the selection options.</p>
+      <p>These classes are not part of Select2 but rather used by a custom function to set up four properties in the Select2 constructor: <code>dropdownCss</code>, <code>dropdownCssClass</code>, <code>containerCss</code>, <code>containerCssClass</code>. Be careful about setting the width of the dropdown to 100% because it will grow to 100% of the page since it is attached directly to the body. Feel free to add any needed styling to the constructor function. The default select2-inherit-width and select2-narrow as defined in the select2.less file should cover most cases.</p>
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;script&gt;
+  function getSelect2Constructor($select) {
+    var _ctor = {};
+    _ctor.minimumResultsForSearch = 7;
+    _ctor.dropdownCss = {};
+    _ctor.dropdownCssClass = '';
+    _ctor.containerCss = {};
+    _ctor.containerCssClass = '';
+    if ( $select.hasClass('narrow') ) {
+      _ctor.dropdownCss.width = 'auto';
+      _ctor.dropdownCssClass = 'select2-narrow ';
+      _ctor.containerCss.width = '75px';
+      _ctor.containerCssClass = 'select2-narrow';
+      _ctor.width = 'off';
+    }
+    if ( $select.hasClass('inherit-width') ) {
+      _ctor.dropdownCssClass = 'select2-inherit-width ';
+      _ctor.containerCss.width = '100%';
+      _ctor.containerCssClass = 'select2-inherit-width';
+      _ctor.width = 'off';
+    }
+    return _ctor;
+  }
+&lt;/script&gt;
+</pre>
+    </div>
+
+  </div>
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Deselect &amp; Dropdown Fitler</h3>
+      <select id="states3" class="select2" data-placeholder="Select a state...">
+<option></option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District Of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;script&gt;
+  $('#states3').select2({
+    minimumResultsForSearch:7,
+    allowClear:true
+  });
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>To enable a deselect "x" icon to reset the Select2 control, pass the <code>allowClear</code> property in the constructor.</p>
+      <p>The <code>minimumResultsForSearch</code> property is used to prevent a select option filter input if the number of select options is less than the number set.</p>
+    </div>
+  </div>
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Select with Hidden Input</h3>
+      <input type="hidden" id="s2_hidden" class="select2 inherit-width">
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;input id="s2_hidden" class="select2 inherit-width"&gt;
+
+&lt;script&gt;
+  var $this = $('#s2_hidden')
+    , ctor = getSelect2Constructor($this);
+  ctor.data = [{id:0,text:'enhancement'},{id:1,text:'bug'},{id:2,text:'duplicate'},{id:3,text:'invalid'},{id:4,text:'wontfix'}];
+  ctor.placeholder = "Select a issue type...";
+  $this.select2( ctor );
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>It is possible to use a <code>&lt;input type="hidden"&gt;</code> field as long as you pass data in the constructor. This example also shows the use of the <code>placeholder</code> property in the constructor.</p>
+    </div>
+  </div>
+
+  <!-- ==================== -->
+<!--
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Deselect &amp; Dropdown Fitler</h3>
+      <select id="states4" class="select2" data-placeholder="Select a state...">
+        <option></option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;script&gt;
+  $('#states3').select2({
+    minimumResultsForSearch: 7,
+    dropdownCssClass: 'select2-drop-bootstrap'
+  });
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>The Select2 dropdown can be styled to match the bootstrap dropdown by adding the <code></code> to the constructor.</p>
+    </div>
+  </div> -->
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Use images in Dropdowns</h3>
+      <select name="chart_type" class="select2 narrow" data-placeholder="Choose a chart type...">
+        <option></option>
+        <option value="donut">Donut</option>
+        <option value="funnel">Funnel</option>
+        <option value="horizontal">Horizontal</option>
+        <option value="line">Line</option>
+        <option value="pareto">Pareto</option>
+        <option value="pie">Pie</option>
+        <option value="stack">Stack</option>
+        <option value="vertical">Vertical</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;script&gt;
+  var $this = $('select[name="chart_type"]')
+    , ctor = getSelect2Constructor($this);
+  ctor.dropdownCssClass = 'chart-results';
+  ctor.width = 'off';
+  ctor.minimumResultsForSearch = 9;
+  ctor.formatResult = select2ChartResult;
+  ctor.formatSelection = select2ChartSelection;
+  ctor.escapeMarkup = function(m) { return m; };
+
+  $this.select2(ctor);
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>Using a custom renderer, you can even use images in drop downs.</p>
+    </div>
+  </div>
+
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span12 padded">
+      <h3>Use module icon in Dropdowns</h3>
+      <select name="label_module" class="select2 narrow" data-placeholder="Choose a chart type...">
+        <option></option>
+        <option value="Ac">Accounts</option>
+        <option value="Op">Opportunities</option>
+        <option value="Co">Contacts</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;script&gt;
+  var $this = $('select[name="label_module"]')
+    , ctor = getSelect2Constructor($this);
+  ctor.width = 'off';
+  ctor.minimumResultsForSearch = 9;
+  ctor.formatSelection = function(item) {
+      return '&lt;span class="label label-module label-module-mini label-' + item.text + '"&gt;' + item.id + '&lt;/span&gt;';
+    };
+  ctor.escapeMarkup = function(m) { return m; };
+  ctor.width = '55px';
+
+  $this.select2(ctor);
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>Using a custom renderer, you can even use images in drop downs.</p>
+    </div>
+  </div>
+
+  <!-- ==================== -->
+  <div class="row-fluid">
+    <div class="span12 padded">
+
+      <div class="control-group error">
+        <h3>Error Addon</h3>
+        <label style="display:block">Single Select Error</label>
+        <div class="input-append error select">
+          <select id="priority3" class="select2" data-placeholder="Choose a priority...">
+            <option></option>
+            <option value="Urgent">Urgent</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <span class="error-tooltip add-on select2" rel="tooltip" data-original-title="Error: This field is required"><i class="fa fa-exclamation-circle"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;div class="control-group error"&gt;
+  &lt;div class="input-append select"&gt;
+    &lt;select id="priority3"
+        class="select2"
+        data-placeholder="Choose a priority..."&gt;
+      &lt;option&gt;&lt;/option&gt;
+      &lt;option value="Urgent"&gt;Urgent&lt;/option&gt;
+      ...
+    &lt;/select&gt;
+    &lt;span class="add-on"&gt;&lt;i class="fa fa-exclamation-circle"&gt;&lt;/i&gt;&lt;/span&gt;
+    &lt;p class="help-block"&gt;Error. This field is required.&lt;/p&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  $('#priority3').select2({
+    width:'200px',
+    minimumResultsForSearch:7,
+    dropdownCssClass: 'select2-drop-error'
+  });
+&lt;/script&gt;
+</pre>
+    </div>
+
+    <div class="span6">
+      <p>Select2 controls can be styled with error notifications just like other inputs.
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>Multi Select</h2>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="control-group padded">
+        <label style="display:block">Multi Select with Basic Choices</h3>
+        <select id="multi1" size="3" multiple="multiple" class="select2">
+            <option>Option 2</option>
+            <option>Option 3</option>
+            <option>Option 4</option>
+        </select>
+        <p class="help-block"></p></span>
+      </div>
+
+      <div class="control-group error padded">
+        <label style="display:block">Label</label>
+        <div class="input-append select error">
+          <select id="multi2" size="3" multiple="multiple" class="select2">
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+              <option value="4">Option 4</option>
+          </select>
+            <span class="error-tooltip  add-on local" rel="tooltip" data-original-title="Error: This field is required"><i class="fa fa-exclamation-circle"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="span6">
+      Setting up a multiselect control with Select2 is as easy as adding the <code>multiple</code> attribute to the select element.
+    </div>
+
+  </div><!--/row-->
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span6 padded">
+      <h3>Standard Pill Style</h3>
+      <select id="states5" class="select2" multiple="multiple" data-placeholder="Select a state...">
+        <option></option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;script&gt;
+  $('#states5').select2({
+    width:'100%',
+    minimumResultsForSearch:7,
+    closeOnSelect: false,
+    containerCssClass: 'select2-choices-pills-close'
+  });
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>The Select2 multiselect choices can be styled to look like our standard pills by setting the <code>containerCssClass</code> constructuor property to <code>select2-choices-pills-close</code>. If you want to keep the dropdown open for fast multi select actions, pass the <code>closeOnSelect: false</code> option.</p>
+      <p>Deleting the custom choice pill is like in Outlook where you use the delete key to focus on a pill and then delete again to remove.</p>
+    </div>
+  </div>
+
+  <!-- ==================== -->
+
+  <div class="row-fluid">
+    <div class="span6 padded">
+      <h3>Custom Formaters</h3>
+      <select id="states4" class="select2" multiple="multiple" data-placeholder="Select a state...">
+        <option></option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+&lt;script&gt;
+
+  $('#states4').select2({
+    width:'100%',
+    containerCssClass: 'select2-choices-pills-close',
+    formatSelection: function(item) {
+      return '&lt;span class="select2-choice-type"&gt;Link:&lt;/span&gt;&lt;a class="select2-choice-filter" href="javascript:void(0)" rel="' + item.id +'"&gt;'+ item.text +'&lt;/a&gt;';
+    },
+    escapeMarkup: function(m) { return m; }
+  });
+&lt;/script&gt;
+</pre>
+    </div>
+    <div class="span6">
+      <p>The Select2 multiselect choices can be styled to look like our split filter pills by adding the <code>select2-choices-pills</code> class to the constructor and passing the custom formatter for the choices in the <code>formatSelection</code> option.</p>
+    </div>
+  </div>
+
+</section>

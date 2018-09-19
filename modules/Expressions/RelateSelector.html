@@ -1,0 +1,109 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: embeded -->
+<script type="text/javascript" src="cache/include/javascript/sugar_grp1.js?v={VERSION_MARK}"></script>
+<script type="text/javascript" src="include/workflow/jutils.js?v={VERSION_MARK}"></script>
+<script>
+function set_return(href_object, rel1, rel2){
+	
+	//safety, to see if the second item must be selected
+	if(get_value('select_rel2')=="Yes"){
+		var check_one = confirm_value_present('rel_module2', '{PLEASE_SEL}');
+		if(check_one == false){
+			return false;	
+		}	
+	}	
+	
+	if(get_value('rel_module1')!=""){
+		window.opener.document.getElementById(rel1).value = get_value('rel_module1');
+		window.opener.document.getElementById(rel2).value = get_value('rel_module2');
+		var selected_text = this.document.getElementById('rel_module1').options[this.document.getElementById('rel_module1').selectedIndex].text;
+	
+		if(get_value('rel_module2')!=""){
+			var selected_text2 = this.document.getElementById('rel_module2').options[this.document.getElementById('rel_module2').selectedIndex].text;
+			selected_text = selected_text2 + '{ASSOCIATED_WITH} ' + selected_text;
+		}
+	
+	
+		window.opener.changehref_text(href_object, selected_text);
+		window.close();
+	}
+	
+//end function set_return
+}	
+
+function get_second_related(){
+	
+	if(get_value('rel_module1') != ""){
+		this.document.EditView.submit();	
+	} else {
+		this.document.getElementById('rel_module2_selector').style.display= 'none';
+	}		
+
+//end function get_second_related
+}
+
+function toggle_rel2(){
+	
+	if(get_value('rel_module1')!=""){
+		this.document.getElementById('rel_module2_selector').style.display= '';
+	} else {
+		this.document.getElementById('rel_module2_selector').style.display= 'none';
+	}		
+}	
+</script>
+<!-- END: embeded -->
+<!-- BEGIN: main -->
+
+{SET_RETURN_JS}
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+			<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="Expressions">
+			<input type="hidden" id='type' name="type" value="{TYPE}">
+			<input type="hidden" id='workflow_id' name="workflow_id" value="{WORKFLOW_ID}">
+			<input type="hidden" name="action" value="RelateSelector">
+			<input type="hidden" name="sugar_body_only" value="true">
+			<input type="hidden" id='select_rel2' name="select_rel2" value="{SELECT_REL2}">
+			<input type="hidden" id='base_module' name="base_module" value="{BASE_MODULE}">
+	<td scope="row" width="60%" align="right"><slot>{SELECTOR_TAG}&nbsp;</slot></td>
+	<td  align="right"><slot><select id='rel_module1' name='rel_module1' tabindex='2' onchange="get_second_related();">{SELECTOR_DROPDOWN}</select></slot></td>		
+</tr>
+<tr id='rel_module2_selector'>
+	<td scope="row" width="60%" align="right"><slot>{SELECTOR_TAG2}&nbsp;</slot></td>
+	<td  align="right"><slot><select id='rel_module2' name='rel_module2' tabindex='2'>{SELECTOR_DROPDOWN2}</select></slot></td>	
+	</form>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+	<td align='right' colspan='2'>
+	<input type='button' class='button' value='{APP.LBL_SAVE_BUTTON_LABEL}' name='{APP.LBL_SAVE_BUTTON_LABEL}' title='{APP.LBL_SAVE_BUTTON_TITLE}' onClick="set_return({SELECTOR_JSCRIPT_RETURN})";>
+ <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="window.close();" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  ">
+
+	</td>
+</tr>
+
+</table>
+	
+<script>
+toggle_rel2();
+</script>
+
+<!-- END: main -->

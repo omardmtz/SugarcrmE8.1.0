@@ -1,0 +1,66 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<form action="index.php" method="get" name="DetailView" id="form">
+{sugar_csrf_form_token}
+
+			<input type="hidden" name="module" value="ReportMaker">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="isDuplicate" value=false>
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module">
+			<input type="hidden" name="return_action">
+			<input type="hidden" name="return_id">			
+		<tr>
+		<td>
+            {EDIT_BUTTON}
+            {DELETE_BUTTON}
+		  <input title="{MOD.LBL_RUN_BUTTON_TITLE}" class="button" onclick="this.form.return_module.value='ReportMaker'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='ReportView'" type="submit" name="Run" value="  {MOD.LBL_RUN_BUTTON_LABEL}  ">
+		 </td>
+		<td align='right'>{ADMIN_EDIT}</td>
+		</tr></table>
+	</form>
+
+
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0" class="detail view">
+<tr>
+
+	<td width="15%" scope="row"><slot>{MOD.LBL_NAME}</slot></td>
+	<td width="50%"><slot>{NAME}&nbsp;</slot></td>
+	<td scope="row" nowrap><slot>{MOD.LBL_REPORT_ALIGN}</slot></td>
+	<td><slot>{REPORT_ALIGN}&nbsp;</slot></td>
+	</tr><tr>
+	<td width="15%" scope="row"><slot>{MOD.LBL_TITLE}</slot></td>
+	<td width="50%"><slot>{TITLE}&nbsp;</slot></td>
+	<td scope="row"><slot>{APP.LBL_TEAM}</slot></td>
+	<td><slot>{TEAM}&nbsp;</slot></td>
+	</tr><tr>
+	<td scope="row" valign="top" rowspan="2"><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+	<td colspan="3" rowspan="2"><slot>{DESCRIPTION}&nbsp;</slot></td>
+	</tr>
+
+</table>
+
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<slot>{SUBDATASETS}</slot>
+<!-- END: subpanel -->
+
+<!-- BEGIN: edit_button -->
+<input title="{APP.LBL_EDIT_BUTTON_TITLE}" accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='ReportMaker'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='EditView'" type="submit" name="Edit" value="  {APP.LBL_EDIT_BUTTON_LABEL}  ">
+<!-- END: edit_button -->
+<!-- BEGIN: delete_button -->
+<input title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='ReportMaker'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" type="submit" name="Delete" value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+<!-- BEGIN: delete_button -->

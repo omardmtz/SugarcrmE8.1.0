@@ -1,0 +1,206 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Global search
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint exposes the global search capability using solely the Elasticsearch backend as an alternative to the
+    /search endpoint. This endpoint can be used with a long list of request arguments. Instead of using GET request
+    arguments, all described arguments can be used inside a JSON encoded request body using a the GET request. If your
+    client has no support for GET requests with a body, the POST method can be used as an alternative.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            q
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The search expression. Multiple terms can be specified at once. All enabled fields will be searched in. The
+            results are ordered by relevance which is based on a multitude of settings based on token counts, hit
+            ratio, (weighted) boost values and type of field. Currently no operators are supported in the search
+            expression itself. By refining the search expression more relevant results will be returned as top results.
+
+            If no search expression is given results are returned based on last modified date.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            module_list
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of modules to search. If omitted, all search enabled modules will be queried. Note that
+            when consuming the endpoint <code>/:module/globalsearch</code> that this parameter is ignored.
+            <br>
+            Example: <code>Accounts,Contacts</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            max_num
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            A maximum number of records to return. Default is 20.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The number of records to skip over before records are returned. Default is 0.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            highlights
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Wether or not to return highlighted results. Default is true.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            sort
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Define the sort order of the results. By default the results are returned by relevance which is the
+            preferred approach. Using this argument any search enabled field can be used to sort on. Keep in mind the
+            not sorting by relevance may have a negative performance impact.
+            <br>
+            Example: <code>{"date_modified":"desc","name":"asc"}</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+{
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            next_offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            Displays the next offset for retrieval of additional results. -1 will be returned when there are no more
+            records.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            records
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            An array of results containing matched records.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/globalsearch</code> GET/POST endpoint.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/:module/globalsearch</code> GET/POST endpoint.
+        </td>
+    </tr>
+</table>

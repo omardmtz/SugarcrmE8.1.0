@@ -1,0 +1,77 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<section id="responsive-design">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <!-- Supported devices -->
+  <div class="row-fluid">
+    <div class="span4">
+      <img src="styleguide/content/img/responsive-illustrations.png" alt="Responsive devices">
+    </div>
+    <div class="span8">
+      <h2>Supported devices</h2>
+      <p>Supports a handful of media queries to help make your projects more appropriate on different devices and screen resolutions. Here's what's included:</p>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>Layout width</th>
+            <th>Column width</th>
+            <th>Gutter width</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Smartphones</td>
+            <td>480px and below</td>
+            <td class="muted" colspan="2">Fluid columns, no fixed widths</td>
+          </tr>
+          <tr>
+            <td>Portrait tablets</td>
+            <td>480px to 768px</td>
+            <td class="muted" colspan="2">Fluid columns, no fixed widths</td>
+          </tr>
+          <tr>
+            <td>Landscape tablets</td>
+            <td>768px to 980px</td>
+            <td>44px</td>
+            <td>20px</td>
+          </tr>
+          <tr>
+            <td>Default</td>
+            <td>980px and up</td>
+            <td>60px</td>
+            <td>20px</td>
+          </tr>
+          <tr>
+            <td>Large display</td>
+            <td>1210px and up</td>
+            <td>70px</td>
+            <td>30px</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>What they do</h3>
+      <p>Media queries allow for custom CSS based on a number of conditions&mdash;ratios, widths, display type, etc&mdash;but usually focuses around <code>min-width</code> and <code>max-width</code>.</p>
+      <ul>
+        <li>Modify the width of column in our grid</li>
+        <li>Stack elements instead of float wherever necessary</li>
+        <li>Resize headings and text to be more appropriate for devices</li>
+      </ul>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,37 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="25%" >{MOD.LBL_LIST_NAME}</td>
+	<td scope="col" width="15%" >{MOD.LBL_LIST_DATE_START}</td>
+	<td scope="col" width="15%" >{MOD.LBL_LIST_STATUS}</td>
+	<td colspan="2" scope="col" width="45%" >{MOD.LBL_LIST_TEMPLATE_NAME}</td>
+
+	  </tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope="row" valign=TOP><a href="{URL_PREFIX}index.php?action=EditView&module=EmailMarketing&record={EMAILMARKETING.ID}"  >{EMAILMARKETING.NAME}</a></td>
+		<td scope="row" valign=TOP>{EMAILMARKETING.DATE_START}</td>
+		<td scope="row" valign=TOP>{EMAILMARKETING.STATUS}</td>
+		<td scope="row" valign=TOP><a href="{URL_PREFIX}index.php?action=DetailView&module=EmailTemplates&record={EMAILMARKETING.TEMPLATE_ID}"  >{EMAILMARKETING.TEMPLATE_NAME}</a></td>
+
+    	<td nowrap align="right" valign=TOP><a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=EmailMarketing&record={EMAILMARKETING.ID}{RETURN_URL}">{EDIT_INLINE_PNG}</a>&nbsp;<a  class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=EmailMarketing&record={EMAILMARKETING.ID}{RETURN_URL}">{APP.LNK_EDIT}</a> &nbsp; <a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=Delete&module=EmailMarketing&record={EMAILMARKETING.ID}{RETURN_URL}">{REMOVE_INLINE_PNG}</a>&nbsp;<a  class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=Delete&module=EmailMarketing&record={EMAILMARKETING.ID}{RETURN_URL}">{APP.LNK_REMOVE}</a></td>
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

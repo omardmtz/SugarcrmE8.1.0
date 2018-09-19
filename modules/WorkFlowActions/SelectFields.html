@@ -1,0 +1,85 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: embeded -->
+<script>
+function togglefield_select(field_num){
+	var focus_field = 'mod_field_' + field_num;
+	var setting = this.document.getElementById(focus_field).checked;
+	window.parent.togglefield_select(field_num, setting);
+//end function togglefieldselect	
+}	
+
+function applylanguage(action_update, action_update_rel, action_new){
+
+	this.document.getElementById('lang_update').style.display= action_update;
+	this.document.getElementById('lang_update_rel').style.display= action_update_rel;
+	this.document.getElementById('lang_new').style.display= action_new;
+	
+//end function applylanguage
+}
+function changehref_text(href_object, href_value){
+	
+	this.document.getElementById(href_object).innerHTML = this.document.getElementById(href_value).value;
+//end function changehref_text
+}
+
+function getCheckedValue(radioObj) {
+	if(!radioObj)
+		return "";
+	var radioLength = radioObj.length;
+	if(radioLength == undefined)
+		if(radioObj.checked)
+			return radioObj.value;
+		else
+			return "";
+	for(var i = 0; i < radioLength; i++) {
+		if(radioObj[i].checked) {
+			return radioObj[i].value;
+		}
+	}
+	return "";
+}	
+
+</script>
+<!-- END: embeded -->
+<!-- BEGIN: main -->
+
+{SET_RETURN_JS}
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+			<form name="FieldView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" id="total_field_count" name="total_field_count" value="{TOTAL_FIELD_COUNT}">
+	<td></td></tr>
+</table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<!-- BEGIN: field -->	
+		<tr>
+		<td width="10%" scope="row"><slot><input id='mod_field_{FIELD_NUM}' name='mod_field_{FIELD_NUM}' type='checkbox' tabindex='2' value ='{FIELD_VALUE}' onclick="togglefield_select('{FIELD_NUM}');" {SELECTED_ACTION}></slot></td>
+		<td width="90%" scope="row"><slot>{MOD.LBL_MODIFY_FIELD} {FIELD_NAME}</slot></td>
+		</tr>
+<!-- END: field -->				
+		<tr>
+		<td>&nbsp;</td>
+		</tr>
+		</form>
+	</table>
+
+<script>
+
+</script>
+
+<!-- END: main -->

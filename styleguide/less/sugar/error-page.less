@@ -1,0 +1,62 @@
+/* ERROR PAGE
+  ----------------*/
+
+/*@topFace: lighten(@grayLight, 23%);
+@leftFace: lighten(@grayLight, 24%);
+@rightFace: lighten(@grayLight, 22%);*/
+
+@topFace: #fafafa;
+@leftFace: #fefefe;
+@rightFace: #fcfcfc;
+
+div.error-page {
+  color: @gray;
+  background-color: @rightFace;
+  background-image:
+    linear-gradient(30deg, @topFace 12%, transparent 12.5%, transparent 87%, @topFace 87.5%, @topFace),
+    linear-gradient(150deg, @topFace 12%, transparent 12.5%, transparent 87%, @topFace 87.5%, @topFace),
+    linear-gradient(30deg, @topFace 12%, transparent 12.5%, transparent 87%, @topFace 87.5%, @topFace),
+    linear-gradient(150deg, @topFace 12%, transparent 12.5%, transparent 87%, @topFace 87.5%, @topFace),
+    linear-gradient(60deg, @leftFace 25%, transparent 25.5%, transparent 75%, @leftFace 75%, @leftFace),
+    linear-gradient(60deg, @leftFace 25%, transparent 25.5%, transparent 75%, @leftFace 75%, @leftFace);
+  background-size: 12px 20px;
+  background-position: 0 0, 0 0, 6px 10px, 6px 10px, 0 0, 6px 10px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .error-message {
+    position: relative;
+    top: 7%;
+
+    h1 {
+      color: @gray;
+    }
+
+    p {
+      color: @gray;
+      font-size: @fontSizeLarge;
+    }
+  }
+
+  .sugar-cube-wrapper {
+    position: relative;
+    top: 15%;
+    text-align: center;
+  }
+
+  .sugar-cube {
+    width: 42px;
+    height: 42px;
+    display: inline;
+    fill: lighten(@grayLight, 15%);
+  }
+
+  .fa-spin {
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+  }
+}

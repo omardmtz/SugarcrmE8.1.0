@@ -1,0 +1,349 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Update an OutboundEmail configuration.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Each configuration that is saved is validated first by attempting to connect to the server.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                name
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The display name of the configuration.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_sendtype
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Only SMTP is supported. It is recommended that you do not change this from <b>smtp</b>.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_smtptype
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email provider through which emails are sent. This is merely a convenience which allows for
+                prepopulating data in the UI. Possible values are: google, exchange, outlook, other.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_smtpserver
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The address of the SMTP server.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_smtpport
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The port on which to connect to the SMTP server.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_smtpuser
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The username for authenticating with the SMTP server. It is only required if <b>mail_smtpauth_req</b> is
+                <b>true</b>.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_smtppass
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The password for authenticating with the SMTP server. It is only required if
+                <b>mail_smtpauth_req</b> is <b>true</b>.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_smtpauth_req
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                Indicates whether or not the SMTP server requires authentication.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mail_smtpssl
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The encryption protocol used for connecting to the SMTP server. <b>"0"</b> represents no encryption.
+                <b>"1"</b> represents SSL. <b>"2"</b> represents TLS.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+{
+  "mail_smtpport": 587,
+  "mail_smtpssl": "2"
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            name
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The display name of the configuration.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            type
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Possible values are: user, system, system-override. Only the administrator may update the <b>system</b>
+            configuration. This field may never change.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            user_id
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The current user's ID. The current user may only update configurations that he or she owns.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_sendtype
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Only SMTP is supported, <b>smtp</b> will always be returned.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_smtptype
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The email provider through which emails are sent. Possible values are: google, exchange, outlook, other.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_smtpserver
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The address of the SMTP server.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_smtpport
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The port on which to connect to the SMTP server.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_smtpuser
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The username for authenticating with the SMTP server.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_smtppass
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Indicates whether or not a password exists. <b>true</b> is returned for this field when a password does
+            exist. This field is not included in the response when a password does not exist.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_smtpauth_req
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Indicates whether or not the SMTP server requires authentication.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mail_smtpssl
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The encryption protocol used for connecting to the SMTP server.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+  "id": "e04ce998-960e-11e6-8628-3c15c2d582c6",
+  "name": "My Exchange Account",
+  "type": "user",
+  "user_id": "e91b1fa7-1bd8-3c71-be96-512e643f9ca4",
+  "mail_sendtype": "smtp",
+  "mail_smtptype": "exchange",
+  "mail_smtpserver": "smtp.example.com",
+  "mail_smtpport": 587,
+  "mail_smtpuser": "foo@example.com",
+  "mail_smtppass": true,
+  "mail_smtpauth_req": true,
+  "mail_smtpssl": "2",
+  "deleted": false,
+  "my_favorite": false,
+  "_acl": {
+    "fields": {}
+  },
+  "_module": "OutboundEmail"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/OutboundEmail/:record</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,31 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+#map-roles {
+    width:60em;
+    margin:0 auto;
+}
+#map-roles table {
+    border-spacing:0;
+}
+#map-roles table th {
+    padding:.4em;
+    border-bottom-width:1px;
+}
+#map-roles .package-role-id {
+    font-size:.8em;
+    color:#888;
+}
+#map-roles .role-matches {
+    display:inline-block;
+    margin-left: .5em;
+    width:14em;
+    color:#479447;
+}

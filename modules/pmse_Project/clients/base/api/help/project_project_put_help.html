@@ -1,0 +1,93 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Updates the schema data from the Process Definition designer
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will update the Process Definition identified by the
+    <code>record</code> input parameter with data provided in the request
+    payload.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>record</td>
+            <td>String</td>
+            <td>The Process Definition record ID</td>
+            <td>True</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request Payload</h3>
+<pre class="pre-scrollable">
+{
+    "data":
+    {
+        "activities":{},
+        "gateways":
+        {
+            "407410601573ce3125db315056173234":
+            {
+                "action":"REMOVE",
+                "gat_uid":"407410601573ce3125db315056173234"
+            }
+        },
+        "events":{},
+        "artifacts":{},
+        "flows":{},
+        "prj_uid":"2119da13-f748-4741-3858-573caddda034"
+    },
+    "id":"2119da13-f748-4741-3858-573caddda034",
+    "operation":"update",
+    "wrapper":"Project"
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>success</td>
+            <td>Boolean</td>
+            <td>The status of the update operation</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "success":true
+}
+</pre>

@@ -1,0 +1,548 @@
+/* DROPDOWNS
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
+.dropup,
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle:active,
+.open .dropdown-toggle {
+  outline: 0;
+}
+
+// Dropdown arrow/caret
+// --------------------
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid @black;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+// Place the caret
+.dropdown .caret {
+  margin-top: 8px;
+  margin-left: 2px;
+}
+
+// The dropdown menu (ul)
+// ----------------------
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  z-index: @zindexDropdown;
+  display: none; // none by default, but block on "open" of the menu
+  float: left;
+  min-width: 160px;
+  margin: 2px 0 0; // override default ul
+  list-style: none;
+  background-color: @dropdownBackground;
+  background-clip: padding-box;
+
+  // Aligns the dropdown menu to right
+  &.pull-right {
+    right: 0;
+    left: auto;
+  }
+
+  // Dividers (basically an hr) within the dropdown
+  .divider {
+    .nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
+  }
+
+  // Links within the dropdown menu
+  li > a {
+    display: block;
+    clear: both;
+    font-weight: normal;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+    white-space: nowrap;
+  }
+}
+
+// Hover state
+// -----------
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+  text-decoration: none;
+  color: @dropdownLinkColorHover;
+  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+}
+
+// Active state
+// ------------
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+  outline: 0;
+  #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
+}
+
+// Disabled state
+// --------------
+// Gray out text and ensure the hover state remains gray
+.dropdown-menu .disabled > a,
+.dropdown-menu .disabled > a:hover {
+  color: @grayLight;
+}
+// Nuke hover effects
+.dropdown-menu .disabled > a:hover {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none; // Remove CSS gradient
+  cursor: default;
+}
+
+// Open state for the dropdown
+// ---------------------------
+.open {
+  & > .dropdown-menu {
+    display: block;
+  }
+}
+
+// Right aligned dropdowns
+// ---------------------------
+.pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// ------------------------------------------------------
+// Just add .dropup after the standard .dropdown class and you're set, bro.
+// TODO: abstract this so that the navbar fixed styles are not placed here?
+.dropup {
+  // Reverse the caret
+  .caret {
+    border-top: 0;
+    border-bottom: 4px solid @black;
+    content: "";
+  }
+  // Different positioning for bottom up menu
+  .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 1px;
+  }
+}
+
+// Sub menus
+// ---------------------------
+.dropdown-submenu {
+  position: relative;
+}
+// Default dropdowns
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+// Dropups
+.dropup .dropdown-submenu > .dropdown-menu {
+  top: auto;
+  bottom: 0;
+  margin-top: 0;
+  margin-bottom: -2px;
+  border-radius: 5px 5px 5px 0;
+}
+
+// Caret to indicate there is a submenu
+.dropdown-submenu > a::after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: darken(@dropdownBackground, 20%);
+  margin-top: 5px;
+  margin-right: -10px;
+}
+
+.dropdown-submenu:hover > a::after {
+  border-left-color: @dropdownLinkColorHover;
+}
+
+// Left aligned submenus
+.dropdown-submenu.pull-left {
+  // Undo the float
+  // Yes, this is awkward since .pull-left adds a float, but it sticks to our conventions elsewhere.
+  float: none;
+
+  // Positioning the submenu
+  > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    border-radius: 6px 0 6px 6px;
+  }
+}
+
+// Tweak nav headers
+// -----------------
+// Increase padding from 15px to 20px on sides
+.dropdown .dropdown-menu .nav-header {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+// Typeahead
+// ---------
+.typeahead {
+  z-index: 1051;
+  margin-top: 2px; // give it some space to breathe
+  border-radius: @baseBorderRadius;
+}
+
+/* twitter-bootstrap import END */
+
+.dropdown-menu {
+  top: 34px;
+  padding: 0;
+  border: @borderWidget;
+  border-radius: @baseBorderRadius;
+
+  &.left {
+    left: auto;
+    right: 0;
+  }
+
+  &.scroll {
+    max-height: 333px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 200%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  h4.title {
+    margin-top: -5px;
+    padding: 5px 10px;
+    text-shadow: none;
+    font-size: @baseFontSize;
+    color: @white !important;
+    #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+
+    border-radius: 3px 3px 0 0;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+
+    li {
+      margin: 0;
+      padding: 0;
+      border: 0 none;
+
+      &.primary {
+        border-top: 1px solid @grayLight;
+      }
+
+      label {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  li:first-child a {
+    border-top: none;
+  }
+
+  li:last-child a {
+    border-bottom: none;
+    border-radius: 0 0 2px 2px;
+  }
+
+  li > a {
+    padding: 8px 10px;
+  }
+  //replicate bootstrap styles from li > a
+  .menu-item,
+  a,
+  button {
+    display: block;
+    padding: 8px 10px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: @gray;
+    white-space: nowrap;
+    margin: 0;
+    border-top: 1px solid @grayLighter;
+    width: -moz-available !important;
+
+    label {
+      padding-left: 0;
+    }
+  }
+  // Gray out text and ensure the hover state remains gray
+  a.disabled,
+  a.disabled:hover {
+    color: @grayLight;
+    background-color: @grayLighter;
+  }
+  // Nuke hover effects
+  a.disabled:hover {
+    text-decoration: none;
+    background-image: none; // Remove CSS gradient
+    cursor: default;
+    color: @grayLight;
+
+    & .fa {
+      color: @grayLight !important;
+    }
+  }
+
+  // Hover state
+  // -----------
+  li > a:hover,
+  li > a:focus,
+  li > button:hover,
+  li > button:focus,
+  li > span > button:hover,
+  li > span > button:focus,
+  li > span > a:hover,
+  li > span > a:focus,
+  .active > a,
+  .active > span > a,
+  .active > a:hover,
+  .active > a:focus,
+  .active > span > a:hover,
+  .active > span > a:focus {
+    color: @dropdownLinkColorHover;
+    text-decoration: none;
+    //this causes sharp corners on dropdown-menu
+    //fixed by setting border radius on li > a
+    background: @dropdownLinkBackgroundHover;
+    filter: none;
+  }
+
+  label.radio {
+    color: lighten(@gray, 20%);
+    padding-left: 0;
+  }
+
+  label.radio.checked {
+    color: @gray;
+    font-weight: bold;
+  }
+
+  label.radio i {
+    color: transparent;
+  }
+
+  label.radio.checked i {
+    color: @gray;
+  }
+
+  li.divider {
+    margin: 0;
+    padding: 0;
+    border-bottom: @borderWidget;
+    height: 0;
+  }
+
+  &.custom {
+    a {
+      display: inline !important;
+      color: @linkColor;
+      border-top: 0;
+    }
+
+    li {
+      line-height: 32px;
+      padding: 0 10px;
+    }
+
+    li:hover,
+    .active {
+      color: @dropdownLinkColorHover;
+      background: @dropdownLinkBackgroundHover;
+    }
+  }
+}
+
+.dropdown-menu {
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}
+
+.dropdown-menu.scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+.dropdown-toggle {
+  .mystuff {
+    margin-left: -10px;
+  }
+}
+
+.dropdown-inset {
+  max-height: none;
+  background-color: @grayLighter;
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 3px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: 0;
+  padding-right: 0;
+  padding-top: 3px;
+
+  a {
+    border-bottom: @borderWidget;
+    color: @gray;
+  }
+
+  li:first-child a {
+    border-radius: 0;
+  }
+
+  li:last-child a {
+    border-bottom: @borderWidget;
+    border-radius: 0;
+  }
+
+  li > a {
+    padding: 9px 20px;
+    color: @gray;
+    margin-right: 0;
+  }
+}
+
+/* Add a caret to action dropdowns */
+.actions {
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    z-index: 1001;
+  }
+
+  &.actionmenu {
+    .dropdown-menu {
+      left: 0;
+      right: auto;
+    }
+  }
+}
+
+.morecol {
+  .dropdown {
+    width: 123px;
+    padding-left: 4px;
+
+    &.open {
+      .btn {
+        box-shadow: none;
+        background-color: @gray;
+
+        > .fa {
+          color: @white;
+        }
+      }
+    }
+  }
+
+  .btn {
+    margin: 0;
+  }
+
+  .dropdown-menu {
+    margin-top: 7px;
+    right: 20px;
+
+    button {
+      background: none;
+      border: none;
+      padding-left: 30px;
+      width: 100%;
+      text-align: left;
+      margin-left: 0;
+
+      &.active {
+        font-weight: bold;
+      }
+
+      .fa {
+        margin-right: 5px;
+        margin-left: -22px;
+      }
+    }
+
+    li {
+      border-bottom: 1px solid @grayLighter;
+    }
+
+    li.divider + li {
+      border-top: 1px solid #ddd;
+    }
+  }
+}
+
+.multidate-picker {
+  width: 100%;
+
+  .btn {
+    margin-left: 0;
+    border-radius: 3px 0 0 3px;
+    border-right: none;
+  }
+
+  .dropdown {
+    float: left;
+  }
+
+  .dropdown-menu {
+    width: 285px;
+    padding: 2px;
+    top: 28px;
+  }
+
+  .multi-column-dropdown {
+    width: 40px;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    li {
+      padding: 3px 0;
+      text-align: center;
+
+      a.selected {
+        text-decoration: none;
+        color: #262626;
+        background-color: #999;
+      }
+    }
+  }
+
+  .multidate-picked-items {
+    overflow: hidden;
+  }
+
+  .select2-container .select2-choices {
+    border-radius: 0 3px 3px 0;
+  }
+}

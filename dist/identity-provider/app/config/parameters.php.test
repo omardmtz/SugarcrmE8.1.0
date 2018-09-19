@@ -1,0 +1,50 @@
+<?php
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+$params['db_driver'] = 'pdo_mysql';
+$params['db_host'] = getenv('MYSQL_SERVER_HOST');
+$params['db_port'] = getenv('MYSQL_SERVER_PORT');
+$params['db_name'] = getenv('MYSQL_DATABASE');
+$params['db_user'] = getenv('MYSQL_USER');
+$params['db_password'] = getenv('MYSQL_USER_PASSWORD');
+$params['db_charset'] = 'utf8';
+
+$params['logdir'] = null; // null means use default log directory (<app_dir>/var/logs)
+
+//Setup a default logging mechanism. For more options see http://silex.sensiolabs.org/doc/2.0/providers/monolog.html
+$params['monolog'] = [
+    'monolog.name' => 'IdentityProvider',
+    'monolog.level' => \Monolog\Logger::NOTICE,
+];
+
+// Configuration for Hydra client.
+$params['sts'] = [
+    'host' => getenv('HYDRA_URL'),
+    'clientId' => getenv('CLIENT_ID'),
+    'clientSecret' => getenv('CLIENT_SECRET'),
+    'accessTokenFile' => getenv('CLIENT_ACCESS_TOKEN_FILE'),
+    'accessTokenRefreshUrl' => getenv('ACCESS_TOKEN_REFRESH_URL'),
+];
+
+$params['idm'] = [
+    // The partition the login service is operating in
+    'partition' => getenv('IDM_PARTITION'),
+    // The region the login service is serving
+    'region' => getenv('IDM_REGION'),
+];
+
+$params['session.storage.options'] = [
+    'cookie_secure' => getenv('COOKIE_SECURE'),
+    'cookie_httponly' => true,
+    'cookie_domain' => getenv('COOKIE_DOMAIN'),
+    'cookie_lifetime' => getenv('COOKIE_LIFETIME') === false ? 24 * 60 * 60 : getenv('COOKIE_LIFETIME'), // in seconds
+];

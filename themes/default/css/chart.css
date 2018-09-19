@@ -1,0 +1,233 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+.chartTitle {
+	font-family: Arial;
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: #444444;
+	padding: 5px;
+}
+
+.units {
+	font-family: Arial;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	color: #555555;
+}
+
+.groupName {
+	font-family: Arial;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.noData {
+    font-family: Arial;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.data {
+	font-family: Arial;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	line-height: 30px;
+}
+
+.drillTip {
+	font-family: Arial;
+	text-align: center;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.toolTips {
+	font-family: Arial;
+	text-align: left;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.flyOutTitle{
+	font-family: Arial;
+	text-align: center;
+	font-size: 11px;
+	font-weight: normal;
+	color: #eeeeee;
+}
+
+.flyOutText{
+	font-family: Arial;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	color: #444444;
+}
+
+.flyOutSelected{
+	font-family: Arial;
+	text-align: left;
+	font-size: 12px;
+	font-weight: bold;
+	color: #444444;
+}
+
+.flyOutDisabled{
+	font-family: Arial;
+	text-align: left;
+	font-size: 12px;
+	font-style: italic;
+	color: #666666;
+}
+
+.wedgeLabels {
+	font-family: Arial;
+	text-align: center;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.barValueLabels {
+	font-family: Arial;
+	text-align: center;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.barValueLabelsOver {
+	font-family: Arial;
+	text-align: center;
+	font-size: 10px;
+	font-weight: normal;
+	color: #0000FF;
+}
+
+.horizontalBarValueLabels {
+	font-family: Arial;
+	text-align: left;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.horizontalBarValueLabelsOver {
+	font-family: Arial;
+	text-align: left;
+	font-size: 10px;
+	font-weight: normal;
+	color: #0000FF;
+}
+
+.horizontalBarGroupLabels {
+	font-family: Arial;
+	text-align: left;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.barGroupLabels {
+	font-family: Arial;
+	text-align: center;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.yAxisLabels {
+	font-family: Arial;
+	text-align: center;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.funnelLeftLabels {
+	font-family: Arial;
+	text-align: right;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.funnelRightLabels {
+	font-family: Arial;
+	text-align: left;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+.funnelLeftLabelsOver {
+	font-family: Arial;
+	text-align: right;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.funnelRightLabelsOver {
+	font-family: Arial;
+	text-align: left;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+}
+.gaugeLabels {
+    font-family: Arial;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.gaugeNumber {
+    font-family: Arial;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.legendEntry {
+	font-family: Arial;
+	text-align: left;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+}
+.legendEntryOver {
+	font-family: Arial;
+	text-align: left;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.squeezedWedgeLabels {
+    font-family: Arial;
+    text-align: center;
+    font-size: 10px;
+    font-weight: normal;
+    color: #aaaaaa;
+}

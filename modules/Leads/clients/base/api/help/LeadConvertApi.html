@@ -1,0 +1,241 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">Convert Lead to a Contact and optionally link it to a new or existing instance of the modules specified</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to convert the specified Lead to a Contact and optionally link that Contact to a new or existing instance of the modules specified.
+    The types of modules that can be specified are limited to those that have been configured by the system administrator.
+</div>
+<div class="params">
+    <h2>Post Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Parameter</strong></td>
+            <td><strong>Description </strong></td>
+        </tr>
+        <tr>
+            <td>modules (required)</td>
+            <td>An object containing the Contacts module to be created as part of the conversion, along with (optionally)
+                any modules that this new Contact record is to be related to. If relate-to modules are also specified, they must
+                consist of a valid module type and either the id of a existing module of that type, or if new, the full record
+                to be created for that type.  Note that the allowed module types are defined by the System Administrator.
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2><strong>&nbsp;<br />Example</strong></td></strong></td>
+        </tr>
+        <tr>
+            <td colspan=2>
+            <pre class="pre-scrollable">
+    {
+        "modules": {
+            "Contacts": {
+                "deleted": "0",
+                "do_not_call": false,
+                "portal_active": "0",
+                "preferred_language": "en_us",
+                "assigned_user_id": "1",
+                "assigned_user_name": "Administrator",
+                "salutation": "",
+                "first_name": "Darius",
+                "last_name": "Paisley",
+                "title": "Director Operations",
+                "department": "",
+                "description": "",
+                "team_name": [
+                    {
+                        "id": "East",
+                        "name": "East",
+                        "name_2": "",
+                        "primary": true
+                    },
+                    {
+                        "id": 1,
+                        "name": "Global",
+                        "name_2": "",
+                        "primary": false
+                    },
+                    {
+                        "id": "West",
+                        "name": "West",
+                        "name_2": "",
+                        "primary": false
+                    }
+                ],
+                "phone_home": "(890) 241-5509",
+                "phone_mobile": "(738) 338-2546",
+                "phone_work": "(579) 448-8879",
+                "phone_fax": "",
+                "primary_address_street": "123 Anywhere Street",
+                "primary_address_city": "Salt Lake City",
+                "primary_address_state": "CA",
+                "primary_address_postalcode": "81738",
+                "primary_address_country": "USA",
+                "campaign_id": "",
+                "campaign_name": "",
+                "email": [
+                    {
+                        "email_address": "kid75@example.it",
+                        "invalid_email": false,
+                        "opt_out": false,
+                        "primary_address": true,
+                        "reply_to_address": false
+                    }
+                ]
+            },
+            "Accounts": {
+                "id": "1c212ff9-c0d5-866d-d3ae-526e6cd47a31",
+                "name": "Lexington Shores Corp",
+                "date_entered": "2013-10-28T09:52:46-04:00",
+                "date_modified": "2013-10-28T09:52:46-04:00",
+                "modified_user_id": "1",
+                "modified_by_name": "Administrator",
+                "created_by": "1",
+                "created_by_name": "Administrator",
+                "description": "",
+                "deleted": false,
+                "assigned_user_id": "seed_sally_id",
+                "assigned_user_name": "Sally Bronsen",
+                "team_count": "",
+                "team_name": [
+                    {
+                        "id": "West",
+                        "name": "West",
+                        "name_2": "",
+                        "primary": true
+                    }
+                ],
+                "linkedin": "",
+                "facebook": "",
+                "twitter": "",
+                "googleplus": "",
+                "account_type": "Customer",
+                "industry": "Electronics",
+                "annual_revenue": "",
+                "phone_fax": "",
+                "billing_address_street": "111 Silicon Valley Road",
+                "billing_address_street_2": "",
+                "billing_address_street_3": "",
+                "billing_address_street_4": "",
+                "billing_address_city": "Santa Fe",
+                "billing_address_state": "CA",
+                "billing_address_postalcode": "63785",
+                "billing_address_country": "USA",
+                "rating": "",
+                "phone_office": "(641) 347-6902",
+                "phone_alternate": "",
+                "website": "www.imphone.de",
+                "ownership": "",
+                "employees": "",
+                "ticker_symbol": "",
+                "shipping_address_street": "111 Silicon Valley Road",
+                "shipping_address_street_2": "",
+                "shipping_address_street_3": "",
+                "shipping_address_street_4": "",
+                "shipping_address_city": "Santa Fe",
+                "shipping_address_state": "CA",
+                "shipping_address_postalcode": "63785",
+                "shipping_address_country": "USA",
+                "email": [
+                    {
+                        "email_address": "section.qa@example.tw",
+                        "invalid_email": false,
+                        "opt_out": false,
+                        "primary_address": true,
+                        "reply_to_address": false
+                    },
+                    {
+                        "email_address": "vegan29@example.de",
+                        "invalid_email": false,
+                        "opt_out": false,
+                        "primary_address": false,
+                        "reply_to_address": false
+                    }
+                ],
+                "email1": "section.qa@example.tw",
+                "parent_id": "",
+                "sic_code": "",
+                "parent_name": "",
+                "email_opt_out": false,
+                "invalid_email": false,
+                "campaign_id": "",
+                "campaign_name": "",
+                "my_favorite": false,
+                "_acl": {
+                    "fields": {}
+                },
+                "following": false,
+                "_module": "Accounts",
+                "duplicate_check_rank": 8
+            },
+            "Opportunities": {
+                "id": "5529e246-c42f-04e0-1989-526e6d3029c6",
+                "name": "Lexington Shores Corp - 311 Units",
+                "date_entered": "2013-10-28T09:52:46-04:00",
+                "date_modified": "2013-10-28T09:52:46-04:00",
+                "modified_user_id": "1",
+                "modified_by_name": "Administrator",
+                "created_by": "1",
+                "created_by_name": "Administrator",
+                "description": "",
+                "deleted": false,
+                "assigned_user_id": "seed_sally_id",
+                "assigned_user_name": "Sally Bronsen",
+                "team_count": "",
+                "team_name": [
+                    {
+                        "id": "West",
+                        "name": "West",
+                        "name_2": "",
+                        "primary": true
+                    }
+                ],
+                "opportunity_type": "",
+                "account_name": "Lexington Shores Corp",
+                "account_id": "1c212ff9-c0d5-866d-d3ae-526e6cd47a31",
+                "campaign_id": "",
+                "campaign_name": "",
+                "lead_source": "Partner",
+                "amount": 10413,
+                "base_rate": 1,
+                "amount_usdollar": 10413,
+                "currency_id": "-99",
+                "currency_name": "",
+                "currency_symbol": "",
+                "date_closed": "2014-03-30",
+                "date_closed_timestamp": 1396187804,
+                "next_step": "",
+                "sales_stage": "Prospecting",
+                "sales_status": "New",
+                "probability": 10,
+                "best_case": 11795,
+                "worst_case": 9031,
+                "commit_stage": "exclude",
+                "total_revenue_line_items": 5,
+                "closed_revenue_line_items": 1,
+                "contact_role": "",
+                "my_favorite": false,
+                "_acl": {
+                    "fields": {}
+                },
+                "following": false,
+                "_module": "Opportunities",
+                "duplicate_check_rank": 0
+            }
+        }
+    }
+            </pre>
+            </td>
+        </tr>
+    </table>
+</div>

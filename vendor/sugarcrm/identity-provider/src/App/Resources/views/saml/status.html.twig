@@ -1,0 +1,33 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+{% if user_name is not empty %}
+    {{ user_name }}
+    <br/>
+    <b>User is authenticated successfully.</b><br/>
+    <b>IDP Session index:</b> {{ IdPSessionIndex }}
+{% endif %}
+{% if user_attributes is not empty %}
+    </br>
+    <b>User attributes:</b>
+    <ul>
+        {% for key, value in user_attributes %}
+            <li><i>{{ key }}</i>: {{ value }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<br/>
+<br/>
+<a href="{{ url('samlRender') }}">back</a>
+{% if samlLogout %}
+    <a href="{{  url('samlLogoutInit', {'sessionIndex': IdPSessionIndex, 'nameId': user_name}) }}">logout</a>
+{% endif %}

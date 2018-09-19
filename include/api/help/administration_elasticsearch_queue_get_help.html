@@ -1,0 +1,65 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Elasticsearch queue statistics
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint returns the queue statistics for the Elasticsearch backend. This endpoint is only available to
+    administrators.
+</span>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "total":2238,
+    "queued":{
+        "Cases":"250",
+        "KBDocuments":"5",
+        "Notes":"50",
+        "Quotes":"2",
+        "Accounts":"51",
+        "Contacts":"201",
+        "Leads":"201",
+        "Opportunities":"150",
+        "RevenueLineItems":"578",
+        "Bugs":"50",
+        "Contracts":"2",
+        "Manufacturers":"2",
+        "ProductCategories":"43",
+        "Tasks":"200",
+        "Calls":"50",
+        "Emails":"200",
+        "Meetings":"200",
+        "Products":"3"
+    }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Administration/elasticsearch/queue</code> GET endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,41 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- $Id: SubPanelDynamic.html 55396 2010-03-16 17:20:00Z jmertic $ -->
+<!-- BEGIN: dyn_list_view -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<tbody>
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+<tr height="20">
+<!-- BEGIN: header_cell -->
+<th scope="col" width="{CELL_WIDTH}"><span sugar='slot{CELL_COUNT}' style="white-space:normal;">{HEADER_CELL}</span sugar='slot'></th>
+<!-- END: header_cell -->
+</tr>
+<!-- BEGIN: row -->
+<tr height="20" class="{ROW_COLOR}S1" >
+<!-- BEGIN: cell -->
+<td scope="row" valign="top" class="{CLASS}"><span sugar='slot{CELL_COUNT}b'>{CELL}</span sugar='slot'></td>
+<!-- END: cell -->
+</tr>
+<!-- END: row -->
+<!-- BEGIN: nodata -->
+<tr height='20' class='{ROW_COLOR}S1'>
+    <td colspan='{COL_COUNT}'>
+        <em>{APP.LBL_NO_DATA}</em>
+    </td>
+</tr>	
+<!-- END: nodata -->
+</tbody>
+</table>
+<!-- END: dyn_list_view -->

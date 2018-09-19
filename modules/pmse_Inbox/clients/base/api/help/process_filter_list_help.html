@@ -1,0 +1,172 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Returns a list of Processes by user 
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint gets a list of processes by user 
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>order_by</td>
+            <td>string</td>
+            <td>How to sort the returned records, in a comma delimited list with the direction appended to the column name after a colon.</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>q</td>
+            <td>string</td>
+            <td>A search expression, will search on this module. Cannot be used at the same time as a filter expression or id.</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>filter</td>
+            <td>string</td>
+            <td>The filter expression</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>filter_id</td>
+            <td>string</td>
+            <td>Identifier for a preexisting filter. If filter is also set, the two filters are joined with an AND</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>max_num</td>
+            <td>integer</td>
+            <td>A maximum number of records to return. Default is 20.</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>offset</td>
+            <td>integer</td>
+            <td>The number of records to skip over before records are returned. Default is 0.</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>fields</td>
+            <td>string</td>
+            <td>Comma delimited list of fields to return</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>deleted</td>
+            <td>boolean</td>
+            <td>Boolean to show deleted records in the result set.</td>
+            <td>false</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>records</td>
+            <td>&lt;field&gt;:&lt;value&gt;</td>
+            <td>Process records</td>
+        </tr>
+        <tr>
+            <td>next_offset</td>
+            <td>integer</td>
+            <td>Next offset for results</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "next_offset":-1,
+    "records":
+    [
+        {
+            "id":"839ccd22-2925-11e6-83f3-6c4008960436",
+            "date_modified":"2016-06-02T17:52:55-07:00",
+            "created_by":"1",
+            "cas_finish_date":"",
+            "assigned_user_id":"1",
+            "assigned_user_name":"Administrator",
+            "assigned_user_link":
+            {
+                "full_name":"Administrator",
+                "id":"1",
+                "_acl":
+                {
+                    "fields":
+                    {
+                        "pwd_last_changed":
+                        {
+                            "write":"no",
+                            "create":"no"
+                        },
+                        "last_login":
+                        {
+                            "write":"no",
+                            "create":"no"
+                        }
+                    },
+                    "delete":"no",
+                    "_hash":"08b99a97c2e8d792f7a44d8882b5af6d"
+                }
+            },
+            "_acl":
+            {
+                "fields":{}
+            },
+            "_module":"pmse_Project\/pmse_BpmFlow",
+            "_locked_fields":[],
+            "cas_id":"4",
+            "act_assignment_method":"static",
+            "cas_title":"PQR1",
+            "pro_title":"PD1",
+            "date_entered":"2016-06-02T17:52:55-07:00",
+            "name":"PQR1",
+            "cas_create_date":"2016-06-02T17:52:55-07:00",
+            "flow_id":"839ccd22-2925-11e6-83f3-6c4008960436",
+            "id2":"8380e512-2925-11e6-9600-6c4008960436",
+            "task_name":"Activity # 1",
+            "cas_assignment_method":"static",
+            "cas_sugar_module":"Accounts",
+            "cas_sugar_object_id":"82d5c470-2925-11e6-a269-6c4008960436",
+            "prj_id":"6e025038-2842-11e6-b4f7-6c4008960436",
+            "in_time":true,
+            "cas_user_id":"1",
+            "prj_created_by":"1",
+            "cas_user_id_full_name":"Administrator",
+            "prj_user_id_full_name":"Administrator"
+        },
+    ]
+}
+</pre>

@@ -1,0 +1,37 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="control-group dashlet-options">
+    <div class="controls{{#if isManager}} controls-two btn-group-fit{{/if}}">
+        <div class="row-fluid">
+            <div class="span6">
+                {{#each dashletConfig.filter_duration}}
+                    {{field ../this model=../this.settings template="edit"}}
+                {{/each}}
+            </div>
+        </div>
+        {{#if isManager}}
+        <div data-toggle="buttons-radio" class="btn-group dashlet-group">
+            <button class="btn toggle-control{{#eq settings.attributes.visibility "user"}} active{{/eq}}" value="user" data-action="visibility-switcher" rel="tooltip" data-placement="bottom" title="{{str "LBL_TOP10_OPPORTUNITIES_MY_OPP" ../forecastBy}}" aria-label="{{str "LBL_TOP10_OPPORTUNITIES_MY_OPP" ../forecastBy}}" aria-pressed="{{#eq settings.attributes.visibility "user"}}true{{else}}false{{/eq}}" track="click:viewMyUserBubbleChart">
+                <i class="fa fa-user"></i>
+            </button>
+            <button class="btn toggle-control{{#eq settings.attributes.visibility "group"}} active{{/eq}}" value="group" data-action="visibility-switcher" rel="tooltip" data-placement="bottom" title="{{str "LBL_TOP10_OPPORTUNITIES_MY_TEAMS_OPP" ../forecastBy}}" aria-label="{{str "LBL_TOP10_OPPORTUNITIES_MY_TEAMS_OPP" ../forecastBy}}" aria-pressed="{{#eq settings.attributes.visibility "group"}}true{{else}}false{{/eq}}" track="click:viewMyTeamsBubbleChart">
+                <i class="fa fa-group"></i>
+            </button>
+        </div>
+        {{/if}}
+    </div>
+</div>
+<div class="top-sales-chart sc-chart" data-content="chart">
+    <svg class="sucrose" id="{{cid}}"></svg>
+</div>
+<div class="block-footer hide" data-content="nodata">{{str "LBL_NO_DATA_AVAILABLE"}}</div>

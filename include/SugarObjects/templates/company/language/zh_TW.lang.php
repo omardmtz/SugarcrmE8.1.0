@@ -1,0 +1,118 @@
+<?php
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+$mod_strings = array (
+	'ACCOUNT_REMOVE_PROJECT_CONFIRM' => '確定要從該專案中刪除此帳戶嗎？',
+	'ERR_DELETE_RECORD' => '必須指定記錄編號才能刪除帳戶。',
+	'LBL_ACCOUNT_NAME' => '公司名稱︰',
+	'LBL_ACCOUNT' => '公司：',
+	'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'活動',
+	'LBL_ADDRESS_INFORMATION' => '地址資訊',
+	'LBL_ANNUAL_REVENUE' => '年收入：',
+	'LBL_ANY_ADDRESS' => '任何地址：',
+    'LBL_ANY_EMAIL' => '電子郵件：',
+	'LBL_ANY_PHONE' => '任何電話：',
+	'LBL_ASSIGNED_TO_NAME' => '使用者：',
+	'LBL_RATING' => '評分',
+	'LBL_ASSIGNED_TO' => '指派至：',
+	'LBL_ASSIGNED_USER' => '指派至：',
+	'LBL_ASSIGNED_TO_ID' => '指派至：',
+	'LBL_BILLING_ADDRESS_CITY' => '帳單城市：',
+	'LBL_BILLING_ADDRESS_COUNTRY' => '帳單國家：',
+	'LBL_BILLING_ADDRESS_POSTALCODE' => '帳單郵遞區號：',
+	'LBL_BILLING_ADDRESS_STATE' => '帳單州：',
+	'LBL_BILLING_ADDRESS_STREET_2' =>'帳單街道 2',
+	'LBL_BILLING_ADDRESS_STREET_3' =>'帳單街道 3',
+	'LBL_BILLING_ADDRESS_STREET_4' =>'帳單街道 4',
+	'LBL_BILLING_ADDRESS_STREET' => '帳單街道：',
+	'LBL_BILLING_ADDRESS' => '帳單地址：',
+	'LBL_ACCOUNT_INFORMATION' => '公司資訊',
+	'LBL_CITY' => '城市：',
+	'LBL_CONTACTS_SUBPANEL_TITLE' => '連絡人',
+	'LBL_COUNTRY' => '國家：',
+	'LBL_DATE_ENTERED' => '建立日期：',
+	'LBL_DATE_MODIFIED' => '修改日期：',
+	'LBL_DESCRIPTION_INFORMATION' => '描述資訊',
+	'LBL_DESCRIPTION' => '描述：',
+	'LBL_DUPLICATE' => '可能重複的帳戶',
+    'LBL_EMAIL' => '電子郵件地址：',
+	'LBL_EMPLOYEES' => '員工：',
+	'LBL_FAX' => '傳真：',
+	'LBL_INDUSTRY' => '行業：',
+	'LBL_LIST_ACCOUNT_NAME' => '帳戶名稱',
+	'LBL_LIST_CITY' => '城市',
+    'LBL_LIST_EMAIL_ADDRESS' => '電子郵件地址',
+	'LBL_LIST_PHONE' => '電話',
+	'LBL_LIST_STATE' => '狀態',
+	'LBL_LIST_WEBSITE' => '網站',
+	'LBL_MEMBER_OF' => '成員：',
+	'LBL_MEMBER_ORG_FORM_TITLE' => '組織成員',
+	'LBL_MEMBER_ORG_SUBPANEL_TITLE'=>'組織成員',
+	'LBL_NAME'=>'名稱：',
+    'LBL_OTHER_EMAIL_ADDRESS' => '其他電子郵件：',
+	'LBL_OTHER_PHONE' => '其他電話：',
+	'LBL_OWNERSHIP' => '所有權：',
+	'LBL_PARENT_ACCOUNT_ID' => '父代帳戶 ID',
+	'LBL_PHONE_ALT' => '替代電話：',
+	'LBL_PHONE_FAX' => '電話傳真：',
+	'LBL_PHONE_OFFICE' => '辦公室電話：',
+	'LBL_PHONE' => '電話：',
+    'LBL_EMAIL_ADDRESS' => '電子郵件地址',
+    'LBL_EMAIL_ADDRESSES' => '電子郵件地址',
+	'LBL_POSTAL_CODE' => '郵遞區號：',
+	'LBL_PUSH_BILLING' => '發送帳單',
+	'LBL_PUSH_SHIPPING' => '發送運送資訊',
+	'LBL_SAVE_ACCOUNT' => '儲存帳戶',
+	'LBL_SHIPPING_ADDRESS_CITY' => '送貨城市：',
+	'LBL_SHIPPING_ADDRESS_COUNTRY' => '送貨國家：',
+	'LBL_SHIPPING_ADDRESS_POSTALCODE' => '送貨郵遞區號：',
+	'LBL_SHIPPING_ADDRESS_STATE' => '送貨州：',
+	'LBL_SHIPPING_ADDRESS_STREET_2' => '送貨街道 2',
+	'LBL_SHIPPING_ADDRESS_STREET_3' => '送貨街道 3',
+	'LBL_SHIPPING_ADDRESS_STREET_4' => '送貨街道 4',
+	'LBL_SHIPPING_ADDRESS_STREET' => '送貨街道：',
+	'LBL_SHIPPING_ADDRESS' => '運送地址：',
+
+	'LBL_STATE' => '狀態：',
+	'LBL_TEAMS_LINK'=>'小組',
+	'LBL_TICKER_SYMBOL' => '股票代號：',
+	'LBL_TYPE' => '類型：',
+	'LBL_USERS_ASSIGNED_LINK'=>'指派的使用者',
+	'LBL_USERS_CREATED_LINK'=>'由使用者建立',
+	'LBL_USERS_MODIFIED_LINK'=>'已修改使用者',
+	'LBL_VIEW_FORM_TITLE' => '帳戶檢視表',
+	'LBL_WEBSITE' => '網站：',
+    'LBL_LINKEDIN' => 'Linkedin 公司 ID',
+    'LBL_FACEBOOK' => 'Facebook 帳戶',
+    'LBL_TWITTER' => 'Twitter 帳戶',
+    'LBL_GOOGLEPLUS' => 'Google Plus ID',
+
+	'LNK_ACCOUNT_LIST' => '帳戶',
+	'LNK_NEW_ACCOUNT' => '建立帳戶',
+
+	'MSG_DUPLICATE' => '您要建立的帳戶紀錄可能與已存在的「帳戶」紀錄重複。含類似名稱的帳戶紀錄如下所示。<br>按一下「建立帳戶」繼續建立新帳戶，或選取下方列出的現有帳戶。',
+	'MSG_SHOW_DUPLICATES' => '您要建立的「帳戶」記錄可能與已存在「帳戶」記錄重複。含類似名稱的帳戶記錄如下所示。<br>按一下「儲存」繼續建立新帳戶，或按一下「取消」返回模組，而不建立帳戶。',
+
+	'NTC_COPY_BILLING_ADDRESS' => '將帳單地址複製到運送地址',
+	'NTC_COPY_BILLING_ADDRESS2' => '複製到運送',
+	'NTC_COPY_SHIPPING_ADDRESS' => '將運送地址複製到帳單地址',
+	'NTC_COPY_SHIPPING_ADDRESS2' => '複製到帳單',
+	'NTC_DELETE_CONFIRMATION' => '確定要刪除此記錄嗎？',
+	'NTC_REMOVE_ACCOUNT_CONFIRMATION' => '確定要移除此記錄嗎？',
+	'NTC_REMOVE_MEMBER_ORG_CONFIRMATION' => '確定要移除此成員組織嗎？',
+
+    'LBL_EDIT_BUTTON' => '編輯',
+    'LBL_REMOVE' => '移除',
+
+);
+
+

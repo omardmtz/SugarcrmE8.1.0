@@ -1,0 +1,69 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<table class="decision-table">
+    <thead>
+    <tr id="business-rules-header">
+        <th>
+            <span class="index"></span>
+        </th>
+        <th>
+            <span class="checkbox-index"></span>
+        </th>
+        <th class="decision-table-separator-border table-split" id="decision-table-conditions-header-column" colspan="{{conditionsSpan}}">
+            <span>{{conditionsTitle}}</span>
+        </th>
+        <th class="decision-table-separator-border" id="decision-table-conclusions-header-column" colspan="{{conclusionsSpan}}">
+            <span>{{conclusionsTitle}}</span>
+        </th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr id="business-rules-footer">
+        <td></td>
+        <td>
+            <span id="add-decision-row-button" class="btn fa fa-plus decision-table-add-row"></span>
+        </td>
+        <td id="decision-table-conditions-footer" class="table-split" colspan="{{conditionsSpan}}"></td>
+        <td id="decision-table-conclusions-footer" colspan="{{conclusionsSpan}}"></td>
+    </tr>
+    </tfoot>
+    <tbody id="decision-table-body" class="ui-sortable">
+    <tr id="decision-row-header">
+        <td></td>
+        <td>
+            <button class="btn btn-block btn-primary decision-table-btn-hidden" id="trash-button">
+                <span class="fa fa-trash-o"></span>
+            </button>
+        </td>
+        <td class="decision-table-condition-column">
+            <div class="decision-table-conditions-header"></div>
+            <div style="float; right;">
+                <button class="btn decision-table-close-element" title="{{removeConditionTitle}}">
+                    <span class="fa fa-minus"></span>
+                </button>
+            </div>
+        </td>
+        <td class="table-split">
+            <button id="add-condition-button" title="{{addConditionTitle}}" class="btn decision-table-add-button">
+                <span class="fa fa-plus"></span>
+            </button>
+        </td>
+        <td class="decision-table-conclusion-column">{{returnTitle}}</td>
+        <td>
+            <button id="add-conclusion-button" title="{{addConclusionTitle}}" class="btn decision-table-add-button">
+                <span class="fa fa-plus"></span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

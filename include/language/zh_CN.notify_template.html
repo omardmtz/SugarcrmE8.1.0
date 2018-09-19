@@ -1,0 +1,355 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: Quote_Subject -->
+SugarCRM报价 - {QUOTE_SUBJECT}
+<!-- END: Quote_Subject -->
+<!-- BEGIN: Quote -->
+{ASSIGNER}指派了一个报价给{ASSIGNED_USER}。
+
+主题：{QUOTE_SUBJECT}
+状态：{QUOTE_STATUS}
+预期截止日期：{QUOTE_CLOSEDATE}
+说明：{QUOTE_DESCRIPTION}
+
+您可以到此链接地址查看此报价：
+<{URL}>
+<!-- END: Quote -->
+
+
+<!-- BEGIN: Account_Subject -->
+SugarCRM客户 - {ACCOUNT_NAME}
+<!-- END: Account_Subject -->
+<!-- BEGIN: Account -->
+{ASSIGNER}指派了一个客户给{ASSIGNED_USER}。
+
+姓名：{ACCOUNT_NAME}
+类型：{ACCOUNT_TYPE}
+说明：{ACCOUNT_DESCRIPTION}
+
+您可以到此链接地址查看此客户信息：
+<{URL}>
+<!-- END: Account -->
+
+
+<!-- BEGIN: Case_Subject -->
+SugarCRM 客户反馈 - {CASE_SUBJECT}
+<!-- END: Case_Subject -->
+<!-- BEGIN: Case -->
+{ASSIGNER}指派了一个客户反馈给{ASSIGNED_USER}。
+
+主题：{CASE_SUBJECT}
+优先级：{CASE_PRIORITY}
+状态：{CASE_STATUS}
+说明：{CASE_DESCRIPTION}
+
+您可以到此链接地址查看此客户反馈：
+<{URL}>
+<!-- END: Case -->
+
+
+<!-- BEGIN: Task_Subject -->
+SugarCRM任务 - {TASK_SUBJECT}
+<!-- END: Task_Subject -->
+<!-- BEGIN: Task -->
+{ASSIGNER}指派了一个任务给{ASSIGNED_USER}。
+
+主题：{TASK_SUBJECT}
+优先级：{TASK_PRIORITY}
+截止日期：{TASK_DUEDATE}
+状态：{TASK_STATUS}
+说明：{TASK_DESCRIPTION}
+
+您可以到此链接地址查看此任务：
+<{URL}>
+<!-- END: Task -->
+
+
+<!-- BEGIN: Meeting_Subject -->
+SugarCRM会议 - {MEETING_SUBJECT}
+<!-- END: Meeting_Subject -->
+<!-- BEGIN: Meeting -->
+至: {MEETING_TO},
+
+{ASSIGNER}邀请您参加一个会议。
+
+主题：{MEETING_SUBJECT}
+开始日期：{MEETING_STARTDATE}
+结束日期：{MEETING_ENDDATE}
+<!-- BEGIN: Meeting_External_API -->
+会议链接地址：{MEETING_URL}
+<!-- END: Meeting_External_API -->
+说明：{MEETING_DESCRIPTION}
+
+接受邀请：
+<{ACCEPT_URL}&accept_status=accept>
+
+暂时接受邀请：
+<{ACCEPT_URL}&accept_status=tentative>
+
+谢绝邀请：
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Meeting -->
+
+<!-- BEGIN: MeetingSpecial_Subject -->
+SugarCRM会议 - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingSpecial -->
+{ASSIGNER}指派了个会议给{ASSIGNED_USER}。
+
+主题：{MEETING_SUBJECT}
+状态：{MEETING_STATUS}
+开始时间：{MEETING_STARTDATE}
+持续时间：{MEETING_HOURS}小时, {MEETING_MINUTES}分钟
+说明：{MEETING_DESCRIPTION}
+
+您可到此链接地址查看该会议：
+<{URL}>
+<!-- END: MeetingSpecial -->
+
+
+<!-- BEGIN: Email_Subject -->
+SugarCRM电子邮件 - {EMAIL_SUBJECT}
+<!-- END: Email_Subject -->
+<!-- BEGIN: Email -->
+{ASSIGNER}指派了一个电子邮件给{ASSIGNED_USER}。
+
+主题：{EMAIL_SUBJECT}
+发送日期：{EMAIL_DATESENT}
+
+您可以到此链接地址查看此电子邮件：
+<{URL}>
+<!-- END: Email -->
+
+
+
+
+
+
+<!-- BEGIN: Contact_Subject -->
+SugarCRM联系人 - {CONTACT_NAME}
+<!-- END: Contact_Subject -->
+<!-- BEGIN: Contact -->
+{ASSIGNER}指派了一个联系人给{ASSIGNED_USER}。
+
+姓名：{CONTACT_NAME}
+说明：{CONTACT_DESCRIPTION}
+
+您可以到此链接地址查看此联系人信息：
+<{URL}>
+<!-- END: Contact -->
+
+
+<!-- BEGIN: Lead_Subject -->
+SugarCRM潜在客户 - {LEAD_NAME}
+<!-- END: Lead_Subject -->
+<!-- BEGIN: Lead -->
+{ASSIGNER}指派了一个潜在客户给{ASSIGNED_USER}。
+
+名称：{LEAD_NAME}
+来源：{LEAD_SOURCE}
+状态：{LEAD_STATUS}
+说明：{LEAD_DESCRIPTION}
+
+您可以到此链接地址查看此潜在客户信息：
+<{URL}>
+<!-- END: Lead -->
+
+
+<!-- BEGIN: Opportunity_Subject -->
+SugarCRM商业机会 - {OPPORTUNITY_NAME}
+<!-- END: Opportunity_Subject -->
+<!-- BEGIN: Opportunity -->
+{ASSIGNER}指派了一个商业机会给{ASSIGNED_USER}。
+
+名称：{OPPORTUNITY_NAME}
+金额：{OPPORTUNITY_AMOUNT}
+预计结束日期：{OPPORTUNITY_CLOSEDATE}
+销售阶段：{OPPORTUNITY_STAGE}
+说明：{OPPORTUNITY_DESCRIPTION}
+
+您可以到此链接地址查看此商业机会：
+<{URL}>
+<!-- END: Opportunity -->
+
+
+<!-- BEGIN: Bug_Subject -->
+SugarCRM缺陷 - {BUG_SUBJECT}
+<!-- END: Bug_Subject -->
+<!-- BEGIN: Bug -->
+{ASSIGNER}指派了一个缺陷给{ASSIGNED_USER}。
+
+编号：{BUG_BUG_NUMBER}
+主题：{BUG_SUBJECT}
+类型：{BUG_TYPE}
+优先级：{BUG_PRIORITY}
+状态：{BUG_STATUS}
+解决方案：{BUG_RESOLUTION}
+发布：{BUG_RELEASE}
+说明：{BUG_DESCRIPTION}
+工作日志：{BUG_WORK_LOG}
+
+您可以到此链接地址查看此缺陷：
+<{URL}>
+<!-- END: Bug -->
+
+
+<!-- BEGIN: Default_Subject -->
+SugarCRM - 指派{OBJECT}
+<!-- END: Default_Subject -->
+<!-- BEGIN: Default -->
+{ASSIGNER}指派了一个{OBJECT}给{ASSIGNED_USER}。 
+
+您可以到此链接地址查看此{OBJECT}：
+<{URL}>
+<!-- END: Default -->
+
+<!-- BEGIN: Call_Subject -->
+SugarCRM电话会议 - {CALL_SUBJECT}
+<!-- END: Call_Subject -->
+<!-- BEGIN: Call -->
+至: {CALL_TO},
+ {ASSIGNER}邀请您参加一个电话会议。
+主题：{CALL_SUBJECT}
+状态：{CALL_STATUS}
+开始时间：{CALL_STARTDATE}
+持续时间：{CALL_HOURS}小时, {CALL_MINUTES}分钟
+说明：{CALL_DESCRIPTION}
+
+接受邀请：
+<{ACCEPT_URL}&accept_status=accept>
+
+暂时接受邀请：
+<{ACCEPT_URL}&accept_status=tentative>
+
+谢绝邀请：
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Call -->
+
+<!-- BEGIN: CallSpecial_Subject -->
+SugarCRM电话会议 - {CALL_SUBJECT}
+<!-- END: CallSpecial_Subject -->
+<!-- BEGIN: CallSpecial -->
+{ASSIGNER}指派了一个电话会议给{ASSIGNED_USER}。
+
+主题：{CALL_SUBJECT}
+状态：{CALL_STATUS}
+开始时间：{CALL_STARTDATE}
+持续时间：{CALL_HOURS}小时, {CALL_MINUTES}分钟
+说明：{CALL_DESCRIPTION}
+
+您可到此链接地址查看此电话会议详情：
+<{URL}>
+<!-- END: CallSpecial -->
+
+<!-- BEGIN: Campaign_Subject -->
+SugarCRM市场活动 - {CAMPAIGN_NAME}
+<!-- END: Campaign_Subject -->
+<!-- BEGIN: Campaign -->
+{ASSIGNER}指派了一个市场活动给{ASSIGNED_USER}。
+
+主题：{CAMPAIGN_NAME}
+金额：{CAMPAIGN_AMOUNT}
+结束日期：{CAMPAIGN_CLOSEDATE}
+状态：{CAMPAIGN_STATUS}
+说明：{CAMPAIGN_DESCRIPTION}
+
+您可以到此链接地址查看此市场活动：
+<{URL}>
+<!-- END: Campaign -->
+
+<!-- BEGIN: Quota_Subject -->
+SugarCRM定额 - 在{QUOTA_TIMEPERIOD}的定额
+<!-- END: Quota_Subject -->
+<!-- BEGIN: Quota -->
+{ASSIGNER}指派了一个定额给{ASSIGNED_USER}。
+
+金额：{QUOTA_AMOUNT}
+时段：{QUOTA_TIMEPERIOD}
+
+您可以到此链接地址查看此定额：
+<{QUOTA_URL}>
+<!-- END: Quota -->
+
+<!-- BEGIN: KBDocument_Subject -->
+SugarCRM文档 - {KBDOCUMENT_NAME}
+<!-- END: KBDocument_Subject -->
+<!-- BEGIN: KBDocument -->
+
+{NOTIFICATION_MESSAGE}
+
+文档名：{KBDOCUMENT_NAME}
+创建日期：{KBDOCUMENT_DATE_CREATED}
+创建者：{KBDOCUMENT_CREATED_BY}
+状态：{KBDOCUMENT_STATUS}
+说明：{KBDOCUMENT_DESCRIPTION}
+
+您可以到此链接地址查看此文档：
+<{URL}>
+<!-- END: KBDocument -->
+
+<!-- BEGIN: Contract_Subject -->
+SugarCRM合同 - {CONTRACT_NAME}
+<!-- END: Contract_Subject -->
+<!-- BEGIN: Contract-->
+
+{ASSIGNER}指派了一个合同给{ASSIGNED_USER}。
+
+您可以到此链接地址查看此合同：
+<{URL}>
+<!-- END:Contract-->
+
+<!-- BEGIN: ContractSpecial_Subject -->
+SugarCRM合同 - {CONTRACT_NAME}
+<!-- END: ContractSpecial_Subject -->
+<!-- BEGIN: ContractSpecial -->
+
+您的合同：{CONTRACT_NAME}将于{CONTRACT_END_DATE}到期。
+
+您可到此链接地址查看合同：
+<{URL}>
+<!-- END:ContractSpecial-->
+
+<!-- BEGIN: MeetingReminder_Subject -->
+会议提醒 - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingReminder -->
+主题：{MEETING_SUBJECT}
+开始时间：{MEETING_STARTDATE}
+地点：{MEETING_LOCATION}
+创建人：{MEETING_CREATED_BY}
+<!-- END: MeetingReminder -->
+
+<!-- BEGIN: CallReminder_Subject -->
+呼叫提醒 - {CALL_SUBJECT}
+<!-- END: CallReminder_Subject -->
+<!-- BEGIN: CallReminder -->
+主题: {CALL_SUBJECT}
+开始时间: {CALL_STARTDATE}
+创建人: {CALL_CREATED_BY}
+<!-- END: CallReminder -->
+
+<!-- BEGIN: Note_Subject -->
+SugarCRM附注 - {NOTE_SUBJECT}
+<!-- END: Note_Subject -->
+<!-- BEGIN: Note -->
+{ASSIGNER}指派了一条附注信息给{ASSIGNED_USER}。
+
+主题：{NOTE_SUBJECT}
+说明：{NOTE_DESCRIPTION}
+
+你可以到此链接地址查看此附注：
+<{URL}>
+<!-- END: Note -->

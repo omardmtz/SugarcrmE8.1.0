@@ -1,0 +1,125 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Search field configuration
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint lists the full text search configuration of all fields for the full text search enabled modules. This
+    endpoint is only available to administrators.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            module_list
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of modules to return. If omitted, all search enabled modules will be returned.
+            <br>
+            Example: <code>Accounts,Contacts</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            search_only
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            When set, only searchable fields are returned. Defaults to false.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            order_by_boost
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            When set, a flat list of searchable fields is returned ordered by boost value.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "Accounts":{
+        "name":{
+            "name":"name",
+            "type":"name",
+            "searchable":true,
+            "boost":1
+        },
+        "date_modified":{
+            "name":"date_modified",
+            "type":"datetime",
+            "searchable":false
+        }
+    }
+}
+</pre>
+
+<h3>Response using order_by_boost</h3>
+<pre class="pre-scrollable">
+{
+    "Quotes.quote_num":1.5,
+    "Manufacturers.name":1,
+    "Bugs.name":0.9,
+    "ProjectTask.name":0.5,
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Administration/search/fields</code> GET endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,61 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+                <div class="block filtered tabbable tabs-left" id="moduleActivity">
+                    <h4>{{getModuleName module plural=true}}</h4>
+
+                    {{#each meta.panels}}
+                    <ul class="nav nav-tabs results">
+                        {{#if ../collection.models}}
+                        {{#each ../../collection.models}}
+                        <li class="activity" data-id="{{id}}">
+                            <span class="label label-{{module}} pull-left">{{getModuleName module}}</span>
+                            <p class="ellipsis_inline">
+                                {{#with attributes}}
+                                    <a href="javascript:void(0)" data-action="loadPreview">{{name}}</a>
+                                    <br>
+                                    <date class="date">
+                                        {{#if showRelativeTime}}
+                                            {{relativeTime date_entered class='date' rel='tooltip'}}
+                                        {{else}}
+                                            {{str 'LBL_ACTIVITYSTREAM_RELATIVETIME_ON'}}{{formatDate date_entered}}
+                                        {{/if}}
+                                    </date>
+                                {{/with}}
+                            </p>
+                            <div class="actions">
+                               <a href="javascript:void(0)" rel="tooltip" data-action="loadPreview" title="{{str "LBL_PREVIEW"}}"><i class="fa fa-eye"></i></a>
+                            </div>
+                        </li>
+                        {{/each}}
+                        {{else}}
+                            {{#if ../../emptyStream}}
+                                <div class="block-footer">{{str "LBL_STREAM_NO_RECORDS"}}</div>
+                            {{/if}}
+                        {{/if}}
+                    </ul>
+                    {{/each}}
+                    <div class="actions">
+                        <a class="btn addNote" rel="tooltip" data-action="addNote" data-placement="left" title="{{str "LBL_NEW_FORM_TITLE" module}}"><i class="fa fa-plus"></i> {{str "LBL_NEW_FORM_BTN" module}}</a>
+                    </div>
+                </div>
+                {{#if collection.models}}
+                {{#notEq collection.next_offset "-1"}}
+                <div class="block-footer">
+                    {{#each meta.buttons}}
+                        {{field ../this model=../model}}
+                    {{/each}}
+                </div>
+                {{/notEq}}
+                {{/if}}
+
+

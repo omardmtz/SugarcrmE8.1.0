@@ -1,0 +1,268 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- Alerts & Messages
+================================================== -->
+{{!https://docs.google.com/a/sugarcrm.com/document/d/14FG1OkNNj05ULv6CnWJZckwxinT_VYiN0m_z4-lwOPM}}
+<section id="alerts">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span4">
+      <h2>About</h2>
+
+      <h3>UX Rationale</h3>
+      <p>Alerts notify users to a specific action, status of application service or services, state or dependency to service. Consistency is the goal so that the user has a clear expectation around both position, understanding and behavior with little extra effort spent to identify the action or disruption to normal flow. Screen placement, typography, time on screen and interaction to close are all considered.</p>
+      <p>The placement of messages and alerts should be designed to not interfere with a normal user flow or interaction. Consideration was given to a growl type status but it has the potential to cover UI navigational elements. Any action or notification will typically give a user pause and take seconds or ms to digest so familiarity with the pattern and treatment will speed up that recognition.</p>
+
+      <h3>Firing and Dismissing</h3>
+      <p>Alerts can be fired anywhere in Sugar7 by calling <code>app.alert.show('alert_id', {params})</code>. See below for parameters.</p>
+      <p>The alert id should be unique to the particular alert condition. Alerts can be called with the autoclose option which sets the alert to close after 10 seconds. The default autoclose behaviour is displayed in the table below. Be sure to call <code>app.alert.dismiss('alert_id')</code> in your view dispose methods.</p>
+
+      <h3>Contextual Alerts</h3>
+      <p>The alert utility supports various alert levels that correspond to the severity of your message. See information below on how to adjust styling of these alert levels.</p>
+      <p>There are two special purpose alert types&mdash;Process and Modal Dialog. <b>Process</b> is generally not used by developers, it is called by Sugar7 to alert the user that data is loading from the API. <b>Modal Dialog</b>, should be used when the user needs to select an option before proceeding. Dialogues always have the same two buttons, “Cancel” and “Confirm” and stays and locks the user’s interactions until one of the two buttons is pressed. Messages should be worded to make the choice between “Cancel”/”Confirm” clear and concise.</p>
+    </div>
+
+    <div class="span8">
+      <h2>Styles</h2>
+
+      <p>Alert messages are added to the <code>&lt;div id="alerts"&gt;</code> block at the top of a Sugar7 layout and are stacked in reverse order. The LESS file with default colors and styling can be found in <code>stylguide/less/sugar/alerts.less</code> and <code>stylguide/less/sugar/loader.less</code>.</p>
+      <div class="alert alert-block">
+        <button class="close" data-action="close"><i class="fa fa-times"></i></button>
+        <strong>Alert Level:</strong> This is the alert message!
+      </div>
+<pre class="prettyprint linenums">
+&lt;div class="alert alert-[level] alert-block"&gt;
+  &lt;button class="close" data-action="close"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;strong&gt;Alert Level:&lt;/strong&gt; This is the alert message!!
+&lt;/div&gt;
+</pre>
+
+      <h3>Content</h3>
+      <p>Content of the alert can be any HTML however there is a special class called <code>.alert-heading</code> for a matching heading.</p>
+      <div class="alert alert-block">
+        <button class="close" data-action="close"><i class="fa fa-times"></i></button>
+        <h4 class="alert-heading">Alert!</h4>
+        <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+      </div>
+<pre class="prettyprint linenums">
+&lt;div class="alert alert-block"&gt;
+  &lt;button class="close" data-action="close"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;h4 class="alert-heading"&gt;Alert!&lt;/h4&gt;
+  &lt;p&gt;Best check yo self, you're not...&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+      <h3>Sugar7 Alert Utility</h3>
+      <p>To make handling of alerts easier in Sugar7, there is now a utility function called <code>app.alert</code>. This function is based on Bootstrap's <code>bootstrap-alert.js</code> plugin. Although you should never need to access the Boostrap plugin directly, its documentation can be found here <a href=""><i class="fa fa-book"></i> boostrap-alert.js</a>.</p>
+
+      <h3>Parameters</h3>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Parameter</th><th>Use</th><th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>level</td>
+            <td>Pass the alert contextual level.</td>
+            <td><code>{level: 'warning'}</td>
+          </tr>
+          <tr>
+            <td>messages</td>
+            <td>The text of the message which can include links and other tags. Length of text should be kept to a maximum of 130 characters including spaces.</td>
+            <td><code>{messages: 'This is your last warning.'}</td>
+          </tr>
+          <tr>
+            <td>autoClose</td>
+            <td>Whether or not to autoclose the alert.</td>
+            <td><code>{autoClose: true | false}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>Details</h2>
+
+      <div class="overflow" style="width:100%;overflow:scroll">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Level</th><th>CSS Class</th><th>Variables</th><th>Style</th><th>Timing</th><th style="width:60px;">Example</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>info</td>
+            <td><code>.alert-info</code></td>
+            <td>
+<code>color: darken(@infoBackground, 70%);</code><br>
+<code>background-color: @infoBackground;</code><br>
+<code>border-color: @infoBorder;</code>
+            </td>
+            <td>
+              <div class="alert alert-info alert-block" style="margin:0;">
+                <div class="indicator">
+                    <i class="fa fa-info-circle"></i>
+                </div>
+                <button class="close btn btn-link btn-invisible" data-action="close"><i class="fa fa-times"></i></button>
+                <span class="text">
+                        <strong>Notice</strong>
+                        General information not covered below.
+                </span>
+              </div>
+            </td>
+            <td>auto close (10s)</td>
+            <td>
+              <button data-alert="info">Example</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>success</td>
+            <td><code>.alert-success</code></td>
+            <td>
+<code>color: darken(@successBackground, 70%);</code><br>
+<code>background-color: @successBackground;</code><br>
+<code>border-color: @successBorder;</code>
+            </td>
+            <td>
+              <div class="alert alert-success alert-block" style="margin:0;">
+                <div class="indicator">
+                    <i class="fa fa-check-circle"></i>
+                </div>
+                <button class="close btn btn-link btn-invisible" data-action="close"><i class="fa fa-times"></i></button>
+                <span class="text">
+                        <strong>Success</strong>
+                        Typically should occur as a result of a specific action by the user.
+                </span>
+              </div>
+            </td>
+            <td>auto close (10s)</td>
+            <td>
+              <button data-alert="success">Example</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>warning</td>
+            <td><code>.alert-warning</code></td>
+            <td>
+<code>color: @gray;</code><br>
+<code>border: 1px solid @warningBorder;</code><br>
+<code>background-color: @warningBackground;</code><br>
+            </td>
+            <td>
+              <div class="alert alert-warning alert-block" style="margin:0;">
+                <div class="indicator">
+                    <i class="fa fa-exclamation-triangle"></i>
+                </div>
+                <button class="close btn btn-link btn-invisible" data-action="close"><i class="fa fa-times"></i></button>
+                <span class="text">
+                        <strong>Warning</strong>
+                        Warnings can also be used as an indication of service disruption if the service is not dependent for the actual functioning of the app.
+                </span>
+              </div>
+            </td>
+            <td>sustained until user action</td>
+            <td>
+              <button data-alert="warning">Example</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>error</td>
+            <td><code>.alert-danger</code></td>
+            <td>
+<code>color: darken(@red, 10%);</code><br>
+<code>background: @errorBackground;</code><br>
+<code>border-color: @errorBorder;</code>
+            </td>
+            <td>
+              <div class="alert alert-danger alert-block" style="margin:0;">
+                <div class="indicator">
+                    <i class="fa fa-exclamation-circle"></i>
+                </div>
+                <button class="close btn btn-link btn-invisible" data-action="close"><i class="fa fa-times"></i></button>
+                <span class="text">
+                        <strong>Error</strong>
+                        Typically the error is only used to define an error in input or disruption of a key service.
+                </span>
+              </div>
+            </td>
+            <td>sustained until user closes</td>
+            <td>
+              <button data-alert="error">Example</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>process</td>
+            <td><code>.alert-process</code></td>
+            <td>
+<code>color: @grayLight;</code><br>
+<code>background-color: @grayLighter;</code><br>
+<code>border: 1px solid @grayLight;</code>
+            </td>
+            <td>
+              <div class="alert-top" style="position:relative;top:0;height:auto;">
+                <div class="alert alert-process" style="margin:0;">
+                  <strong>{{loading 'LBL_ALERT_TITLE_LOADING'}}</strong>
+                </div>
+              </div>
+            </td>
+            <td>immediately closes upon process completion</td>
+            <td>
+              <button data-alert="process">Example</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>confirmation</td>
+            <td><code>.alert-warning</code></td>
+            <td>
+<code>Same as warning.</code>
+            </td>
+            <td>
+              <div class="alert-confirmation" style="position:relative;top:0;">
+                <div class="alert alert-warning alert-block" style="margin:0;">
+
+
+                  <div class="indicator"><i class="fa fa-exclamation-triangle"></i> <strong>Warning</strong></div>
+                  <div class="alert-messages">Is the core is in meltdown?</div>
+                  <div class="row-fluid">
+                    <a class="span6 alert-btn-cancel" data-action="cancel">Cancel</a>
+                    <a class="span6 alert-btn-confirm" data-action="confirm">Confirm</a>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>modal (blocks other user actions until user responds)</td>
+            <td>
+              <button data-alert="confirmation">Example</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>

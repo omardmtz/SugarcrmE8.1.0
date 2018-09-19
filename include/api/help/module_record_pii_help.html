@@ -1,0 +1,159 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="pii">
+    Returns personally identifiable information (pii) fields with current data and source of data capture for a specific record.
+</span>
+
+<h2>Version Requirements</h2>
+<span class="restversion">
+    Minimum REST API Version required - 11.1
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            module
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The name of the module.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            record
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The record id.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            records
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Returns the set of PII field records for the given module record.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+  "fields": [
+    {
+      "field_name": "phone_mobile",
+      "value": "(645) 604-0128",
+      "event_type": "update",
+      "date_modified": "2018-02-21T19:56:42+00:00",
+      "source": {
+        "subject": {
+          "_type": "user",
+          "id": "999b3b50-16dc-11e8-9c03-a45e60e64123",
+          "_module": "Users",
+          "client": {
+            "_type": "rest-api"
+          },
+          "first_name": "Tim",
+          "last_name": "Zhang",
+          "name": "Tim Zhang"
+        },
+        "attributes": {
+          "platform": "base"
+        }
+      }
+    },
+    {
+      "field_name": "phone_work",
+      "value": "(212) 692-3480",
+      "event_type": "update",
+      "date_modified": "2018-02-21T19:56:42+00:00",
+      "source": {
+        "subject": {
+          "_type": "user",
+          "id": "654b3b50-16dc-11e8-9c03-a45e60e64465",
+          "_module": "Users",
+          "client": {
+            "_type": "rest-api"
+          },
+          "first_name": "Jim",
+          "last_name": "Conners",
+          "name": "Jim Conners"
+        },
+        "attributes": {
+          "platform": "base"
+        }
+      }
+    }
+  ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            11.1
+        </td>
+        <td>
+            Added <code>/pii</code> GET endpoint.
+        </td>
+    </tr>
+    </tbody>
+</table>

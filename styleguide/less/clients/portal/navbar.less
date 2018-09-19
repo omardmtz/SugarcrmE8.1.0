@@ -1,0 +1,72 @@
+.navbar {
+  .module-list {
+    .megamenu > .dropdown[data-module="Home"] .btn-group {
+      padding: 5px 16px;
+
+      /*img*/
+      .cube {
+        z-index: 2000;
+        padding: 3px;
+
+        &.hide {
+          display: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        img {
+          height: 22px;
+          width: 22px;
+        }
+      }
+    }
+  }
+
+  #searchForm {
+    .quicksearch-button-wrapper {
+      top: 0;
+      right: 0;
+
+      > .btn-toolbar {
+        padding: 0;
+        margin: 0;
+
+        .btn .fa-search {
+          color: @grayLight;
+        }
+      }
+    }
+    // Needed by firefox because of navbar table-layout
+    .typeahead-wrapper {
+      position: relative;
+    }
+    // Typeahead UL
+    .typeahead {
+      border-radius: @baseBorderRadius;
+      overflow: hidden;
+      right: 0;
+      left: 0;
+      top: 10px;
+      width: auto;
+      height: auto;
+      max-height: 333px;
+
+      li > a,
+      li.no-results {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    [data-action=search] {
+      background: none;
+
+      .fa-search {
+        color: @grayLight;
+      }
+    }
+  }
+}

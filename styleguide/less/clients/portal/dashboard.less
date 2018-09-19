@@ -1,0 +1,30 @@
+#portal {
+  // Fix list headerpane actions since .headerpane has display: block
+  .dashboard .thumbnail .headerpane {
+    display: table;
+  }
+
+  .thumbnail.dashlet {
+    margin: 0 10px;
+  }
+
+  .dashlet h4 {
+    cursor: inherit;
+  }
+
+  .nested-list-widget {
+    .jstree-sugar.tree-component {
+      ul li {
+        padding: 0;
+
+        &.jstree-open > a {
+          font-weight: bold;
+        }
+      }
+
+      ins.jstree-icon {
+        padding: 0 5px;
+      }
+    }
+  }
+}

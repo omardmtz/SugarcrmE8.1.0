@@ -1,0 +1,30 @@
+/* RAW VIEW
+  ----------------*/
+
+.raw-view {
+  h4 {
+    .module-subtitle {
+      padding-left: 16px;
+      font-weight: 500;
+      font-size: @fontSizeMedium;
+    }
+
+    &:not(:first-child) {
+      margin-top: 18px;
+    }
+  }
+
+  table {
+    tbody {
+      tr:first-child {
+        td {
+          border-top-width: 2px;
+        }
+      }
+
+      td {
+        padding-left: 16px;
+      }
+    }
+  }
+}

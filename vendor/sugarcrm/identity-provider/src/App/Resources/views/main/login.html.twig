@@ -1,0 +1,71 @@
+{% extends "index.html.twig" %}
+
+{% block content %}
+    <div class="login__header">
+        <h3 class="brand">SugarCRM</h3>
+    </div>
+    <div class="login__body">
+
+        <form id="login_section" class="login-fields" method="post" action="{{ url('loginProcess') }}">
+                <span sfuuid="1"><div class="field">
+    <label class="field__label">Tenant</label>
+    <div class="field__controls">
+        <span class="input-wrapper">
+            <input type="text" size="35" tabindex="1" id="tid" name="tid" value="{{ tid }}" autocapitalize="off"
+                   autocorrect="off" autocomplete="off">
+            <i class="icondefault icon icon-remove clear-button"></i>
+
+        </span>
+    </div>
+</div>
+</span>
+            <span sfuuid="2"><div class="field">
+    <label class="field__label">Username</label>
+    <div class="field__controls">
+        <span class="input-wrapper">
+            <input type="text" size="35" tabindex="2" id="username" name="user_name" value="" autocapitalize="off"
+                   autocorrect="off" autocomplete="off" onkeydown="onInputKeyDown(event);">
+            <i class="icondefault icon icon-remove clear-button"></i>
+
+        </span>
+    </div>
+</div>
+</span>
+            <span sfuuid="3"><div class="field">
+    <label class="field__label">Password</label>
+    <div class="field__controls">
+    <span class="input-wrapper">
+        <input type="password" size="26" tabindex="3" id="password" name="password" value="" autocomplete="off"
+               onkeydown="onInputKeyDown(event);">
+        <i class="icondefault icon icon-remove clear-button"></i>
+
+    </span>
+    </div>
+</div>
+</span>
+            <input type="hidden" id="csrf_token" name="csrf_token" value="{{ csrf_token }}">
+            <input type="submit" id="submit-from" style="display: none">
+        </form>
+
+    </div>
+    <div class="login__footer ">
+
+        <a href="javascript:void(0)" id="login_btn"
+           class="btn btn--primary btn--large fast-click-highlighted" track="click:login">Log In</a>
+        <a href="{{ url('samlInit') }}" id="external_login_btn" tabindex="5"
+           class="btn btn--primary btn--large fast-click-highlighted" track="click:external_login">Single
+            Sign-On</a>
+
+    </div>
+{% endblock %}
+{% block alert %}
+    <div id="alerts" class="alerts">
+        {% if alert is not null %}
+            <div id="alert-message-container">
+                <div class="alert alert--error closeable">
+                    <div class="message">{{ alert }}</div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

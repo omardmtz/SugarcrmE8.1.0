@@ -1,0 +1,549 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+/*********************************************************************************
+
+ * Description:  Contains a variety of utility functions used to display UI 
+ * components such as form headers and footers.  Intended to be modified on a per 
+ * theme basis.
+ ********************************************************************************/
+
+/** From default style.css file **/
+
+body.popupBody {
+	direction: rtl;
+}
+
+#companyLogo 
+{
+    float:right;
+}
+
+#search, #sitemapLink, #colorPicker, #welcome, #globalLinks, #globalLinksLeft
+{
+    float: left;
+}
+
+#welcome 
+{
+	padding-left: 10px;
+}
+
+#globalLinksModule {
+float: left;
+}
+
+div#content
+{
+    direction: rtl;
+}
+
+div.moduleTitle
+{
+    direction: rtl;
+}
+
+.moduleTitle h2, h2
+{
+    float: right;
+    direction: ltr;
+}
+
+.moduleTitle span.utils
+{
+    float: left;
+}
+
+.detail tr td
+{
+    text-align: right;
+}
+.detail tr td[scope=row] 
+{
+    text-align: left;
+}
+
+table.actionsContainer table td {
+text-align: right;
+direction: rtl;
+}
+
+table.actionsContainer td:last-child {
+text-align: right;
+}
+
+.list tr.pagination td table td:first-child 
+{
+text-align: right;
+-moz-border-radius-bottomright: 6px;
+-moz-border-radius-topright: 6px;
+border-radius-bottomright: 6px;
+border-radius-topright: 6px;
+-webkit-border-bottom-right-radius: 6px;
+-webkit-border-top-right-radius: 6px;
+}
+
+.list tr.pagination td table td:last-child 
+{
+direction: ltr;
+text-align: left;	
+-moz-border-radius-bottomleft: 6px;
+-moz-border-radius-topleft: 6px;
+border-radius-bottomleft: 6px;
+border-radius-topleft: 6px;
+-webkit-border-bottom-left-radius: 6px;
+-webkit-border-top-left-radius: 6px;
+}
+
+.list tr.pagination .paginationActionButtons {
+	padding-right: 10px !important;
+}
+
+.list tr th, .list tr td[scope=col], 
+.edit .list tr th, .edit .list tr td[scope=col]
+{
+    text-align: right;
+}
+
+.list tr th div {
+	text-align: right;	
+	white-space: nowrap !important;
+}
+
+.list tr.oddListRowS1 td,
+.list tr.evenListRowS1 td
+{
+    text-align: right;
+}
+
+input.phone {
+text-align: right;	
+}
+.list tr.oddListRowS1 td.phone,
+.list tr.evenListRowS1 td.phone,
+.detail tr td.phone, input.phone, .olBgClass .phone, table.dateTime, span.dateTime, div.duration
+{
+	direction: ltr;
+}
+
+.search_form .view
+{
+    padding-right:10px !important;
+}
+
+.search_form .sumbitButtons {
+	text-align: right;
+}
+
+.search_form .helpIcon {
+	text-align: left;
+}
+
+.search_form .view.advanced .help {
+text-align: left;	
+}
+
+ul.noBullet {
+  padding-right: 0;
+}
+
+span.id-ff {
+direction: ltr !important;	
+}
+
+span.id-ff.multiple button.button.firstChild{
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius-topleft: 0px;  
+	-moz-border-radius-bottomleft: 0px; 
+	border-radius-topleft: 0px;  
+	border-radius-bottomleft: 0px; 
+	-webkit-border-bottom-left-radius: 0px;
+	-webkit-border-top-left-radius: 0px;
+	border-left-color: #eee;
+}
+
+span.id-ff.multiple button.button.lastChild{
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  border-radius-topright: 0px;
+  border-radius-bottomright: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -webkit-border-bottom-top-radius: 0px;
+  border-left-color: #CCCCCC;
+
+}
+
+#moduleList, #moduleList .sf-menu, #moduleList .sf-menu li {
+	float: right;
+}
+ul.megamenu,
+#moduleList .sf-menu li:hover ul, #moduleList .sf-menu li.sfHover ul {
+	right: 0px;
+	left: auto;
+}
+
+#moduleList ul.sf-menu li.moduleTabExtraMenu li:hover > ul, #moduleList ul.sf-menu li.moduleTabExtraMenu li.sfHover > ul {
+	left: auto;
+	right: 160px; /* more menu */
+}
+
+#quickCreate, #searchDivider, #globalLinksDivider {
+	float: left;	
+}
+
+#quickCreateULSubnav,
+#quickCreate ul.clickMenu li ul.subnav
+{
+    left:0px;
+	right: auto;
+    direction: rtl;
+}
+.selectActionsDisabled span.ab {
+    margin:0px 10px 0 0;
+    padding:0 0 0 5px;
+}
+.selectActionsDisabled {
+    padding: 0 10px 0 0px;
+}
+td.paginationActionButtons ul.clickMenu .massall,
+ul#selectLink.clickMenu .massall, td.selectCol .massall,
+ul.SugarActionMenuIESub li a, ul.clickMenu li span, .selectActionsDisabled span, .selectActionsDisabled a, .selectActionsDisabled a:hover,
+ul.clickMenu li ul.subnav li a,ul.clickMenu li ul.subnav li input, ul.subnav-sub li a, ul.SugarActionMenuIESub li a,
+ul.clickMenu li a, .list tr.pagination td.buttons ul.clickMenu > li > a:link, .list tr.pagination td.buttons ul.clickMenu > li > a{
+    float:right;
+    text-align:right;
+}
+ul.clickMenu li span.ab, .selectActionsDisabled span.ab {
+    border-right:1px #aaa solid;
+    border-left:0px;
+
+}
+ul#quickCreateULSubnav {
+    left:0px;
+    right:auto !important;
+}
+ul.moduleTabExtraMenu, ul.filter-menu,
+ul.megamenu ul.MMLastViewed,
+#moduleList .sf-menu  ul.MMLastViewed {
+direction: rtl;
+}
+ul.megamenu ul.MMFavorites,
+#moduleList .sf-menu ul.MMFavorites {
+direction: rtl;
+}
+
+ul.megamenu ul.MMShortcuts,
+#moduleList .sf-menu ul.MMShortcuts {
+direction: rtl;
+float: right;
+}
+ul.megamenu .megacolumn,
+#moduleList .megacolumn {
+	float: right;
+}
+ul.megamenu .megawrapper ul li.groupLabel,
+#moduleList .sf-menu ul .megawrapper ul li.groupLabel {
+	padding-left: 0px;
+	padding-right: 10px;
+    display:block;
+    float:right;
+    text-align: right;
+}
+
+#moduleList .sf-menu ul div.megacolumn-content ul li a,
+ul.megamenu div.megacolumn-content ul li a {
+    text-align: right;
+}
+
+#arrow {
+	left: 0px;
+}
+
+#footer img {
+	float: right;
+}
+
+#footer img.logo {
+	margin-right: 5px;
+	max-width:450px;
+    max-height:17px;	
+}
+
+
+.list tr.pagination td table td a:link,
+.list tr.pagination td table td a:visited,
+.reportGroupByDataChildTablelistViewThS1 a:link,
+.reportGroupByDataChildTablelistViewThS1 a:visited,
+.list tr th,
+.list tr th a:link,
+.list tr th a:visited,
+.list tr td[scope=col],
+.list tr td[scope=col] a:link,
+.list tr td[scope=col] a:visited
+
+{
+	direction: rtl;
+}
+
+.list tr.pagination td table td span.pageNumbers, .pageNumbers
+{
+direction: ltr;	
+}
+
+
+.list.view  tr:last-child td:first-child ,.list.view  tr:last-child th:first-child{
+	 padding-right: 10px !important;
+}
+
+.detail tr td[scope="row"] 
+{
+    text-align: left;
+}
+
+#tabListContainer ul.subpanelTablist li a.current{
+padding: 7px 20px 7px 5px;
+margin-left: 2px;
+}
+
+#tabListContainer.yui-scroll {
+    float: right;
+}
+
+#tabListContainerTable { 
+direction: rtl;
+}
+
+#dashletCtrlsTD {
+text-align: left;
+}
+
+.edit.view > tr:last-child > td:first-child,.detail.view tr:last-child > td:first-child {
+-moz-border-radius: 0px 0px 6px 0px;
+border-radius: 0px 0px 6px 0px;
+-webkit-border-bottom-right-radius: 6px;
+}
+.edit.view > tr:last-child td:last-child ,.detail.view tr:last-child td:last-child{
+-moz-border-radius: 0px 0px 0px 6px;
+border-radius: 0px 0px 0px 6px;
+-webkit-border-bottom-left-radius: 6px;
+}
+
+.edit.view h4:first-child, .detail.view h4:first-child {
+text-align: right;
+}
+
+.yui-navset.detailview_tabs .view tr:first-child td:first-child {
+-moz-border-radius: 0px 6px 0px 0px;
+border-radius: 0px 6px 0px 0px;
+-webkit-border-top-right-radius: 6px;
+}
+.yui-navset.detailview_tabs .view tr:first-child td:last-child {
+-moz-border-radius: 6px 0px 0px 0px;
+border-radius: 6px 0px 0px 0px;
+-webkit-border-top-left-radius: 6px;
+}
+
+.list.view tr th.selectCol {
+	padding: 0px 6px 0px 6px;
+}
+
+#dcboxbody{
+width: 1050px;
+direction: rtl;
+}
+
+#dcboxbody.sugar_spot_search, #dcboxbody.dcmenuSugarCube{
+width: 320px;
+}
+
+#dcboxbody.dcmenuSugarCube .dashletPanel.dc .hd #dctitle {
+    float: right;
+}
+
+#dcboxbody  .hd span {
+float: right;
+direction: rtl;
+}
+
+#dcboxbody  .hd .close {
+float: left;
+}
+#sugar_spot_search_div { float:right; }
+#close_spot_search { left:50px;}
+#glblSearchBtn {
+float: left;
+ left: 20px;
+}
+#dcmenuSugarCube {
+float: left;
+}
+
+#dcmenuContainer
+{
+float: right;
+}
+
+.star {
+	float:left;
+}
+
+#dcmenuSearchDiv {
+	float:left;
+	text-align: right;
+}
+
+#sugar_spot_search {
+    direction: rtl;
+}
+
+#glblSearchBtn .searchicon {
+    left:2px;
+}
+
+#notificationsDivider {
+ 	float: right; 
+ 	margin-left: 10px;
+}
+
+#moduleList .yuimenuitemlabel, a.yuimenuitemlabel, a.yuimenuitemlabel:link, a.yuimenuitemlabel:visited {
+    border-right: 1px solid #ccc;
+    border-left: none;
+
+}
+#moduleList.yuimenubarnav .yuimenubaritemlabel-selected {
+border-right: 1px solid #ccc;
+border-left: none;
+}
+
+#listViewDiv .pagination {
+    direction: ltr;
+}
+
+.monthHeader, .monthFooter {
+direction: ltr;
+}
+
+table#calendarModule > tbody > tr > td:last-child{
+padding-right: 10px;	
+}
+.edit tr td {
+text-align: right;	
+}
+.edit tr td[scope="row"] {
+    text-align: right;
+}
+
+table#editor-content .percentage, table#editor-content .editIcon {
+text-align: left;	
+}
+
+.emailUIField {
+    text-align: right !important;
+}
+
+#dashletsDialog_c table td 
+{
+text-align: right;
+}
+
+.yui-dialog .container-close {
+    left: 6px;
+    right: auto;
+}
+
+.yui-module .hd, .yui-panel .hd, .yui-panel .bd 
+{
+direction: rtl;
+}
+.mceEditor.defaultSkin, .mceContentBody {
+direction: rtl;	
+}
+
+#bottomLinks {
+	padding: 0 25px;
+	float: left;
+	direction: rtl;	
+}
+
+#footer #partner {
+    float: left;
+    border-right: 0;
+}
+
+.buttons {
+	text-align: right;
+}
+div.action_buttons form, div.action_buttons input { float:right; }
+
+.paginationWrapper {
+	text-align: left;
+    direction:ltr;
+    float:left;
+}
+
+#notifDivider {
+	float: left;	
+}
+
+ul.clickMenu li ul.subnav, ul.clickMenu ul.subnav-sub, ul.SugarActionMenuIESub {
+	left: auto;
+	right: 0px;
+}
+#moduleList .megacolumn-content.divider, ul.megamenu .megacolumn-content.divider {
+    border-left: 1px solid #ccc;
+    border-right:0px;
+}
+#moduleList .ltr .megacolumn-content.divider, ul.megamenu.ltr .megacolumn-content.divider {
+    border-left: 0px;
+}
+#moduleList .ltr .MMLastViewed, #moduleList .ltr .MMFavorites {
+    display:none;
+}
+
+#footer #help {
+    float: left;
+}
+
+#footer #buffer {
+    float: left;
+}
+
+
+#arrow.up i.icon-chevron-down {
+    margin-left: 8px;
+}
+
+#footer .copyright {
+  direction: rtl;
+}
+
+#footer #productTour {
+    float: left;
+    border-left: 0px none;
+}
+
+#pageContainer > div > table td:first-child {
+    padding-left: 20px;
+    padding-right: 0px;
+}
+
+
+.yui-ac-container {
+    left: auto !important
+}
+
+#dcboxbody .hd .close {
+    left: 10px;
+}

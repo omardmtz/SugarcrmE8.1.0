@@ -1,0 +1,77 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Runs LessPHP for a platform and a theme and outputs an array of css files. If not found the css files
+    will be compiled.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>platform</td>
+        <td>String</td>
+        <td>The theme platform - /themes/clients/<strong>***PLATFORM***</strong>/themeName/. Accepted values are 'base' and 'portal'.</td>
+        <td>No. (defaults to <em>base</em>)</td>
+    </tr>
+    <tr>
+        <td>themeName</td>
+        <td>String</td>
+        <td>The theme name - /themes/clients/platform/<strong>***THEMENAME***</strong>/.</td>
+        <td>No. (defaults to <em>default</em>)</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+{
+    platform: 'portal',
+    themeName: 'default'
+}
+</pre>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    url: [
+        'cache/themes/clients/base/default/bootstrap_97c9cf53841dbe471c20d169e3533763.css',
+        'cache/themes/clients/base/default/sugar_14c42516aad866b7f80cc896ce5c5406.css',
+    ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;css&gt;</code> GET endpoint.
+        </td>
+    </tr>
+</table>

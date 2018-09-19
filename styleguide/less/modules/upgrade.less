@@ -1,0 +1,53 @@
+// To regenerate the /styleguide/assets/css/upgrade.css
+// Run static file generator at /styleguide/build/
+// or npm install less, lessc upgrade.less ~/path/to/upgrade.css --compress
+
+// Variables and common
+@baseUrl: "../../assets";
+
+@fa-font-path:          "../../../styleguide/assets/fonts";
+
+@import "../../themes/clients/base/default/variables.less";
+@import "../fixed_variables.less";
+@import "../sugar/mixins.less";
+
+// Third party
+@import "../lib/slider.less";
+@import "../lib/font-awesome/font-awesome.less"; //ext lib: http://fortawesome.github.com/Font-Awesome/
+@import "../lib/datepicker.less"; //ext lib: http://www.eyecon.ro/bootstrap-datepicker
+@import "../lib/select2.less"; //ext lib: http://ivaynberg.github.com/select2/
+@import "../lib/jquery.timepicker.less";
+
+// Sugar addtions and modifications to bootstrap core and third party
+@import "../sugar/reset.less";
+@import "../sugar/labels-badges.less";
+@import "../sugar/tooltip.less";
+@import "../sugar/popovers.less";
+@import "../sugar/progress-bars.less";
+@import "../sugar/slider.less";
+@import "../sugar/alerts.less";
+@import "../sugar/grid.less";
+@import "../sugar/layouts.less";
+@import "../sugar/body.less";
+@import "../sugar/colors.less";
+@import "../sugar/typography.less";
+@import "../sugar/buttons.less";
+@import "../sugar/button-groups.less";
+@import "../sugar/dropdowns.less";
+@import "../sugar/font-awesome.less";
+@import "../sugar/misc.less";
+@import "../sugar/icons.less";
+@import "../sugar/select2.less";
+@import "../sugar/forms.less";
+@import "../sugar/error.less";
+@import "../sugar/modals.less";
+@import "../sugar/scaffolding.less";
+@import "../sugar/tables.less";
+@import "../sugar/login.less";
+@import "../sugar/loader.less";
+@import "../clients/base/components/step-circle.less";
+@import "../clients/base/components/upgrade-modal.less";
+@import "../sugar/responsive-sugar.less";
+@import "../sugar/utilities.less"; // Has to be last to override when necessary
+
+

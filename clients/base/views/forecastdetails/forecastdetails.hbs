@@ -1,0 +1,38 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if isForecastSetup}}
+    {{#if forecastsConfigOK}}
+        {{#if showTimeperiod}}
+            <div class="control-group dashlet-options">
+                <div class="controls{{#if isManager}} controls-two btn-group-fit{{/if}}">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            {{#each dashletConfig.timeperiod}}
+                                {{field ../this model=../this.settings template="edit"}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        <div class="forecast-details"></div>
+    {{else}}
+        <div class="opportunity-pipeline-wrapper">
+            {{{str "LBL_FORECASTS_MISSING_SALES_STAGE_VALUES" 'Forecasts'}}}
+        </div>
+    {{/if}}
+{{else}}
+    <div class="opportunity-pipeline-wrapper">
+        {{{forecastsNotSetUpMsg}}}
+    </div>
+{{/if}}

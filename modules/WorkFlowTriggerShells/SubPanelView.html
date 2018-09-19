@@ -1,0 +1,43 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="50%" ><slot>{MOD.LBL_LIST_NAME}</td>
+	<td scope="col" width="40%" ><slot>{MOD.LBL_LIST_VALUE}</td>
+	<td scope="col" width="5%" ><slot>&nbsp;</td>
+	<td scope="col" width="5%" ><slot><img src="include/images/blank.gif?v={VERSION_MARK}" width="1" height="1" alt=""></slot></td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    	<td scope='row' valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot><a href='javascript:get_popup_new("{TRIGGER.PARENT_ID}","{TRIGGER.ID}", "{TRIGGER.ACTION}", "{TRIGGER.FRAME_TYPE}", "{TRIGGER.PLUGIN_MODULE}", "{TRIGGER.PLUGIN_ACTION}", "{TRIGGER.POPUP_WIDTH}", "{TRIGGER.POPUP_HEIGHT}")'>{TRIGGER.STATEMENT}</a></slot></td>
+    	<td scope='row' valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot>{TRIGGER.STATEMENT2}</slot></td>
+    	<td nowrap align="center" valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot><a href='javascript:get_popup_new("{TRIGGER.PARENT_ID}","{TRIGGER.ID}", "{TRIGGER.ACTION}", "{TRIGGER.FRAME_TYPE}", "{TRIGGER.PLUGIN_MODULE}", "{TRIGGER.PLUGIN_ACTION}", "{TRIGGER.POPUP_WIDTH}", "{TRIGGER.POPUP_HEIGHT}")'>{EDIT_INLINE_PNG}&nbsp;{APP.LNK_EDIT}</a></td>
+    	<td nowrap align="center" valign=TOP><slot><a class="listViewTdToolsS1" onclick="return confirm('{TRIGGER.REMOVE_TRIGGER_CONFIRM}')" href="{URL_PREFIX}index.php?action=Delete&module=WorkFlowTriggerShells&record={TRIGGER.ID}{RETURN_URL}">{DELETE_INLINE_PNG}&nbsp;{APP.LNK_REMOVE}</a></slot></td>
+</tr>
+<!-- END: row -->
+
+<script>
+    function get_popup_new(parent_id, record, action, frame_type, plugin_module, plugin_action, width, height){
+        if(plugin_module !='' && plugin_action !=''){
+            plugin_url_part = '&plugin_module=' + plugin_module + '&plugin_action=' + plugin_action;
+        } else {
+            plugin_url_part = '';
+        }
+        window.open('index.php?module=WorkFlowTriggerShells&frame_type=' + frame_type + '&action='+ action +'&sugar_body_only=true&workflow_id=' + parent_id + '&record=' + record + '' + plugin_url_part,'new','width=' + width + ',height=' + height + ',resizable=1,scrollbars=1');
+    }
+</script>
+
+</table>
+<!-- END: main -->

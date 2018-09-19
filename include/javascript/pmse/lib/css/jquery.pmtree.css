@@ -1,0 +1,57 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+.content_tree {
+    /*	background: #edf5fa;*/
+    width:300px;
+    margin: 0;
+    /*padding: 0;*/
+    /*font: 10px/100% Verdana, sans-serif;*/
+}
+
+.content_tree ul li, ul.tree-menu li, .item-list ul li, li.leaf {
+    /*padding: 0 0 .2em 1.5em;*/
+    list-style-type: none;
+    list-style-image: none;
+    margin-left: -15px;
+    /*background: transparent url(../img/menu-leaf.gif) no-repeat 1px .35em; *//* LTR */
+    /*list-style-image: none;*
+    /*background: transparent url(../img/menu-leaf.gif) no-repeat 1px .35em; /* LTR */
+}
+
+.content_tree ul, ol {
+    margin: 0 0 10px 25px;
+    padding: 0;
+}
+
+.content_tree ul > li {
+    line-height: 18px;
+}
+
+.tree_cat_close {
+    background-image:url(../img/menu-collapsed.gif);
+    background-repeat:no-repeat;
+    background-position:left;
+}
+.tree_cat_open {
+    background-image:url(../img/menu-expanded.gif);
+    background-repeat:no-repeat;
+    background-position:left;
+}
+.tree-folder-open {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background-image:url(../img/folder-horizontal.png);
+    background-repeat:no-repeat;
+    background-position:left;
+    margin-left: 3px;
+}

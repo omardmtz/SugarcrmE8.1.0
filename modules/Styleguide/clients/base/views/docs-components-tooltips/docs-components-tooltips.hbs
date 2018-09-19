@@ -1,0 +1,199 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- Tooltips
+================================================== -->
+<section id="tooltips">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span3 columns">
+      <h3>About Tooltips</h3>
+      <p>The Twitter Bootstrap Tooltip plugins doesn't rely on images, but uses css3 for animations, and data-attributes for local title storage.</p>
+      <p>The bootsrap-tooltip.js plugin is included in the default build of SugarCRM.</p>
+      <div class="alert alert-info">
+        <strong>Heads up!</strong> For performance reasons, the tooltip and popover data-apis are opt in, meaning <strong>you must initialize them yourself</strong>.
+      </div>
+    </div>
+    <div class="span9 columns">
+
+          <h2>Examples</h2>
+
+          <p>Hover over the links below to see tooltips:</p>
+          <div class="bs-docs-example tooltip-demo">
+            <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a rel="tooltip" title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a rel="tooltip" title="A much longer tooltip belongs right here to demonstrate the max-width we apply.">whatever keytar</a>, scenester farm-to-table banksy Austin <a rel="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.</p>
+          </div>
+
+          <h3>Four directions</h3>
+          <div class="bs-docs-example tooltip-demo">
+            <ul class="bs-docs-tooltip-examples">
+              <li><a rel="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</a></li>
+              <li><a rel="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</a></li>
+              <li><a rel="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</a></li>
+              <li><a rel="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</a></li>
+            </ul>
+          </div>
+
+
+          <h3>Tooltips in input groups</h3>
+          <p>When using tooltips and popovers with the Bootstrap input groups, you'll have to set the <code>container</code> (documented below) option to avoid unwanted side effects.</p>
+
+          <hr class="bs-docs-separator">
+
+
+          <h2>Basic Usage</h2>
+
+          <p>Markup elements:</p>
+          <pre class="prettyprint linenums">
+&lt;div id="example"&gt;
+  &lt;a rel="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;
+&lt;/div&gt;
+          </pre>
+          <p>Trigger the tooltip via JavaScript:</p>
+          <pre class="prettyprint linenums">
+$('#example').tooltip({selector: '[rel="tooltip"]'});
+$('[rel=tooltip]').tooltip();
+          </pre>
+
+
+          <h2>Sugar7 Implementation</h2>
+          <p>Markup elements (in .hbs):</p>
+          <pre class="prettyprint linenums">
+&lt;a class="btn btn-mini comment" rel="tooltip" data-title="Comment"&gt;
+    &lt;i class="fa fa-comment"&gt;&lt;/i&gt;
+&lt;/a&gt;
+          </pre>
+
+          <p>Initialize tooltip (in .js):</p>
+          <pre class="prettyprint linenums">
+    events: {
+        'mouseenter [rel="tooltip"]': 'showTooltip',
+        'mouseleave [rel="tooltip"]': 'hideTooltip'
+    },
+
+    showTooltip: function(e) {
+        this.$(e.currentTarget).tooltip("show");
+    },
+
+    hideTooltip: function(e) {
+        this.$(e.currentTarget).tooltip("hide");
+    },
+
+    unbindDom: function() {
+        // Unbind all tooltips on page
+        var unbindTooltips = _.bind(function(sel) {
+            this.$(sel).each(function() {
+                $(this).tooltip('destroy');
+            });
+        }, this);
+        unbindTooltips('[rel="tooltip"]');
+
+        app.view.Field.prototype.unbindDom.call(this);
+    }
+          </pre>
+      <div class="alert alert-info">
+        <strong>Heads up!</strong> Either use the "title" or "data-title" attribute on elements you wish to use tooltips. The "title" attribute is removed by tooltips.js and replace with "data-title-original".
+      </div>
+          <h3>Options</h3>
+          <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-animation=""</code>.</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">Name</th>
+               <th style="width: 100px;">type</th>
+               <th style="width: 50px;">default</th>
+               <th>description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>animation</td>
+               <td>boolean</td>
+               <td>true</td>
+               <td>apply a css fade transition to the tooltip</td>
+             </tr>
+             <tr>
+               <td>html</td>
+               <td>boolean</td>
+               <td>false</td>
+               <td>Insert html into the tooltip. If false, jquery's <code>text</code> method will be used to insert content into the dom. Use text if you're worried about XSS attacks.</td>
+             </tr>
+             <tr>
+               <td>placement</td>
+               <td>string | function</td>
+               <td>'top'</td>
+               <td>how to position the tooltip - top | bottom | left | right</td>
+             </tr>
+             <tr>
+               <td>selector</td>
+               <td>string</td>
+               <td>false</td>
+               <td>If a selector is provided, tooltip objects will be delegated to the specified targets.</td>
+             </tr>
+             <tr>
+               <td>title</td>
+               <td>string | function</td>
+               <td>''</td>
+               <td>default title value if `title` tag isn't present</td>
+             </tr>
+             <tr>
+               <td>trigger</td>
+               <td>string</td>
+               <td>'hover focus'</td>
+               <td>how tooltip is triggered - click | hover | focus | manual. Note you case pass trigger mutliple, space seperated, trigger types.</td>
+             </tr>
+             <tr>
+               <td>delay</td>
+               <td>number | object</td>
+               <td>0</td>
+               <td>
+                <p>delay showing and hiding the tooltip (ms) - does not apply to manual trigger type</p>
+                <p>If a number is supplied, delay is applied to both hide/show</p>
+                <p>Object structure is: <code>delay: { show: 500, hide: 100 }</code></p>
+               </td>
+             </tr>
+             <tr>
+               <td>container</td>
+               <td>string | false</td>
+               <td>false</td>
+               <td>
+                <p>Appends the tooltip to a specific element <code>container: 'body'</code></p>
+               </td>
+             </tr>
+            </tbody>
+          </table>
+          <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            Options for individual tooltips can alternatively be specified through the use of data attributes.
+          </div>
+
+          <h3>Methods</h3>
+          <h4>$().tooltip(options)</h4>
+          <p>Attaches a tooltip handler to an element collection.</p>
+          <h4>.tooltip('show')</h4>
+          <p>Reveals an element's tooltip.</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('show')</pre>
+          <h4>.tooltip('hide')</h4>
+          <p>Hides an element's tooltip.</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('hide')</pre>
+          <h4>.tooltip('toggle')</h4>
+          <p>Toggles an element's tooltip.</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('toggle')</pre>
+          <h4>.tooltip('destroy')</h4>
+          <p>Hides and destroys an element's tooltip.</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('destroy')</pre>
+
+    </div>
+  </div>
+</section>

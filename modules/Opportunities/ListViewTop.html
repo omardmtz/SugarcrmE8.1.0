@@ -1,0 +1,36 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+	<tr height="20">
+		<th scope="col"  scope="col"  width="40%"  nowrap><slot>{MOD.LBL_LIST_OPPORTUNITY_NAME}</slot></th>
+		<th scope="col"  width="25%"  nowrap><slot>{MOD.LBL_LIST_ACCOUNT_NAME}</slot></th>
+		<th scope="col"  width="15%"  nowrap><slot>{MOD.LBL_LIST_AMOUNT}</slot></th>
+		<th scope="col"  width="20%"  nowrap><slot>{MOD.LBL_DATE_CLOSED}</slot></th>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    			<td scope='row' valign=TOP><slot><{TAG.MAIN} href="{URL_PREFIX}index.php?action=DetailView&module=Opportunities&record={OPPORTUNITY.ID}"  >{OPPORTUNITY.NAME}</{TAG.MAIN}></slot></td>
+    			<td valign=TOP ><slot><{TAG.ACCOUNT} href="{URL_PREFIX}index.php?action=DetailView&module=Accounts&record={OPPORTUNITY.ACCOUNT_ID}"   >{OPPORTUNITY.ACCOUNT_NAME}</{TAG.ACCOUNT}></slot></td>
+    			<td valign=TOP><slot>{APP.LBL_CURRENCY_SYM}{OPPORTUNITY.AMOUNT}</slot></td>
+    			<td valign=TOP><slot>{OPPORTUNITY.DATE_CLOSED}</slot></td>
+</tr>
+
+<!-- END: row -->
+
+	</table>
+<!-- END: main -->

@@ -1,0 +1,39 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if hasAnchor}}
+    {{#if ellipsis}}
+        <div class="ellipsis_inline"{{#if dir}} dir="{{dir}}"{{/if}} rel="tooltip"
+             title="{{email_address}}{{#notEq flagLabel ''}} ({{flagLabel}}){{/notEq}}" data-placement="bottom">
+    {{/if}}
+        <a href="javascript:void(0);"{{#if opt_out}} class="opt-out"{{/if}} data-action="email"
+           data-email-address-id="{{email_address_id}}" data-email-to="{{email_address}}"
+           data-email-opt-out="{{opt_out}}" track="click:email_address">
+            {{email_address}}
+        </a>
+    {{#if ellipsis}}
+        </div>
+    {{/if}}
+{{else}}
+    {{#if invalid_email}}
+        <del rel="tooltip"{{#if dir}} dir="{{dir}}"{{/if}} title="{{email_address}} ({{flagLabel}})"
+             data-placement="bottom" class="{{#if ellipsis}}ellipsis_inline{{/if}}{{#if opt_out}} opt-out{{/if}}">
+            {{email_address}}
+        </del>
+    {{else}}
+        <span rel="tooltip"{{#if dir}} dir="{{dir}}"{{/if}}
+              title="{{email_address}}{{#notEq flagLabel ''}} ({{flagLabel}}){{/notEq}}" data-placement="bottom"
+              class="{{#if ellipsis}}ellipsis_inline{{/if}}{{#if opt_out}} opt-out{{/if}}">
+            {{email_address}}
+        </span>
+    {{~/if~}}
+{{/if~}}

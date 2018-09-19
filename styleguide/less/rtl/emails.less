@@ -1,0 +1,54 @@
+.email-recipients.fieldset {
+  .fieldset-field:not(.detail):first-child {
+    padding-right: 0;
+    padding-left: 72px;
+  }
+
+  .fieldset-field.detail {
+    padding-right: 20px;
+    padding-left: 12px;
+  }
+
+  .compose-recipient-options {
+    right: auto;
+    left: 12px;
+  }
+
+  .fieldset-field {
+    padding-right: 0;
+    padding-left: 12px;
+  }
+
+  .fieldset-label {
+    padding-right: 20px;
+    padding-left: 6px;
+  }
+}
+.email-compose .record div[data-type="name"] input[type="text"] {
+  padding-right: 20px;
+  padding-left: 12px;
+}
+
+.record {
+  div[data-type="email-recipients"] {
+    .controls.btn-fit {
+      .select2-container {
+        &.select2-choices-pills .select2-search-choice,
+        &.select2-container-multi.select2-choices-pills-close .select2-search-choice {
+          &.select2-choice-optout {
+            span::before {
+              content: '';
+            }
+
+            span::after {
+              content: @fa-var-ban;
+              font-family: 'FontAwesome';
+              color: @white;
+              padding-left: 3px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,651 @@
+/* MISC
+  ----------------*/
+
+ul.list {
+  list-style: none;
+  border-top: 2px solid @grayLighter;
+  padding: 0;
+  margin: 0 0 10px;
+
+  li {
+    list-style: none;
+    border-top: 1px solid @grayLighter;
+    padding: 10px 0;
+    margin: 0;
+  }
+}
+
+dl.list {
+  border-top: 2px solid @grayLighter;
+  padding: 0;
+  margin: 0 0 10px;
+
+  dt {
+    border-top: 1px solid @grayLighter;
+    padding: 10px 0 0;
+  }
+
+  dd {
+    padding: 0 0 10px;
+    margin: 0;
+  }
+}
+
+.dash h4 {
+  font-size: @fontSizeLarge;
+  font-weight: normal;
+}
+
+.dash .btn-toolbar.pull-right {
+  margin-top: 5px;
+}
+
+.main-pane .vcard2 {
+  z-index: 0;
+  position: relative;
+}
+
+.more,
+.less {
+  margin-left: 0;
+
+  &.padded {
+    padding: 8px 6px;
+    display: inline-block;
+  }
+
+  &:hover {
+    box-shadow: none;
+    color: @linkMore;
+    text-decoration: none;
+  }
+
+  .fa {
+    display: inline-block;
+    width: 1.25em;
+    text-align: center;
+  }
+
+  &:hover .fa {
+    text-decoration: none;
+  }
+}
+
+.main-content {
+  > div > div > .block-footer {
+    border-top: none;
+  }
+
+  .more.padded.btn-link {
+    display: inline-block;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 15px;
+    text-align: left;
+
+    &:hover {
+      text-decoration: none;
+      background: @dropdownLinkBackgroundHover;
+    }
+  }
+}
+
+.loading {
+  &.padded {
+    padding: 8px 14px;
+  }
+}
+
+.drag:hover {
+  cursor: move;
+}
+
+.dblclick input {
+  padding: 8px;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 80% !important;
+  margin: 0;
+  border: none;
+}
+
+img.pull-right {
+  margin: 0 0 8px 8px;
+}
+
+img.pull-left {
+  margin: 0 8px 8px 0;
+}
+
+.ui-sortable-helper {
+  opacity: 0.3;
+}
+
+.ui-sortable .ui-sortable-placeholder:first-child {
+  margin: 0;
+}
+
+.ui-sortable .ui-sortable-placeholder {
+  visibility: visible !important;
+  background: @grayLight;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1), inset 2px 2px 0 rgba(0, 0, 0, 0.05), inset -2px -2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui-sortable-placeholder * {
+  visibility: hidden;
+}
+
+.ui-draggable-dragging {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.4), -1px -1px 20px rgba(0, 0, 0, 0.1), 1px 1px 20px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.titlebar {
+  .buttonBackground(@white, @grayLight);
+
+  border-radius: @baseBorderRadius @baseBorderRadius 0 0;
+}
+
+.browser-support {
+  max-width: 100%;
+}
+
+/* Make tables spaced out a bit more */
+h2 + table,
+h3 + table,
+h4 + table,
+h2 + .row {
+  margin-top: 5px;
+}
+
+/* Fake the :focus state to demo it */
+.focused {
+  border-color: fade(@linkColor, 40%) !important;
+  outline: 0;
+}
+
+/* For input sizes, make them display block */
+.docs-input-sizes select,
+  .docs-input-sizes input[type=text] {
+  display: block;
+  margin-bottom: 9px;
+}
+
+.width-auto {
+  width: auto;
+}
+
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 54px 0;
+  background: darken(@grayLighter, 10%);
+  border: 0;
+}
+
+.filter_init.duplicates {
+  background: darken(@grayLighter, 5%);
+
+  article#search_option_.filter-body {
+    padding: 10px 10px 0;
+
+    & > div {
+      margin: 0;
+    }
+
+    &.new {
+      .removeme {
+        display: none;
+      }
+    }
+  }
+}
+
+.logo {
+  margin-left: 10px;
+  height: 24px;
+
+  img {
+    height: inherit;
+    vertical-align: middle;
+  }
+
+  #sugarcrm-logo {
+    .sc-left,
+    .sc-right,
+    .sc-top {
+      fill: #ccc;
+      stroke-width: 0;
+    }
+
+    .sc-top {
+      fill: #d1232a;
+    }
+
+    .sc-right,
+    .sc-light {
+      fill: #c8c7c1;
+    }
+
+    .sc-left,
+    .sc-dark {
+      fill: #2f2f2c;
+    }
+  }
+}
+
+.divleft {
+  border-left: @borderWidget;
+  padding-left: 2%;
+  margin-right: -2.3%;
+}
+
+.divleft .block {
+  margin-right: 15px;
+}
+
+.no-link {
+  text-decoration: none;
+  color: @textColor;
+  cursor: text;
+
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    color: @textColor;
+    cursor: text;
+  }
+}
+
+.toggle-link .dupcheck { margin-right: 5px; }
+
+#tutorial {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999998;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 1em @black, 0 0 1em @black;
+
+  .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: @black;
+    opacity: 0.4;
+  }
+
+  #highlight {
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    border: 3px solid @white;
+    position: absolute;
+
+    #highlight-text {
+      position: absolute;
+      width: 200px;
+      color: white;
+      font-size: 14px;
+      padding: 8px;
+      border-radius: 3px;
+      line-height: 1.25;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .text-container {
+    top: 15%;
+    position: absolute;
+    left: 50%;
+    width: 316px;
+
+    .text {
+      position: relative;
+      left: -50%;
+      font-size: 14px;
+      font-weight: normal;
+      text-align: center;
+      width: 100%;
+      border-radius: 3px;
+      background-color: @navbarBackground;
+      padding: 10px;
+      margin-left: -12px;
+      text-shadow: none;
+    }
+
+    .resource-list {
+      text-align: left;
+    }
+  }
+
+  #tutorial-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    .btn-group {
+      display: inline-block;
+    }
+
+    .btn {
+      min-width: 22px;
+      min-height: 34px;
+      line-height: 34px;
+      box-shadow: none;
+      border-color: @black;
+      background-color: @navbarBackground;
+      background-image: none;
+
+      & span {
+        margin-top: 3px;
+      }
+
+      &.done-btn {
+        min-width: 80px;
+      }
+    }
+
+    .disabled {
+      opacity: 1;
+      background-color: darken(@navbarBackground, 20%);
+      color: @navbarBackground;
+
+      .fa {
+        opacity: 0.2;
+      }
+    }
+  }
+}
+
+/* necessary for ipad to render layers properly UIUX-582 */
+#headerbar,
+.view-info {
+  position: relative;
+}
+
+.fa-spin {
+  display: inline-block;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+@-moz-keyframes spin {
+  0% { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(359deg); }
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(359deg); }
+}
+
+@-o-keyframes spin {
+  0% { -o-transform: rotate(0deg); }
+  100% { -o-transform: rotate(359deg); }
+}
+
+@-ms-keyframes spin {
+  0% { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(359deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+@-moz-document url-prefix() {
+  .fa-spin { height: 0.9em; }
+}
+
+.noaccess a {
+  i {
+    color: @linkColor;
+  }
+
+  &:hover i {
+    color: @linkColor !important;
+  }
+}
+
+.relativetime {
+  color: @grayLight;
+  font-size: @fontSizeSmall;
+  font-weight: normal;
+  display: inline-block;
+}
+
+.preview-headerbar,
+.headerpane {
+  &.shadow::after {
+    .headerpane-shadow; /* located in sugar/mixins.less */
+  }
+}
+
+#languageList {
+  display: inline-block;
+
+  .dropdown-menu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: auto;
+    right: 0;
+    bottom: 34px;
+    left: inherit;
+  }
+}
+
+.block-footer {
+  padding: 10px;
+  margin-bottom: 0;
+  text-align: center;
+  border-top: @borderWidgetLight;
+  .clearfix();
+
+  .btn {
+    margin: 0 auto !important;
+  }
+
+  a {
+    margin: 0 auto !important;
+    display: block;
+    cursor: pointer;
+    color: @textColor;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.leading-h1 {
+  padding-top: 40px;
+}
+
+.leading-h2 {
+  padding-top: 54px;
+}
+
+.leading-h3 {
+  padding-top: 54px;
+}
+
+.leading-h4 {
+  padding-top: 36px;
+}
+
+.controls.has-refresh {
+  &.btn-group-fit {
+    &.controls-two {
+      padding-right: 93px;
+    }
+
+    .btn-group {
+      &.refresh {
+        right: 60px;
+      }
+    }
+  }
+}
+
+.feedback.popover {
+  background: @white;
+  width: 370px;
+  font-size: small;
+
+  .popover-content {
+    padding: 12px 12px 6px;
+  }
+
+  .fa.fa-times.feedback-close {
+    color: @gray !important;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .fa.fa-times.feedback-close {
+    color: @gray !important;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .popover-title {
+    background: @white;
+    color: @gray;
+    border-bottom-color: lighten(@grayLight, 40%);
+  }
+
+  .controls.span12 {
+    margin-left: 0;
+
+    textarea {
+      width: 100%;
+      min-height: 70px;
+      box-sizing: border-box;
+    }
+  }
+
+  span.field-rating.edit {
+    text-align: center;
+    display: inherit;
+
+    > i {
+      font-size: 1.4em;
+      margin: 0 2px;
+      cursor: pointer;
+
+      &::before {
+        color: @blue;
+      }
+
+      &:hover {
+        &::before {
+          color: @linkColorHover;
+        }
+      }
+    }
+  }
+
+  .feedback-footer {
+    line-height: 2em;
+    margin-top: 10px;
+  }
+
+  aside {
+    margin-top: 10px;
+    line-height: 13px;
+    margin-bottom: 5px;
+    font-size: 11px;
+    color: @grayLight;
+    text-align: justify;
+  }
+}
+
+// RTL and left-aligned tooltips cause problems re-arranging words
+.force-ltr {
+  direction: ltr;
+}
+
+.force-rtl {
+  direction: rtl;
+}
+// Bidirectional fix
+.bidi-override {
+  unicode-bidi: bidi-override;
+}
+
+.bwc.layout,
+.bwc-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#bwc-frame {
+  border-width: 0;
+}
+
+/* NEW SKIN START */
+
+#tutorial {
+  .text-container {
+    .text {
+      /* override */
+      border: 1px solid @black;
+    }
+
+    .resource-list {
+      .resource-info {
+        /* override */
+        a {
+          color: @PrimaryButton;
+        }
+      }
+    }
+  }
+
+  #tutorial-controls {
+    .btn {
+      &.done-btn {
+        /* additive */
+        color: inherit;
+      }
+    }
+
+    .disabled {
+      /* override */
+      background-color: lighten(@grayLight, 25%);
+    }
+
+    /* additive */
+    :not(.disabled) {
+      .fa {
+        color: initial;
+      }
+    }
+  }
+}
+
+.vcard-import {
+  margin-left: @fluidGridGutterWidth;
+  margin-right: @fluidGridGutterWidth;
+
+  > div {
+    line-height: 30px;
+  }
+}
+
+/* NEW SKIN END */

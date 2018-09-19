@@ -1,0 +1,88 @@
+#!groovy
+
+podTemplate(
+    label: 'sidecar-pipeline',
+    containers: [
+        containerTemplate(
+            name: 'nodejs',
+            image: 'registry.sugarcrm.net/karma/karma',
+            ttyEnabled: true,
+            command: 'cat',
+            args: ''
+        ),
+    ]
+) {
+    node('sidecar-pipeline') {
+        ansiColor('xterm') {
+
+            stage('Pull/Merge') {
+                timeout(time: 1, unit: 'MINUTES') {
+                    pullRequestStatus(description: 'Pull/Merge') {
+                        checkout scm
+                    }
+                }
+            }
+
+            if (env.CHANGE_ID) {
+                stage('Commit Message Validation') {
+                    timeout(time: 3, unit: 'SECONDS') {
+                        pullRequestStatus(description: 'Commit Message Validation') {
+                            checkCommitTitleForJiraTicketNumber {}
+                        }
+                    }
+                }
+            }
+
+            stage('Build') {
+                container(name:'nodejs') {
+                    timeout(time: 2, unit: 'MINUTES') {
+                        pullRequestStatus(description: 'Build') {
+                            sh 'yarn install && node_modules/gulp/bin/gulp.js'
+                        }
+                    }
+                }
+            }
+
+            if (env.CHANGE_ID) {
+                stage('Enforce Coding Standards') {
+                    container(name:'nodejs') {
+                        timeout(time: 10, unit: 'SECONDS') {
+                            pullRequestStatus(description: 'Enforce Coding Standards') {
+                                sh """
+                                FILES_TO_LINT=`git diff --name-only remotes/origin/${env.CHANGE_TARGET} HEAD | grep \'.js\$\'| xargs echo | sed \'s/ /,/g\'`
+                                FILES_TO_LINT=`echo \$FILES_TO_LINT | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*\$//'`
+                                if [ ! -z \$FILES_TO_LINT ]; then
+                                    node_modules/gulp/bin/gulp.js lint --files \$FILES_TO_LINT
+                                fi
+                                """
+                            }
+                        }
+                    }
+                }
+            }
+
+            stage('Unit Tests') {
+                container(name:'nodejs') {
+                    timeout(time: 3, unit: 'MINUTES') {
+                        pullRequestStatus(description: 'Unit Tests') {
+                            sh """
+                            node_modules/gulp/bin/gulp.js karma --ci --coverage --path="$WORKSPACE" --browsers dockerChromeHeadless
+                            rm -rf node_modules
+                            cd karma/sidecar/coverage-html/ && mv HeadlessChrome* headless-chrome
+                            """
+                        }
+                    }
+                }
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'karma/sidecar/coverage-html/headless-chrome',
+                    reportFiles: 'index.html', reportName: 'Code Coverage Report'
+                ])
+                junit 'karma/sidecar/test-results.xml'
+            }
+
+        }  // ansi-color
+    }  // node
+}  // podTemplate

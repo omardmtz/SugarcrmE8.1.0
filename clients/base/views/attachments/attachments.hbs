@@ -1,0 +1,42 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if collection.dataFetched}}
+    <ul class="unstyled listed" data-action="pagination-body">
+    {{#each this.collection.models}}
+        <li>
+            <div class="actions pull-right">
+                {{#each ../../dashletConfig.rowactions}}
+                    {{field ../../../this model=../this}}
+                {{/each}}
+            </div>
+            {{#if attributes.filename}}
+                <span class="filetype-thumbnail pull-left" data-mime="{{attributes.file_mime_type}}"></span>
+            {{else}}
+                <div class="label label-module label-module-md label-{{../module}} pull-left">{{moduleIconLabel ../module}}</div>
+            {{/if}}
+            <p>
+                <a href="#{{buildRoute model=this}}">{{fieldValue this "name"}}</a>
+            </p>
+            <div class="details">
+                <date class="date">
+                    <a href="#{{buildRoute module="Employees" id=this.attributes.assigned_user_id action="detail"}}">{{this.attributes.assigned_user_name}}</a>&#44;
+                    {{relativeTime this.attributes.date_entered}}
+                </date>
+            </div>
+        </li>
+    {{/each}}
+    </ul>
+    {{#unless collection.length}}
+    <div class="block-footer">{{str "LBL_NO_DATA_AVAILABLE" this.module}}</div>
+    {{/unless}}
+{{/if}}

@@ -1,0 +1,203 @@
+div.record div.record-cell {
+  &:hover {
+    .record-edit-link .fa-pencil {
+      right: 0;
+    }
+  }
+
+  &[data-type="fieldset"] {
+    .normal > .fieldset {
+      &:not(.edit) .fieldset-field {
+        .address_city,
+        .address_state {
+          float: right;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  [dir=ltr] {
+    text-align: right;
+  }
+}
+
+.record {
+  .record-cell .record-label {
+    margin: 0 7px 0 0;
+  }
+  .record-cell[data-type="teamset"] {
+    .btn {
+      margin-right: 8px;
+      margin-left: 0;
+      right: auto;
+      left: 0;
+    }
+
+    .btn.second {
+      left: 36px;
+    }
+
+    .btn.third {
+      left: 72px;
+    }
+
+    .edit .control-group .controls-three {
+      padding-right: 0;
+      padding-left: 108px;
+    }
+  }
+  .record-cell[data-type="email"] {
+    .btn-group.prevent-mousedown {
+      margin-right: 8px;
+      margin-left: 0;
+    }
+
+    .edit .control-group {
+      padding-right: 0;
+      padding-left: 135px;
+    }
+
+    .edit .control-group .btn-toolbar {
+      right: auto;
+      left: 0;
+      margin: 0 5px 0 11px;
+    }
+
+    .control-group.email .btn-toolbar .btn-group {
+      float: right;
+    }
+
+    .opt-out::before {
+      content: @fa-var-ban;
+      font-family: 'FontAwesome';
+      position: absolute;
+      right: 1px;
+      top: 1px;
+    }
+
+    .opt-out {
+      position: relative;
+      padding-right: 16px;
+    }
+  }
+}
+
+.record .record-cell .normal > span.edit div[class^="flex-relate"] {
+  position: relative;
+}
+
+.record .record-cell[data-type="language"],
+  .record .record-cell[data-type="enum"],
+  .record .record-cell[data-type="relate"],
+  .record .record-cell[data-type="parent"],
+  .record .record-cell[data-type="teamset"] {
+  .input-append.error .add-on.error-tooltip {
+    left: 17px;
+    right: auto;
+  }
+}
+
+.record .record-cell .date.datetime {
+  .ui-timepicker-input,
+  .ui-timepicker-list {
+    margin-left: 0;
+    margin-right: -24px;
+  }
+
+  &.error {
+    .ui-timepicker-input,
+    .ui-timepicker-list {
+      margin-left: 0;
+      margin-right: -46px;
+    }
+  }
+}
+
+.record .record-cell .normal > .fieldset-inline.detail .ellipsis_inline {
+  padding: 5px 7px 5px 0;
+}
+.record .fieldset-inline.edit .fieldset-field[data-type="label"] {
+  padding-right: 4px;
+  padding-left: 12px;
+}
+
+.record .fieldset-inline .fieldset-field {
+  padding-right: 0;
+  padding-left: 8px;
+}
+
+/* NOTE, not going to work for single column or more than two column record view */
+div.record div.record-cell:not(:first-child) {
+  margin-right: @fluidGridGutterWidth;
+  margin-left: 0;
+}
+
+.more,
+.less {
+  margin-right: 0;
+}
+
+.subpanels-layout .subpanel-header h4 {
+  margin: 10px 0 8px;
+  padding-right: 0;
+}
+
+.subpanels-layout .subpanel-header .btn-toolbar {
+  padding-right: 0;
+  left: 0;
+}
+
+.subpanels-layout .subpanel-header .btn-toolbar> span[class^="panel-top"]:first-child {
+  float: right;
+}
+
+.subpanels-layout .subpanel-header .btn-toolbar > .btn-group {
+  margin-right: 16px;
+  margin-left: 8px;
+}
+
+.activitystream-posts-comments-container {
+  padding: 10px 52px 0 68px;
+
+  .avatar,
+  .label-module {
+    left: auto;
+    right: 10px;
+  }
+
+  .comments {
+    margin: 10px 0 0 -68px;
+
+    .comment > .avatar {
+      right: 2px;
+    }
+
+    .comment {
+      padding: 10px 37px 10px 10px;
+    }
+  }
+
+  .actions {
+    left: 10px;
+    right: auto;
+  }
+
+  .reply-area .reply-btn {
+    right: auto;
+    left: 7px;
+  }
+
+  .reply-area .reply-input {
+    margin: 0 -10px 0 -28px;
+  }
+}
+
+.activitystream-layout .omnibar .inputactions {
+  left: 6px;
+  right: auto;
+}
+
+.omnibar .sayit {
+  padding: 10px 10px 10px 60px;
+}

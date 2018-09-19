@@ -1,0 +1,981 @@
+/* for DC menu */
+
+.dcmenuFloat{
+    padding:0px;
+    position: fixed;
+    top: 0;
+    width:100%;
+}
+#globalLinksSubnav, #quickCreateULSubnav {
+    z-index: 20;
+}
+ul.megamenu, ul.moduleTabMore, ul.sf-sub-modulelist{
+    z-index:20;
+}
+
+.dcmenu{
+    .inner {
+        height: 44px;
+        min-width: 950px;
+        padding-right: 20px;
+        #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+        @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1), 0 4px 0 @red;
+        .box-shadow(@shadow);
+    }
+}
+
+#ie8GradientFix{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#20517c', endColorstr='#0d3a62');
+}
+#dcmenu ul.clickMenu { filter:none; }
+
+#dcboxtitle{
+    background-color:#000000;
+    border-left:2px solid blue;
+    border-right:2px solid blue;
+    color:blue;
+    height:50px;
+    padding:0px 10px 0px;
+
+}
+
+#dcboxbody{
+    height:110%;
+    font-size:6px !important;
+    min-width: 750px\9; /* ie hack, width must be defined or else it goes off the screen */
+    *width: 750px;
+}
+
+#dcboxbody.sugar_spot_search{
+    min-width:320px\9;
+    width: 320px\9; /* ie hack, width must be defined or else it goes off the screen */
+
+}
+
+// Navbar search
+.navbar-search {
+    position: relative;
+    float: left;
+    margin-top: 8px;
+    margin-bottom: 0;
+    .search-query {
+        padding: 4px 9px;
+        #font > .sans-serif(13px, normal, 1);
+        color: @grayLighter;
+        background: @white;
+        border: 1px solid #111;
+        @shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.15);
+        .box-shadow(@shadow);
+        .transition(none);
+
+    // Placeholder text gets special styles; can't be bundled together though for some reason
+        .placeholder(@grayLighter);
+
+    // Hover states
+        &:hover {
+            color: @white;
+            background-color: @grayLight;
+            background-color: rgba(255,255,255,.5);
+        }
+    // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
+        &:focus,
+        &.focused {
+            color: @grayDark;
+            text-shadow: 0 1px 0 @white;
+            background-color: @white;
+            border: 1px solid @gray;
+            outline: 0;
+        }
+    }
+}
+
+.navbar {
+
+    .btn,
+    .btn-group {
+        margin: 0 10px 0; // make buttons vertically centered in navbar
+    }
+    .btn-group .btn {
+        margin-top: 0; // then undo the margin here so we don't accidentally double it
+    }
+
+    .advanced .btn {
+        line-height: 19px;
+        height: 18px;
+        margin-right: 0px;
+    }
+
+
+
+}
+
+
+#dcboxbody div.buttons {
+
+}
+#dcboxbody .hd #dctitle {
+    float: left;
+    height: 38px
+}
+
+#dcboxbody .hd .close {
+    position: absolute;
+    right: 10px;
+    top:0px;
+}
+
+
+#dcmenushortcuts{
+    width:130px;
+    height:30px;
+    position:relative;
+    top:-2px;
+    float:left;
+    background-image:url('../../../../index.php?entryPoint=getImage&imageName=shortcutgrade.png');
+    color:white;
+    font-weight:bolder;
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+
+
+}
+
+#dcmenuitems img.icon,#dcmenuSugarCube img.icon, #glblSearchBtn img.icon {
+    border:0px;
+}
+
+#glblSearchBtn {
+
+}
+#glblSearchBtn .searchIconLink {
+
+}
+#glblSearchBtn .searchicon {
+    position: relative;
+    right:2px;
+}
+
+#dcmenuwrap{
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+}
+
+span.dcmenuitem{
+    height:100%;
+    color:black;
+}
+span.dcmenuitem:hover{
+    color:blue;
+}
+
+
+#dcmenuSugarCube{
+    float: right;
+    padding: 0px 0px 0 2px;
+    height: 43px;
+}
+
+#dcmenuUserIcon {
+    float: left;
+    padding: 0px 0px 0 2px;
+    height: 43px;
+}
+
+#dcmenuSugarCube:hover {
+    background-color:  @grayDark;
+}
+
+#notifDivider {
+    float: right;
+    margin-right: 0px;
+}
+
+#dcmenuUserIcon a{
+    width: 36px;
+    height: 43px;
+    background-repeat:no-repeat;
+    margin: 0 0 0 0;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    cursor:default;
+}
+
+#dcmenuSugarCube.none a.notice
+{
+    cursor: default;
+}
+#dcmenuSugarCube .dc_notif_icon, #dcmenuUserIcon .dc_notif_icon{
+    width:24px;
+    height:24px;
+    border:0px;
+    padding:0px;
+    background-position: center center;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    margin: 9px 5px 0px 5px;
+    border-radius: 2px;
+}
+
+#dcmenuSugarCube .notifCount{
+    font-weight:bold;
+    font-size:11px !important;
+    color:#FFFFFF;
+    position: relative;
+    text-align: center;
+    background-color: #CC0000;
+    border-radius: 2px;
+    width: 16px;
+    cursor: pointer;
+    padding: 1px;
+    width: 24px;
+    height:18px;
+    padding-top:6px;
+    top:8px;
+    margin:0px 5px;
+}
+
+
+#dcmenuContainer
+{
+    margin: 0 0 0 0;
+    padding: 0;
+    height: 44px;
+    float: left;
+}
+
+#dcmenuContainer ul
+{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+#dcmenuContainer ul li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#dcmenuContainer ul li a
+{
+
+    width: 50px;
+    height: 43px;
+/*background-image:url('../../../../index.php?entryPoint=getImage&imageName=dcMenuIconBarCenter.png');*/
+    background-repeat:repeat-x;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    color: #f5d7b4;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+#dcmenuContainer ul li a:hover
+{
+/*background-image:url('../../../../index.php?entryPoint=getImage&imageName=dcMenuIconBarCenterHover.png');*/
+    background-repeat:repeat-x;
+    top: -2px;
+    position: relative;
+}
+
+#dcmenuContainer a:active
+{
+}
+
+#dcmenuContainer li#active a
+{
+}
+
+
+/* for the main screen navigation tabs */
+#moduleList
+{
+    float: left;
+}
+
+
+/* jquery module menu */
+/*** ESSENTIAL STYLES ***/
+ul.moduleTabMore, ul.moduleTabMore *, ul.sf-sub-modulelist, ul.sf-sub-modulelist *,
+#moduleList .sf-menu, .sf-menu *, ul.megamenu, ul.megamenu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#moduleList .sf-menu, ul.megamenu {
+    line-height: 1.0;
+}
+
+#moduleList .sf-menu ul, ul.megamenu, ul.filter-menu {
+    position: absolute;
+    top: -999em;
+    width: 120px;
+}
+
+.moduleTabExtraMenu .listcontainer > ul,
+.moduleTabExtraMenu li:hover .listcontainer > ul,
+.moduleTabExtraMenu li:sfHover .listcontainer > ul,
+#moduleList .sf-menu .listcontainer > ul,
+#moduleList .sf-menu li:hover .listcontainer > ul,
+#moduleList .sf-menu li.sfHover .listcontainer > ul  {
+    position: relative;
+    box-shadow: none;
+    border: 0 none;
+    top: 0px;
+}
+
+#moduleList .sf-menu > li > ul {
+
+}
+
+#moduleList .sf-menu ul.megamenu, ul.megamenu {
+    width: 495px;
+}
+
+#moduleList .sf-menu ul li {
+    width: 100%;
+}
+
+#moduleList .sf-menu li:hover {
+    visibility: inherit; /* fixes IE7 'sticky bug' */
+}
+
+#moduleList .sf-menu li, ul.megamenu li {
+    float: left;
+    position: relative;
+}
+
+ul.megamenu a, ul.moduleTabMore a, ul.sf-sub-modulelist a,
+#moduleList .sf-menu a {
+    display: block;
+    position: relative;
+}
+
+#moduleList .sf-menu li:hover ul,
+#moduleList .sf-menu li.sfHover ul {
+    left: 0;
+    top: 43px; /* match top ul list item height */
+    z-index: 99;
+}
+
+#moduleList ul.sf-menu li:hover li ul,
+#moduleListul.sf-menu li.sfHover li ul {
+    top:			-999em;
+}
+
+#moduleList ul.sf-menu li:hover .megamenu li ul,
+#moduleList ul.sf-menu li.sfHover .megamenu li ul {
+    top: 0;
+    left: 0;
+}
+
+
+#moduleList ul.sf-menu li li:hover ul,
+#moduleList ul.sf-menu li li.sfHover ul {
+    left:			10em; /* match ul width */
+    top:			0;
+}
+
+
+
+#moduleList ul.sf-menu li li:hover li ul,
+#moduleList ul.sf-menu li li.sfHover li ul {
+    top:			-999em;
+}
+
+
+#moduleList ul.sf-menu li li li:hover ul,
+#moduleList ul.sf-menu li li li.sfHover ul {
+    left:			10em; /* match ul width */
+    top:			0;
+}
+
+
+
+
+
+/*** DEMO SKIN ***/
+#moduleList .sf-menu {
+    float: left;
+    width: 100%;
+}
+
+
+#moduleList .sf-menu li a, ul.megamenu li a, ul.moduleTabMore li a, ul.sf-sub-modulelist li a {
+    padding:  13px 12px;
+    line-height: 19px;
+    text-decoration:none;
+    font-size: 12px;
+    border-right: none;
+}
+
+#moduleList .sf-menu li a.more, ul.megamenu li a.more, ul.moduleTabMore li a.more, ul.sf-sub-modulelist li a.more {
+    float: left;
+}
+
+#moduleList .sf-menu li li a, ul.megamenu li li a, ul.moduleTabMore li a, ul.sf-sub-modulelist li a {
+    padding:  4px 10px;
+}
+
+#moduleList .sf-menu ul li a, ul.megamenu li a, ul.moduleTabMore li a, ul.sf-sub-modulelist li a {
+    color: #666;
+
+}
+
+ul.megamenu a,
+#moduleList .sf-menu a,
+#moduleList.sf-menu a:visited { /* visited pseudo selector so IE6 applies text colour*/
+    color: #FFF;
+}
+
+ul.megamenu, ul.megamenu li,
+ul.moduleTabMore, ul.moduleTabMore li, ul.sf-sub-modulelist li,
+#moduleList .sf-menu li ul li,
+#moduleList .sf-menu li ul {
+    background-color:		#fff;
+}
+
+ul.moduleTabMore, ul.sf-sub-modulelist,
+#moduleList .sf-menu li ul, ul.megamenu {
+//    .dropdownMinWidth();
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.2);
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    .border-radius(5px);
+    .box-shadow(0 5px 10px rgba(0,0,0,.2));
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    .border-radius(4px);
+
+}
+
+#moduleList .sf-menu > li > ul {
+    &:before {
+        content: '';
+        display: inline-block;
+        border-left:   7px solid transparent;
+        border-right:  7px solid transparent;
+        border-bottom: 7px solid #ccc;
+        border-bottom-color: rgba(0,0,0,.2);
+        position: absolute;
+        top: -7px;
+        left: 9px;
+    }
+    &:after {
+        content: '';
+        display: inline-block;
+        border-left:   6px solid transparent;
+        border-right:  6px solid transparent;
+        border-bottom: 6px solid @white;
+        position: absolute;
+        top: -6px;
+        left: 10px;
+    }
+
+}
+
+ul.megamenu,
+#moduleList .sf-menu li > ul {
+    padding: 10px 0px;
+}
+
+ul.sf-sub-modulelist,
+#moduleList .sf-menu li ul li ul {
+    border-top: 1px solid #999;
+}
+ul.megamenu .MMShortcuts li.sfHover div.megawrapper,
+ul.moduleTabMore li.sfHover div.megawrapper,
+#moduleList li.sfHover div.megawrapper,
+ul.sf-sub-modulelist li.sfHover div.megawrapper {
+    background: #fff;
+}
+
+
+ul.megamenu .MMShortcuts li.sfHover a.sf-with-ul,
+ul.moduleTabMore li.sfHover a.sf-with-ul,
+ul.sf-sub-modulelist li.sfHover > a.sf-with-ul{
+    color: #fff !important;
+    background-color:  @grayDark;
+}
+
+#globalLinksModule ul.clickMenu.SugarActionMenu li a:hover,
+ul.megamenu .MMShortcuts li.sfHover,
+ul.moduleTabMore li.sfHover,
+ul.sf-sub-modulelist li.sfHover,
+#moduleList .sf-menu li:hover,
+#moduleList .sf-menu li.sfHover,
+#moduleList .sf-menu li a:focus,
+#moduleList .sf-menu li a:hover,
+#moduleList .sf-menu li a:active {
+    background-color:  @grayDark; // "transparent" is default to differentiate :hover from .active
+    color: @white;
+    text-decoration: none;
+}
+
+#moduleList .sf-menu > li:hover,
+#moduleList .sf-menu > li.sfHover,
+#moduleList .sf-menu > li > a:focus,
+#moduleList .sf-menu > li > a:hover,
+#moduleList .sf-menu > li > a:active {
+    //text-shadow: 0 -1px 0 rgb(0,0,0);
+
+}
+
+ul.megamenu ul a:hover,
+ul.moduleTabMore li a:hover,
+ul.sf-sub-modulelist li a:hover,
+#moduleList .sf-menu ul a:focus,
+#moduleList .sf-menu ul a:hover,
+#moduleList .sf-menu ul a:active {
+    background-color: @dropdownLinkBackgroundHover;
+    color: #fff;
+    outline:		0;
+}
+
+#moduleList .sf-menu > li.current > a {
+    color: @white;
+    text-decoration: none;
+    background-color: @black;
+    @shadow: inset 0 -1px 0 rgba(0,0,0,.4);
+    .box-shadow(@shadow);
+    text-shadow: 0 -1px 0 rgb(0,0,0);
+    border-bottom: 4px solid darken(@red,15%);
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+#moduleList .sf-menu li.home a {
+    height: 28px;
+    padding: 9px 20px 7px 20px;
+}
+/*** arrows **/
+#moduleList .sf-menu a.sf-with-ul {
+    min-width: 1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+
+#moduleList .sf-sub-indicator {
+    position: absolute;
+    display: block;
+    right: .75em;
+    top: 1.05em; /* IE6 only */
+    width: 10px;
+    height: 10px;
+    text-indent:  -999em;
+    overflow: hidden;
+    background: url('(../../../../index.php?entryPoint=getImage&imageName=arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+
+#moduleList a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+    top: .8em;
+    background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+
+ul.moduleTabMore em,
+#moduleList .sf-menu li.moduleTabExtraMenu em {
+    overflow:hidden;
+    text-indent:-9999px;
+    background-image: url(../../../../index.php?entryPoint=getImage&imageName=tabDownArrowOff.png);
+    background-position: center center; /* close (minus) icon */
+    background-repeat: no-repeat;
+    width: 15px;
+    margin-left: 6px;
+    float: left;
+}
+ul.moduleTabMore,
+#moduleList .sf-menu li.moduleTabExtraMenu > ul {
+    width: 160px; /*more menu*/
+}
+
+ul.sf-sub-modulelist .selected,
+#moduleList .more .selected{
+    background-color: @dropdownLinkBackgroundHover;
+    color: #fff;
+}
+
+/* apply hovers to modern browsers */
+#moduleList a:focus > .sf-sub-indicator,
+#moduleList  a:hover > .sf-sub-indicator,
+#moduleList  a:active > .sf-sub-indicator,
+#moduleList  li:hover > a > .sf-sub-indicator,
+#moduleList  li.sfHover > a > .sf-sub-indicator {
+    background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+#moduleList .sf-menu ul .sf-sub-indicator {
+    background-position:  -10px 0;
+}
+
+#moduleList .sf-menu ul a > .sf-sub-indicator {
+    background-position:  0 0;
+}
+
+/* apply hovers to modern browsers */
+#moduleList .sf-menu ul a:focus > .sf-sub-indicator,
+#moduleList .sf-menu ul a:hover > .sf-sub-indicator,
+#moduleList  .sf-menu ul a:active > .sf-sub-indicator,
+#moduleList  .sf-menu ul li:hover > a > .sf-sub-indicator,
+#moduleList  .sf-menu ul li.sfHover > a > .sf-sub-indicator {
+    background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
+
+/*** shadows for all but IE6 ***/
+#moduleList .sf-shadow ul {
+    background: url('../images/shadow.png') no-repeat bottom right;
+    padding: 0 8px 9px 0;
+    -moz-border-radius-bottomleft: 17px;
+    -moz-border-radius-topright: 17px;
+    -webkit-border-top-right-radius: 17px;
+    -webkit-border-bottom-left-radius: 17px;
+}
+
+#moduleList .sf-shadow ul.sf-shadow-off {
+    background: transparent;
+}
+
+/*
+Mega Column Styles
+*/
+
+#moduleList .megawrapper, ul.megamenu .megawrapper {
+    float: left;
+}
+
+#moduleList .megacolumn, ul.megamenu .megacolumn {
+    width: 165px;
+    float: left;
+}
+#moduleList .rtl .megacolumn {
+    float:right;
+}
+#moduleList .rtl .megacolumn-content.divider, ul.megamenu.rtl .megacolumn-content.divider {
+    border-right: 0px;
+}
+#moduleList .rtl .MMLastViewed, #moduleList .rtl .MMFavorites {
+    display:none;
+}
+
+#moduleList .megacolumn-content, #moduleList .megacolumn-content.divider, ul.megamenu .megacolumn-content, ul.megamenu .megacolumn-content.divider {
+    overflow: hidden;
+}
+#moduleList .megacolumn-content.divider, ul.megamenu .megacolumn-content.divider {
+    border-right: 1px solid #ccc;
+}
+
+#moduleList .megacolumn-content p, ul.megamenu .megacolumn-content p {
+    margin-bottom: 16px;
+}
+#moduleList .sf-menu ul div.megacolumn-content ul li a,
+ul.megamenu div.megacolumn-content ul li a {
+    line-height:1.5;
+    padding-top:6px;
+    padding-bottom:6px;
+}
+
+#moduleList .megafooter, ul.megamenu .megafooter {
+    clear: both;
+    padding: 12px;
+}
+
+#moduleList .clearfloat, ul.megamenu .clearfloat {
+    clear: both;
+    height: 0;
+    line-height: 0.0;
+    font-size: 0;
+}
+
+ul.moduleTabExtraMenu .megawrapper ul.filterBy,
+ul.moduleTabExtraMenu .megawrapper ul.moduleTabMore,
+#moduleList .sf-menu ul .megawrapper ul.MMShortcuts,
+#moduleList .sf-menu ul .megawrapper ul.MMFavorites,
+#moduleList .sf-menu ul .megawrapper ul.MMLastViewed,
+#moduleList .sf-menu ul .megawrapper ul.filterBy,
+#moduleList .sf-menu ul .megawrapper ul.moduleTabMore {
+    background-image: none;
+    background-color: transparent;
+    position: relative;
+    top: auto;
+    width: 100%;
+    border: 0 none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    float: left;
+}
+
+#moduleList .sf-menu ul .megawrapper ul.filterBy li a {
+    width: auto;
+}
+
+ul.megamenu .megawrapper ul li,
+#moduleList .sf-menu ul .megawrapper ul li {
+    background-color: transparent;
+    color: #999999;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+}
+
+#moduleList .sf-menu ul .megawrapper ul li.groupLabel, ul.megamenu .megawrapper ul li.groupLabel {
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+ul.megamenu .megawrapper ul li a,
+#moduleList .sf-menu ul .megawrapper ul li a{
+    font-weight: normal;
+    padding: 4px 10px;
+    position: relative;
+}
+
+ul.megamenu .megawrapper ul li.groupLabel a ,
+#moduleList .sf-menu ul .megawrapper ul li a{
+    width: 145px;
+}
+
+
+#moduleList ul.sf-menu li.moduleTabExtraMenu li:hover > ul,
+#moduleList ul.sf-menu li.moduleTabExtraMenu li.sfHover > ul {
+    left: 160px; /*more menu*/
+    top: 0;
+}
+ul.megamenu.moduleTabExtraMenu, ul.moduleTabExtraMenu > li > div.megawrapper, ul.moduleTabExtraMenu > li > div.megawrapper > .megacolumn,
+#moduleList ul.sf-menu li.moduleTabExtraMenu > ul.megamenu > li > .megawrapper,
+#moduleList ul.sf-menu li.moduleTabExtraMenu > ul.megamenu > li > .megawrapper > .megacolumn {
+    width: 160px; /*more menu*/
+}
+
+#moduleList ul.sf-menu li.moduleTabExtraMenu ul.megamenu .megawrapper .megacolumn .megacolumn-content {
+    overflow: visible;
+}
+
+#moduleList ul.sf-menu li.moduleTabExtraMenu > ul.megamenu > li > .megawrapper > .megacolumn > .megacolumn-content > ul > li > a,
+#moduleList ul.sf-menu li.moduleTabExtraMenu > ul.megamenu > li > .megawrapper > .megacolumn > .megacolumn-content > .hoverscroll > .listcontainer > ul > li > a {
+    width: 140px; /*more menu*/
+}
+
+ul.megamenu .moduleTabExtraMenu, ul.megamenu .moduleTabGroupMenu
+#moduleList .moduleTabExtraMenu, #moduleList .moduleTabGroupMenu
+{
+    height: 43px;
+}
+
+
+#moduleList .menuHR, ul.moduleTabExtraMenu .menuHR {
+    border-top: 1px solid #DDDDDD;
+    margin: 10px 0;
+}
+
+ul.moduleTabMore .moduleMenuOverFlowLess .yuimenuitemlabel img, ul.moduleTabMore .moduleMenuOverFlowMore .yuimenuitemlabel img,
+#moduleList .moduleMenuOverFlowLess .yuimenuitemlabel img, #moduleList .moduleMenuOverFlowMore .yuimenuitemlabel img
+{
+    margin-left: 2px;
+    vertical-align: baseline;
+    opacity: 0.6;
+}
+ul.moduleTabMore .moduleMenuOverFlowLess .yuimenuitemlabel, ul.moduleTabMore .moduleMenuOverFlowMore .yuimenuitemlabel,
+#moduleList .moduleTabExtraMenu .moduleMenuOverFlowLess .yuimenuitemlabel, #moduleList .moduleTabExtraMenu .moduleMenuOverFlowMore .yuimenuitemlabel {
+    font-weight: normal;
+    color: #999;
+}
+ul#quickCreateULSubnav.showLess .moreOverflow,
+ul#quickCreateUL .showLess .moreOverflow,
+ul.moduleTabMore.showLess .moreOverflow,
+#moduleList .moduleTabExtraMenu.showLess .moreOverflow, #moduleList .moduleTabExtraMenu .flexMenuItems {
+    display: none;
+    visibility: hidden;
+}
+ul#quickCreateULSubnav.showMore .moreOverflow,
+ul.moduleTabMore.showMore li.moreOverflow, #moduleList ul.moduleTabMore.showMore li.moreOverflow, ul.moduleTabMore.showLess.hoverscroll .moreOverflow {
+    display:block;
+    visibility: visible;
+}
+
+ul.moduleTabMore.showMore .moduleMenuOverFlowMore, ul.moduleTabMore.showLess .moduleMenuOverFlowLess,
+ul#quickCreateUL .showMore .moduleMenuOverFlowMore, ul#quickCreateUL .showLess .moduleMenuOverFlowLess,
+ul#quickCreateULSubnav.showMore .moduleMenuOverFlowMore, ul#quickCreateULSubnav.showLess .moduleMenuOverFlowLess,
+#moduleList ul.moduleTabMore.showMore .moduleMenuOverFlowMore, #moduleList ul.moduleTabMore.showLess .moduleMenuOverFlowLess
+{
+    display: none !important;
+    visibilility: hidden !important;
+}
+
+
+#SpotResults {
+    font-weight:bold;
+}
+#SpotResults div{
+    font-size:14px;
+    font-weight:bold;
+
+}
+#SpotResults div small{
+    color: #0B578F;
+}
+
+#SpotResults a:hover{
+    color:gray;
+
+}
+#SpotResults small:hover{
+    cursor:pointer;
+    color:gray;
+
+}
+#SpotResults ul{
+    padding: 0px 10px 0px 0px;
+    margin-left:0px;
+}
+#SpotResults ul li{
+    margin-left:0px;
+    list-style-type:none;
+}
+
+#SpotResults li a
+{
+}
+
+#SpotResults li p.error
+{
+    padding-top: 10px;
+}
+
+#SpotResults li p.error a
+{
+    left: 0;
+    top: 0;
+}
+
+#dcmenuSearchDiv {
+    float:right;
+    height: 26px;
+    width: 275px;
+    position:relative;
+}
+
+#globalLinksModule {
+    float: right;
+    height: 43px;
+}
+
+
+#globalLinksModule:hover {
+    background-color:  @grayDark;
+}
+
+#globalLinksCtrl img{
+    border: 0px;
+}
+
+
+#quickCreate {
+    float: right;
+}
+
+#quickCreate ul.clickMenu {
+    background: none;
+    border: 0px none;
+    padding-right: 0px;
+    font-family: Arial;
+}
+
+
+#quickCreate ul.clickMenu > li {
+    width: 50px;
+    height: 43px;
+
+}
+#quickCreate ul.clickMenu li > span {
+    background: url(../../../../index.php?entryPoint=getImage&imageName=quick-create.png) no-repeat center center;
+    height: 43px;
+    width: 50px;
+}
+#globalLinksModule ul.clickMenu li:hover span,
+#quickCreate ul.clickMenu > li:hover {
+    background-color:  @grayDark; // "transparent" is default to differentiate :hover from .active
+    color: @white;
+    text-shadow: 0 -1px 0 rgb(0,0,0);
+}
+ul#globalLinksSubnav li { min-width: 120px;}
+ul#globalLinksSubnav, ul#quickCreateULSubnav,
+#quickCreate ul.clickMenu li ul.subnav, #globalLinksModule ul.clickMenu li ul.subnav{
+    top: 43px;
+    right: 0;
+    left: auto;
+    padding: 10px 0px;
+    border: 1px solid #999;
+    width: auto;
+}
+
+#quickCreate ul.clickMenu li ul.subnav {
+    width: auto;
+}
+
+#globalLinksSubnav li a, #quickCreateULSubnav li a,
+#quickCreate ul.clickMenu li ul.subnav li a, #globalLinksModule ul.clickMenu li ul.subnav li a {
+    padding: 4px 10px !important;
+    color: #666666;
+    line-height: 1.45;
+}
+#quickCreateULSubnav li.moduleMenuOverFlowLess a, #quickCreateULSubnav li.moduleMenuOverFlowMore a,
+#quickCreate ul.clickMenu li ul.subnav li.moduleMenuOverFlowMore a, #quickCreate ul.clickMenu li ul.subnav li.moduleMenuOverFlowLess a {
+    color: #999 !important;
+}
+
+#quickCreate ul.clickMenu li ul.subnav li a:hover, #globalLinksModule ul.clickMenu li ul.subnav li a:hover, #quickCreate ul.clickMenu li ul.subnav li.moduleMenuOverFlowMore a:hover, #quickCreate ul.clickMenu li ul.subnav li.moduleMenuOverFlowLess a:hover {
+    color: #fff !important;
+}
+
+
+
+
+#quickCreate ul.clickMenu li ul.subnav li.moduleMenuOverFlowMore a img, #quickCreate ul.clickMenu li ul.subnav li.moduleMenuOverFlowLess a img
+{
+    opacity: .6;
+}
+#profileThumb {
+    max-width: 24px; max-height: 24px;
+    margin-right: 10px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#searchDivider {
+    float: right;
+    margin: 0px;
+}
+
+// FIXED NAVBAR -from styleguide
+// ------------
+
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: @zindexFixedNavbar;
+}
+.navbar-fixed-top .navbar-inner {
+    padding-left:  0;
+    padding-right: 0;
+    .border-radius(0);
+}

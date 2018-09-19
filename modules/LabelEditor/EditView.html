@@ -1,0 +1,45 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td><input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > &nbsp;<input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" type="submit" name="button" onclick="document.getElementById('action').value=document.getElementById('return_action').value;document.getElementById('return_module').value=document.getElementById('return_module').value;" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  " ></td>
+	<td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	<td align='right'>{ADMIN_EDIT}</td>
+</tr>
+</table>
+
+<input type="hidden" name="module" id='module' value="LabelEditor">
+<input type="hidden" name="action" id='action' value="Save">
+<input type="hidden" name="return_module" id='return_module' value="LabelEditor">
+<input type="hidden" name="return_action" id='return_action' value="LabelList">
+<input type="hidden" name="module_name" value="{MODULE_NAME}">
+<input type="hidden" name="style" value="{STYLE}">
+<input type="hidden" name="sugar_body_only" value="{SUGAR_BODY_ONLY}">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+	<td scope="row">{MOD.LBL_KEY} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></td>
+	<td><input type="text" name="record" value = '{KEY}' {NO_EDIT}/></td>
+	<!-- BEGIN: popup -->
+	</tr><tr>
+	<!-- END: popup -->
+	<td scope="row">{MOD.LBL_VALUE} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></td>
+	<td><input type="text" name="value" value='{VALUE}'/></td>
+
+</tr>
+</table>
+</form>
+<!-- END: main -->

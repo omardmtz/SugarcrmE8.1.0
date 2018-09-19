@@ -1,0 +1,53 @@
+/* Body and structure
+-------------------------------------------------- */
+body {
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body.scroll {
+  overflow: auto;
+}
+
+.link {
+  margin-top: 6px;
+  display: inline-block;
+}
+
+a {
+  cursor: pointer;
+}
+
+//Space out sub-sections more
+section {
+  padding-top: 42px;
+}
+
+/* NEW SKIN START */
+
+body {
+  /* additive */
+  color: initial;
+  background: @contentBackground;
+}
+
+/* additive (move to form) */
+label,
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* additive (move to type) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/* NEW SKIN END */

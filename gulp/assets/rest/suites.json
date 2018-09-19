@@ -1,0 +1,5 @@
+{
+    "dashboards": [
+        "tests/rest/modules/Dashboards/**/*.js"
+    ]
+}

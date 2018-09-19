@@ -1,0 +1,54 @@
+/**********
+*  Axis
+*/
+.sc-axis {
+  path,
+  line,
+  polyline {
+    fill: none;
+    stroke: @chartTickColor;
+    stroke-width: @chartTickWidth;
+    shape-rendering: crispEdges;
+    pointer-events: none;
+  }
+
+  line,
+  polyline {
+    stroke-opacity: 0.3;
+  }
+
+  path,
+  line.zero {
+    stroke-opacity: 0.5;
+    stroke-width: 2px;
+  }
+
+  path.domain {
+    stroke-width: 2px;
+    stroke: #bbb;
+  }
+
+  line.extent {
+    display: none;
+  }
+
+  .sc-axisMaxMin text {
+    font-weight: bold;
+  }
+}
+
+.sc-axis-x .sc-axis {
+  text {
+    font-size: @chartTextSize;
+  }
+
+  path.domain {
+    stroke-width: 2px;
+    stroke: #bbb;
+  }
+}
+
+.sc-chart text.sc-axislabel {
+  font-weight: 900;
+  font-style: italic;
+}

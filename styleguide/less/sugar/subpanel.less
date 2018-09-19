@@ -1,0 +1,185 @@
+/* SUBPANEL
+  ----------------*/
+.subpanels-layout {
+  .subpanel {
+    &.closed {
+      .subpanel-list {
+        display: none;
+      }
+    }
+
+    &.empty {
+      .label {
+        border: 1px solid @subpanelDisabledHeaderColor;
+        background: transparent;
+        color: @subpanelDisabledHeaderColor;
+      }
+
+      h4 {
+        color: @subpanelDisabledHeaderColor;
+      }
+
+      .count {
+        color: @subpanelDisabledHeaderColor;
+      }
+    }
+
+    tbody {
+      border-bottom: 1px solid darken(@grayLighter, 10%);
+    }
+
+    .more {
+      height: 42px;
+      border-bottom: @borderWidget !important;
+      background-color: @white;
+    }
+
+    .block-footer {
+      border-bottom: @borderWidget;
+    }
+
+    .list-view {
+      overflow: visible;
+    }
+  }
+
+  .subpanel-header {
+    height: 42px;
+    display: block;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: darken(@grayLighter, 2%);
+    }
+
+    h4 {
+      line-height: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 10px 0 8px;
+    }
+
+    .panel-field {
+      margin: 13px 0 11px;
+      padding-left: 5px;
+    }
+
+    .label-module {
+      margin: 9px 10px;
+    }
+
+    a.btn {
+      width: 28px;
+      box-sizing: border-box;
+    }
+
+    .btn-toolbar {
+      margin: 7px 0 0;
+      padding-left: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      //needed for iPad (dont' remove)
+      & > span[class^="panel-top"]:first-child {
+        float: left;
+      }
+      //for revenue line item
+      & > span[class^="panel-top"].panel-top:first-child:last-child {
+        margin-right: 79px;
+      }
+
+      > .btn-group {
+        margin-left: 16px;
+        margin-right: 8px;
+        position: relative;
+
+        &.open {
+          z-index: 999999;
+        }
+      }
+    }
+
+    .a11y-wrapper {
+      height: 42px;
+      width: calc(~"100% - 1px");
+      box-sizing: border-box;
+
+      &:focus {
+        // Default
+        outline: 3px solid #589bda;
+        // Firefox
+        outline: 3px auto -moz-mac-focusring;
+        // Webkit
+        outline: 3px auto -webkit-focus-ring-color;
+        outline-offset: -3px;
+      }
+    }
+  }
+
+  &.ui-sortable {
+    .label-module {
+      cursor: move;
+    }
+
+    .subpanel-header {
+      cursor: move;
+    }
+  }
+}
+
+.main-content .filtered .results {
+  margin-bottom: 0;
+}
+
+.subpanel {
+  .flex-list-view {
+    border-top: 0;
+
+    .dataTable {
+      td:last-child :not(.btn-group) > span > .rowaction.btn {
+        float: right;
+      }
+    }
+  }
+
+  &.closed .flex-list-view {
+    display: none;
+  }
+}
+
+/* NEW SKIN START */
+
+.subpanels-layout {
+  .subpanel {
+    /* override with variable */
+    background-color: @subpanelBackground;
+
+    &.closed {
+      /* override */
+      background-color: @subpanelClosedBackground;
+    }
+  }
+
+  .subpanel-header {
+    /* override */
+    border-bottom: 1px solid @white;
+
+    h4 {
+      /* override */
+      font-weight: bold;
+
+      /* additive */
+      font-size: @fontSizeMedium + 1;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      /* override */
+      background-color: @subpanelHoverBackground;
+    }
+  }
+}
+
+/* NEW SKIN END */

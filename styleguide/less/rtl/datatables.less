@@ -1,0 +1,311 @@
+.sorting_asc span,
+.sorting_desc span,
+.sorting span {
+  margin-left: 16px;
+  margin-right: 0;
+}
+
+.sorting_asc span::after,
+.sorting_desc span::after,
+.sorting span::after {
+  right: auto;
+  left: 0;
+}
+
+table.dataTable {
+  th.sorting_asc,
+  th.sorting_desc,
+  th.sorting {
+    span {
+      padding-right: 0;
+      padding-left: 8px;
+      margin-left: 0;
+      margin-right: -8px;
+    }
+
+    > div {
+      margin-right: 8px;
+      margin-left: 0;
+    }
+  }
+}
+
+.flex-list-view {
+  &.right-actions {
+    &.scroll-width {
+      .dataTable {
+        th:last-child {
+          border-right: none;
+
+          .dropdown,
+          > span {
+            left: 0;
+            right: auto;
+            border-right: @tableBorder;
+            border-left: 0;
+
+            &::before {
+              right: -5px;
+              left: auto;
+              #gradient > .horizontal(rgba(0,0,0,0.1), rgba(255,255,255,0));
+            }
+          }
+        }
+
+        td:last-child > span {
+          border-right: @tableBorder;
+          border-left: 0;
+          left: 0;
+          right: auto;
+
+          &::before {
+            right: -5px;
+            left: auto;
+            #gradient > .horizontal(rgba(0,0,0,0.1), rgba(255,255,255,0));
+          }
+
+          .btn.rowaction {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      }
+    }
+
+    &:not(.scroll-width) .dataTable td:last-child > span {
+      left: 0;
+      right: auto;
+
+      .btn.rowaction {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+
+  &.left-actions {
+    .dataTable {
+      th:first-child,
+      td:first-child {
+        > span {
+          left: auto;
+          right: 0;
+        }
+      }
+
+      th:last-child,
+      td:last-child {
+        > span,
+        .dropdown {
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+
+    &.scroll-width {
+      .dataTable {
+        th:first-child {
+          border-left: none;
+
+          > span {
+            border-right: 0;
+            border-left: @tableBorder;
+
+            &::after {
+              left: -5px;
+              right: auto;
+              #gradient > .horizontal(rgba(255,255,255,0), rgba(0,0,0,0.1));
+
+              background-color: transparent;
+            }
+          }
+        }
+
+        td:first-child {
+          > span {
+            border-right: 0;
+            border-left: @tableBorder;
+
+            &::after {
+              left: -5px;
+              right: auto;
+              #gradient > .horizontal(rgba(255,255,255,0), rgba(0,0,0,0.1));
+
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.scroll-width {
+    th:nth-last-child(2) {
+      border-left: none;
+    }
+  }
+  // Forecasts - both Mgr/Rep Wkst
+  &.forecast-worksheet,
+  &.forecast-manager-worksheet {
+    &.right-actions .dataTable {
+      // field name dropdown text alignment
+      .morecol .dropdown-menu.left button {
+        text-align: right;
+      }
+      // ... Column
+      td:last-child,
+      th:last-child {
+        .dropdown,
+        > span {
+          left: 0;
+          right: auto;
+        }
+      }
+      // ... Column
+      th:last-child {
+        padding: 0 8px;
+      }
+    }
+
+    .dataTable {
+      td {
+        // pencil icon
+        &.editableColumn span.isEditable:hover .edit-icon {
+          position: absolute;
+          right: -4px;
+          top: 7px;
+        }
+      }
+    }
+  }
+
+  &.forecast-manager-worksheet .dataTable {
+    // commit history row drawer
+    tr[name$="_commit_history"] td:first-child:last-child .list {
+      text-align: right;
+    }
+  }
+
+  &.forecast-worksheet .dataTable {
+    tr.included td {
+      // commit stage "Include"/"Exclude"
+      &.commit_stage_field {
+        > span.list::before {
+          display: none;
+        }
+
+        > span.list::after {
+          width: 6px;
+          background-color: @blue;
+          position: absolute;
+          height: 30px;
+          right: -1px;
+          content: "";
+          top: -2px;
+        }
+
+        > span:hover::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.right-actions .dataTable td .actions .dropdown-menu {
+    text-align: right;
+  }
+  // for Currencies List view
+  .defaultCurrencyLabel::after {
+    content: "\200E‎";
+  }
+}
+
+.dataTable {
+  th {
+    border-left: @tableBorder;
+    border-right: 0;
+  }
+
+  td,
+  th {
+    text-align: right;
+
+    .dropdown-menu {
+      text-align: right;
+    }
+  }
+
+  th:last-child {
+    border-left: none;
+  }
+
+  td {
+    &[data-type="currency"] {
+      span.error {
+        input {
+          padding-left: 26px;
+        }
+      }
+    }
+
+    &[data-type="email"] {
+      .opt-out::before {
+        content: @fa-var-ban;
+        font-family: 'FontAwesome';
+        position: absolute;
+        right: 1px;
+        top: 1px;
+      }
+
+      .opt-out {
+        position: relative;
+        padding-right: 16px;
+      }
+    }
+  }
+}
+
+.table-striped {
+  th,
+  td {
+    text-align: right;
+  }
+}
+
+.tr-inline-edit {
+  .input-append.date.datetime {
+    .ui-timepicker-input {
+      margin-left: 0;
+      margin-right: -24px;
+    }
+  }
+
+  td:last-child {
+    .edit {
+      > a.btn {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.morecol .dropdown-menu {
+  right: initial;
+  left: 20px;
+
+  button {
+    text-align: right;
+    padding-right: 30px;
+    padding-left: 10px;
+
+    .fa {
+      margin-right: -22px;
+      margin-left: 5px;
+    }
+  }
+}
+
+div.audit-email div.ellipsis_inline + a {
+  float: left;
+}

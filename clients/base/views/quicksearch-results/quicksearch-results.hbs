@@ -1,0 +1,46 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="typeahead-wrapper"><ul class="typeahead dropdown-menu search-results">
+{{#if collection.models}}
+    {{#each collection.models}}
+        <li class="search-result">
+            {{#if viewAccess}}<a href="#{{buildRoute model=this}}" tabindex="-1">{{else}}<div class="qs-row">{{/if}}
+                {{#if ../layout.v2}}
+                    {{partial 'row' ../../this view=../../this model=this module=module}}
+                {{else}}
+                    <span class="label label-module label-module-mini label-{{module}}" title="{{getModuleName module plural=true}}">
+                        {{moduleIconLabel module}}
+                    </span>{{name}}{{#if field_name}}, {{field_name}}: {{field_value}}{{/if}}
+                {{/if}}
+            {{#if viewAccess}}</a>{{else}}</div>{{/if}}
+        </li>
+    {{/each}}
+    {{#notEq collection.next_offset "-1"}}
+        <li class="view-all-results ellipsis_inline" data-placement="bottom" title="" data-original-title="">
+            {{#if ../layout.v2}}
+            <a href="#{{searchLink}}" tabindex="-1">{{str "LNK_SEARCH_FTS_VIEW_ALL"}}</a>
+            {{else}}
+            <a href="#bwc/index.php?module=Home&append_wildcard=true&action=spot&full=true&q={{collection.query}}&m={{collection.module_list_string}}" tabindex="-1">{{str "LNK_SEARCH_FTS_VIEW_ALL"}}</a>
+            {{/if}}
+        </li>
+    {{/notEq}}
+{{else}}
+        <li class="no-results ellipsis_inline" data-placement="bottom" title="" data-original-title="">
+            {{#if collection.dataFetched}}
+                {{str 'LNK_SEARCH_NO_RESULTS'}}
+            {{else}}
+                {{loading 'LBL_SEARCH_UNDERWAY'}}
+            {{/if}}
+        </li>
+{{/if}}
+</ul></div>

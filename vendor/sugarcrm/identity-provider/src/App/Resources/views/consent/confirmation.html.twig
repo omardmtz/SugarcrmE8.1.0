@@ -1,0 +1,25 @@
+{% extends "index.html.twig" %}
+
+{% block content %}
+    <div class="login__header">
+        <h3 class="brand">SugarCRM</h3>
+    </div>
+    <div class="login__body" style="max-width: 500px;">
+        <h3>App "{{ client }}" wants to get access to your information:</h3>
+        <div style="display: block; padding-left: 15px;">
+            <ul>
+                {% for item in scope  %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="login__footer">
+
+        <a href="{{ url('consentFinish') }}" id="consent_continue_btn"
+           class="btn btn--primary btn--large fast-click-highlighted" track="click:consent_">Ok</a>
+        <a href="{{ url('consentCancel') }}" id="consent_cancel_btn" tabindex="5"
+           class="btn btn--primary btn--large fast-click-highlighted" track="click:external_login">Cancel</a>
+
+    </div>
+{% endblock %}

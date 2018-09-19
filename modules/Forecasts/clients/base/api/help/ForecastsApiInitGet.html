@@ -1,0 +1,131 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">ForecastsApi - init</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to return initialization data for the Forecasts module.
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td colspan="3">This endpoint does not accept any parameters.</td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+</div>
+<div class="output">
+<h2>Output Example:</h2>
+<code class="codesample">
+{
+    "initData":
+    {
+        "selectedUser":
+        {
+            "preferences":
+            {
+                "timezone":"GMT",
+                "datepref":"m\/d\/Y",
+                "timepref":"h:ia",
+                "currency_id":"-99",
+                "currency_name":"US Dollars",
+                "currency_symbol":"$",
+                "currency_iso":"USD",
+                "currency_rate":1,
+                "decimal_precision":"2",
+                "decimal_separator":".",
+                "number_grouping_separator":",",
+                "language":"en_us",
+                "default_teams":
+                [{
+                    "id":1,
+                    "display_name":"Global",
+                    "name":"Global",
+                    "name_2":"",
+                    "primary":true
+                }]
+            },
+            "module_list":
+            [
+                "Home",
+                "Accounts",
+                "Contacts",
+                "Opportunities",
+                "Leads","Calendar",
+                "Reports",
+                "Quotes",
+                "Documents",
+                "Emails",
+                "Campaigns",
+                "Calls",
+                "Meetings",
+                "Tasks",
+                "Notes",
+                "Forecasts",
+                "Cases",
+                "Prospects",
+                "ProspectLists",
+                "Bugs",
+                "Employees"
+            ],
+            "type":"user",
+            "id":"seed_jim_id",
+            "full_name":"Jim Brennan",
+            "user_name":"jim",
+            "picture":"46d1fbfb-c258-ce81-fa3a-50f809925709",
+            "acl":
+            {
+                "Forecasts":{"fields":[],"admin":"no","_hash":"095777549714234c8192a7a7963c38b8"},
+                "ForecastWorksheets":{"fields":[],"admin":"no","_hash":"095777549714234c8192a7a7963c38b8"},
+                "ForecastManagerWorksheets":{"fields":[],"admin":"no","_hash":"095777549714234c8192a7a7963c38b8"},
+            },
+            "my_teams":
+            [
+                {"id":"8833dfef-c1f4-e8b3-ca3b-50f8093616be","name":"Chris Olliver"},
+                {"id":"East","name":"East"},{"id":1,"name":"Global"},
+                {"id":"4ae6baba-f356-7374-7eb4-50f809745551","name":"Jim Brennan"},
+                {"id":"707a642a-710b-37f1-88f6-50f8098205c0","name":"Max Jensen"},
+                {"id":"63308ab9-f663-bae8-90a5-50f80951c0fe","name":"Sally Bronsen"},
+                {"id":"5776c705-8e6e-4bfc-44e5-50f809d12c0e","name":"Sarah Smith"},
+                {"id":"West","name":"West"},
+                {"id":"7cf7ee0b-f88e-b566-d4d3-50f809dcb717","name":"Will Westin"}
+            ],
+            "showOpps":false,
+            "first_name":"Jim",
+            "last_name":"Brennan",
+            "admin":"yes"
+        },
+        "forecasts_setup":1
+    },
+    "defaultSelections":
+    {
+        "timeperiod_id":
+        {
+            "id":"a2ab9ad3-2101-36f8-7ba3-50f809b3b62c",
+            "label":"Q1 (01\/01\/2013 - 03\/31\/2013)"
+        },
+            "ranges":["include"],
+            "group_by":"forecast",
+            "dataset":"likely"
+        }
+    }
+}
+</code>
+</div>

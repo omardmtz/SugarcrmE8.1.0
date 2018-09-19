@@ -1,0 +1,646 @@
+@smallTreeFont: 12px;
+@smallTreeHeight: 14px;
+@folderTreeColor: #47484a;
+//mixin
+.smallTreeLi {
+  margin-left: 18px;
+  padding: 1px 0;
+  line-height: @smallTreeHeight;
+  min-height: @smallTreeHeight;
+  font-size: @smallTreeFont;
+  display: table;
+}
+
+.smallTreeA {
+  line-height: @smallTreeHeight;
+  height: @smallTreeHeight;
+  min-height: @smallTreeHeight;
+  font-size: @smallTreeFont;
+  border-top: 0;
+}
+//.mixin
+.jstree-sugar {
+  &.tree-component {
+    padding: 0 8px;
+
+    ul {
+      li {
+        padding: 5px 0;
+        white-space: inherit;
+
+        &:nth-last-child(1) {
+          border-bottom: none;
+        }
+
+        &.jstree-leaf > ins {
+          &::before {
+            content: "\f114";
+          }
+
+          &.leaf::before {
+            content: "\f15c";
+          }
+        }
+      }
+    }
+
+    li > a {
+      padding: 0;
+      display: inline-table;
+      color: @folderTreeColor !important;
+    }
+
+    ins {
+      &::before {
+        display: inline;
+      }
+
+      &.jstree-icon {
+        padding: 5px;
+        color: @folderTreeColor !important;
+      }
+    }
+
+    li {
+      &.jstree-leaf {
+        a {
+          ins {
+            &.jstree-icon {
+              padding-right: 8px;
+            }
+          }
+        }
+      }
+
+      &.jstree-open,
+      &.jstree-closed,
+      &.jstree-leaf {
+        input {
+          &.jstree-rename-input {
+            top: 6px !important;
+            left: 34px !important;
+            padding-left: 5px !important;
+          }
+        }
+      }
+    }
+
+    &.btn-group {
+      padding-right: 6px;
+    }
+
+    a {
+      &.jstree-clicked {
+        color: #036 !important;
+      }
+
+      &.btn {
+        &.jstree-contextmenu,
+        &.jstree-addnode {
+          padding: 4px;
+        }
+      }
+
+      &.jstree-search {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#vakata-contextmenu {
+  border-radius: 3px;
+
+  li {
+    a {
+      color: @folderTreeColor !important;
+
+      ul {
+        background: @white;
+        border-radius: 3px;
+      }
+    }
+
+    &.jstree-contextmenu-disabled {
+      a {
+        color: #aaa !important;
+      }
+    }
+  }
+
+  ul {
+    background: @white;
+    border-radius: 3px;
+  }
+}
+
+#vakata-dragged {
+  ins {
+    background: transparent !important;
+    font-size: 16px;
+
+    &.jstree-ok {
+      &::before {
+        font-family: FontAwesome;
+        content: "\f00c";
+      }
+    }
+
+    &.jstree-invalid {
+      &::before {
+        font-family: FontAwesome;
+        content: "\f00d";
+      }
+    }
+  }
+}
+
+#jstree-marker {
+  background: url("@{baseUrl}/img/d.png") -41px -57px no-repeat !important;
+  text-indent: -100px;
+  margin-left: -18px !important;
+}
+
+#jstree-marker-line {
+  margin-left: -18px !important;
+}
+
+.parenttree {
+  width: 100%;
+  height: 28px;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 22px;
+  background-color: @white;
+  border-radius: 3px;
+
+  &.error {
+    border-color: @error;
+
+    .divinput {
+      color: @error;
+    }
+
+    .clear-field {
+      right: 36px;
+    }
+  }
+
+  border: 1px solid @btnBorder;
+
+  .divinput {
+    display: block;
+    width: 100%;
+    height: 26px;
+    padding: 0 34px 0 6px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: @gray;
+    line-height: 26px;
+    border-radius: 4px;
+    background-color: #f6f6f6;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    .error-tooltip {
+      display: inline-block;
+      position: absolute;
+      right: 18px;
+
+      &.top4 {
+        top: 4px;
+      }
+
+      &.top0 {
+        top: 0;
+      }
+
+      .fa {
+        color: @error;
+        line-height: 16px;
+        font-size: @smallTreeFont;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    border: 1px solid @linkColor;
+    border-top: none;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0 0 3px 3px;
+    margin-top: 0;
+
+    li {
+      display: block;
+      padding: 6px;
+      clear: both;
+      font-weight: normal;
+      color: @gray;
+      white-space: nowrap;
+
+      &.tree {
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: 200px;
+        padding: 0;
+
+        span.jstree-sugar {
+          padding: 0;
+        }
+
+        .tree-component {
+          ul {
+            li {
+              .smallTreeLi;
+
+              > ins {
+                margin-right: 0 !important;
+                height: @smallTreeHeight;
+
+                &.jstree-icon {
+                  padding: 2px 2px 2px 0;
+                }
+
+                &::before {
+                  font-size: @smallTreeFont + 2;
+                }
+              }
+
+              > a {
+                .smallTreeA;
+              }
+            }
+          }
+
+          > ul > li {
+            margin-left: 0;
+          }
+        }
+      }
+
+      &.st {
+        padding: 0;
+
+        .input-append {
+          padding: 6px;
+        }
+
+        [data-role=secondinput] {
+          // z-index: 1 !important;
+          min-width: 0;
+          width: calc(~"100% - 12px");
+        }
+
+        [data-action=create-label-cover] {
+          padding: 8px;
+        }
+
+        [data-action=create-new] {
+          display: inline;
+        }
+
+        [data-action=full-screen] {
+          padding: 7px;
+        }
+
+        [data-role=pseudo] {
+          color: @folderTreeColor;
+          padding: 8px 7px;
+        }
+
+        [data-place=bottom-create] .span10 {
+          padding: 4px 4px 4px 0;
+        }
+
+        .fa-folder-open {
+          padding-right: 5px;
+        }
+      }
+    }
+
+    li[disabled=disabled] {
+      a {
+        color: #aaa !important;
+      }
+    }
+  }
+
+  &.open {
+    border-color: @linkColor;
+    border-radius: 3px 3px 0 0;
+    border-bottom: none;
+  }
+
+  .select-arrow,
+  .clear-field {
+    display: inline-block;
+    width: 18px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    filter: none;
+    padding-left: 4px;
+    border-radius: 0;
+    box-sizing: border-box;
+
+    .fa {
+      color: @gray;
+      font-size: @smallTreeFont;
+      cursor: pointer;
+    }
+  }
+
+  .clear-field {
+    right: 18px;
+  }
+}
+
+.nested-set-full {
+  .jstree-sugar {
+    &.tree-component {
+      padding: 0;
+
+      > ul {
+        background: url("@{baseUrl}/img/bg.jpg") left top repeat;
+        padding: 0 10px;
+        border-bottom: 1px solid @tableBorderColor;
+      }
+
+      ul {
+        li {
+          min-height: 37px;
+          padding: 0;
+
+          > a {
+            line-height: 37px;
+            height: 37px;
+            display: inline;
+          }
+
+          > div {
+            line-height: 37px;
+          }
+        }
+      }
+
+      input {
+        &.jstree-rename-input {
+          height: 25px !important;
+          line-height: 25px !important;
+        }
+      }
+    }
+  }
+}
+
+.dashlet-cell {
+  .jstree {
+    &.tree-component {
+      ul {
+        li {
+          .smallTreeLi;
+
+          > ins {
+            margin-right: 0 !important;
+            height: @smallTreeHeight;
+
+            &.jstree-icon {
+              padding: 2px 2px 2px 0;
+            }
+
+            &::before {
+              font-size: @smallTreeFont + 2;
+              color: @linkColor;
+            }
+          }
+
+          > a {
+            .smallTreeA;
+
+            color: @blue !important;
+          }
+
+          &.jstree-open {
+            > ins {
+              &::before {
+                color: @textColor !important;
+              }
+            }
+
+            > a {
+              font-weight: bold;
+              color: @textColor !important;
+            }
+          }
+
+          &.jstree-leaf {
+            ins {
+              & + a:hover {
+                cursor: default;
+              }
+
+              &.leaf {
+                + a:hover {
+                  cursor: pointer;
+                }
+
+                cursor: pointer;
+              }
+            }
+
+            &.disabled {
+              > a {
+                color: @textColor !important;
+              }
+
+              .leaf {
+                + a:hover {
+                  cursor: default;
+                }
+
+                cursor: default;
+              }
+
+              > ins {
+                &::before {
+                  color: @textColor !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > ul > li {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.record .record-cell[data-type="nestedset"] {
+  z-index: 2;
+
+  .parenttree {
+    .divinput {
+      font-size: 15px;
+    }
+  }
+
+  input[type="text"][data-role=add-item] {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  input[type="text"][data-role=secondinput] {
+    font-size: 12px;
+    font-weight: 400;
+    width: calc(~"100% - 12px");
+  }
+}
+
+tr.tr-inline-edit [data-type="nestedset"] {
+  .parenttree {
+    .dropdown-menu {
+      border-top: 1px solid @linkColor;
+      width: auto;
+      .fa-expand[data-action=full-screen] {
+        margin-top: 0;
+        font-size: @smallTreeFont;
+      }
+
+      .fa-folder-open {
+        font-size: @smallTreeFont;
+      }
+    }
+  }
+}
+//hide arrows in filter.
+.filter-definition-container {
+  [data-role=treeinput] {
+    .clear-field,
+    .select-arrow {
+      display: none;
+    }
+  }
+}
+
+// make node be able to contain the jstree dropdown
+.filter-definition-container .nestedset-filter-container {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+// ProductCatalog Dashlet-specific tree changes
+.product-catalog-view {
+  .product-catalog-no-results {
+    padding: 8px;
+    text-align: center;
+  }
+
+  .product-catalog-search {
+    text-align: center;
+    padding: 10px 8px 0;
+
+    .product-catalog-search-term {
+      width: 90%;
+    }
+  }
+
+  .jstree-sugar {
+    &:not(.disabled) {
+      li[rel=product] .jstree-clicked {
+        color: @blue !important;
+      }
+    }
+
+    li[rel=category] {
+      &.jstree-open > ins::before {
+        content: "\f115";
+      }
+
+      > ins,
+      > a {
+        color: @black !important;
+      }
+    }
+
+    li[rel=product] {
+      > ins::before {
+        content: "\f022";
+      }
+
+      ins,
+      a {
+        color: @blue;
+      }
+
+      ins {
+        cursor: pointer;
+      }
+    }
+
+    &.disabled {
+      cursor: progress;
+
+      li[rel=category] {
+        > ins,
+        > a {
+          color: @gray;
+          cursor: progress;
+        }
+      }
+
+      li[rel=product] {
+        ins,
+        a {
+          color: @gray;
+          cursor: progress;
+        }
+      }
+    }
+  }
+}
+
+html.rtl {
+  .jstree {
+    ul li {
+      margin-left: 0;
+      margin-right: 18px;
+    }
+
+    input {
+      &.jstree-rename-input {
+        left: 0 !important;
+        right: 34px !important;
+      }
+    }
+  }
+
+  .parenttree {
+    .select-arrow,
+    .clear-field {
+      right: auto;
+      left: 0;
+      padding-right: 0;
+      padding-left: 4px;
+    }
+
+    .clear-field {
+      left: 18px;
+    }
+
+    .divinput {
+      padding: 0 6px 0 34px;
+    }
+
+    .dropdown-menu {
+      left: -1px;
+      right: auto;
+    }
+  }
+}

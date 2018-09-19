@@ -1,0 +1,38 @@
+/* OMNIBAR
+  ----------------*/
+
+.omnibar {
+  padding: 10px;
+  border-bottom: @borderWidget;
+  position: relative;
+  z-index: 1;
+
+  .inputwrapper {
+    position: relative;
+    margin-left: 0;
+  }
+
+  .sayit {
+    padding: 10px 68px 10px 10px;
+    border: dashed 1px darken(@grayLighter, 10%);
+    color: @grayLight;
+    font-size: @baseFontSize;
+    min-height: 18px;
+
+    &:focus {
+      border: @borderWidget;
+      color: @gray;
+    }
+  }
+
+  .inputactions {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+
+    > .btn {
+      margin: 0;
+    }
+  }
+  .clearfix();
+}

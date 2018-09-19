@@ -1,0 +1,1111 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Create a new Emails record.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Used for creating an archived email, creating a draft to send later, or creating and sending an email.
+</span>
+
+<h2>Creating an Archived Email</h2>
+<h3>Request Arguments</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                state
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Use "Archived" to create an archived email. "Archived" is the default value if this argument is not
+                provided.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                name
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's subject.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                description_html
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's HTML body.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                description
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's plain text body. This field is not necessary unless the text body is different from the HTML
+                body.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                raw_source
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The complete raw source of the email showing the headers and content in one document.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                date_sent
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The date that the email was sent/received.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                message_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's unique identifier.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                message_uid
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Only use this field for importing emails downloaded from an IMAP server, as this is the email's IMAP
+                UID.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                assigned_user_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The assigned user's ID.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                parent_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The parent record's module.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                parent_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The parent record's ID.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                team_name
+            </td>
+            <td>
+                List
+            </td>
+            <td>
+                List of teams that can access the email.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                from
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's sender. Existing EmailParticipants records cannot be used; only the <b>create</b> action is
+                supported. Metadata about the sender is required to link the record.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the sender.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the sender used to send the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                to
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the TO field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                cc
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the CC field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                bcc
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the BCC field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                attachments
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's attachments. Existing Notes records cannot be used as email attachments; only the
+                <b>create</b> action is supported. Metadata about each attachment is required to link the records.
+                <ul>
+                    <li>
+                        <b>filename_guid</b> is the temporary file ID for an uploaded file to attach as a Notes record.
+                    </li>
+                    <li>
+                        <b>upload_id</b> is the ID of an existing file that the Notes record should reference as the
+                        attachment. This allows files to be shared by multiple Notes records, to preserve space.
+                    </li>
+                    <li>
+                        When using <b>upload_id</b>, <b>file_source</b> should be provided to indicate from where the
+                        file originated. The value should be the module of the record that shares its ID with the file.
+                        So when an attachment comes from an email template, <b>file_source</b> should be
+                        <b>EmailTemplates</b>. And when an attachment comes from a document, <b>file_source</b> should
+                        be <b>DocumentRevisions</b>.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h5>Request</h5>
+<pre class="pre-scrollable">
+{
+  "state": "Archived",
+  "name": "Re: Discuss Proposal",
+  "description": "Now is a good time",
+  "description_html": "&lt;p&gt;Now is a good time&lt;/p&gt;",
+  "date_sent": "2012-02-17T06:53:00-08:00",
+  "message_id": "&lt;d9c165d0-8863-ba61-dc85-51ed8016c476@example.com&gt;",
+  "assigned_user_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "parent_type": "Leads",
+  "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6",
+  "team_name": [{
+    "id": "1",
+    "display_name": "Global",
+    "name": "Global",
+    "name_2": "",
+    "primary": true,
+    "selected": false
+  }],
+  "from": {
+    "create": [{
+      "parent_type": "Leads",
+      "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6"
+    }]
+  },
+  "to": {
+    "create": [{
+      "parent_type": "Users",
+      "parent_id": "9c61c46a-a7c5-df71-481c-51d48232f820"
+    }]
+  },
+  "cc": {
+    "create": [{
+      "parent_type": "Contacts",
+      "parent_id": "79b9c194-7d79-11e7-8fc5-3c15c2d582c6"
+    }, {
+      "parent_type": "Users",
+      "parent_id": "79c2e800-7d79-11e7-84af-3c15c2d582c6"
+      "email_address_id": "79cc341e-7d79-11e7-8748-3c15c2d582c6"
+    }]
+  },
+  "bcc": {
+    "create": [{
+      "email_address_id": "ac804842-7d78-11e7-a809-3c15c2d582c6"
+    }]
+  },
+  "attachments": {
+    "create": [{
+      "filename_guid": "afe9702e-53a3-0efb-6bbe-56c3580885ef",
+      "name": "Quote.pdf",
+      "filename": "Quote.pdf"
+    }]
+  }
+}
+</pre>
+<h5>Response</h5>
+<pre class="pre-scrollable">
+{
+  "id": "a028341c-ba92-9343-55e7-56cf5beda121",
+  "date_entered": "2016-02-25T11:53:07-08:00",
+  "created_by": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "created_by_name": "Sarah Smith",
+  "date_modified": "2016-02-25T11:53:07-08:00",
+  "modified_by_name": "Sarah Smith",
+  "modified_user_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "deleted": false,
+  "assigned_user_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "assigned_user_name": "Sarah Smith",
+  "state": "Archived",
+  "name": "Re: Discuss Proposal",
+  "description": "Now is a good time",
+  "description_html": "&lt;p&gt;Now is a good time&lt;/p&gt;",
+  "date_sent": "2012-02-17T06:53:00-08:00",
+  "message_id": "",
+  "message_uid": "",
+  "reply_to_status": false,
+  "total_attachments": 1,
+  "parent_name": "Tom Davis",
+  "parent_type": "Leads",
+  "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6"
+  "team_count": "",
+  "team_name": [{
+    "id": 1,
+    "name": "Global",
+    "name_2": "",
+    "primary": true,
+    "selected": false
+  }],
+  "my_favorite": false,
+  "_acl": {
+    "fields": {}
+  },
+  "_module": "Emails"
+}
+</pre>
+
+<h2>Creating a Draft</h2>
+<h3>Request Arguments</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                state
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Use "Draft" to save a draft.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                outbound_email_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The ID of the chosen SMTP configuration for sending an email. Only use this field when saving a draft
+                or sending an email. The user's default SMTP configuration is used if one hasn't been chosen prior to
+                sending.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                name
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's subject.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                description_html
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's HTML body.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                description
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's plain text body. This field is not necessary unless the text body is different from the HTML
+                body.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                reply_to_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Only use this field when saving a draft or sending an email that is a reply to another email. This is
+                the ID of that other email.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                parent_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The parent record's module.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                parent_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The parent record's ID.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                to
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the TO field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                cc
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the CC field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                bcc
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the BCC field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                attachments
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's attachments. Existing Notes records cannot be used as email attachments; only the
+                <b>create</b> action is supported. Metadata about each attachment is required to link the records.
+                <ul>
+                    <li>
+                        <b>filename_guid</b> is the temporary file ID for an uploaded file to attach as a Notes record.
+                    </li>
+                    <li>
+                        <b>upload_id</b> is the ID of an existing file that the Notes record should reference as the
+                        attachment. This allows files to be shared by multiple Notes records, to preserve space.
+                    </li>
+                    <li>
+                        When using <b>upload_id</b>, <b>file_source</b> should be provided to indicate from where the
+                        file originated. The value should be the module of the record that shares its ID with the file.
+                        So when an attachment comes from an email template, <b>file_source</b> should be
+                        <b>EmailTemplates</b>. And when an attachment comes from a document, <b>file_source</b> should
+                        be <b>DocumentRevisions</b>.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h5>Request</h5>
+<pre class="pre-scrollable">
+{
+  "state": "Draft",
+  "outbound_email_id": "b80adf1a-7d78-11e7-855a-3c15c2d582c6",
+  "name": "Re: Discuss Proposal",
+  "description_html": "&lt;p&gt;Calling you now.&lt;/p&gt;",
+  "reply_to_id": "a028341c-ba92-9343-55e7-56cf5beda121",
+  "parent_type": "Leads",
+  "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6",
+  "to": {
+    "create": [{
+      "parent_type": "Leads",
+      "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6"
+    }]
+  },
+  "cc": {
+    "create": [{
+      "parent_type": "Contacts",
+      "parent_id": "79b9c194-7d79-11e7-8fc5-3c15c2d582c6"
+    }, {
+      "parent_type": "Users",
+      "parent_id": "79c2e800-7d79-11e7-84af-3c15c2d582c6"
+      "email_address_id": "79cc341e-7d79-11e7-8748-3c15c2d582c6"
+    }]
+  },
+  "bcc": {
+    "create": [{
+      "email_address_id": "ac804842-7d78-11e7-a809-3c15c2d582c6"
+    }]
+  },
+  "attachments": {
+    "create": [{
+      "upload_id": "a028341c-ba92-9343-55e7-56cf5beda121",
+      "name": "Contract.pdf",
+      "filename": "Contract.pdf",
+      "file_source": "DocumentRevisions"
+    }, {
+      "upload_id": "18a72782-4514-11e6-a5f7-3c15c2d582c6",
+      "name": "survey.doc",
+      "filename": "survey.doc",
+      "file_source": "EmailTemplates"
+    }]
+  }
+}
+</pre>
+<h5>Response</h5>
+<pre class="pre-scrollable">
+{
+  "id": "f3c85966-7d27-11e7-9e9e-3c15c2d582c6",
+  "date_entered": "2016-02-25T11:53:07-08:00",
+  "created_by": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "created_by_name": "Sarah Smith",
+  "date_modified": "2016-02-25T11:53:07-08:00",
+  "modified_by_name": "Sarah Smith",
+  "modified_user_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "deleted": false,
+  "assigned_user_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "assigned_user_name": "Sarah Smith",
+  "state": "Draft",
+  "outbound_email_id": "b80adf1a-7d78-11e7-855a-3c15c2d582c6",
+  "name": "Re: Discuss Proposal",
+  "description": "Now is a good time",
+  "description_html": "&lt;p&gt;Now is a good time&lt;/p&gt;",
+  "date_sent": "2012-02-17T11:53:07-08:00",
+  "message_id": "",
+  "message_uid": "",
+  "reply_to_id": "a028341c-ba92-9343-55e7-56cf5beda121",
+  "reply_to_status": false,
+  "total_attachments": 2,
+  "parent_name": "Tom Davis",
+  "parent_type": "Leads",
+  "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6"
+  "team_count": "",
+  "team_name": [{
+    "id": 1,
+    "name": "Global",
+    "name_2": "",
+    "primary": true,
+    "selected": false
+  }],
+  "my_favorite": false,
+  "_acl": {
+    "fields": {}
+  },
+  "_module": "Emails"
+}
+</pre>
+
+<h2>Sending an Email</h2>
+<h3>Request Arguments</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                state
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Use "Ready" to send an email.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                outbound_email_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The ID of the chosen SMTP configuration for sending an email. Only use this field when saving a draft
+                or sending an email. The user's default SMTP configuration is used if one hasn't been chosen prior to
+                sending.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                name
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's subject.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                description_html
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's HTML body.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                description
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The email's plain text body. This field is not necessary unless the text body is different from the HTML
+                body.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                reply_to_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Only use this field when saving a draft or sending an email that is a reply to another email. This is
+                the ID of that other email.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                parent_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The parent record's module.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                parent_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The parent record's ID.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                to
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the TO field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                cc
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the CC field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                bcc
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's recipients found in the BCC field. Existing EmailParticipants records cannot be used; only
+                the <b>create</b> action is supported. Metadata about each recipient is required to link the records.
+                <ul>
+                    <li>
+                        <b>parent_type</b> and <b>parent_id</b> can be Accounts, Contacts, Employees, Leads, Prospects,
+                        or Users, out out of the box. These fields are not necessary if only an email address is known
+                        for the recipient.
+                    </li>
+                    <li>
+                        <b>email_address_id</b> is the ID of the email address the recipient used in the email. To get
+                        the ID of the email address, first make a request to <code>/EmailAddresses</code> POST. If this
+                        argument is not provided, then the primary email address of the parent record is used.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                attachments
+            </td>
+            <td>
+                Object
+            </td>
+            <td>
+                The email's attachments. Existing Notes records cannot be used as email attachments; only the
+                <b>create</b> action is supported. Metadata about each attachment is required to link the records.
+                <ul>
+                    <li>
+                        <b>filename_guid</b> is the temporary file ID for an uploaded file to attach as a Notes record.
+                    </li>
+                    <li>
+                        <b>upload_id</b> is the ID of an existing file that the Notes record should reference as the
+                        attachment. This allows files to be shared by multiple Notes records, to preserve space.
+                    </li>
+                    <li>
+                        When using <b>upload_id</b>, <b>file_source</b> should be provided to indicate from where the
+                        file originated. The value should be the module of the record that shares its ID with the file.
+                        So when an attachment comes from an email template, <b>file_source</b> should be
+                        <b>EmailTemplates</b>. And when an attachment comes from a document, <b>file_source</b> should
+                        be <b>DocumentRevisions</b>.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h5>Request</h5>
+<pre class="pre-scrollable">
+{
+  "state": "Ready",
+  "outbound_email_id": "b80adf1a-7d78-11e7-855a-3c15c2d582c6",
+  "name": "Discuss Proposal",
+  "description_html": "&lt;p&gt;When is a good time for us to chat?&lt;/p&gt;",
+  "parent_type": "Leads",
+  "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6",
+  "to": {
+    "create": [{
+      "parent_type": "Leads",
+      "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6"
+    }]
+  },
+  "cc": {
+    "create": [{
+      "parent_type": "Users",
+      "parent_id": "79c2e800-7d79-11e7-84af-3c15c2d582c6"
+      "email_address_id": "79cc341e-7d79-11e7-8748-3c15c2d582c6"
+    }]
+  },
+  "attachments": {
+    "create": [{
+      "upload_id": "a028341c-ba92-9343-55e7-56cf5beda121",
+      "name": "Contract.pdf",
+      "filename": "Contract.pdf",
+      "file_source": "DocumentRevisions"
+    }, {
+      "upload_id": "18a72782-4514-11e6-a5f7-3c15c2d582c6",
+      "name": "survey.doc",
+      "filename": "survey.doc",
+      "file_source": "EmailTemplates"
+    }]
+  }
+}
+</pre>
+<h5>Response</h5>
+<pre class="pre-scrollable">
+{
+  "id": "a7795664-7def-11e7-8add-3c15c2d582c6",
+  "date_entered": "2016-02-25T08:53:07-08:00",
+  "created_by": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "created_by_name": "Sarah Smith",
+  "date_modified": "2016-02-25T08:53:07-08:00",
+  "modified_by_name": "Sarah Smith",
+  "modified_user_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "deleted": false,
+  "assigned_user_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+  "assigned_user_name": "Sarah Smith",
+  "state": "Archived",
+  "outbound_email_id": "b80adf1a-7d78-11e7-855a-3c15c2d582c6",
+  "name": "Discuss Proposal",
+  "description": "When is a good time for us to chat?",
+  "description_html": "&lt;p&gt;When is a good time for us to chat?&lt;/p&gt;",
+  "date_sent": "2012-02-17T08:53:07-08:00",
+  "message_id": "&lt;a7795664-7def-11e7-8add-3c15c2d582c6@example.com&gt;",
+  "message_uid": "",
+  "reply_to_id": "",
+  "reply_to_status": false,
+  "total_attachments": 2,
+  "parent_name": "Tom Davis",
+  "parent_type": "Leads",
+  "parent_id": "f6a0611a-7d27-11e7-9d70-3c15c2d582c6"
+  "team_count": "",
+  "team_name": [{
+    "id": 1,
+    "name": "Global",
+    "name_2": "",
+    "primary": true,
+    "selected": false
+  }],
+  "my_favorite": false,
+  "_acl": {
+    "fields": {}
+  },
+  "_module": "Emails"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Emails</code> POST endpoint.
+        </td>
+    </tr>
+</table>

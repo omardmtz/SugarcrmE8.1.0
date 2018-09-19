@@ -1,0 +1,177 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: embeded -->
+
+<script>
+		function toggleDisplay(id)
+		{
+			if(this.document.getElementById(id).style.display=='none')
+				this.document.getElementById(id).style.display='inline';
+			else
+				this.document.getElementById(id).style.display='none';
+		}
+		
+		function toggleDisplay3(id){
+			if(this.document.getElementById( id).style.display=='none'){
+				this.document.getElementById( id).style.display='inline'
+				this.document.getElementById('head__display_name').value = '';	
+				this.document.getElementById('head__display_name').disabled = true;	
+			}else{
+				this.document.getElementById(  id).style.display='none'
+				this.document.getElementById('head__display_name').disabled = false;		
+			}	
+		}		
+		
+</script>
+<!-- END: embeded -->
+<!-- BEGIN: main -->
+
+{SET_RETURN_JS}
+
+			<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="DataSets">
+			<input type="hidden" name="layout_id" value="{LAYOUT_ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module" value="DataSets">
+			<input type="hidden" name="return_id" value="{LAYOUT_ID}">
+			<input type="hidden" name="return_action" value="LayoutPopup">
+			<input type="hidden" name="dataset_id" value="{DATASET_ID}">
+			<input type="hidden" name="head_att_id" value="{HEAD_ATT_ID}">
+			<input type="hidden" name="body_att_id" value="{BODY_ATT_ID}">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+	<tr>
+		<td scope="row"><slot>{MOD.LBL_LAYOUT_TYPE}</slot></td>
+		<td ><slot><select id='layout_type' name='layout_type' onchange="toggleDisplay2('typediv','layout_type');" tabindex='2' {LAYOUT_TYPE_DISABLE}>{LAYOUT_TYPE}</select></slot></td>
+		<td scope="row" width="257%" ><slot>{MOD.LBL_MODIFY_HEAD}</slot></td>
+		<td  width="25%"><slot><input id='modify_head' name='modify_head' class="checkbox" type="checkbox" onclick="toggleDisplay('attheaddiv');" {MODIFY_HEAD}></slot></td>		
+		</tr><tr>
+		<td scope="row" width="25%"><slot>{MOD.LBL_LAYOUT_PARENT_VALUE}</slot></td>
+		<td  width="25%"><slot>{PARENT_VALUE}</slot></td>		
+		<td scope="row" width="25%"><slot>{MOD.LBL_MODIFY_BODY}</slot></td>
+		<td  width="25%"><slot><input id='modify_body' name='modify_body' class="checkbox" type="checkbox" onclick="toggleDisplay('attbodydiv');" {MODIFY_BODY}></slot></td>
+
+		</tr><tr>
+		<td scope="row" width="25%"><slot>{MOD.LBL_HIDE_COLUMN}</slot></td>
+		<td  width="25%"><slot><input id = 'hide_column' name='hide_column' class="checkbox" type="checkbox" tabindex='1' {HIDE_COLUMN}></slot></td>
+		<td  width="25%"><slot>&nbsp;</slot></td>
+		<td scope="row" width="25%"><slot>&nbsp;</slot></td>
+		</tr>
+		<tr>
+		<td scope="row"><slot>&nbsp;</slot></td>
+		<td scope="row"><slot>&nbsp;</slot></td>
+		<td scope="row" colspan="2" align="right">
+		<slot>
+		<input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" type="submit" name="button" value="{APP.LBL_SAVE_BUTTON_LABEL}" onclick="this.form.action.value='DataSetLayoutSave';">
+		<input title="{APP.LBL_CLOSE_BUTTON_TITLE}" accessKey="{APP.LBL_CLOSE_BUTTON_KEY}" class="button" type="submit" name="button" value="{APP.LBL_CLOSE_BUTTON_LABEL}" onclick="set_return();">
+		</slot>
+		</td>
+		</tr>
+</table>
+
+<!-- BEGIN: attribute_head -->
+<div id='attheaddiv' style='display:none'>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td><BR>{HEAD_TITLE}</td></tr>
+<tr><td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+	<td  scope="row" width="15%"><slot>{MOD.LBL_HEADER_BACK_COLOR}</slot></td>
+	<td  width="25%"><slot><select name='head__bg_color' tabindex='2'>{HEAD_BG_COLOR}</select></slot></td>
+	<td  scope="row" width="15%"><slot>{MOD.LBL_WRAP}</slot></td>
+	<td  width="45%"><slot><input name='head__wrap' class="checkbox" type="checkbox" tabindex='1' {HEAD_WRAP}></slot></td>
+</tr>
+<tr>
+	<td  scope="row" width="15%"><slot>{MOD.LBL_HEADER_TEXT_COLOR}</slot></td>
+	<td  width="25%"><slot><select name='head__font_color' tabindex='2'>{HEAD_FONT_COLOR}</select></slot></td>
+	<td  scope="row" width="15%"><slot>{MOD.LBL_STYLE}</slot></td>
+	<td  width="45%"><slot><select name='head__style' tabindex='2'>{HEAD_STYLE}</select></slot></td>
+</tr>
+<tr>
+	<td  scope="row" width="15%"><slot>{MOD.LBL_FONT_SIZE}</slot></td>
+	<td  width="25%"><slot><select name='head__font_size' tabindex='2'>{HEAD_FONT_SIZE}</select></slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row" colspan="4"><slot>&nbsp;</slot></td>
+	</tr>
+<tr>
+	<td  scope="row"><slot>{MOD.LBL_DISPLAY_TYPE}</slot></td>
+	<td  ><slot><select name='head__display_type' tabindex='2' onchange="toggleDisplay3('attheadscalardiv');">{HEAD_DISPLAY_TYPE}</select></slot></td>
+	<td scope="row"><slot>{MOD.LBL_DISPLAY_NAME}</slot></td>
+	<td ><slot><input id='head__display_name' name='head__display_name' tabindex='1' size='35' maxlength='50' type="text" value="{HEAD_DISPLAY_NAME}" {HEAD_DISPLAY_NAME_DISABLED}></slot></td>
+	</tr>
+	<tr>
+	<td  scope="row" width="15%"><slot>{MOD.LBL_FORMAT_TYPE}</slot></td>
+	<td  width="25%"><slot><select name='head__format_type' tabindex='2'>{HEAD_FORMAT_TYPE}</select></slot></td>
+	<td scope="row" width="15%"><slot>&nbsp;</slot></td>
+	<td scope="row" width="45%"><slot>&nbsp;</slot></td>
+	</tr>
+</table>
+</td></tr></table>
+</div>
+<!-- END: attribute_head -->
+
+
+<!-- BEGIN: attribute_body -->
+<div id='attbodydiv' style='display:none'>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td><BR>{BODY_TITLE}</td></tr>
+<tr/><td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+	<td  scope="row" width="25%"><slot>{MOD.LBL_BODY_BACK_COLOR}</slot></td>
+	<td  width="25%"><slot><select name='body__bg_color' tabindex='2'>{BODY_BG_COLOR}</select></slot></td>
+	<td  scope="row" width="25%"><slot>{MOD.LBL_WRAP}</slot></td>
+	<td  width="25%"><slot><input name='body__wrap' class="checkbox" type="checkbox" tabindex='1' {BODY_WRAP}></slot></td>
+
+</tr>
+<tr>
+	<td  scope="row" width="25%"><slot>{MOD.LBL_BODY_TEXT_COLOR}</slot></td>
+	<td  width="25%"><slot><select name='body__font_color' tabindex='2'>{BODY_FONT_COLOR}</select></slot></td>
+	<td  scope="row" width="25%"><slot>{MOD.LBL_STYLE}</slot></td>
+	<td  width="25%"><slot><select name='body__style' tabindex='2'>{BODY_STYLE}</select></slot></td>
+
+</tr>
+<tr>
+	<td  scope="row" width="25%"><slot>{MOD.LBL_FONT_SIZE}</slot></td>
+	<td  width="25%"><slot><select name='body__font_size' tabindex='2'>{BODY_FONT_SIZE}</select></slot></td>
+	<td scope="row"><slot>{MOD.LBL_TABLE_WIDTH}</slot></td>
+	<td ><slot><input name='body__cell_size' tabindex='1' size='5' maxlength='5' type="text" value="{BODY_CELL_SIZE}">
+	<select name='body__size_type' tabindex='1'>{BODY_SIZE_TYPE}</select></slot></td>
+
+	</tr>
+	<tr><td scope="row" colspan="4"><slot>&nbsp;</slot></td></tr>
+	<tr>
+	<td  scope="row" width="25%"><slot>{MOD.LBL_FORMAT_TYPE}</slot></td>
+	<td  width="25%"><slot><select name='body__format_type' tabindex='2'>{BODY_FORMAT_TYPE}</select></slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+</tr>
+</table>
+</td></tr></table>
+</div>
+<!-- END: attribute_body -->
+
+
+</form>
+
+<script>
+{TOGGLE_HEAD_START}
+{TOGGLE_SCALAR_START}
+{TOGGLE_BODY_START}
+
+</script>
+
+<!-- END: main -->

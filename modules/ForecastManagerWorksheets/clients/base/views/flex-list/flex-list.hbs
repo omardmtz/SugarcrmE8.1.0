@@ -1,0 +1,106 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#each meta.panels}}
+<div class="flex-list-view-content">
+<table class="table table-striped dataTable{{#has "ReorderableColumns" ../plugins}} reorderable-columns{{/has}}">
+    <thead>
+    <tr>
+        {{#each ../leftColumns}}
+        <th{{#if name}} data-fieldname="{{name}}"{{/if}}>
+            <span>
+                {{field ../../this template="list-header"}}
+            </span>
+        </th>
+        {{/each}}
+        {{#each ../_fields.visible}}
+            <th class="{{#isSortable ../../module this}}sorting{{#eq ../../../orderBy.field name}}_{{../../../../orderBy.direction}}{{/eq}} orderBy{{name}}{{/isSortable}}{{#if widthClass}} {{widthClass}}{{/if}}"
+                {{#if name}} data-fieldname="{{name}}"{{/if}} data-orderby="{{orderBy}}">
+                {{#has "ReorderableColumns" ../../plugins}}
+                {{! Insert a <div> around all the inner element of the column.
+                    This is a fix for firefox because the <th> does not support
+                    a relative positioning.}}
+                <div>
+                    <div class="th-droppable-placeholder" data-droppableindex="{{@index}}"></div>
+                    {{! Insert a <div> around the <span> containing the field label.
+                        That <div> is the draggable element.
+                        This is a fix for firefox because dragging a <th> is not
+                        supported.}}
+                    <div{{#has "ReorderableColumns" ../../../plugins}} data-draggable="true"{{/has}}>
+                {{/has}}
+                        <span>
+                            {{str label ../../module}}
+                        </span>
+                {{#has "ReorderableColumns" ../../plugins}}
+                    </div>
+                    {{#if @last}}
+                        <div class="th-droppable-placeholder th-droppable-placeholder-last" data-droppableindex="{{../../../../_fields.visible.length}}"></div>
+                    {{/if}}
+                </div>
+                {{/has}}
+            </th>
+        {{/each}}
+        {{#each ../rightColumns}}
+            {{#if isColumnDropdown}}
+            <th class="nosort morecol">
+                <div class="dropdown">
+                    <button class="btn btn-invisible" data-toggle="dropdown" rel="tooltip" title="{{str "LBL_COLUMNS"}}" data-placement="bottom" data-action="fields-toggle" track="click:morecol" aria-label="{{str 'LBL_COLUMNS'}}" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
+                    <ul class="dropdown-menu left">
+                    {{#each ../../../_fields.all}}
+                        <li>
+                            <button{{#if selected}} class="active"{{/if}} data-field-toggle="{{name}}" track="click:{{name}}">
+                                {{#if selected}}<i class="fa fa-check"></i> {{/if}}{{str label ../../../../module}}
+                            </button>
+                        </li>
+                    {{/each}}
+                    </ul>
+                </div>
+            </th>
+            {{else}}
+            <th{{#if name}} data-fieldname="{{name}}"{{/if}}>
+                <span>
+                    {{field ../../this template="list-header"}}
+                </span>
+            </th>
+            {{/if}}
+        {{/each}}
+    </tr>
+    <tr class="alert alert-warning hide">
+        <td class="container"{{#if ../this.colSpan}} colspan="{{../../this.colSpan}}"{{/if}}></td>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each ../collection.models}}
+    <tr name="{{module}}_{{attributes.id}}" class="single">
+        {{#each ../../leftColumns}}
+        <td>
+             {{field ../../../this model=../this template=../../../this.viewName}}
+        </td>
+        {{/each}}
+        {{#each ../../_fields.visible}}
+            <td class="{{#if align}}{{align}}{{/if}}{{#if click_to_edit}} editableColumn{{/if}}" data-type="{{type}}">
+              {{field ../../../this model=../this template=../../../this.viewName}}
+            </td>
+        {{/each}}
+        {{#each ../../rightColumns}}
+        <td>
+             {{field ../../../this model=../this template=../../../this.viewName}}
+        </td>
+        {{/each}}
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+<span class="scrollbar-landmark"></span>
+</div>
+<div class="uxs-scroll-bar" data-scroll-spy="flex-list-view-content"><div>&nbsp;</div></div>
+{{/each}}

@@ -1,0 +1,118 @@
+.resource-list {
+  min-height: 86px;
+  display: block;
+  margin: 5px 20px;
+}
+
+.resource {
+  display: block;
+  width: 100%;
+  padding: 12px 0 10px;
+  border-bottom: 1px dashed #d3d3d3;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  i {
+    color: white;
+    font-size: 20px;
+    padding: 3px;
+    display: inline-block;
+  }
+}
+
+.resource-info {
+  margin-left: 44px;
+
+  a {
+    margin-bottom: 3px;
+    margin-top: -2px;
+    display: block;
+    font-size: 14px;
+  }
+
+  .details {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+}
+
+.popover.feedback .arrow {
+  left: 74%;
+}
+
+.popover.helpmodal {
+  .popover-content {
+    padding-top: 0;
+
+    ul {
+      margin-left: 0;
+    }
+
+    .helplet-body {
+      max-height: 75px;
+      overflow-y: auto;
+      margin: 10px 0;
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      p.body-text {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .arrow {
+    left: 94%;
+  }
+
+  .resource {
+    display: block;
+    width: auto;
+    padding: 10px 15px 10px 0;
+    border-right: none;
+    border-bottom: 1px solid lighten(@grayLight, 40%);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    i {
+      font-size: initial;
+      padding: 1px;
+
+      &.fa-road {
+        padding: 1px 0 0;
+      }
+    }
+  }
+
+  .resource-info {
+    margin-left: 30px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      margin-top: 0;
+    }
+  }
+
+  .btn.btn-link {
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+
+    &.disabled .label,
+    .fa {
+      color: white;
+      cursor: default;
+    }
+  }
+}

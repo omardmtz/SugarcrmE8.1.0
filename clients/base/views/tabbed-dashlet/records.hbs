@@ -1,0 +1,27 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="tab-pane active">
+    {{#if collection.length}}
+        <ul class="unstyled listed">
+            {{#each collection.models}}
+                <li>
+                    <p>
+                        <a href="#{{buildRoute model=this action="detail"}}">{{fieldValue this "name"}}</a>
+                    </p>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <div class="block-footer">{{#if ../collection.dataFetched}}{{str "LBL_NO_DATA_AVAILABLE" this.module}}{{else}}{{str "LBL_LOADING" this.module}}{{/if}}</div>
+    {{/if}}
+</div>

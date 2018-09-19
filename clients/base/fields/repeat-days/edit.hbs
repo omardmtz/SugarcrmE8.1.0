@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="multidate-picker">
+    <span class="input-group dropdown">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                <i class="fa fa-calendar"></i>
+            </button>
+            <ul class="dropdown-menu">
+                {{#each datesDom}}
+                    <ul class="multi-column-dropdown">
+                        {{#each this}}
+                            <li><a id="repeat-on-day-{{this}}">{{this}}</a></li>
+                        {{/each}}
+                    </ul>
+                {{/each}}
+            </ul>
+        </span>
+    </span>
+    <div sfuuid="{{select2SfId}}" class="edit multidate-picked-items"></div>
+</div>
+

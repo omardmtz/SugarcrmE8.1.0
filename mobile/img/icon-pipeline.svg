@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="70px" height="60px" viewBox="0 0 70 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g id="Pipeline" fill="#FFFFFF">
+        <path d="M49.8078955,46.9565217 L44.1989776,60 L25.8010224,60 L20.1921045,46.9565217 L49.8078955,46.9565217 Z" opacity="0.6"></path>
+        <path d="M61.7735871,19.1304348 L50.5557513,45.2173913 L19.4442487,45.2173913 L8.22641293,19.1304348 L61.7735871,19.1304348 Z" opacity="0.8"></path>
+        <path d="M70,0 L62.5214428,17.3913043 L7.47855721,17.3913043 L7.10542736e-15,0 L70,0 Z"></path>
+    </g>
+</svg>

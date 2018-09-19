@@ -1,0 +1,147 @@
+//email create recipient select2
+.record {
+  div[data-type="email-recipients"] {
+    .controls.btn-fit {
+      .select2-container {
+        .select2-choices {
+          max-height: 45px;
+          border-radius: @baseBorderRadius;
+          box-shadow: 0 0 1px transparent;
+        }
+
+        .select2-search-field input {
+          padding: 0 6px;
+          position: absolute;
+          height: 22px;
+          min-height: 22px;
+          margin: 0;
+        }
+
+        &.drop-highlight {
+          .select2-choices {
+            box-shadow: 0 0 1px transparent;
+            background-color: rgba(23, 109, 229, 0.075);
+          }
+
+          &.drop-hover {
+            .select2-choices {
+              background-color: @white;
+              border-color: rgba(23, 109, 229, 0.5);
+            }
+          }
+        }
+
+        &.select2-choices-pills .select2-search-choice,
+        &.select2-container-multi.select2-choices-pills-close .select2-search-choice {
+          &.select2-choice-optout {
+            span::before {
+              content: @fa-var-ban;
+              font-family: 'FontAwesome';
+              color: @white;
+              padding-right: 3px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  div[data-type="email-attachments"].controls {
+    input[type="file"] {
+      display: none;
+    }
+
+    .select2-container {
+      .select2-choices {
+        padding-left: 0;
+        border: none;
+      }
+
+      .select2-search-field input {
+        padding: 0;
+        min-height: 26px;
+      }
+    }
+  }
+}
+
+.record-cell .normal > span.email-recipients.fieldset {
+  display: table;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.email-recipients.fieldset {
+  .fieldset-group {
+    display: table-row;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .fieldset-label,
+  .fieldset-field {
+    display: table-cell;
+    vertical-align: top;
+    box-sizing: border-box;
+  }
+
+  .fieldset-label {
+    padding: 8px 6px 8px 7px;
+    font-size: 11px;
+    line-height: 12px;
+    color: @gray;
+  }
+
+  .fieldset-field {
+    width: 100%;
+    padding-bottom: 8px;
+
+    &.detail {
+      padding-bottom: 4px;
+      padding-left: 8px;
+      vertical-align: middle;
+      font-size: 12px;
+
+      .scroll {
+        display: block;
+        max-height: 45px;
+        overflow: auto;
+      }
+    }
+
+    .controls .select2-container {
+      .select2-choices {
+        max-height: 45px;
+        overflow-y: auto;
+        border-radius: @baseBorderRadius;
+      }
+    }
+  }
+
+  &.edit {
+    div[data-type="enum"].fieldset-field {
+      position: relative;
+      padding-right: 72px;
+      min-height: 28px;
+    }
+  }
+
+  .compose-recipient-options {
+    position: absolute;
+    z-index: 2;
+    padding: 0;
+    top: 0;
+    right: 0;
+    background-color: @white;
+
+    .btn {
+      position: relative;
+      right: 0;
+    }
+  }
+}
+.record-cell[data-type="email-attachments"] .edit {
+  margin-bottom: 11px;
+}

@@ -1,0 +1,47 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="dashlet-options">
+    <div class="row-fluid">
+        <div class="span4">
+            <div class="dropdown" data-control="org-jstree-dropdown">
+                <button class="dropdown-toggle btn" data-toggle="dropdown">
+                  <span class="jstree-label"></span>
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div data-control="org-jstree" class="jstree-sugar jstree jstree-0 jstree-focused"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="dashlet-group pull-right">
+                <button class="btn toggle-control" rel="tooltip" data-control="orientation" title="{{str "LBL_ORG_CHART_TOOLTIP_TOGGLE"}}"><i class="fa fa-arrow-down"></i></button>
+                <button class="btn toggle-control" rel="tooltip" data-control="show-all-nodes" title="{{str "LBL_ORG_CHART_TOOLTIP_NODES"}}"><i class="fa fa-sitemap"></i></button>
+                <button class="btn toggle-control" rel="tooltip" data-control="zoom-to-fit" title="{{str "LBL_ORG_CHART_TOOLTIP_ZOOM"}}"><i class="fa fa-arrows-alt"></i></button>
+            </div>
+            <div class="btn-slider pull-right">
+                <div class="noUiSliderEnds">
+                    <i class="fa fa-minus-circle zoom-control" data-control="zoom-out"></i>
+                    <div class="noUiSlider"></div>
+                    <i class="fa fa-plus-circle zoom-control" data-control="zoom-in"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="organization-chart sc-chart sc-chart-texture" data-content="chart">
+    <svg class="sucrose" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="{{cid}}"></svg>
+</div>
+<div class="block-footer hide" data-content="nodata">{{str "LBL_NO_DATA_AVAILABLE"}}</div>

@@ -1,0 +1,53 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{> wizard-page.header }}
+<div class="modal-body">
+
+{{#eq wizardName "admin"}}
+    <ul class="thumbnails row-fluid">
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Administration&action=Locale&view=default"><i class="fa fa-globe"></i>{{str "LBL_WIZ_SYSTEM_LOCALE_SETTINGS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=EmailMan&action=config"><i class="fa fa-envelope"></i>{{str "LBL_WIZ_EMAIL_SETTINGS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Configurator&action=EditView"><i class="fa fa-cogs"></i>{{str "LBL_WIZ_APPLICATION_SETTINGS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Users&action=index"><i class="fa fa-plus-square"></i>{{str "LBL_WIZ_CREATE_USERS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Import&action=step1&import_module=Administration"><i class="fa fa-arrow-circle-o-up"></i>{{str "LBL_WIZ_IMPORT_DATA" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=ModuleBuilder&action=index&type=studio"><i class="fa fa-wrench"></i>{{str "LBL_WIZ_CONFIGURE_APPLICATION" module}}</a>
+        </li>
+    </ul>
+{{/eq}}
+    <ul class="thumbnails row-fluid">
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://support.sugarcrm.com/03_Training"><i class="fa fa-info-circle"></i>{{str "LBL_WIZ_SUGAR_TRAINING" module}}</a>
+        </li>
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://support.sugarcrm.com/02_Documentation"><i class="fa fa-book"></i>{{str "LBL_WIZ_DOCUMENTATION" module}}</a>
+        </li>
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://support.sugarcrm.com/04_Find_Answers/02KB"><i class="fa fa-briefcase"></i>{{str "LBL_WIZ_KNOWLEDGE_BASE" module}}</a>
+        </li>
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://community.sugarcrm.com"><i class="fa fa-comments-o"></i>{{str "LBL_WIZ_FORUMS" module}}</a>
+        </li>
+    </ul>
+</div>
+{{> wizard-page.footer }}

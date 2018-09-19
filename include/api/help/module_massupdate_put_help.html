@@ -1,0 +1,203 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    An API to mass update records.
+</span>
+
+<h2>Query String Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            massupdate_params
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Mass update parameters.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.uid
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            A list of ids.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.[field name]
+        </td>
+        <td>
+            [field type]
+        </td>
+        <td>
+            The field to be modified.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.team_name
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Team array.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.team_name_type
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Whether to replace or add teams. Possible values are 'add' and 'replace'.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<h4>Mass Updating Records by ID in a Module</h4>
+<pre class="pre-scrollable">
+{
+    "massupdate_params":{
+        "uid":[
+            "f22d1955-97d8-387d-9866-512d09cc1520",
+            "ef1b40aa-5815-4f8d-e909-512d09617ac8"
+        ],
+        "department":"Marketing"
+    }
+}
+</pre>
+
+<h4>Mass Updating Records with Teams</h4>
+<pre class="pre-scrollable">
+{
+   "massupdate_params":{
+      "uid":[
+         "f22d1955-97d8-387d-9866-512d09cc1520",
+         "ef1b40aa-5815-4f8d-e909-512d09617ac8"
+      ],
+      "team_name":[
+         {
+            "id":"35eab226-c20d-48f4-4670-512d095c8c6f",
+            "primary":true
+         },
+         {
+            "id":"8f640aba-f356-7374-7eb4-512d09745551",
+            "primary":false
+         }
+      ],
+      "team_name_type":"replace"
+   }
+}
+</pre>
+
+<h4>Mass Add Leads, Contacts or Prospects to a Target List</h4>
+<pre class="pre-scrollable">
+{
+    "massupdate_params": {
+        "uid": [     /* Leads, Contacts, or Prospects to Add */
+            "f3d90a49-14b4-a81c-6cac-526e6c71d33e",
+            "f22cde0d-9a20-89d3-ca14-526e6c3c4d08",
+            "f15f10bd-1445-5e20-9b5c-526e6ceb71d0"
+        ],
+        "prospect_lists": [
+                 /* Prospect List(s) to Add them To */
+            "bc5bc249-9c9c-52ad-52b9-526e71f0e18d"
+        ]
+    }
+}
+</pre>
+
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            Status
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The status of the mass update. Possible value is 'done'.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Done Example</h3>
+<pre class="pre-scrollable">
+{
+    "status":"done"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/MassUpdate</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

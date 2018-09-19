@@ -1,0 +1,45 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- $Id: SubPanelViewProjects.html 42215 2008-11-26 20:35:04Z jmertic $ -->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<tr height="20" >
+<td scope="col" width="35%" ><slot>{MOD.LBL_LIST_QUOTE_NAME}</slot></td>
+<td scope="col" width="35%" ><slot>{MOD.LBL_LIST_ACCOUNT_NAME}</slot></td>
+<td scope="col" width="10%" ><slot>{MOD.LBL_LIST_AMOUNT}</slot></td>
+<td scope="col" width="10%" ><slot>{MOD.LBL_LIST_DATE_QUOTE_EXPECTED_CLOSED}</slot></td>
+<td scope="col" width="10%" ><slot>&nbsp;</slot></td>
+</tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+<td scope="row"><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Quotes&record={QUOTE.ID}"  >{QUOTE.NAME}</a></slot></td>
+<td><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Accounts&record={QUOTE.SHIPPING_ACCOUNT_ID}" >{QUOTE.SHIPPING_ACCOUNT_NAME}</a></slot></td>
+<td><slot>{QUOTE.TOTAL}</slot></td>
+<td><slot>{QUOTE.DATE_QUOTE_EXPECTED_CLOSED}</slot></td>
+<td nowrap="nowrap" align="right"><slot><a
+	class="listViewTdToolsS1"
+	onclick="return confirm('{MOD.QUOTE_REMOVE_PROJECT_CONFIRM}');"
+	href="{URL_PREFIX}index.php?module=ProjectRelation&action=Delete&relation_id={QUOTE.ID}{RETURN_URL}"
+	>{REMOVE_INLINE_PNG}</a>&nbsp;<a
+	class="listViewTdToolsS1"
+	onclick="return confirm('{MOD.QUOTE_REMOVE_PROJECT_CONFIRM}');"
+	href="{URL_PREFIX}index.php?module=ProjectRelation&action=Delete&relation_id={QUOTE.ID}{RETURN_URL}"
+	>{APP.LNK_REMOVE}</a></slot></td>
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

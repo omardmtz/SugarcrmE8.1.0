@@ -1,0 +1,217 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Temporary API - Do Not Use! This endpoint will be removed in an upcoming release. Use /search endpoint instead.
+    Searches for people to invite to an event (meeting or call).
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            q
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The search text to match records on.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            module_list
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of modules to search.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            search_fields
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of fields to search.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            fields
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of fields to return. Search fields will automatically be added to return list.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            next_offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            Currently only returns -1 as paging is not supported yet.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            records
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            An array of results containing matched records.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "next_offset": -1,
+    "records": [
+        {
+            "id": "17283aad-8d15-c545-fc5a-5422fe3d8ef8",
+            "date_modified": "2014-09-24T13:25:28-04:00",
+            "email": [
+                {
+                    "email_address": "hr.phone.support@example.cn",
+                    "invalid_email": false,
+                    "opt_out": true,
+                    "primary_address": false,
+                    "reply_to_address": false
+                },
+                {
+                    "email_address": "section.section.phone@example.edu",
+                    "invalid_email": false,
+                    "opt_out": false,
+                    "primary_address": true,
+                    "reply_to_address": true
+                }
+            ],
+            "full_name": "Renaldo Cuffee",
+            "account_name": "EEE Endowments LTD",
+            "_acl": {
+                "fields": {}
+            },
+            "_module": "Contacts",
+            "_search": {
+                "highlighted": {
+                    "account_name": {
+                        "text": "EEE Endowments LTD",
+                        "module": "Contacts",
+                        "label": "LBL_ACCOUNT_NAME"
+                    }
+                }
+            }
+        },
+        {
+            "id": "19c0fa4a-a6c0-940f-7ad6-5422fe62a00a",
+            "date_modified": "2014-09-24T13:25:28-04:00",
+            "email": [
+                {
+                    "email_address": "qa.beans@example.com",
+                    "invalid_email": false,
+                    "opt_out": true,
+                    "primary_address": false,
+                    "reply_to_address": false
+                },
+                {
+                    "email_address": "the.phone.sales@example.de",
+                    "invalid_email": false,
+                    "opt_out": false,
+                    "primary_address": true,
+                    "reply_to_address": true
+                }
+            ],
+            "full_name": "Noble Canto",
+            "account_name": "EEE Endowments LTD",
+            "_acl": {
+                "fields": {}
+            },
+            "_module": "Contacts",
+            "_search": {
+                "highlighted": {
+                    "account_name": {
+                        "text": "EEE Endowments LTD",
+                        "module": "Contacts",
+                        "label": "LBL_ACCOUNT_NAME"
+                    }
+                }
+            }
+        }
+    ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/send_invites</code> GET endpoint.
+        </td>
+    </tr>
+</table>

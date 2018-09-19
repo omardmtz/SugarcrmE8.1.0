@@ -1,0 +1,201 @@
+/* IMAGE
+  ----------------*/
+
+/* Inline avatar upload */
+
+/* z-index order */
+.image_preview img {
+  z-index: 900;
+}
+
+.image_btn {
+  z-index: 901;
+}
+
+.image_input {
+  z-index: 902;
+}
+
+.image_btn.delete {
+  z-index: 903 !important;
+}
+
+.image_field * {
+  margin: 0;
+  padding: 0;
+}
+
+.image_field {
+  text-align: center;
+  position: relative;
+}
+//Specific to edit mode
+//Add border
+.image_field.image_edit {
+  border: 3px dashed #ccc;
+  top: -3px;
+  left: -3px;
+  z-index: 1;
+}
+//The label must hide the input
+.image_field > label {
+  display: block !important;
+  padding: 0 !important;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.image_input {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+//Place the button in top right corner and make it big enough so that it takes the whole dashlet size
+.image_input input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  float: right;
+  height: 100%;
+  font-size: 600px;
+  border: none;
+  opacity: 0;
+  cursor: pointer !important;
+  _cursor: hand;
+}
+
+.image_input input:focus {
+  outline: none; /* Opera */
+}
+
+.image_field > label:hover {
+  cursor: pointer !important;
+  _cursor: hand;
+}
+
+.image_btn {
+  position: absolute;
+  height: 10px;
+  line-height: 10px;
+  font-size: @fontSizeMini;
+  display: inline-block;
+  width: 100%;
+  color: white;
+}
+
+.image_btn.image_btn_label {
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  font-size: @fontSizeMini;
+  background-color: black;
+  display: inline-block;
+  border: 3px solid black;
+  text-align: left;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  opacity: 0.6;
+}
+
+.image_btn.delete {
+  left: auto;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  z-index: 1;
+  font-size: 14px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.image_preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ccc;
+}
+
+.image_preview img {
+  vertical-align: top !important;
+}
+
+.image_preview i.fa-plus {
+  display: block;
+}
+
+.error .image_field {
+  border: 3px dashed @errorText;
+
+  .image_preview > i {
+    color: @errorText !important;
+  }
+
+  .add-on.error-tooltip {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    bottom: auto;
+    left: auto;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+  }
+}
+
+/* NEW SKIN START */
+
+.image_field {
+  &.image_edit {
+    /* override */
+    border-radius: 50%;
+    min-height: 42px !important;
+
+    /* additive */
+    box-sizing: border-box;
+
+    .image_preview img {
+      /* additive */
+      border-radius: 50%;
+      max-height: 36px;
+    }
+  }
+}
+
+.image_rounded img {
+  /* override */
+  border-radius: 50%;
+}
+
+.headerpane span[data-type="image"] .image_rounded img,
+  .headerpane span[data-type="avatar"] .image_rounded img {
+  /* override */
+  border-radius: 50%;
+  border: none;
+
+  /* additive */
+  min-height: 42px; /* prevents (out of proportion) stretching of the uploaded avatar */
+}
+
+.merge-interface {
+  .merge-row {
+    .image_field {
+      /* override (to prevent incorrectly shaped circle, while actual img is still editing http://imgur.com/a/C3T7r */
+      min-height: auto !important;
+
+      /* override */
+      height: 50px !important;
+      width: 50px !important;
+
+      img {
+        /* override */
+        max-width: 44px;
+        max-height: 44px;
+      }
+    }
+  }
+}
+
+/* NEW SKIN END */

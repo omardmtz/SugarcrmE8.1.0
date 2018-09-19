@@ -1,0 +1,75 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Imports a Process Business Rules definition from a .pbr file
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will import a Process Business Rules definition from the
+    uploaded .pbr file containing JSON encoded data.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<strong>Note:</strong> A JSON encoded .pbr file attachment should be included with
+the request as part of the form-data.
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>businessrules_import</td>
+            <td>Object</td>
+            <td>Result of the import operation</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "businessrules_import":
+    {
+         "success":true,
+         "id":"e4396c91-81cd-c097-8149-5733bab68316"
+    }
+}
+</pre>

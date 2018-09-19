@@ -1,0 +1,85 @@
+/* ERROR
+  ----------------*/
+
+.error {
+  &.input-append.select,
+  &.input-append.select2 {
+    display: inline;
+  }
+
+  label,
+  .record-label {
+    font-weight: 400;
+    color: @errorText !important;
+  }
+
+  .help-block {
+    color: @errorText;
+  }
+
+  textarea,
+  input,
+  .preview > span > .fa-plus {
+    border-color: @errorText !important;
+    color: @errorText !important;
+  }
+
+  input {
+    margin-bottom: 0;
+
+    &:focus {
+      border-color: @errorText !important;
+      border-width: 1px !important;
+    }
+  }
+
+  /* On fieldset/email, only the input that has an error must be decorate */
+  .control-group.email input,
+    &[data-type=fieldset] input {
+    border-color: @gray !important;
+    color: @gray !important;
+  }
+  .control-group.email .input-append.error input,
+    &[data-type=fieldset] .error input {
+    border-color: @errorText !important;
+    color: @errorText !important;
+  }
+
+  & > div:first-child,
+  & > div:first-child label,
+  & > label {
+    font-weight: 400;
+    color: @errorText;
+  }
+
+  .input-append label {
+    color: @errorText;
+  }
+
+  .select2-container .select2-choice,
+  .select2-container .select2-choices,
+  .upload-field-custom.btn.avatar {
+    border-color: @errorText;
+    color: @errorText !important;
+  }
+  //TODO: find out why error inputs are still red on focus
+  // .select2-container.select2-container-active .select2-choice {
+  //   border-color: @linkColor;
+  // }
+  .select2-choice > .select2-chosen {
+    margin-right: 18px;
+  }
+
+  .preview > span > .fa-plus {
+    border-color: @errorText;
+    color: @errorText;
+  }
+
+  .select2-choice > .select2-chosen {
+    margin-right: 18px;
+  }
+
+  label.file-upload {
+    background: @errorText;
+  }
+}

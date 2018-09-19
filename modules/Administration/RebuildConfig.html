@@ -1,0 +1,34 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<p>
+<form name="RebuildConfig" method="post" action="index.php">
+{sugar_csrf_form_token}
+<input type="hidden" name="module" value="Administration">
+<input type="hidden" name="action" value="RebuildConfig">
+<input type="hidden" name="return_module" value="Administration">
+<input type="hidden" name="return_action" value="RebuildConfig">
+<input type="hidden" name="perform_rebuild" value="true">
+<table cellspacing="{CELLSPACING}" class="other view">
+<tr>
+    <td width="20%" scope="row">{LBL_CONFIG_CHECK}</td>
+    <td>{CONFIG_CHECK}</td>
+</tr>
+<tr>
+    <td scope="row">{LBL_PERFORM_REBUILD}</td>
+    <td><input type="submit" name="button" {DISABLE_CONFIG_REBUILD} value="{BTN_PERFORM_REBUILD}"></td>
+</tr>
+</table>
+</form>
+</p>
+<!-- END: main -->

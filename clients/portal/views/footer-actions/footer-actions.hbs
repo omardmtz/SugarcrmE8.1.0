@@ -1,0 +1,18 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if isAuthenticated}}
+    <div class="btn-group">
+        <button data-action="tour" title="{{str "LBL_TOUR"}}" class="btn btn-invisible" aria-label="{{str "LBL_TOUR"}}" role="link"><i class="fa fa-road"></i><span class="action-label"> {{str "LNK_TOUR"}}</span></button>
+        <button data-action="support" title="{{str "LBL_SUPPORT"}}" class="btn btn-invisible" aria-label="{{str "LBL_SUPPORT"}}" role="link"><i class="fa fa-question-circle"></i><span class="action-label"> {{str "LBL_SUPPORT"}}</span></button>
+    </div>
+{{/if}}

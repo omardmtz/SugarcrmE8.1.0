@@ -1,0 +1,129 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">ForecastsApi Reportees</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to return the json Data for an array of users and their state for the forecasts users tree filter
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td>user_id</td>
+            <td>Show for a specific user, defaults to current user if not defined</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>level</td>
+            <td>Level of child notes, defaults to 1, -1 for all levels</td>
+            <td>Optional</td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+    <code class="codesample">
+{
+    'user_id':'seed_max_id'
+}
+    </code>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        {
+           "attr":{
+              "id":"jstree_node_jim",
+              "rel":"root"
+           },
+           "children":[
+              {
+                 "attr":{
+                    "id":"jstree_node_myopps_jim",
+                    "rel":"my_opportunities"
+                 },
+                 "children":[
+
+                 ],
+                 "data":"Opportunities (Jim Brennan)",
+                 "metadata":{
+                    "first_name":"Jim",
+                    "full_name":"Jim Brennan",
+                    "id":"seed_jim_id",
+                    "last_name":"Brennan",
+                    "level":"1",
+                    "reports_to_id":"",
+                    "user_name":"jim"
+                 },
+                 "state":""
+              },
+              {
+                 "attr":{
+                    "id":"jstree_node_will",
+                    "rel":"manager"
+                 },
+                 "children":[
+
+                 ],
+                 "data":"Will Westin",
+                 "metadata":{
+                    "first_name":"Will",
+                    "full_name":"Will Westin",
+                    "id":"seed_will_id",
+                    "last_name":"Westin",
+                    "level":"2",
+                    "reports_to_id":"seed_jim_id",
+                    "user_name":"will"
+                 },
+                 "state":"closed"
+              },
+              {
+                 "attr":{
+                    "id":"jstree_node_sarah",
+                    "rel":"manager"
+                 },
+                 "children":[
+
+                 ],
+                 "data":"Sarah Smith",
+                 "metadata":{
+                    "first_name":"Sarah",
+                    "full_name":"Sarah Smith",
+                    "id":"seed_sarah_id",
+                    "last_name":"Smith",
+                    "level":"2",
+                    "reports_to_id":"seed_jim_id",
+                    "user_name":"sarah"
+                 },
+                 "state":"closed"
+              }
+           ],
+           "data":"Jim Brennan",
+           "metadata":{
+              "first_name":"Jim",
+              "full_name":"Jim Brennan",
+              "id":"seed_jim_id",
+              "last_name":"Brennan",
+              "level":"1",
+              "reports_to_id":"",
+              "user_name":"jim"
+           },
+           "state":"open"
+        }
+    </code>
+</div>

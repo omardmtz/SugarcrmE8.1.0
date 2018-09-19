@@ -1,0 +1,52 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <title>SugarCRM</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=320.1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" id="viewport-meta" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-itunes-app" content="app-id=599208633"><meta name="google-play-app" content="app-id=com.sugarcrm.nomad">
+    <link rel="shortcut icon" href="img/favicon.ico"><link rel="apple-touch-icon-precomposed" href="img/touch-icon.png"><link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/touch-icon-152.png"><link rel="apple-touch-icon-precomposed" sizes="196x196" href="img/touch-icon-196.png">
+    <script type="text/javascript" src="js/nomad.js"></script>
+
+    <script language="javascript">
+        $(function() {
+            SUGAR.App.nomad.deviceReady();
+        });
+    </script>
+
+</head>
+<body>
+<div id="nomad">
+    <div id="menu-left" track="swipeLeft swipeRight:menu-left"></div>
+    <div id="right-menu"></div>
+    <div id="wrapper">
+        <div id="content">
+            <div class="background hide">&nbsp;</div>
+        </div>
+        <div id="content-child">
+            <div class="background hide">&nbsp;</div>
+        </div>
+    </div>
+    <div id="content-overlay"></div>
+    <div id="alerts" class="alerts"></div>
+    <div id="actionsheet-overlay" class="actionsheet-overlay hide"></div>
+</div>
+</body>
+</html>

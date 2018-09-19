@@ -1,0 +1,68 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Returns the current user object.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+
+<h3>Response User</h3>
+<pre class="pre-scrollable">
+{
+   "current_user":{
+      "type":"user",
+      "id":"1",
+      "full_name":"Administrator",
+      "timepref":"h:ia",
+      "timezone":"America/Los_Angles",
+      "user_name":"admin"
+   }
+}
+</pre>
+
+<h3>Response Portal User</h3>
+<pre class="pre-scrollable">
+{
+   "current_user":{
+      "type":"support_portal",
+      "id":"1234-567",
+      "user_id":"abcd-123",
+      "full_name":"Bill Williamson",
+      "timepref":"h:ia",
+      "timezone":"America/Denver",
+      "user_name":"SupportPortalApi"
+   }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/me</code> GET endpoint.
+        </td>
+    </tr>
+</table>

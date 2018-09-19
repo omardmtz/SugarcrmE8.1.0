@@ -1,0 +1,69 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+			<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="ReportMaker">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+		<td><input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" id="SAVE_HEADER" onclick="this.form.action.value='Save'; return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" id="CANCEL_HEADER" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
+	<td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	<td align='right'>{ADMIN_EDIT}</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+<td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<td width="15%" scope="row"><slot>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+	<td width="50%" ><slot><input id="report_name" name='name' tabindex='1' size='40' maxlength='50' type="text" value="{NAME}"></slot></td>
+	<td width="15%" scope="row"><slot>&nbsp;</slot></td>
+	<td width="20%" ><slot>&nbsp;</slot></td>
+	</tr><tr>
+	<td width="15%" scope="row"><slot>{MOD.LBL_TITLE}</slot></td>
+	<td width="50%" ><slot><input id="report_title" name='title' tabindex='1' size='40' maxlength='50' type="text" value="{TITLE}"></slot></td>
+	<td width="15%" scope="row"><slot>&nbsp;</slot></td>
+	<td width="20%" ><slot>&nbsp;</slot></td>	
+	</tr><tr>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	</tr><tr>
+	<td valign="top" scope="row" rowspan="2"><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+	<td  rowspan="2"><slot><textarea id="description" name='description' tabindex='3' cols="60" rows="2">{DESCRIPTION}</textarea></slot></td>	
+	<td scope="row"><slot>{MOD.LBL_REPORT_ALIGN}</slot></td>
+	<td ><slot><select id="report_alignment" name='report_align' tabindex='2'>{REPORT_ALIGN}</select></slot></td>
+	</tr><tr>
+	<td  scope="row"><slot>{APP.LBL_TEAM}</slot></td>
+	<td ><slot><select id="team" name="team_id" tabindex="1">{TEAM_OPTIONS}</select></slot></td>
+	</tr><tr>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	</tr><tr>
+	</tr></table>
+</td></tr></table>
+	</form>
+
+
+{JAVASCRIPT}
+
+<!-- END: main -->

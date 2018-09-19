@@ -1,0 +1,41 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+
+<!--<div class="dashlet-options">-->
+    <!--<div class="row-fluid">-->
+            <!--<div class="btn-group dashlet-group" data-toggle="buttons-radio">-->
+                <!--<button class="btn{{#eq settings.attributes.date "today"}} active{{/eq}}" value="today" data-action="date-switcher">{{str "LBL_PMSE_MY_PROCESS_DEFINITIONS" this.module}}</button>-->
+                <!--<button class="btn{{#eq settings.attributes.date "future"}} active{{/eq}}" value="future" data-action="date-switcher">{{str "LBL_PMSE_ALL_PROCESS_DEFINITIONS" this.module}}</button>-->
+            <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+<div class="dashlet-options">
+    <div class="row-fluid">
+        {{#if settings.attributes.date}}
+            <div class="btn-group dashlet-group" data-toggle="buttons-radio">
+                <button class="btn{{#eq settings.attributes.date "today"}} active{{/eq}}" value="today" data-action="date-switcher" aria-pressed="{{#eq settings.attributes.date "today"}}true{{else}}false{{/eq}}">{{str "LBL_PLANNED_ACTIVITIES_DASHLET_TODAY_BUTTON_LABEL" this.module}}</button>
+                <button class="btn{{#eq settings.attributes.date "future"}} active{{/eq}}" value="future" data-action="date-switcher" aria-pressed="{{#eq settings.attributes.date "future"}}true{{else}}false{{/eq}}">{{str "LBL_PLANNED_ACTIVITIES_DASHLET_FUTURE_BUTTON_LABEL" this.module}}</button>
+            </div>
+        {{/if}}
+        {{#if settings.attributes.visibility}}
+            <div class="btn-group dashlet-group pull-right" data-toggle="buttons-radio">
+                <button class="btn{{#eq settings.attributes.visibility "user"}} active{{/eq}}" value="user" data-action="visibility-switcher" rel="tooltip" data-container="body" data-placement="bottom" title="{{str "LBL_PMSE_MY_PROCESS_DEFINITIONS" this.module}}" aria-pressed="{{#eq settings.attributes.visibility "user"}}true{{else}}false{{/eq}}" track="click:viewMyUserDashlet">{{str "LBL_PMSE_MY_PROCESS_DEFINITIONS" this.module}}</button>
+                <button class="btn{{#eq settings.attributes.visibility "group"}} active{{/eq}}" value="group" data-action="visibility-switcher" rel="tooltip" data-container="body" data-placement="bottom" title="{{str "LBL_PMSE_ALL_PROCESS_DEFINITIONS" this.module}}" aria-pressed="{{#eq settings.attributes.visibility "group"}}true{{else}}false{{/eq}}" track="click:viewMyTeamsDashlet">{{str "LBL_PMSE_ALL_PROCESS_DEFINITIONS" this.module}}</button>
+                <!--<button class="btn{{#eq settings.attributes.visibility "user"}} active{{/eq}}" value="user" data-action="visibility-switcher" rel="tooltip" data-container="body" data-placement="bottom" title="{{str "LBL_PLANNED_ACTIVITIES_DASHLET_USER_BUTTON_LABEL" this.module}}" track="click:viewMyUserDashlet"><i class="fa fa-user""></i></button>-->
+                <!--<button class="btn{{#eq settings.attributes.visibility "group"}} active{{/eq}}" value="group" data-action="visibility-switcher" rel="tooltip" data-container="body" data-placement="bottom" title="{{str "LBL_PLANNED_ACTIVITIES_DASHLET_GROUP_BUTTON_LABEL" this.module}}" track="click:viewMyTeamsDashlet"><i class="fa fa-user""></i></button>-->
+            </div>
+        {{/if}}
+    </div>
+</div>

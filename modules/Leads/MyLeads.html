@@ -1,0 +1,34 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+
+	<tr height="20" >
+		<td width="70%" ><slot><a href="{ORDER_BY}last_name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{last_name_arrow}{arrow_end}</span></a></slot></td>
+		<td width="30%"  nowrap><slot><a href="{ORDER_BY}date_entered" class="listViewThLinkS1">{MOD.LBL_LIST_DATE_ENTERED}{arrow_start}{date_entered_arrow}{arrow_end}</a></slot></td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+	<td valign=TOP><slot><{TAG.MAIN} href="{URL_PREFIX}index.php?action=DetailView&module=Leads&record={LEAD.ID}" >{LEAD.FIRST_NAME} {LEAD.LAST_NAME}</{TAG.MAIN}></slot></td>
+	<td valign=TOP><slot>{LEAD.DATE_ENTERED}</slot></td>
+
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

@@ -1,0 +1,49 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+<script language="javascript">
+function setRecord(id)
+{
+	var recordId = document.alert_form.record_id;
+	recordId.value = id;
+	document.alert_form.submit();
+}
+</script>
+<script type="text/javascript" src="include/workflow/jutils.js?v={VERSION_MARK}"></script>
+{JAVASCRIPT_LANGUAGE_FILES}
+<form action="index.php" method="post" name="alert_form" id="alert_form">
+{sugar_csrf_form_token}
+<input type="hidden" name="module" value="{MODULE_NAME}" />
+<input type="hidden" name="workflow_id" value="{WORKFLOW_ID}" />
+<input type="hidden" name="action" value="SaveRelationship" />
+<input type="hidden" name="record_id" value="" />
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="7%" >{MOD.LBL_LIST_DETAILS}</td>
+	<td scope="col" width="60%" ><slot>{MOD.LBL_LIST_STATEMENT}</td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    	<td scope='row' nowrap valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot><a class="listViewTdToolsS1" onclick="toggle_div('{ALERT.ID}')" href="#"><span id='span_{ALERT.ID}'><img src='index.php?entryPoint=getImage&themeName={THEME}&imageName=advanced_search.gif' width='8' height='8' alt='Advanced' border='0'>&nbsp;{MOD.LBL_SHOW}</span></a></slot></td>     	
+		<td scope='row' valign=TOP bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" ><slot>{ALERT.STATEMENT_NOTICE}<a href='#' onclick="javascript:setRecord('{ALERT.ID}');">{ALERT.STATEMENT}</a></slot></td>
+		
+
+</tr>
+<span><tr><td colspan="5">{ALERT.DETAILS_TABLE}</td></tr></span>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

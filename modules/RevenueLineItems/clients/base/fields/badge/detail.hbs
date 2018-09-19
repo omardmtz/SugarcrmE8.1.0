@@ -1,0 +1,29 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if this.model.id}}
+    {{#if value}}
+        <span class="label label-success">{{str "LBL_QUOTED" this.module}}</span>
+    {{else}}
+        <a class="rowaction{{#if def.button}} btn{{/if}}{{#if def.primary}} btn-primary{{/if}}" href="javascript:void(0);"
+            {{#if def.event}}
+           data-event="{{def.event}}"
+            {{/if}}
+            {{#if def.tooltip}}
+           rel="tooltip"
+           data-placement="bottom"
+           title="{{str def.tooltip module}}"
+            {{/if}}
+           name="convert_to_quote_button" track="click:convert_to_quote_button">
+            {{#if def.icon}}<i class="fa {{def.icon}}"></i>{{/if}}<span class="label label-pending label-dark-text">{{str "LBL_NOT_QUOTED" this.module}}</span></a>
+    {{/if}}
+{{/if}}

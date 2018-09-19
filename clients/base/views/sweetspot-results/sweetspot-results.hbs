@@ -1,0 +1,43 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<li data-section="keywords"{{#unless keywords.length}} class="hide"{{/unless}}>
+    <p>
+    {{str 'LBL_SWEETSPOT_KEYWORDS_SECTION'}}
+    </p>
+    <ul>
+        {{#each keywords}}
+            {{partial 'result' ../this this}}
+        {{/each}}
+    </ul>
+</li>
+<li data-section="actions"{{#unless actions.length}} class="hide"{{/unless}}>
+    <p>
+    {{str 'LBL_SWEETSPOT_ACTIONS_SECTION'}}
+    </p>
+    <ul>
+        {{#each actions}}
+            {{partial 'result' ../this this}}
+        {{/each}}
+    </ul>
+</li>
+<li data-section="records"{{#unless records.length}} class="hide"{{/unless}}>
+    <p>
+    {{str 'LBL_SWEETSPOT_RECORDS_SECTION'}}
+    </p>
+    <ul>
+        {{#each records}}
+            {{partial 'result' ../this this}}
+        {{/each}}
+        {{partial 'showmore' this this}}
+    </ul>
+</li>

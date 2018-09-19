@@ -1,0 +1,355 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: Quote_Subject -->
+SugarCRM Tarjous - {QUOTE_SUBJECT}
+<!-- END: Quote_Subject -->
+<!-- BEGIN: Quote -->
+{ASSIGNER} on antanut tarjouksen {ASSIGNED_USER}:lle.
+
+Aihe: {QUOTE_SUBJECT}
+Status: {QUOTE_STATUS}
+Odotettu sulkeutumispvm: {QUOTE_CLOSEDATE}
+Kuvaus: {QUOTE_DESCRIPTION}
+
+Voit nähdä tämän tarjouksen osoitteessa:
+<{URL}>
+<!-- END: Quote -->
+
+
+<!-- BEGIN: Account_Subject -->
+SugarCRM Asiakas - {ACCOUNT_NAME}
+<!-- END: Account_Subject -->
+<!-- BEGIN: Account -->
+{ASSIGNER} on antanut asiakkaan {ASSIGNED_USER}:lle.
+
+Nimi: {ACCOUNT_NAME}
+Tyyppi: {ACCOUNT_TYPE}
+Kuvaus: {ACCOUNT_DESCRIPTION}
+
+Voit nähdä tämän asiakkaan osoitteessa:
+<{URL}>
+<!-- END: Account -->
+
+
+<!-- BEGIN: Case_Subject -->
+SugarCRM Palvelupyyntö - {CASE_SUBJECT}
+<!-- END: Case_Subject -->
+<!-- BEGIN: Case -->
+{ASSIGNER} on antanut palvelupyynnön {ASSIGNED_USER}:lle.
+
+Aihe: {CASE_SUBJECT}
+Prioriteetti: {CASE_PRIORITY}
+Status: {CASE_STATUS}
+Kuvaus: {CASE_DESCRIPTION}
+
+Voit nähdä tämän palvelupyynnön osoitteessa:
+<{URL}>
+<!-- END: Case -->
+
+
+<!-- BEGIN: Task_Subject -->
+SugarCRM Tehtävä - {TASK_SUBJECT}
+<!-- END: Task_Subject -->
+<!-- BEGIN: Task -->
+{ASSIGNER} on antanut tehtävän {ASSIGNED_USER}:lle.
+
+Aihe: {TASK_SUBJECT}
+Prioriteetti: {TASK_PRIORITY}
+Erääntymispäivä: {TASK_DUEDATE}
+Status: {TASK_STATUS}
+Kuvaus: {TASK_DESCRIPTION}
+
+Voit nähdä tämän tehtävän osoitteessa:
+<{URL}>
+<!-- END: Task -->
+
+
+<!-- BEGIN: Meeting_Subject -->
+SugarCRM Kokous - {MEETING_SUBJECT}
+<!-- END: Meeting_Subject -->
+<!-- BEGIN: Meeting -->
+Vastaanottaja: {MEETING_TO}
+
+{ASSIGNER} on kutsunut sinut kokoukseen
+
+Aihe: {MEETING_SUBJECT}
+Aloitusaika: {MEETING_STARTDATE}
+Lopetusaika: {MEETING_ENDDATE}
+<!-- BEGIN: Meeting_External_API -->
+Kokouksen osoite: {MEETING_URL}
+<!-- END: Meeting_External_API -->
+Kuvaus: {MEETING_DESCRIPTION}
+
+Hyväksy kokous:
+<{ACCEPT_URL}&accept_status=accept>
+
+Alustavasti hyväksy kokous:
+<{ACCEPT_URL}&accept_status=tentative>
+
+Älä hyväksy kokousta:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Meeting -->
+
+<!-- BEGIN: MeetingSpecial_Subject -->
+SugarCRM Kokous - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingSpecial -->
+{ASSIGNER} on antanut kokouksen {ASSIGNED_USER}:lle.
+
+Aihe: {MEETING_SUBJECT}
+Status: {MEETING_STATUS}
+Aloitusaika: {MEETING_STARTDATE}
+Lopetusaika: {MEETING_ENDDATE}
+Kuvaus: {MEETING_DESCRIPTION}
+
+Voit nähdä tämän kokouksen osoitteessa:
+<{URL}>
+<!-- END: MeetingSpecial -->
+
+
+<!-- BEGIN: Email_Subject -->
+SugarCRM Sähköposti - {EMAIL_SUBJECT}
+<!-- END: Email_Subject -->
+<!-- BEGIN: Email -->
+{ASSIGNER} on antanut (assigned) sähköpostin {ASSIGNED_USER}:lle.
+
+Aihe: {EMAIL_SUBJECT}
+Lähetyspvm: {EMAIL_DATESENT}
+
+Voit nähdä tämän sähköpostin osoitteessa:
+<{URL}>
+<!-- END: Email -->
+
+
+
+
+
+
+<!-- BEGIN: Contact_Subject -->
+SugarCRM Kontakti - {CONTACT_NAME}
+<!-- END: Contact_Subject -->
+<!-- BEGIN: Contact -->
+{ASSIGNER} on antanut kontaktin {ASSIGNED_USER}:lle.
+
+Nimi: {CONTACT_NAME}
+Kuvaus: {CONTACT_DESCRIPTION}
+
+Voit nähdä tämän kontaktin osoitteessa:
+<{URL}>
+<!-- END: Contact -->
+
+
+<!-- BEGIN: Lead_Subject -->
+SugarCRM Liidi - {LEAD_NAME}
+<!-- END: Lead_Subject -->
+<!-- BEGIN: Lead -->
+{ASSIGNER} on antanut liidin {ASSIGNED_USER}:lle.
+
+Nimi: {LEAD_NAME}
+Liidin lähde: {LEAD_SOURCE}
+Status: {LEAD_STATUS}
+Kuvaus: {LEAD_DESCRIPTION}
+
+Voit nähdä tämän liidin osoitteessa:
+<{URL}>
+<!-- END: Lead -->
+
+
+<!-- BEGIN: Opportunity_Subject -->
+SugarCRM Myyntimahdollisuus - {OPPORTUNITY_NAME}
+<!-- END: Opportunity_Subject -->
+<!-- BEGIN: Opportunity -->
+{ASSIGNER} on antanut myyntimahdollisuuden {ASSIGNED_USER}:lle.
+
+Nimi: {OPPORTUNITY_NAME}
+Määrä: {OPPORTUNITY_AMOUNT}
+Odotettu sulkeutumispvm: {OPPORTUNITY_CLOSEDATE}
+Myynnin vaihe: {OPPORTUNITY_STAGE}
+Kuvaus: {OPPORTUNITY_DESCRIPTION}
+
+Voit nähdä tämän myyntimahdollisuuden osoitteessa:
+<{URL}>
+<!-- END: Opportunity -->
+
+
+<!-- BEGIN: Bug_Subject -->
+SugarCRM Bugi - {BUG_SUBJECT}
+<!-- END: Bug_Subject -->
+<!-- BEGIN: Bug -->
+{ASSIGNER} on antanut bugin {ASSIGNED_USER}:lle.
+
+Bugin numero: {BUG_BUG_NUMBER}
+Aihe: {BUG_SUBJECT}
+Tyyppi: {BUG_TYPE}
+Prioriteetti: {BUG_PRIORITY}
+Status: {BUG_STATUS}
+Korjaus: {BUG_RESOLUTION}
+Release: {BUG_RELEASE}
+Kuvaus: {BUG_DESCRIPTION}
+Work log: {BUG_WORK_LOG}
+
+Voit nähdä tämän bugin osoitteessa:
+<{URL}>
+<!-- END: Bug -->
+
+
+<!-- BEGIN: Default_Subject -->
+SugarCRM - Annettu {OBJECT}
+<!-- END: Default_Subject -->
+<!-- BEGIN: Default -->
+{ASSIGNER} on antanut {OBJECT}:n {ASSIGNED_USER}:lle.
+
+Voit nähdä tämän {OBJECT}:n osoitteessa:
+<{URL}>
+<!-- END: Default -->
+
+<!-- BEGIN: Call_Subject -->
+SugarCRM Puhelu - {CALL_SUBJECT}
+<!-- END: Call_Subject -->
+<!-- BEGIN: Call -->
+Vastaanottaja: {CALL_TO}
+ {ASSIGNER} on kutsunut sinut puheluun
+Aihe: {CALL_SUBJECT}
+Status: {CALL_STATUS}
+Aloitusaika: {CALL_STARTDATE}
+Kesto: {CALL_HOURS}h, {CALL_MINUTES}m
+Kuvaus: {CALL_DESCRIPTION}
+
+Hyväksy tämä puhelu:
+<{ACCEPT_URL}&accept_status=accept>
+
+Alustavasti hyväksy tämä puhelu:
+<{ACCEPT_URL}&accept_status=tentative>
+
+Älä hyväksy tätä puhelua:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Call -->
+
+<!-- BEGIN: CallSpecial_Subject -->
+SugarCRM Puhelu - {CALL_SUBJECT}
+<!-- END: CallSpecial_Subject -->
+<!-- BEGIN: CallSpecial -->
+{ASSIGNER} on antanut puhelun {ASSIGNED_USER}:lle.
+
+Aihe: {CALL_SUBJECT}
+Status: {CALL_STATUS}
+Aloitusaika: {CALL_STARTDATE}
+Kesto: {CALL_HOURS}h, {CALL_MINUTES}m
+Kuvaus: {CALL_DESCRIPTION}
+
+Voit nähdä tämän puhelun osoitteessa:
+<{URL}>
+<!-- END: CallSpecial -->
+
+<!-- BEGIN: Campaign_Subject -->
+SugarCRM Kampanja - {CAMPAIGN_NAME}
+<!-- END: Campaign_Subject -->
+<!-- BEGIN: Campaign -->
+{ASSIGNER} on antanut kampanjan {ASSIGNED_USER}:lle.
+
+Aihe: {CAMPAIGN_NAME}
+Määrä: {CAMPAIGN_AMOUNT}
+Erääntymispvm: {CAMPAIGN_CLOSEDATE}
+Status: {CAMPAIGN_STATUS}
+Kuvaus: {CAMPAIGN_DESCRIPTION}
+
+Voit nähdä tämän kampanjan osoitteessa:
+<{URL}>
+<!-- END: Campaign -->
+
+<!-- BEGIN: Quota_Subject -->
+SugarCRM Kiintiö - Kiintiösi aikavälille {QUOTA_TIMEPERIOD}
+<!-- END: Quota_Subject -->
+<!-- BEGIN: Quota -->
+{ASSIGNER} on antanut (assigned) kiintiön {ASSIGNED_USER}:lle.
+
+Määrä: {QUOTA_AMOUNT}
+Ajanjakso: {QUOTA_TIMEPERIOD}
+
+Voit nähdä tämän kiintiön assignmentin osoitteessa:
+<{QUOTA_URL}>
+<!-- END: Quota -->
+
+<!-- BEGIN: KBDocument_Subject -->
+SugarCRM Dokumentti - {KBDOCUMENT_NAME}
+<!-- END: KBDocument_Subject -->
+<!-- BEGIN: KBDocument -->
+
+{NOTIFICATION_MESSAGE}
+
+Nimi: {KBDOCUMENT_NAME}
+Luontipvm: {KBDOCUMENT_DATE_CREATED}
+Luoja: {KBDOCUMENT_CREATED_BY}
+Status: {KBDOCUMENT_STATUS}
+Kuvaus: {KBDOCUMENT_DESCRIPTION}
+
+Voit nähdä tämän dokumentin osoitteessa:
+<{URL}>
+<!-- END: KBDocument -->
+
+<!-- BEGIN: Contract_Subject -->
+SugarCRM Sopimus - {CONTRACT_NAME}
+<!-- END: Contract_Subject -->
+<!-- BEGIN: Contract-->
+
+{ASSIGNER} on antanut Sopimuksen {ASSIGNED_USER}:lle.
+
+Voit nähdä tämän Sopimuksen osoitteessa:
+<{URL}>
+<!-- END:Contract-->
+
+<!-- BEGIN: ContractSpecial_Subject -->
+SugarCRM Sopimus - {CONTRACT_NAME}
+<!-- END: ContractSpecial_Subject -->
+<!-- BEGIN: ContractSpecial -->
+
+Sopimuksesi {CONTRACT_NAME} erääntyy {CONTRACT_END_DATE}.
+
+Voit nähdä tämän sopimuksen osoitteessa:
+<{URL}>
+<!-- END:ContractSpecial-->
+
+<!-- BEGIN: MeetingReminder_Subject -->
+Kokousmuistutus - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingReminder -->
+Aihe: {MEETING_SUBJECT}
+Milloin: {MEETING_STARTDATE}
+Paikka: {MEETING_LOCATION}
+Luoja: {MEETING_CREATED_BY}
+<!-- END: MeetingReminder -->
+
+<!-- BEGIN: CallReminder_Subject -->
+Puhelumuistutus - {CALL_SUBJECT}
+<!-- END: CallReminder_Subject -->
+<!-- BEGIN: CallReminder -->
+Aihe: {CALL_SUBJECT}
+Milloin: {CALL_STARTDATE}
+Luoja: {CALL_CREATED_BY}
+<!-- END: CallReminder -->
+
+<!-- BEGIN: Note_Subject -->
+SugarCRM Viesti - {NOTE_SUBJECT}
+<!-- END: Note_Subject -->
+<!-- BEGIN: Note -->
+{ASSIGNER} on lähettänyt sinulle viestin {ASSIGNED_USER}.
+
+Aihe: {NOTE_SUBJECT}
+Kuvaus: {NOTE_DESCRIPTION}
+
+Viesti on luettavissa täällä:
+<{URL}>
+<!-- END: Note -->

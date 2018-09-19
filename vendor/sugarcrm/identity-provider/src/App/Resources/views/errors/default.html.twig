@@ -1,0 +1,12 @@
+{% extends "index.html.twig" %}
+
+{% block content %}
+    <div class="login__header">
+        <h3 class="brand">SugarCRM</h3>
+    </div>
+    <div class="error-message-box">
+        <h3>Sorry, service is not able to process the request.</h3>
+        <h4>{{ error_code }} Error.</h4>
+        <h4>Return to <a class="link" href="{{ url('loginRender') }}">Home</a></h4>
+    </div>
+{% endblock %}

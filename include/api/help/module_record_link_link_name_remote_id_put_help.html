@@ -1,0 +1,255 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Updates relationship specific information on an existing relationship.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;relationship field&gt;
+        </td>
+        <td>
+            &lt;relationship field type&gt;
+        </td>
+        <td>
+            The name value list of relationship fields to populate. An example is the contact_role field on Opportunities and Contacts.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+{
+    "contact_role":"Primary Decision Maker"
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            record
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The record linked to the related record.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            related_record
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The record that was associated.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "record":{
+      "id":"da6a3741-2a81-ba7f-f249-512d0932e94e",
+      "name":"Slender Broadband Inc - 1000 units",
+      "date_entered":"2013-02-26T19:12:00+00:00",
+      "date_modified":"2013-02-26T19:12:00+00:00",
+      "modified_user_id":"1",
+      "modified_by_name":"Administrator",
+      "created_by":"1",
+      "created_by_name":"Administrator",
+      "description":"",
+      "img":"",
+      "deleted":false,
+      "assigned_user_id":"seed_max_id",
+      "assigned_user_name":"Max Jensen",
+      "team_name":[
+         {
+            "id":"East",
+            "name":"East",
+            "name_2":"",
+            "primary":false
+         },
+         {
+            "id":"West",
+            "name":"West",
+            "name_2":"",
+            "primary":true
+         }
+      ],
+      "opportunity_type":"",
+      "account_name":"Slender Broadband Inc",
+      "account_id":"181461c6-dc81-1115-1fe0-512d092e8f15",
+      "campaign_id":"",
+      "campaign_name":"",
+      "lead_source":"Campaign",
+      "amount":"25000",
+      "base_rate":"1",
+      "amount_usdollar":"25000",
+      "currency_id":"-99",
+      "currency_name":"",
+      "currency_symbol":"",
+      "date_closed":"2013-02-27",
+      "date_closed_timestamp":"1361992480",
+      "next_step":"",
+      "sales_stage":"Needs Analysis",
+      "sales_status":"New",
+      "probability":"90",
+      "best_case":"25000",
+      "worst_case":"25000",
+      "commit_stage":"include",
+      "my_favorite":false,
+      "_acl":{
+         "fields":{
+
+         }
+      }
+   },
+   "related_record":{
+      "id":"e1c495cb-af17-1b37-dd66-512f934fe155",
+      "name":"Bill Edwards",
+      "date_entered":"2013-02-28T17:25:00+00:00",
+      "date_modified":"2013-02-28T17:25:00+00:00",
+      "modified_user_id":"1",
+      "modified_by_name":"Administrator",
+      "created_by":"1",
+      "created_by_name":"Administrator",
+      "description":"",
+      "img":"",
+      "deleted":false,
+      "assigned_user_id":"",
+      "assigned_user_name":"",
+      "team_name":[
+         {
+            "id":1,
+            "name":"Global",
+            "name_2":"",
+            "primary":true
+         }
+      ],
+      "salutation":"",
+      "first_name":"Bill",
+      "last_name":"Edwards",
+      "full_name":"Bill Edwards",
+      "title":"",
+      "linkedin":"",
+      "facebook":"",
+      "twitter":"",
+      "googleplus":"",
+      "department":"",
+      "do_not_call":false,
+      "phone_home":"",
+      "email":[
+
+      ],
+      "phone_mobile":"",
+      "phone_work":"",
+      "phone_other":"",
+      "phone_fax":"",
+      "email1":"",
+      "email2":"",
+      "invalid_email":"",
+      "email_opt_out":"",
+      "primary_address_street":"",
+      "primary_address_street_2":"",
+      "primary_address_street_3":"",
+      "primary_address_city":"",
+      "primary_address_state":"",
+      "primary_address_postalcode":"",
+      "primary_address_country":"",
+      "alt_address_street":"",
+      "alt_address_street_2":"",
+      "alt_address_street_3":"",
+      "alt_address_city":"",
+      "alt_address_state":"",
+      "alt_address_postalcode":"",
+      "alt_address_country":"",
+      "assistant":"",
+      "assistant_phone":"",
+      "picture":"",
+      "email_and_name1":"",
+      "lead_source":"",
+      "account_id":"",
+      "opportunity_role_fields":"",
+      "opportunity_role_id":"",
+      "opportunity_role":"Primary Decision Maker",
+      "reports_to_id":"",
+      "report_to_name":"",
+      "portal_name":"",
+      "portal_active":false,
+      "portal_password":"",
+      "portal_password1":"",
+      "portal_app":"",
+      "preferred_language":"en_us",
+      "campaign_id":"",
+      "campaign_name":"",
+      "c_accept_status_fields":"",
+      "m_accept_status_fields":"",
+      "accept_status_id":"",
+      "accept_status_name":"",
+      "sync_contact":"",
+      "my_favorite":false,
+      "_acl":{
+         "fields":{
+
+         }
+      }
+   }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/link/:link_name/:remote_id</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

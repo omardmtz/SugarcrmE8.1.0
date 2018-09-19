@@ -1,0 +1,356 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Archives an email.
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            date_sent
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Date of email sent
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            from_address
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            From email address
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            to_addresses
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Array of name/email address pairs for the TO field, when present, only email subfield is required (not name).
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            cc_addresses
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Array of name/email address pairs for the CC field, when present, email subfield is required.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            bcc_addresses
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Array of name/email address pairs for the BCC field, when present, email subfield is required.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            subject
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Subject of the email
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            html_body
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            HTML body of the email
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            text_body
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Text body of the email
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            status
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Indicates the status of the email - 'draft' or 'ready' (ready to be sent)
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            related
+        </td>
+        <td>
+            Object
+        </td>
+        <td>
+            Contains 'parent_type' and 'parent_id' to relate this email to (for example 'Contact' and a contact's id)
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            teams
+        </td>
+        <td>
+            Object
+        </td>
+        <td>
+            Team(s) to assign this email to. 'primary' attribute is an id string for the primary team and 'other' attribute is an array of id strings for the other teams - only primary is required
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            assigned_user_id
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            ID of a user this record is assigned to.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            attachments
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Array of file attachments - each attachment consists of a 'type' (where the attachment came from: upload, document, or template), 'id' (of the file upload, note, document revision, etc), and 'name' (the file name)
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Input Example</h3>
+<pre class="pre-scrollable">
+{
+  "date_sent":"2014-02-07T00:00:00",
+  "from_address":"test@foo.com"
+  "to_addresses":[
+    {
+      "name":"John Doe",
+      "email":"john_doe@foo.com",
+      "module":"Leads"
+    },
+    {
+      "name":"David Madison",
+      "email":"david_madison@bar.com",
+      "module":"Leads"
+    }
+  ],
+  "cc_addresses":[
+    {
+      "name":"Tom Swift",
+      "email":"tswift@baz.com"
+    }
+  ],
+  "bcc_addresses":null,
+  "subject":"Minneapolis Convention",
+  "html_body":"&lt;html&gt;&lt;body&gt;Hello World&lt;\/body&gt;&lt;\/html&gt;",
+  "text_body":"Hello World"
+  "status":"archive",
+  "related": {
+    "type":"Contacts",
+    "id":"61cf0f8d-938c-c9b2-53ad-51ed7bbcf83b"
+  },
+  "teams": {
+    "primary": "dabec868-696c-f458-e204-50227995ab50",
+    "others": [
+      "c3094c88-c95f-2e17-4553-50227996ad20",
+      "abcde868-696c-f458-e704-58369095ab62"
+    ]
+  },
+  "assigned_user_id":"seed_jim_id",
+  "attachments": [
+    {
+       "type": "upload”,
+       "id": "cfbe4551-548d-f602-b228-45387645fc12",
+       "name": "company_logo.jpg”
+    },
+    {
+       "type": "document”,
+       "id": "876112a4-89c1-4ba7-a05a-7729a7a76818"
+    },
+    {
+       "type": "template”,
+       "id": "002cfe6c-98e9-4342-bdb1-1660d0788872"
+    }
+  ],
+}
+
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;email record field&gt;
+        </td>
+        <td>
+            &lt;email record field type&gt;
+        </td>
+        <td>
+            Returns the fields for the newly created email record.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+    "team_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+    "team_set_id": "9c61c46a-a7c5-df71-481c-51d48232f820",
+    "id": "d9c165d0-8863-ba61-dc85-51ed8016c476",
+    "date_entered": "2013-07-22 18:57:57",
+    "date_modified": "2013-07-22 18:57:57",
+    "assigned_user_id": "1",
+    "assigned_user_name": "",
+    "modified_user_id": "1",
+    "modified_by_name": "admin",
+    "created_by": "1",
+    "created_by_name": "",
+    "deleted": 0,
+    "from_addr_name": "SugarCRM",
+    "reply_to_addr": "",
+    "to_addrs_names": "john_doe@foo.com, david_madison@bar.com",
+    "cc_addrs_names": "tswift@baz.com",
+    "description_html": "&lt;html&gt;&lt;body&gt;Hello World&lt;\/body&gt;&lt;\/html&gt;",
+    "description": "Hello World",
+    "date_sent": "2013-07-22 18:57:00",
+    "name": "Minneapolis Convention",
+    "type": "out",
+    "status": "sent",
+    "parent_type": "Contacts",
+    "parent_id": "61cf0f8d-938c-c9b2-53ad-51ed7bbcf83b",
+    "from_address":"test@foo.com"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v11
+        </td>
+        <td>
+            Last version in which <code>/Mail/archive</code> POST is available. Use <code>/Emails</code> POST with
+            <code>{"state": "Archived"}</code> instead.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Mail/archive</code> POST endpoint.
+        </td>
+    </tr>
+</table>

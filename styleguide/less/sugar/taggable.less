@@ -1,0 +1,43 @@
+/* TAGGABLE
+  ----------------*/
+
+ul.activitystream-tag-dropdown {
+  left: -1px;
+  margin-top: 0;
+  width: 100%;
+  font-size: @baseFontSize;
+  // override mouse hover effect on dropdown
+  & li > a:hover {
+    background-color: @dropdownBackground;
+    color: @dropdownLinkColor;
+  }
+  // disable dropdown menu item to indicate user has no access
+  .disabled > a,
+  .disabled > a:hover {
+    background: @dropdownDisabledBackground;
+    color: @dropdownDisabledLinkColor;
+
+    .add-on {
+      font-style: italic;
+      display: inline;
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
+
+.sugar_tag {
+  margin: 0 1px;
+
+  &[contenteditable=false] {
+    display: inline;
+
+    a {
+      cursor: default;
+    }
+  }
+}
+
+.sugar_tagging {
+  font-weight: bold;
+}

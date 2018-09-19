@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+
+<div class="label-selected-records">{{str 'LBL_SELECTED_RECORDS' module}} ({{massCollection.length}})</div>
+<div class="pull-right reset-block">
+    <a class="btn btn-link btn-invisible reset_button {{#unless massCollection.length }}disabled{{/unless}}">{{str "LBL_RESET"}}</a>
+</div>
+<div class="selected-records-container">
+    <div class="selected-records same-size-pills select2-container select2-container-multi select2-choices-pills-close select2">
+        <ul class="select2-choices">
+            {{#each displayedPills}}
+                <li class="select2-search-choice" data-id="{{id}}">
+                        <div class="ellipsis_inline" title="{{name}}">
+                            {{name}}
+                        </div>
+                    <a class="select2-search-choice-close" data-close-pill="true" tabindex="-1"></a>
+                </li>
+            {{/each}}
+            {{#if moreRecords}}<li class="more-pills-label">{{../msgMoreRecords}}</li>{{/if}}
+            {{#if tooManySelectedRecords}}<li class="max-pills-label">{{../msgMaxPillsDisplayed}}</li>{{/if}}
+        </ul>
+    </div>
+</div>

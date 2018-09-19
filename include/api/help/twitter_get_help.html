@@ -1,0 +1,190 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Responds with twitter timeline if connector is set up in administration
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td><strong>Name</strong></td>
+            <td><strong>Type</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Required</strong></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>count</td>
+            <td>Integer</td>
+            <td>The number of tweets to retrieve.</td>
+            <td>False</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;response&gt;
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+[
+   {
+      "created_at":"Tue Jun 25 23:45:35 +0000 2013",
+      "id":349674766946414592,
+      "id_str":"349674766946414592",
+      "text":"this tweet is awesome!",
+      "source":"web",
+      "truncated":false,
+      "in_reply_to_status_id":null,
+      "in_reply_to_status_id_str":null,
+      "in_reply_to_user_id":143456975,
+      "in_reply_to_user_id_str":"14934565",
+      "in_reply_to_screen_name":"testdesk",
+      "user":{
+         "id":2630841,
+         "id_str":"2630841",
+         "name":"SugarCRM",
+         "screen_name":"sugarcrm",
+         "location":"Cupertino, CA",
+         "description":"Everyone Sells. Everyone Supports. Everyone Connects.",
+         "url":"http:\/\/t.co\/s9ejrBSlki",
+         "entities":{
+            "url":{
+               "urls":[
+                  {
+                     "url":"http:\/\/t.co\/s9ejrBSlki",
+                     "expanded_url":"http:\/\/www.sugarcrm.com",
+                     "display_url":"sugarcrm.com",
+                     "indices":[
+                        0,
+                        22
+                     ]
+                  }
+               ]
+            },
+            "description":{
+               "urls":[
+
+               ]
+            }
+         },
+         "protected":false,
+         "followers_count":8761,
+         "friends_count":6966,
+         "listed_count":453,
+         "created_at":"Wed Mar 28 07:16:58 +0000 2007",
+         "favourites_count":27,
+         "utc_offset":-28800,
+         "time_zone":"Pacific Time (US \u0026 Canada)",
+         "geo_enabled":false,
+         "verified":false,
+         "statuses_count":7488,
+         "lang":"en",
+         "contributors_enabled":false,
+         "is_translator":false,
+         "profile_background_color":"98C7EA",
+         "profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/551274192\/sugar-twitter-background.png",
+         "profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/551274192\/sugar-twitter-background.png",
+         "profile_background_tile":false,
+         "profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/2027721183\/Sugar_cube_RGB_180x180_normal.png",
+         "profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/2027721183\/Sugar_cube_RGB_180x180_normal.png",
+         "profile_link_color":"0045AD",
+         "profile_sidebar_border_color":"FFFFFF",
+         "profile_sidebar_fill_color":"CCEAFF",
+         "profile_text_color":"000000",
+         "profile_use_background_image":true,
+         "default_profile":false,
+         "default_profile_image":false,
+         "following":null,
+         "follow_request_sent":false,
+         "notifications":null
+      },
+      "geo":null,
+      "coordinates":null,
+      "place":null,
+      "contributors":null,
+      "retweet_count":1,
+      "favorite_count":0,
+      "entities":{
+         "hashtags":[
+
+         ],
+         "symbols":[
+
+         ],
+         "urls":[
+
+         ],
+         "user_mentions":[
+            {
+               "screen_name":"testdesk",
+               "name":"testdesk",
+               "id":143455,
+               "id_str":"ertrt75",
+               "indices":[
+                  0,
+                  8
+               ]
+            }
+         ],
+         "media":[
+
+         ]
+      },
+      "favorited":false,
+      "retweeted":false,
+      "possibly_sensitive":false,
+      "lang":"en"
+   }
+]
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/twitter/{twitterId}</code> GET endpoint.
+        </td>
+    </tr>
+</table>

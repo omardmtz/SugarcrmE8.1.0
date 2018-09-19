@@ -1,0 +1,43 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+	<tr height="20"  >
+	<th width="25%" NOWRAP><slot><a href="{ORDER_BY}name" class="listViewThLinkS1" >{MOD.LBL_LIST_NAME}{arrow_start}{name_arrow}{arrow_end}</a></slot></th>
+	<th width="20%" NOWRAP><slot><a href="{ORDER_BY}base_module" class="listViewThLinkS1" >{MOD.LBL_LIST_BASE_MODULE}{arrow_start}{base_module_arrow}{arrow_end}</a></slot></th>
+	<th width="35%" NOWRAP><slot><a href="{ORDER_BY}description" class="listViewThLinkS1" >{MOD.LBL_LIST_DESCRIPTION}{arrow_start}{description_arrow}{arrow_end}</a></slot></th>
+	<th width="20%" NOWRAP><slot><a href="{ORDER_BY}date_modified" class="listViewThLinkS1">{MOD.LBL_LIST_DATE_MODIFIED}{arrow_start}{date_modified_arrow}{arrow_end}</a></slot></th>
+    <th width="5%" class="listViewThS1" NOWRAP><slot><img src="include/images/blank.gif?v={VERSION_MARK}" widht="1" height="1" alt=""></slot></th>
+	</tr>
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope="row" valign=TOP><slot><a href="{URL_PREFIX}index.php?action=WorkFlowDetailView&module=WorkFlow&record={EMAIL_TEMPLATE.ID}&offset={EMAIL_TEMPLATE.OFFSET}&isfirstview={EMAIL_TEMPLATE.ISFIRSTVIEW}"  >{EMAIL_TEMPLATE.NAME}</a></slot></td>
+    	<td valign=TOP><slot>{EMAIL_TEMPLATE.BASE_MODULE}</slot></td>
+		<td valign=TOP><slot>{EMAIL_TEMPLATE.DESCRIPTION}</slot></td>
+    	<td nowrap valign=TOP><slot>{EMAIL_TEMPLATE.DATE_MODIFIED}</slot></td>
+        <td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}" nowrap><slot>
+            <form id="{EMAIL_TEMPLATE.ID}" method="post" action="{URL_PREFIX}index.php?&module=EmailTemplates&action=Delete&record={EMAIL_TEMPLATE.ID}{RETURN_URL}">
+{sugar_csrf_form_token}
+                <a class="listViewTdToolsS1" href="javascript:void(0);" onclick="if (confirm('{NTC_REMOVE_ALERT}')) document.getElementById('{EMAIL_TEMPLATE.ID}').submit();">{DELETE_INLINE_PNG}&nbsp;{APP.LNK_REMOVE}</a>
+            </form>
+        </slot></td>
+</tr>
+
+<!-- END: row -->
+{PAGINATION}
+</table>
+<!-- END: main -->

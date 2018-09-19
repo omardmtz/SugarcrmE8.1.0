@@ -1,0 +1,43 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="row-fluid topline">
+    <div class="span8 datapoints">
+        <div class="pull-left">
+            {{#each this.meta.datapoints}}
+                {{field ../this model=../this.model}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="hr hide"></div>
+    <div class="span4">
+        {{#if this.meta.timeperiod}}
+            {{#each this.meta.timeperiod}}
+                <strong>{{str "LBL_IN_FORECAST" "Forecasts"}}</strong>
+                <label for="date_filter" class="control-label">{{str this.label "Forecasts"}}</label>
+                <div class="controls">
+                    {{field ../this model=../this.tpModel}}
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+</div>
+{{#if this.meta.last_commit}}
+    {{#each this.meta.last_commit}}
+        {{field ../this model=../this.model}}
+    {{/each}}
+{{/if}}
+{{#if this.meta.commitlog}}
+    {{#each this.meta.commitlog}}
+        {{field ../this model=../this.model}}
+    {{/each}}
+{{/if}}

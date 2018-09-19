@@ -1,0 +1,515 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<!-- VARIABLES
+================================================== -->
+<section id="variables">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <h3>Base</h3>
+  <div class="row-fluid">
+    <div class="span6">
+
+      <h4>Grid system</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td><code>@gridColumns</code></td>
+            <td class="mono">12</td>
+          </tr>
+          <tr>
+            <td><code>@gridColumnWidth</code></td>
+            <td class="mono">60px</td>
+          </tr>
+          <tr>
+            <td><code>@gridGutterWidth</code></td>
+            <td class="mono">20px</td>
+          </tr>
+          <tr>
+            <td><code>@fluidGridColumnWidth</code></td>
+            <td class="mono">6.382978723%</td>
+          </tr>
+          <tr>
+            <td><code>@fluidGridGutterWidth</code></td>
+            <td class="mono">2.127659574%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Typography</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td><code>@baseFontSize</code></td>
+            <td class="mono">13px</td>
+          </tr>
+          <tr>
+            <td><code>@baseFontFamily</code></td>
+            <td class="mono">Helvetica, Arial, sans-serif;</td>
+          </tr>
+          <tr>
+            <td><code>@serifFontFamily</code></td>
+            <td class="mono">Georgia, "Times New Roman", Times, serif;</td>
+          </tr>
+          <tr>
+            <td><code>@monoFontFamily</code></td>
+            <td class="mono">Menlo, Monaco, Consolas, "Courier New", monospace;</td>
+          </tr>
+          <tr>
+            <td><code>@baseLineHeight</code></td>
+            <td class="mono">18px</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Theme colors</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td><code>@BorderColor</code></td>
+            <td class="hex mono">#e61718</td>
+            <td class="swatch-col"><span class="swatch BorderColor"></span></td>
+          </tr>
+          <tr>
+            <td><code>@NavigationBar</code></td>
+            <td class="hex mono">#282828</td>
+            <td><span class="swatch NavigationBar"></span></td>
+          </tr>
+          <tr>
+            <td><code>@PrimaryButton</code></td>
+            <td class="hex mono">#176de5</td>
+            <td><span class="swatch PrimaryButton"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Common shades and tints</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td><code>@tableBorderColor</text></td>
+            <td><code>darken(@grayLighter, 5%)</code></td>
+            <td class="hex mono">#e9e9e9</td>
+            <td class="swatch-col"><span class="swatch" style="background:#e9e9e9"></span></td>
+          </tr>
+          <tr>
+            <td><code>@btnBorder</code></td>
+            <td><code>darken(@grayLighter, 10%)</code></td>
+            <td class="hex mono">#dddddd</td>
+            <td><span class="swatch" style="background:#dddddd"></span></td>
+          </tr>
+          <tr>
+            <td><code>@dropdownLinkBackgroundHover</code></td>
+            <td><code>lighten(@linkColor, 48%)</code></td>
+            <td class="hex mono">#f3f8fe</td>
+            <td><span class="swatch swatch-bordered" style="background:#f3f8fe"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="span6">
+
+      <h4>Grayscale colors</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td><code>@black</code></td>
+            <td><code>.black, .black-text</code></td>
+            <td class="hex mono">#000</td>
+            <td class="swatch-col"><span class="swatch black"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayDarker</code></td>
+            <td><code>.gray-darker, .gray-darker-text</code></td>
+            <td class="hex mono">#111</td>
+            <td><span class="swatch gray-darker"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayDark</code></td>
+            <td><code>.gray-dark, .gray-dark-text</code></td>
+            <td class="hex mono">#222</td>
+            <td><span class="swatch gray-dark"></span></td>
+          </tr>
+          <tr>
+            <td><code>@gray</code></td>
+            <td><code>.gray, .gray-text</code></td>
+            <td class="hex mono">#555</td>
+            <td><span class="swatch gray"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayLight</code></td>
+            <td><code>.gray-light, .gray-light-text</code></td>
+            <td class="hex mono">#717171</td>
+            <td><span class="swatch gray-light"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayLighter</code></td>
+            <td><code>.gray-lighter, .gray-lighter-text</code></td>
+            <td class="hex mono">#f6f6f6</td>
+            <td><span class="swatch swatch-bordered gray-lighter"></span></td>
+          </tr>
+          <tr>
+            <td><code>@white</code></td>
+            <td><code>.white, .white-text</code></td>
+            <td class="hex mono">#fff</td>
+            <td><span class="swatch swatch-bordered white"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Accent colors</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td><code>@mint</code></td>
+            <td><code>.mint, .mint-text</code></td>
+            <td class="hex mono">#0d8046</td>
+            <td class="swatch-col"><span class="swatch mint"></span></td>
+          </tr>
+          <tr>
+            <td><code>@green</code></td>
+            <td><code>.green, .green-text</code></td>
+            <td class="hex mono">#33800d</td>
+            <td><span class="swatch green"></span></td>
+          </tr>
+          <tr>
+            <td><code>@army</code></td>
+            <td><code>.army, .army-text</code></td>
+            <td class="hex mono">#6a800d</td>
+            <td><span class="swatch army"></span></td>
+          </tr>
+          <tr>
+            <td><code>@yellow</code></td>
+            <td><code>.yellow, .yellow-text</code></td>
+            <td class="hex mono">#e5a117</td>
+            <td><span class="swatch yellow"></span></td>
+          </tr>
+          <tr>
+            <td><code>@orange</code></td>
+            <td><code>.orange, .orange-text</code></td>
+            <td class="hex mono">#cc3314</td>
+            <td><span class="swatch orange"></span></td>
+          </tr>
+          <tr>
+            <td><code>@red</code></td>
+            <td><code>.red, .red-text</code></td>
+            <td class="hex mono">#e61718</td>
+            <td><span class="swatch red"></span></td>
+          </tr>
+          <tr>
+            <td><code>@pink</code></td>
+            <td><code>.pink, .pink-text</code></td>
+            <td class="hex mono">#e5176d</td>
+            <td><span class="swatch pink"></span></td>
+          </tr>
+          <tr>
+            <td><code>@purple</code></td>
+            <td><code>.purple, .purple-text</code></td>
+            <td class="hex mono">#6d17e5</td>
+            <td><span class="swatch purple"></span></td>
+          </tr>
+          <tr>
+            <td><code>@night</code></td>
+            <td><code>.night, .night-text</code></td>
+            <td class="hex mono">#1f12b3</td>
+            <td><span class="swatch night"></span></td>
+          </tr>
+
+          <tr>
+            <td><code>@blue</code></td>
+            <td><code>.blue, .blue-text</code></td>
+            <td class="hex mono">#176de5</td>
+            <td><span class="swatch blue"></span></td>
+          </tr>
+          <tr>
+            <td><code>@ocean</code></td>
+            <td><code>.ocean, .ocean-text</code></td>
+            <td class="hex mono">#1378bf</td>
+            <td><span class="swatch ocean"></span></td>
+          </tr>
+          <tr>
+            <td><code>@pacific</code></td>
+            <td><code>.pacific, .pacific-text</code></td>
+            <td class="hex mono">#0f7799</td>
+            <td><span class="swatch pacific"></span></td>
+          </tr>
+          <tr>
+            <td><code>@teal</code></td>
+            <td><code>.teal, .teal-text</code></td>
+            <td class="hex mono">#0d806c</td>
+            <td><span class="swatch teal"></span></td>
+          </tr>
+          <tr>
+            <td><code>@coral</code></td>
+            <td><code>.coral, .coral-text</code></td>
+            <td class="hex mono">#ff6fcf</td>
+            <td><span class="swatch coral"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div> <!-- /row -->
+
+  <h3>Components</h3>
+  <div class="row-fluid">
+    <div class="span6">
+
+      <h4>Navbar</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@navbarHeight</code></td>
+            <td class="mono">44px</td>
+            <td class="hex mono"></td>
+            <td class="swatch-col"></td>
+          </tr>
+          <tr>
+            <td><code>@navbarBackground</code></td>
+            <td class="mono"><code>@grayDarker</code></td>
+            <td class="hex mono">#111</td>
+            <td><span class="swatch gray-darker"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarBackgroundHighlight</code></td>
+            <td class="mono"><code>@grayDark</code></td>
+            <td class="hex mono">#222</td>
+            <td><span class="swatch gray-dark"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarText</code></td>
+            <td class="mono"><code>@grayLight</code></td>
+            <td class="hex mono">#717171</td>
+            <td><span class="swatch gray-light"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarLinkColor</code></td>
+            <td class="mono"><code>@grayLight</code></td>
+            <td class="hex mono">#717171</td>
+            <td><span class="swatch swatch-bordered gray-light"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarLinkColorHover</code></td>
+            <td class="mono"><code>@white</code></td>
+            <td class="hex mono">#fff</td>
+            <td><span class="swatch swatch-bordered white"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Hyperlinks and Text</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td><code>@textColor</text></td>
+            <td><code>@gray</code></td>
+            <td class="hex mono">#555</td>
+            <td class="swatch-col"><span class="swatch gray"></span></td>
+          </tr>
+          <tr>
+            <td><code>@linkColor</code></td>
+            <td><code>@PrimaryButton</code></td>
+            <td class="hex mono">#176de5</td>
+            <td><span class="swatch blue"></span></td>
+          </tr>
+          <tr>
+            <td><code>@linkColorHover</code></td>
+            <td><code>darken(@linkColor, 10%)</code></td>
+            <td class="hex mono">#1257b7</td>
+            <td><span class="swatch" style="background:#1257b7"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Forms and states</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@error</code></td>
+            <td><code>@red</code></td>
+            <td class="hex mono">#e61718</td>
+            <td class="swatch-col"><span class="swatch red"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>@warning</code></td>
+            <td><code>@yellow</code></td>
+            <td class="hex mono">#e5a117</td>
+            <td><span class="swatch yellow"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>@success</code></td>
+            <td><code>@green</code></td>
+            <td class="hex mono">#33800d</td>
+            <td><span class="swatch green"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>@inform</code></td>
+            <td><code>@pacific</code></td>
+            <td class="hex mono">#0f7799</td>
+            <td><span class="swatch pacific"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>@placeholderText</code></td>
+            <td><code>@grayLight</code></td>
+            <td class="hex mono">#717171</td>
+            <td><span class="swatch swatch-bordered" style="background:#717171"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Buttons</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>.btn-danger</code></td>
+            <td><code>@btnDangerBackground</code></td>
+            <td class="hex mono">#e5a117</td>
+            <td><span class="swatch btn btn-danger"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn-warning</code></td>
+            <td><code>@btnWarningBackground</code></td>
+            <td class="hex mono">#e61718</td>
+            <td><span class="swatch btn btn-warning"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn-success</code></td>
+            <td><code>@btnSuccessBackground</code></td>
+            <td class="hex mono">#33800d</td>
+            <td><span class="swatch btn btn-success"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn-primary</code></td>
+            <td><code>@primaryButtonBackground</code></td>
+            <td class="hex mono">#176de5</td>
+            <td class="swatch-col"><span class="swatch btn btn-primary"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn</code></td>
+            <td><code>@btnBackground</code></td>
+            <td class="hex mono">#f6f6f6</td>
+            <td><span class="swatch btn"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="span6">
+
+      <h4>Alerts</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@warningText</code></td>
+            <td><code>@grayDark</code></td>
+            <td class="span3"><code>.warning-text</code></td>
+            <td class="hex mono">#222222</td>
+            <td class="swatch-col"><span class="swatch warning-text"></span></td>
+          </tr>
+          <tr>
+            <td><code>@warningBackground</code></td>
+            <td class="mono"><code>lighten(@warning, 47%)</code></td>
+            <td class="span3"><code>.warning-background</code></td>
+            <td class="hex mono">#fdf8ee</td>
+            <td><span class="swatch warning-background"></span></td>
+          </tr>
+          <tr>
+            <td><code>@warningBorder</code></td>
+            <td class="mono"><code>lighten(@warning, 30%)</code></td>
+            <td class="span3"><code>.warning-border</code></td>
+            <td class="hex mono">#f5d9a0</td>
+            <td><span class="swatch warning-border"></span></td>
+          </tr>
+
+          <tr>
+            <td><code>@errorText</code></td>
+            <td class="mono"><code>@error</code></td>
+            <td class="span3"><code>.error-text</code></td>
+            <td class="hex mono">#e61718</td>
+            <td><span class="swatch error-text"></span></td>
+          </tr>
+          <tr>
+            <td><code>@errorTextAlert</code></td>
+            <td class="mono"><code>@white</code></td>
+            <td class="span3"><code>.error-text-alert</code></td>
+            <td class="hex mono">#ffffff</td>
+            <td><span class="swatch error-text-alert swatch-bordered"></span></td>
+          </tr>
+          <tr>
+            <td><code>@errorBackground</code></td>
+            <td class="mono"><code>@error</code></td>
+            <td class="span3"><code>.error-background</code></td>
+            <td class="hex mono">#e61718</td>
+            <td><span class="swatch error-background"></span></td>
+          </tr>
+          <tr>
+            <td><code>@errorBorder</code></td>
+            <td class="mono"><code>darken(@error, 10%)</code></td>
+            <td class="span3"><code>.error-border</code></td>
+            <td class="hex mono">#b81213</td>
+            <td><span class="swatch error-border"></span></td>
+          </tr>
+
+          <tr>
+            <td><code>@successText</code></td>
+            <td class="mono"><code>@white</code></td>
+            <td class="span3"><code>.success-text</code></td>
+            <td class="hex mono">#ffffff</td>
+            <td><span class="swatch success-text swatch-bordered"></span></td>
+          </tr>
+          <tr>
+            <td><code>@successBackground</code></td>
+            <td class="mono"><code>@success</code></td>
+            <td class="span3"><code>.success-background</code></td>
+            <td class="hex mono">#33800d</td>
+            <td><span class="swatch success-background"></span></td>
+          </tr>
+          <tr>
+            <td><code>@successBorder</code></td>
+            <td class="mono"><code>darken(@success, 10%)</code></td>
+            <td class="span3"><code>.success-border</code></td>
+            <td class="hex mono">#215208</td>
+            <td><span class="swatch success-border"></span></td>
+          </tr>
+
+          <tr>
+            <td><code>@infoText</code></td>
+            <td class="mono"><code>@white</code></td>
+            <td class="span3"><code>.info-text</code></td>
+            <td class="hex mono">#ffffff</td>
+            <td><span class="swatch info-text swatch-bordered"></span></td>
+          </tr>
+          <tr>
+            <td><code>@infoBackground</code></td>
+            <td><code>@inform</code></td>
+            <td class="span3"><code>.info-background</code></td>
+            <td class="hex mono">#0f7799</td>
+            <td><span class="swatch info-background"></span></td>
+          </tr>
+          <tr>
+            <td><code>@infoBorder</code></td>
+            <td><code>darken(@inform, 10%)</code></td>
+            <td class="span3"><code>.info-border</code></td>
+            <td class="hex mono">#0a536b</td>
+            <td><span class="swatch info-border"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div><!-- /row -->
+
+</section>

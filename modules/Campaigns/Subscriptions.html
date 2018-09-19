@@ -1,0 +1,90 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<span>
+			<form enctype="multipart/form-data" id="SubsForm" name="SubsForm" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="Campaigns">
+			<input type="hidden" name="action" value="Subscriptions">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">	
+			<input type="hidden" name="record" value="{RECORD}">
+			<input type="hidden" name="subs_action" value="process">			
+			<input type="hidden" name="orig_grid0values" id="orig_grid0values" value="{ORIG_SUBS_VALUES}">						
+			<input type="hidden" name="grid0values" id="grid0values" value="">									
+			<input type="hidden" name="orig_grid1values" id="orig_grid1values" value="{ORIG_UNSUBS_VALUES}">						
+			<input type="hidden" name="grid1values" id="grid1values" value="">									
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+	<tr>
+		<td>
+
+
+			<table  border="0" cellspacing="0" cellpadding="0">
+			<tr>
+			  <th align="left" scope="row" colspan="4"><h4 class="">{APP.LBL_MANAGE_SUBSCRIPTIONS_FOR}{FOCUS_NAME}</h4></th>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			  <td>
+					<table align="center" border="0" cellpadding="0" cellspacing="0" width='350'>
+		            <tbody><tr><td align="center">
+				  {DRAG_DROP_CHOOSER}
+		            </td></tr></tbody></table>
+			  </td>
+			</tr>
+			</table>
+		
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>
+		<input type='submit' class='button' onclick='checkSubs();' value='{APP.LBL_SAVE_BUTTON_LABEL}'>
+		<input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="{APP.LBL_CANCEL_BUTTON_LABEL}">
+	</td></tr>
+</table></p></form>
+
+<script>
+function checkSubs(){
+        var webFormDiv = document.getElementById('SubsForm');
+        var grid0values = Array();
+        var grid1values = Array();        
+        var grid0keys = Array();
+        var grid1keys = Array();
+             
+		 for(var i=0; i<{CLASSNAME}_grid0.getRecordSet().getLength(); i++){
+			/*
+		     var webField = document.createElement('input');
+		     webField.setAttribute('id', 'pl'+i);    
+		     webField.setAttribute('name',grid3.getDataModel().getRow(i)[0]);    
+		     webField.setAttribute('type', 'hidden');    
+		     webField.setAttribute('value',grid3.getDataModel().getRow(i)[1]);
+		     webFormDiv.appendChild(webField); 
+		     */
+		     grid0keys[i] = {CLASSNAME}_grid0.getRecord(i).getData()[0];		     
+		     grid0values[i] = {CLASSNAME}_grid0.getRecord(i).getData()[1];
+		 }
+
+		 for(var i=0; i<{CLASSNAME}_grid1.getRecordSet().getLength(); i++){
+		     grid1keys[i] = {CLASSNAME}_grid1.getRecord(i).getData()[0];		     
+		     grid1values[i] = {CLASSNAME}_grid1.getRecord(i).getData()[1];
+		 }
+		document.getElementById('grid0values').value = grid0values.toString() ;
+		document.getElementById('grid1values').value = grid1values.toString() ;		
+
+}
+
+</script>
+
+<!-- END: main -->
+

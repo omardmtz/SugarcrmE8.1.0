@@ -1,0 +1,171 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Returns a record set in CSV format along with HTTP headers to indicate content type.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            uid
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            A list of bean ids.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            filter
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The filter expression. More information on filter expressions can be found in <code>/&lt;module&gt;/filter</code>.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            sample
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Indicates whether to download sample data.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request Examples</h3>
+
+<h4>Exporting Records by Specific IDs</h4>
+<pre class="pre-scrollable">
+{
+   "uid":"d43243c6-9b8e-2973-aee2-512d09bc34b4"
+}
+</pre>
+
+<h4>Exporting Records by a List of IDs</h4>
+<pre class="pre-scrollable">
+{
+   "uid":[
+      "d43243c6-9b8e-2973-aee2-512d09bc34b4",
+      "b3e87a3f-cd8f-7b86-467a-512d09e8d240"
+   ]
+}
+</pre>
+
+<h4>Exporting Records Using a Filter</h4>
+<pre class="pre-scrollable">
+{
+   "filter":[
+      {
+         "name":"airline"
+      }
+   ]
+}
+</pre>
+
+
+<h4>Exporting a Sample Result Set</h4>
+<pre class="pre-scrollable">
+{
+    "sample":true
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;csv export&gt;
+        </td>
+        <td>
+            String;
+        </td>
+        <td>
+            Returns the selected records in CSV format with the content headers.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+result: HTTP/1.1 200 OK
+Date: Fri, 01 Mar 2013 04:05:55 GMT
+Server: Apache/2.2.22 (Unix) DAV/2 PHP/5.3.17
+X-Powered-By: PHP/5.3.17
+Expires: Mon, 26 Jul 1997 05:00:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: cache
+Content-Disposition: attachment; filename=Accounts.csv
+Content-transfer-encoding: binary
+Last-Modified: Fri, 01 Mar 2013 04:05:55 GMT
+Cache-Control: post-check=0, pre-check=0
+Content-Length: 1080
+Connection: close
+Content-Type: application/octet-stream; charset=UTF-8
+
+"Name","ID","Website","Email Address","Office Phone","Alternate Phone","Fax","Billing Street","Billing City","Billing State","Billing Postal Code","Billing Country","Shipping Street","Shipping City","Shipping State","Shipping Postal Code","Shipping Country","Description","Type","Industry","Annual Revenue","Employees","SIC Code","Ticker Symbol","Parent Account ID","Ownership","Campaign ID","Rating","Assigned User Name","Assigned To","Team ID","Teams","Team Set ID","Date Created","Date Modified","Modified By","Created By","Deleted","Image","last_activity_date","Linkedin Company ID","Facebook Account","Twitter Account","Google Plus ID"
+"Arts & Crafts Inc","d43243c6-9b8e-2973-aee2-512d09bc34b4","","","(052) 034-1853","","","777 West Filmore Ln","Santa Monica","CA","35354","USA","777 West Filmore Ln","Santa Monica","CA","35354","USA","","Customer","Transportation","","","","","","","","","sally","seed_sally_id","West","West","West","02/26/2013 07:12 pm","02/26/2013 07:12 pm","1","1","0","","02/26/2013 07:12 pm","","","",""
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/export</code> POST endpoint.
+        </td>
+    </tr>
+</table>

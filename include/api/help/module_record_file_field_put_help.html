@@ -1,0 +1,196 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    This endpoint takes a file or image and saves it to a record that already contains an attachment in the specified field. The PUT method is very similar to the POST method but differs slightly in how the request is constructed. PUT requests should send the file data as the body of the request. Optionally, a filename query parameter can be sent with the request to assign a name. Additionally, the PUT 
+    method can accept base64 encoded file data which will be decoded by the endpoint
+    if the content_transfer_encoding parameter is set to 'base64'.<br /><br />
+    <strong>NOTE:</strong> In lieu of the content_transfer_encoding parameter, a
+    request header of X-Content-Transfer-Encoding can also be sent with a value
+    of 'base64'. In the event both the content transfer encoding header and request
+    parameter are sent, the header will be used.
+</span>
+
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            filename
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Filename to save the document as
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            content_transfer_encoding
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            When set to 'base64', indicates the file contents are base64 encoded
+            and will result in the file contents being base64 decoded before being
+            saved
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Request</h2>
+<code>PUT /rest/v10/Notes/abcd-1234/file/field/ HTTP/1.1 Host: localhost Connection: keep-alive Content-Length: 23456 Content-Type: application/document-doc ...This is where the bin data would be</code>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            field
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The fields containing file properties.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-type
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files content type.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-length
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The files content length.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.name
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files name.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.width
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The width of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.height
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The height of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.uri
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The URI of the file.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "picture":{
+      "content-type":"image\/png",
+      "content-length":72512,
+      "name":"1a7b8f5c-b11c-0094-c8d8-512e9daaa983",
+      "width":933,
+      "height":519,
+      "uri":"http:\/\/sugarcrm\/rest\/v10\/Contacts\/fa300a0e-0ad1-b322-9601-512d0983c19a\/file\/picture"
+   }
+    "attachment":{
+        "content-type":"application/document-doc",
+        "content-length":"873921",
+        "name":"myFile.doc",
+        "uri": "http:\/\/sugarcrm\/rest\/v10\/Contacts\/f2f9aa4d-99a8-e86e-f4d5-512d0986effa\/file\/attachment"
+    }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/file/:field</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

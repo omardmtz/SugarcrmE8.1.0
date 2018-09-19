@@ -1,0 +1,120 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<section id="edit-documentation">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <h2>Pages as Handlebar Templates</h2>
+  <div class="row-fluid">
+    <div class="span12">
+      <p>Each page in the Styleguide Documentation exists as a Handlebars template (.hbs) in the folder <code>/sugarcrm/Modules/Styleguide/clients/base/views/content</code> using the following naming convention: <code>[SECTION].[PAGE]</code>.</p>
+    </div>
+  </div>
+
+  <h2>Registering Page in View Metadata</h2>
+  <div class="row-fluid">
+    <div class="span5">
+      <p>If you want a page to be listed in the Styleguide index page and in the headerpane select, it must be registered in a pageData associative array defined in the docs view metadata file <code>/sugarcrm/Modules/Styleguide/clients/base/views/sg-headerpane/sg-headerpane.php</code>.</p>
+      <p>This array contains sections which contain a collection of page data arrays. The <code>[SECTION].[PAGE]</code> relationship is used to call an individual page like <code>&lt;a href="#Styleguide/docs/forms-datetime"&gt;Datetime picker&lt;/a&gt;</code>. Section index pages are called in the form <code>index.[SECTION]</code></p>
+      <p>The page data can contain a url property if you want to link to a page outside the docs.</p>
+    </div>
+    <div class="span7">
+<pre class="prettyprint linenums">
+"forms" => array (
+    "title" => "Form Elements",
+    "description" => "Basic form elements and layouts for a consistent editing experience.",
+    "index" => true,
+    "pages" => array (
+        "fields" => array("label"=>"Sugar7 fields", "url"=>"#Styleguide/field/all", "description"=>"Basic fields that support detail, record, and edit modes with error addons."),
+        "buttons" => array("label"=>"Buttons", "description"=>"Standard css only button styles."),
+        ...
+        "jstree" => array("label"=>"jsTree", "description"=>"jQuery plugin cross browser tree component."),
+        "range" => array("label"=>"Range Slider", "description"=>"jQuery plugin range picker."),
+        "switch" => array("label"=>"Switch", "description"=>"jQuerty plugin turns check boxes into toggle switch."),
+    )
+),
+</pre>
+    </div>
+  </div>
+
+  <h2>Setting Page Variables</h2>
+  <div class="row-fluid">
+    <div class="span5">
+      <p>Variables for use in the documentation pages are defined in the documentation view controller <code>/sugarcrm/Modules/Styleguide/clients/base/views/docs/docs.js</code>. If you need to define a variable, create a new function in <code>docs.js</code> in the <code>/*INIT*/</code> section using the following naming convention <code>init_[PAGE]</code>. For example, the list of Sugar7 modules for the <code>base.labels</code> page is defined prior to rendering using the function <code>init_labels</code>(which is called automatically by the doc controller).</p>
+      <p>The pageData variable is an object that is available from within the Handlebars template.</p>
+    </div>
+    <div class="span7">
+<pre class="prettyprint linenums">
+init_labels: function(pageData) {
+    pageData.module_list = _.without(app.metadata.getModuleNames({filter: 'display_tab', access: 'read'}), 'Home');
+    pageData.module_list.sort();
+},
+</pre>
+    </div>
+  </div>
+
+  <h2>Using Page Variables</h2>
+  <div class="row-fluid">
+    <div class="span5">
+      <p>The documentation pages are generally static HTML although, as a Handlebars template, dynamic variables can be inserted into the documentation page by wrapping the variable in double braces (<code>&#123;&#123;variable&#125;&#125;</code>). To escape variables containing HTML tags use triple braces (<code>&#123;&#123;&#123;html&#125;&#125;&#125;</code>). See complete <a href="http://handlebarsjs.com/" target="_blank">Handlebars documentation</a> for details.</p>
+      <p>Using our <code>base.labels</code> page as an example, here is how the table of module element icons is built.
+    </div>
+    <div class="span7">
+<pre class="prettyprint linenums">
+&lt;table class="table table-bordered table-striped"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Module&lt;/th&gt;
+      &lt;th&gt;Labels&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+&#123;&#123;#each pageData.module_list&#125;&#125;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;b&gt;&#123;&#123;this&#125;&#125;&lt;/b&gt;&lt;/td&gt;
+      &lt;td&gt;
+        &lt;span class="label label-module label-&#123;&#123;this&#125;&#125;" rel="tooltip" data-title="&#123;&#123;moduleIconToolTip this&#125;&#125;"&gt;&#123;&#123;moduleIconLabel this&#125;&#125;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+&#123;&#123;/each&#125;&#125;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+    </div>
+  </div>
+
+  <h2>Using jQuery in Pages</h2>
+  <div class="row-fluid">
+    <div class="span5">
+      <p>Just like for the functions you create for intializing page variables prior to rendering, if you want to use jQuery on your documentation page, create a render function in <code>docs.js</code>in the <code>/*RENDER*/</code> section using a similar naming convention: <code>render_[PAGE].</code></p>
+      <p>These functions will be called automatically by the docs controller after the page is rendered.</p>
+    </div>
+    <div class="span7">
+<pre class="prettyprint linenums">
+_renderHtml: function() {
+    this.$('#nav-tabs-pills')
+        .find('ul.nav-tabs > li > a, ul.nav-list > li > a, ul.nav-pills > li > a')
+        .on('click.styleguide', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).tab('show');
+        });
+    this._super('_renderHtml');
+},
+</pre>
+    </div>
+  </div>
+
+</section>
+

@@ -1,0 +1,162 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<span class="lead">
+    Create a new dashboard.
+</span>
+
+<h2>Notice</h2>
+<span class="lead">
+    <strong>This endpoint is not supported in v11.</strong> If you continue to use v10 of the API, your
+    REST calls should behave as below. But, it is advisable to upgrade to v11.<br/>
+    <strong>Migrating to v11:</strong><br/>
+    For more information on behavior in v11, refer to <a href="module_post_help.html">POST /&lt;module&gt;</a>.<br/>
+    Recommended Replacement: <code class="codesample">POST /Dashboards</code><br/>
+    The module name is no longer part of the path. To specify a module name, include it in the Request Body.
+    For example, to create an Accounts module dashboard, use<br/>
+    <strong>v11: </strong><code class="codesample">POST /Dashboards</code> with the following in the Request Body:
+    <code class="codesample">{"dashboard_module":"Accounts"}</code>
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>&lt;record field&gt;</td>
+        <td>&lt;record field type&gt;</td>
+        <td>The name value list of fields to populate.</td>
+        <td>True</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+{
+    "name": "New Dashboard for Accounts Module",
+    "dashboard_module": "Accounts",
+    "view_name": "records",
+    "metadata": {
+        "components": [{
+            "rows": [[{
+                "view": {
+                    "type": "dashablelist",
+                    "label": "TPL_DASHLET_MY_MODULE",
+                    "display_columns": ["name","billing_address_city"]
+                },
+                "context": {"module":"Accounts"},
+                "width": 12
+            }]],
+            "width": 12
+        }]
+    }
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>&lt;record field&gt;</td>
+        <td>&lt;record field type&gt;</td>
+        <td>Returns the fields for the newly created dashboard.</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+  "id": "8f9cd3d1-ce5d-e8d4-12d8-56cf674d2600",
+  "name": "New Dashboard for Accounts Module",
+  "date_entered": "2016-02-25T12:44:27-08:00",
+  "date_modified": "2016-02-25T12:44:27-08:00",
+  "modified_user_id": "1",
+  "modified_by_name": "Administrator",
+  "created_by": "1",
+  "created_by_name": "Administrator",
+  "description": "",
+  "deleted": false,
+  "dashboard_module": "Accounts",
+  "view_name": "records",
+  "metadata": {
+    "components": [
+      {
+        "rows": [
+          [
+            {
+              "view": {
+                "type": "dashablelist",
+                "label": "TPL_DASHLET_MY_MODULE",
+                "display_columns": [
+                  "name",
+                  "billing_address_city"
+                ]
+              },
+              "context": {
+                "module": "Accounts"
+              },
+              "width": 12
+            }
+          ]
+        ],
+        "width": 12
+      }
+    ]
+  },
+  "following": "",
+  "my_favorite": false,
+  "tag": [],
+  "assigned_user_id": "1",
+  "assigned_user_name": "Administrator",
+  "_acl": {
+    "fields": {}
+  },
+  "view": "records",
+  "_module": "Dashboards"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>v11</td>
+        <td>No longer supported. Please use <a href="module_post_help.html">POST /Dashboards</a> instead.</td>
+    </tr>
+    <tr>
+        <td>v10</td>
+        <td>Added <code>/Dashboards/&lt;module&gt;</code> POST endpoint.</td>
+    </tr>
+    </tbody>
+</table>

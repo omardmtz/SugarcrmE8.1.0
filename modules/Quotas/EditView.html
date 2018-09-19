@@ -1,0 +1,40 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="edit view">
+<tr>
+    <td>
+<table width="100%" align='left' border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td width="85%" colspan="2"><slot><select ONCHANGE="location = this.options[this.selectedIndex].value;" name="managed_users">{USERS}</select></slot></td>	
+</tr>
+
+<tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_AMOUNT} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td width="85%" colspan="2"><slot><input name='amount' tabindex='1' size='20' maxlength='20' type="text" value="{AMOUNT}"></slot></td>
+</tr>
+<tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_CURRENCY} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td width="20%"><slot><select name='currency_id' tabindex='2'>{CURRENCY}</select></slot></td>
+<td width="65%" scope="row"><slot>{MOD.LBL_COMMIT} <input name='committed' type="checkbox" {COMMITTED} /></slot></td>
+</tr>
+    
+</table>
+</form>
+</td>
+</tr>
+</table>
+{JAVASCRIPT}
+<!-- END: main -->

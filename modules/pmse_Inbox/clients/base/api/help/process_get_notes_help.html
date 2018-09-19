@@ -1,0 +1,105 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Returns the notes list for a process 
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+This endpoint gets the notes for a process
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>cas_id</td>
+            <td>string</td>
+            <td>The id of the process trigger sequence</td>
+            <td>true</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>rowList</td>
+            <td>object</td>
+            <td>Note records</td>
+        </tr>
+        <tr>
+            <td>totalRows</td>
+            <td>integer</td>
+            <td>Total notes</td>
+        </tr>
+        <tr>
+            <td>currentOffset</td>
+            <td>integer</td>
+            <td>Current offset</td>
+        </tr>
+        <tr>
+            <td>currentDate</td>
+            <td>integer</td>
+            <td>Current date</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "rowList":
+    [
+        {
+            "pmse_bpm_notes__date_entered":"2016-06-02 16:52:21",
+            "id":"602d4cb0-28e2-11e6-88c9-6c4008960436",
+            "date_entered":"2016-06-02T09:52:21-07:00",
+            "date_modified":"2016-06-02T09:52:21-07:00",
+            "cas_id":"2",
+            "cas_index":"1",
+            "not_user_id":"1",
+            "not_user_recipient_id":"",
+            "not_type":"GENERAL",
+            "not_date":null,
+            "not_status":"ACTIVE",
+            "not_availability":"",
+            "not_content":"Test Note1",
+            "not_recipients":"",
+            "first_name":null,
+            "last_name":"Administrator",
+            "picture":"0b2dc2f0-2377-11e6-9d2a-6c4008960436"
+        }
+    ],
+    "totalRows":1,
+    "currentOffset":0,
+    "currentDate":"2016-06-02 16:52:39"
+}
+</pre>

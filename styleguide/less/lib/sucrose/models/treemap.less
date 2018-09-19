@@ -1,0 +1,46 @@
+/**********
+* Treemap
+*/
+
+.sc-treemap {
+  background-color: @white;
+
+  text {
+    pointer-events: none;
+    fill: @white;
+  }
+
+  rect {
+    stroke: @white;
+  }
+
+  .sc-treepath text {
+    font-weight: bold;
+    fill: @gray;
+  }
+
+  .sc-parent text {
+    fill: @white;
+  }
+
+  .sc-child {
+    stroke-width: 1px;
+  }
+
+  .sc-target {
+    stroke-width: 3px;
+    fill: none;
+    font-weight: normal;
+    cursor: pointer;
+    pointer-events: all;
+  }
+
+  .sc-treepath .sc-target {
+    fill: @white;
+  }
+
+  .sc-parent.hover .sc-target {
+    fill: @white;
+    opacity: 0.3;
+  }
+}

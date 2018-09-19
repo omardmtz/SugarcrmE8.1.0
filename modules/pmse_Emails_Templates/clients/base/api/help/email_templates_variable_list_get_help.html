@@ -1,0 +1,239 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Get the variable list for a module
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will retrieve a list of variables that can be used in the
+    Process Email Templates definition from the specified module.  Input
+    parameters are passed in as the URL query string.  Pagination is supported.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>base_module</td>
+            <td>String</td>
+            <td>The name of the target module of the Process Email Templates definition.</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>module_list</td>
+            <td>String</td>
+            <td>
+                The name of the module the variable list is retrieved from.
+                Should be related to the base_module.
+            </td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>q</td>
+            <td>String</td>
+            <td>Only variables with name containing this search string will be returned.</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>max_num</td>
+            <td>Integer</td>
+            <td>Maximum number of variables to return for this request.</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>offset</td>
+            <td>Integer</td>
+            <td>
+                The index of the first variable in the whole list to return for this request.
+                Use "end" to indicate no variable should be returned.
+            </td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>order_by</td>
+            <td>String</td>
+            <td>
+                Property to sort the variable list by. For example, "name:asc,id:desc"
+                will sort the returned variable list by name ASC first and then id DESC.
+            </td>
+            <td>False</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+rest/v11/pmse_Emails_Templates/variables/find?max_num=20&order_by=date_modified%3Adesc&module_list=Quotes&base_module=Quotes
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>next_offset</td>
+            <td>Integer</td>
+            <td>The offset value that should be used to retrieve the next batch of the list.</td>
+        </tr>
+        <tr>
+            <td>records</td>
+            <td>Array</td>
+            <td>A sorted array of variable objects.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "next_offset":20,
+    "records":[
+        {
+            "id":"date_quote_expected_closed",
+            "_module":"Quotes",
+            "name":"Valid Until",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"total_usdollar",
+            "_module":"Quotes",
+            "name":"Total (US Dollar)",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"total",
+            "_module":"Quotes",
+            "name":"Total",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"tax_usdollar",
+            "_module":"Quotes",
+            "name":"Tax (US Dollar)",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"tax",
+            "_module":"Quotes",
+            "name":"Tax",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"subtotal_usdollar",
+            "_module":"Quotes",
+            "name":"Subtotal (US Dollar)",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"subtotal",
+            "_module":"Quotes",
+            "name":"Subtotal",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"shipping_address_state",
+            "_module":"Quotes",
+            "name":"Shipping State",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"shipping_address_postalcode",
+            "_module":"Quotes",
+            "name":"Shipping Postal Code",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"shipping_address_country",
+            "_module":"Quotes",
+            "name":"Shipping Country",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"shipping_address_city",
+            "_module":"Quotes",
+            "name":"Shipping City",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"shipping_address_street",
+            "_module":"Quotes",
+            "name":"Shipping Address",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"shipping_usdollar",
+            "_module":"Quotes",
+            "name":"Shipping (US Dollar)",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"shipping",
+            "_module":"Quotes",
+            "name":"Shipping",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"quote_type",
+            "_module":"Quotes",
+            "name":"Quote Type",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"name",
+            "_module":"Quotes",
+            "name":"Quote Subject",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"quote_stage",
+            "_module":"Quotes",
+            "name":"Quote Stage",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"quote_num",
+            "_module":"Quotes",
+            "name":"Quote Number",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"purchase_order_num",
+            "_module":"Quotes",
+            "name":"Purchase Order Num",
+            "rhs_module":"Quotes"
+        },
+        {
+            "id":"payment_terms",
+            "_module":"Quotes",
+            "name":"Payment Terms",
+            "rhs_module":"Quotes"
+        }
+    ]
+}
+</pre>

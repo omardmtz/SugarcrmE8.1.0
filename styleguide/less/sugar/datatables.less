@@ -1,0 +1,1367 @@
+/* DATATABLES
+  ----------------*/
+
+.table {
+  display: table;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.dataTable {
+  margin: 0;
+  clear: both;
+  width: 100%;
+
+  /* ---------
+  TABLE HEADER CELL (specific) */
+  th {
+    line-height: 26px;
+    min-width: @cell-medium;
+    max-width: @cell-large;
+    font-weight: normal;
+    font-size: @fontSizeSmall;
+    color: @tableHeader;
+    border-bottom: none;
+
+    &.cell-xxsmall {
+      min-width: @cell-xxsmall;
+      max-width: @cell-xxsmall;
+    }
+
+    &.cell-xsmall {
+      min-width: @cell-xsmall;
+      max-width: @cell-xsmall;
+    }
+
+    &.cell-small {
+      min-width: @cell-small;
+      max-width: @cell-small;
+    }
+
+    &.cell-medium {
+      min-width: @cell-medium;
+      max-width: @cell-medium;
+    }
+
+    &.cell-large {
+      min-width: @cell-large;
+      max-width: @cell-large;
+    }
+
+    &.cell-xlarge {
+      min-width: @cell-xlarge;
+      max-width: @cell-xlarge;
+    }
+
+    &.cell-xxlarge {
+      min-width: @cell-xxlarge;
+      max-width: @cell-xxlarge;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &.nosort.select-all {
+      padding: 0;
+
+      .btn-group {
+        position: absolute;
+        top: 0;
+        //centering checkbox in btn-group
+        > .btn:first-child {
+          padding-top: 7px;
+          padding-bottom: 1px;
+        }
+      }
+    }
+
+    &.alert.alert-warning {
+      background-color: @warningTableBackground;
+      border-bottom: none;
+      border-left: none;
+      max-height: none;
+      min-height: auto;
+      position: static;
+
+      > div {
+        position: absolute;
+        display: table;
+        left: 0;
+        width: 100%;
+        height: 42px;
+        margin-top: -35px;
+        background: inherit;
+
+        > span {
+          font-size: @baseFontSize;
+          display: table-cell;
+          line-height: 16px;
+          vertical-align: middle;
+          padding: 4px 8px;
+        }
+      }
+    }
+
+    > span {
+      display: inline-block;
+      width: 100%;
+      overflow-x: hidden;
+      white-space: nowrap;
+      vertical-align: middle;
+      text-overflow: ellipsis;
+    }
+
+    .dropdown-menu {
+      text-align: left;
+    }
+
+    .btn input {
+      line-height: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  /* ---------
+  TABLE BODY CELL (specific) */
+  td {
+    height: 28px;
+    max-width: 21px;
+    padding: 4px 8px;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    border-top: none;
+    border-bottom: none;
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    &[data-type="currency"] {
+      min-width: 141px !important;
+      max-width: 100% !important;
+
+      .list {
+        width: 100%;
+        text-align: right;
+        box-sizing: border-box;
+      }
+    }
+
+    &[data-type="bool"] {
+      text-align: center;
+
+      .input-append.error .add-on {
+        left: 2px;
+        top: 2px;
+      }
+
+      .list {
+        overflow-y: hidden;
+      }
+    }
+
+    &[data-type*="datetimecombo"] {
+      input[type="text"] {
+        min-width: 0;
+        z-index: 0;
+      }
+
+      input[type="text"].datepicker {
+        width: 50%;
+        width: calc(~"55% - 3px");
+        min-width: 0;
+      }
+
+      input[type="text"].ui-timepicker-input {
+        width: 40%;
+        width: calc(~"45% - 3px");
+        margin-left: -16px;
+        min-width: 0;
+      }
+    }
+
+    &[data-type="avatar"] {
+      .label-module {
+        height: 27px;
+        width: 27px;
+        font-size: 11px;
+        line-height: 11px;
+        padding: 3px 0 0 4px;
+      }
+    }
+
+    &[data-type="email"] {
+      .opt-out::before {
+        content: @fa-var-ban;
+        font-family: 'FontAwesome';
+        position: absolute;
+        left: 1px;
+        top: 1px;
+      }
+
+      .opt-out {
+        position: relative;
+        padding-left: 16px;
+      }
+    }
+
+    > span:not(.overflow-visible) {
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      width: 100%;
+      display: inline-block;
+      white-space: nowrap;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    .btn-toolbar {
+      margin: -5px 0 -10px;
+    }
+
+    .select2-addon {
+      input[type="text"] {
+        width: 95%;
+        width: calc(~"100% - 100px");
+      }
+
+      .input-append {
+        input[type="text"] {
+          width: 100%;
+        }
+      }
+    }
+
+    .list + .list .fa-favorite {
+      margin: 0 8px;
+    }
+
+    .list .add-on {
+      display: inline-block;
+      vertical-align: middle;
+      padding-right: 2px;
+    }
+
+    .list .add-on + .ellipsis_inline {
+      display: inline-block !important;
+      vertical-align: middle;
+    }
+    // email and merge (change)
+    .fa-star {
+      margin: 0 16px;
+      color: @grayLight;
+    }
+
+    .active .fa-star {
+      color: @orange;
+    }
+
+    .help-block {
+      display: none;
+    }
+
+    span.longtext {
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    input[type="text"] {
+      min-height: 28px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 4px 6px;
+
+      &:focus {
+        z-index: 0;
+      }
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+      border: 0;
+      margin: 4px 6px 4px 0;
+    }
+
+    .datepicker {
+      z-index: initial;
+    }
+  }
+
+  /* ---------
+  TABLE HEAD (specific) */
+  thead tr {
+    border-bottom: @tableBorder;
+  }
+
+  /* ---------
+  TABLE FOOTER */
+  tfoot {
+    tr {
+      border-top: 2px solid @tableBorderColor;
+    }
+
+    th {
+      white-space: normal;
+      word-break: break-all;
+    }
+
+    td {
+      font-weight: bold;
+    }
+
+    tr:first-child {
+      td {
+        border-top: 2px solid @grayLight;
+      }
+    }
+
+    tr.overall th {
+      font-weight: bold;
+    }
+  }
+
+  /* ---------
+  TABLE ROW (specific) */
+  tbody tr {
+    //for preview
+    &.highlighted {
+      &.current {
+        td {
+          &:last-child {
+            z-index: 2;
+          }
+
+          .btn.preview-list-item,
+          .rowaction.btn:not(.btn-invisible) {
+            background: @gray;
+          }
+
+          .fa-eye {
+            color: @grayLighter !important;
+          }
+
+          background: @dropdownLinkBackgroundHover;
+        }
+      }
+    }
+
+    &.active {
+      td {
+        .fa-eye-open {
+          color: @grayLighter;
+          background: @gray;
+        }
+      }
+    }
+
+    &.selected td:first-child::before {
+      content: " ";
+      position: absolute;
+      z-index: 11;
+      background: @red;
+      height: 36px;
+      margin-top: -18px;
+      width: 4px;
+      left: 0;
+    }
+    //inline editing
+    &.tr-inline-edit {
+      td {
+        overflow: visible;
+        padding: 4px;
+        background: @dropdownLinkBackgroundHover;
+        font-size: 0;
+
+        .ui-timepicker-wrapper,
+        .ellipsis_inline,
+        .select2-container {
+          font-size: @baseFontSize;
+        }
+
+        &:first-child {
+          border-right: 1px solid lighten(@dropdownLinkBackgroundHover, 5%);
+
+          .btn {
+            margin-left: 0;
+          }
+        }
+
+        &:last-child {
+          border-left: 1px solid lighten(@dropdownLinkBackgroundHover, 5%);
+
+          .btn {
+            margin-left: 0;
+            width: 100%;
+            box-sizing: border-box;
+          }
+
+          > span.edit {
+            z-index: 2;
+          }
+        }
+
+        &[data-type="textarea"] {
+          textarea {
+            width: calc(~"100% - 12px");
+            max-width: calc(~"100% - 12px");
+            height: 18px;
+            margin: 0;
+          }
+        }
+
+        &[data-type="fullname"] {
+          min-width: 288px;
+          max-width: 288px !important;
+          box-sizing: content-box;
+          height: 28px;
+
+          span.edit-cell {
+            display: inline-block;
+          }
+          .edit-cell[data-type="enum"] {
+            width: 80px;
+          }
+          .edit-cell[data-type="text"] {
+            width: 100px;
+            margin-left: 4px;
+          }
+        }
+
+        &[data-type="relate"] {
+          min-width: 150px;
+          max-width: 150px !important;
+        }
+
+        &[data-type="tag"] {
+          min-width: 200px;
+          max-width: 200px;
+
+          .edit > .select2-container > .select2-choices {
+            max-height: 22px;
+            min-height: 22px;
+            overflow-y: scroll;
+          }
+        }
+
+        &[data-type="date"] {
+          min-width: 108px;
+          max-width: 108px !important;
+
+          input[type="text"] {
+            width: 100%;
+          }
+        }
+
+        &[data-type*="datetimecombo"] {
+          min-width: 180px;
+          max-width: 180px !important;
+        }
+
+        &[data-type="currency"] {
+          min-width: 168px;
+          max-width: 168px !important;
+        }
+
+        &[data-type="parent"] {
+          min-width: 200px;
+          max-width: 200px !important;
+        }
+
+        &[data-type="file"] {
+          min-width: 200px;
+          max-width: 200px;
+
+          input[type="file"] {
+            width: 192px;
+            padding: 5px 0;
+            box-sizing: border-box;
+          }
+
+          .edit .file-field {
+            line-height: 1px;
+          }
+        }
+
+        &[data-type="enum"] {
+          min-width: 150px;
+          max-width: 150px;
+
+          .select2-container.select2-dropdown-open {
+            min-width: 82px;
+          }
+
+          .select2-container-multi.select2-choices-pills-close .select2-search-choice div {
+            text-overflow: ellipsis;
+            max-width: 116px;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          .select2-container-disabled .select2-choice {
+            color: @grayLight;
+            cursor: not-allowed;
+
+            .select2-arrow {
+              display: none;
+            }
+          }
+        }
+
+        &[data-type="tags"] {
+          min-width: 150px;
+
+          .select2-container-multi.select2-choices-pills-close {
+            position: relative !important;
+            top: 0;
+          }
+        }
+
+        &[data-type="teamset"] {
+          font-size: @baseFontSize;
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+
+        > span {
+          width: 100%;
+
+          &.list {
+            padding: 0 4px;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+
+        > .edit .select2-container-multi {
+          position: absolute;
+          top: -15px;
+        }
+
+        > *:not(.overflow-visible) {
+          overflow: visible;
+        }
+
+        .fa-favorite {
+          display: none;
+        }
+
+        .input-append.date {
+          margin-bottom: 0;
+        }
+
+        input[type="text"] {
+          width: 100%;
+          min-width: 82px;
+          font-size: @baseFontSize;
+        }
+      }
+    }
+  }
+}
+
+//Search and Select lists
+.search-and-select.dataTable tbody {
+  tr:hover {
+    td {
+      background-color: @dropdownLinkBackgroundHover;
+    }
+  }
+}
+
+/* ---------
+FLEXLIST GENERIC */
+.flex-list-view {
+  position: relative;
+  border-top: @borderWidget;
+  border-bottom: @tableBorder;
+
+  .flex-list-view-content {
+    overflow-x: auto;
+  }
+
+  //override of bootstrap to fix safari
+  .dataTable {
+    max-width: none;
+    position: static;
+  }
+
+  /*LEFT AND RIGHT ACTIONS*/
+  &.left-actions .dataTable th:first-child,
+  &.left-actions .dataTable td:first-child,
+  &.right-actions .dataTable th:last-child,
+  &.right-actions .dataTable td:last-child {
+    height: 28px;
+    text-align: center;
+    overflow-x: visible;
+
+    .dropdown,
+    > span {
+      position: absolute;
+      overflow: visible;
+      height: 28px;
+      background-color: inherit;
+
+      &.open {
+        z-index: 999;
+      }
+      // single search and select
+      // input[type=checkbox],
+      // input[type=radio] {
+      //   margin: 8px;
+      // }
+      .btn.btn-invisible {
+        &.active {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+
+  &.left-actions .dataTable th:first-child,
+  &.right-actions .dataTable th:last-child {
+    padding: 7px 8px;
+
+    .dropdown,
+    > span {
+      top: 0;
+      padding: 7px 8px;
+    }
+
+    .btn.checkall {
+      padding: 4px 7px;
+      line-height: 0;
+    }
+  }
+
+  &.left-actions .dataTable td:first-child,
+  &.right-actions .dataTable td:last-child {
+    > span {
+      margin-top: -18px;
+      padding: 4px 8px;
+      border-bottom: @tableBorder;
+
+      .fieldset-field {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .btn {
+        margin-left: 0;
+      }
+
+      > .list:first-child {
+        position: absolute;
+        width: 55px;
+        right: 8px;
+        background-color: inherit;
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      .btn-group > .list + .btn {
+        margin-left: -1px;
+      }
+    }
+    // row action buttons
+    .actions {
+      .btn:hover:not(.disabled) {
+        color: @grayDark;
+      }
+
+      &.open {
+        .fa-eye {
+          color: @gray;
+        }
+      }
+      // merge duplicates
+      > input[type=checkbox] {
+        margin: 8px;
+      }
+
+      .dropdown-menu {
+        text-align: left;
+        margin-top: -2px;
+        left: 0;
+        right: auto;
+        z-index: 1001;
+      }
+    }
+  }
+
+  /*LEFT ACTIONS ONLY*/
+  &.left-actions .dataTable {
+    th,
+    td {
+      &:first-child {
+        width: 55px;
+        min-width: 55px;
+
+        .dropdown,
+        > span {
+          width: 55px;
+          left: 0;
+        }
+      }
+    }
+
+    td:first-child {
+      // row action buttons
+      .actions {
+        .dropdown-menu {
+          left: 0;
+          right: auto;
+        }
+      }
+
+      // SC-3371
+      > span {
+        display: inline-block;
+        z-index: 10;
+        font-size: 0;
+      }
+    }
+  }
+
+  /*RIGHT ACTIONS ONLY*/
+  &.right-actions .dataTable {
+    th,
+    td {
+      &:last-child {
+        width: 54px;
+        min-width: 54px;
+
+        .dropdown,
+        > span {
+          width: 54px;
+          right: 0;
+        }
+      }
+    }
+
+    td:last-child {
+      // row action buttons
+      .actions {
+        .dropdown-menu {
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  /*ADD SHADOW TO LEFT ACTION COLUMN*/
+  &.left-actions.scroll-width .dataTable {
+    th:first-child {
+      .dropdown,
+      > span {
+        z-index: 11;
+
+        &.open {
+          z-index: 999;
+        }
+      }
+    }
+
+    td:first-child {
+      > span {
+        z-index: 10;
+
+        &.open {
+          z-index: 999;
+        }
+      }
+    }
+  }
+
+  /*ADD SHADOW TO RIGHT ACTION COLUMN*/
+  &.right-actions.scroll-width .dataTable {
+    th:last-child {
+      .dropdown,
+      > span {
+        z-index: 11;
+
+        &.open {
+          z-index: 999;
+        }
+      }
+    }
+
+    td:last-child {
+      > span {
+        z-index: 10;
+
+        &.open {
+          z-index: 999;
+        }
+      }
+    }
+  }
+
+  /* LEFT AND RIGHT ACTION COLUMNS WITHOUT TABLE SCROLL */
+  &[class$="-actions"]:not(.scroll-width) {
+    .flex-list-view-content {
+      overflow-x: visible;
+
+      .dataTable {
+        th:first-child,
+        td:first-child,
+        th:last-child,
+        td:last-child {
+          &:not(.alert) {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  /*DUPLICATES*/
+  .dataTable.duplicates {
+    tr {
+      border-top-color: lighten(@warningBorder, 5%);
+      border-bottom-color: lighten(@warningBorder, 5%);
+    }
+
+    th {
+      background-color: @confirmationBackground;
+      border-right-color: lighten(@warningBorder, 5%);
+
+      &:first-child {
+        .btn.checkall:only-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    tbody > tr.current > td {
+      background-color: @dropdownLinkBackgroundHover;
+    }
+
+    tbody > tr:not(.current):nth-child(odd) > td {
+      background-color: darken(@confirmationBackground, 5%);
+    }
+
+    tbody > tr:not(.current):nth-child(even) > td {
+      background-color: @confirmationBackground;
+    }
+
+    /*create record dup check*/
+    &.duplicates-selectedit {
+      th,
+      td {
+        &:first-child {
+          padding-left: 20px;
+          max-width: 116px;
+        }
+
+        &:last-child {
+          width: 123px;
+          min-width: 123px;
+          max-width: 123px;
+          padding-left: 4px;
+        }
+      }
+
+      th:last-child {
+        .dropdown {
+          width: 119px;
+        }
+
+        .dropdown-menu {
+          right: 52px;
+        }
+      }
+
+      td:last-child {
+        > .list {
+          width: 125px;
+          padding-left: 2px;
+          border-bottom: 1px solid lighten(@warningBorder, 5%);
+        }
+        // row action buttons
+        .fieldset-field .btn {
+          max-width: 80px;
+        }
+      }
+    }
+
+    &.duplicates-selectedit,
+    /*convert lead dup check*/
+    &.duplicates-singleselect {
+      border-bottom: 1px solid lighten(@warningBorder, 5%);
+    }
+  }
+
+  /*FORECASTS WORKSHEETS*/
+  &.forecast-worksheet .dataTable,
+  &.forecast-manager-worksheet .dataTable {
+    tbody tr:last-child {
+      td:last-child > span {
+        padding-bottom: 3px;
+      }
+    }
+
+    td {
+      &[data-type="currency"] {
+        min-width: 115px !important;
+        box-sizing: border-box;
+      }
+
+      &.editableColumn {
+        padding: 0 2px;
+        min-width: 92px;
+        box-sizing: border-box;
+
+        span.list,
+        span.edit {
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        span.list {
+          padding: 4px 8px 4px 14px;
+        }
+
+        span.isEditable.edit {
+          padding: 4px 1px 4px 7px;
+        }
+
+        span.isEditable:hover {
+          overflow: visible;
+
+          .edit-icon {
+            position: absolute;
+            left: -2px;
+            top: 7px;
+          }
+        }
+
+        .clickToEdit.active span.edit {
+          display: inline-block;
+        }
+      }
+
+      &:last-child > .list > .list:first-child {
+        width: 28px;
+        right: 22px;
+      }
+    }
+  }
+
+  /*FORECASTS SALES REP WORKSHEET*/
+  &.forecast-worksheet .dataTable {
+    th,
+    td {
+      &:first-child {
+        padding-left: 14px;
+      }
+    }
+
+    td.editableColumn.commit_stage_field:first-child {
+      max-width: 80px;
+      padding-left: 6px;
+
+      > span.list {
+        padding-left: 10px;
+        -ms-overflow-style: none;
+      }
+
+      > span.edit {
+        padding-left: 1px;
+      }
+    }
+
+    tr.included td {
+      font-weight: bold;
+
+      &.commit_stage_field {
+        > span.list::before {
+          width: 6px;
+          background-color: @blue;
+          position: absolute;
+          height: 30px;
+          left: -1px;
+          content: "";
+          top: -2px;
+        }
+
+        > span:hover::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  /*FORECASTS MANAGER WORKSHEET*/
+  &.forecast-manager-worksheet .dataTable {
+    border-top: @tableBorder;
+
+    tr[name$="_commit_history"] td:first-child:last-child {
+      padding: 0;
+      height: auto;
+      background-color: darken(@grayLighter, 5%);
+
+      .fa-arrow-down::before {
+        color: @red;
+      }
+
+      .fa-arrow-up::before {
+        color: @green;
+      }
+
+      .list {
+        position: relative;
+        color: @grayDark;
+        text-align: left;
+        padding: 10px 20px;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        border: none;
+        box-sizing: border-box;
+
+        .relativetime {
+          color: @gray;
+        }
+      }
+    }
+
+    th:last-child .dropdown {
+      top: 1px;
+    }
+  }
+}
+
+.main-pane.span12 .flex-list-view.right-actions.scroll-width .dataTable {
+  td:last-child > span,
+  th:last-child .dropdown,
+  th:last-child > span {
+    width: 55px;
+  }
+}
+
+.touch .flex-list-view {
+  &.no-touch-scrolling .flex-list-view-content {
+    -webkit-overflow-scrolling: auto;
+  }
+
+  /*Fix rendering of scrolled absolute spans on iPad*/
+  &.left-actions.scroll-width .dataTable {
+    th:first-child,
+    td:first-child {
+      > span {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &.right-actions.scroll-width .dataTable {
+    th:last-child,
+    th:last-child {
+      .dropdown {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+}
+
+//from twitter-bootstrap/datatables.less
+th.sorting_asc,
+th.sorting_desc,
+th.sorting {
+  cursor: pointer;
+  padding-right: 18px;
+
+  span {
+    padding-right: 12px;
+    position: relative;
+  }
+
+  span::after {
+    color: @grayLight;
+    font-family: FontAwesome;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 6px;
+    white-space: pre;
+    position: absolute;
+    top: 7px;
+    right: 2px;
+    float: right;
+    content: "\f0d8\A\f0d7";
+    font-weight: normal;
+  }
+}
+
+th.sorting_asc,
+th.sorting_desc {
+  background-color: @grayLighter !important;
+
+  span {
+    font-weight: bold;
+    color: @gray;
+  }
+
+  span::after {
+    color: @gray;
+    font-weight: normal;
+  }
+}
+
+th.sorting_asc span::after {
+  content: "\f0d8";
+}
+
+th.sorting_desc span::after {
+  top: 13px;
+  content: "\f0d7";
+}
+
+th.sorting_desc_disabled,
+th.sorting_asc_disabled {
+  cursor: default;
+
+  span::after {
+    color: @grayLighter;
+  }
+}
+
+table th.nosort span::after {
+  content: "";
+  display: none;
+}
+
+.dataTable th:active {
+  outline: none;
+}
+
+.cell-xxsmall {
+  min-width: @cell-xxsmall;
+  max-width: @cell-xxsmall;
+}
+
+.cell-xsmall {
+  min-width: @cell-xsmall;
+  max-width: @cell-xsmall;
+}
+
+.cell-small {
+  min-width: @cell-small;
+  max-width: @cell-small;
+}
+
+.cell-medium {
+  min-width: @cell-medium;
+  max-width: @cell-medium;
+}
+
+.cell-large {
+  min-width: @cell-large;
+  max-width: @cell-large;
+}
+
+.cell-xlarge {
+  min-width: @cell-xlarge;
+  max-width: @cell-xlarge;
+}
+
+.cell-xxlarge {
+  min-width: @cell-xxlarge;
+  max-width: @cell-xxlarge;
+}
+
+[data-type=phone] .gc-cs-link { /*UIUX-1270*/
+  color: inherit;
+}
+
+.touch .flex-list-view.right-actions .dataTable {
+  th:last-child > span,
+  th:first-child > *,
+  th:last-child > .dropdown { /*UIUX-1760*/
+    height: 30px;
+  }
+
+  td:last-child > * { /*SC-3006*/
+    -webkit-transform: translateZ(0);
+  }
+}
+
+span.email-has-attachments {
+  float: right;
+}
+
+/* NEW SKIN START */
+
+.dataTable {
+  /* ---------
+  TABLE HEADER CELL (specific) */
+  th {
+    /* new variable */
+    border-right: 1px solid @tableTheadRowBorderColor;
+
+    /* new variable */
+    background-color: @tableBackground;
+  }
+
+  /* ---------
+  TABLE BODY CELL (specific) */
+  td {
+    /* new variable */
+    background: @tableBackground;
+  }
+
+  /* ---------
+  TABLE ROW (specific) */
+  tbody tr {
+    /* new variable */
+    border-top: 1px solid @tableTbodyRowBorderColor;
+
+    //for preview
+    &.highlighted {
+      &.current {
+        td {
+          /* new variable */
+          background: @tableRowHighlighted;
+        }
+      }
+    }
+  }
+
+  &.table-striped {
+    tbody {
+      tr[name]:not(.current):not(.tr-inline-edit):not(.highlighted):hover {
+        td {
+          /* additive */
+          background: @tableRowHover;
+        }
+      }
+
+      > tr:not(.current):not(.tr-inline-edit):nth-child(odd) > td {
+        /* override */
+        background: @tableBackground;
+      }
+    }
+  }
+}
+
+/* ---------
+FLEXLIST GENERIC */
+.flex-list-view {
+  /*LEFT ACTIONS ONLY*/
+  &.left-actions .dataTable {
+    th:first-child {
+      > span {
+        /* new variable */
+        border-right: 1px solid @tableFixedColumnsBorderColor;
+      }
+    }
+
+    td:first-child {
+      > span {
+        /* override */
+        border-bottom: 1px solid @tableTbodyRowBorderColor;
+
+        .btn.btn-invisible {
+          &.active {
+            /* additive */
+            .fa {
+              color: initial !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.left-actions.scroll-width .dataTable {
+    th,
+    td {
+      &:first-child {
+        > span {
+          /* override */
+          border-right: 1px solid @tableFixedColumnsBorderColor;
+
+          /* additive */
+          border-right: 1px solid @tableFixedColumnsBorderColor;
+        }
+      }
+    }
+  }
+
+  /*RIGHT ACTIONS ONLY*/
+  &.right-actions .dataTable {
+    td:last-child {
+      > span {
+        /* override */
+        border-bottom: 1px solid @tableTbodyRowBorderColor;
+      }
+    }
+  }
+
+  /*ADD SHADOW TO RIGHT ACTION COLUMN*/
+  &.right-actions.scroll-width .dataTable {
+    th,
+    td {
+      &:last-child {
+        .dropdown,
+        > span {
+          /* override */
+          border-left: 1px solid @tableFixedColumnsBorderColor;
+        }
+      }
+    }
+  }
+
+  th:last-child.morecol.nosort {
+    > .dropdown {
+      padding: 0;
+      width: 70px;
+      height: 43px;
+
+      > .dropdown-toggle,
+      > .btn.btn-invisible {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+/* NEW SKIN END */
+
+div.audit-email {
+  /* Firefox doesn't like this div inheriting white-space from .dataTable td > span:not(.overflow-visible) */
+  white-space: initial;
+
+  div.ellipsis_inline {
+    display: inline-block !important;
+    width: calc(~"100% - 16px");
+
+    & + a {
+      float: right;
+      margin-top: 2px;
+
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+}

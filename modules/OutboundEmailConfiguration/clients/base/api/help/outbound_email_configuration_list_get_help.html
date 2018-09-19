@@ -1,0 +1,64 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists the current user's outbound email configurations for sending email.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Used by the Emails module for selecting an outbound email configuration for sending an email.
+</span>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+[
+  {
+     "id": "ecbf2a6c-261e-5fca-fbb6-512d093554b8",
+     "name": "George Lee <glee@example.com>",
+     "type": "user",
+     "default": false
+  },
+  {
+     "id": "af5f8dae-7169-b497-1d77-512d0937ed81",
+     "name": "ACME, Inc. <acme@example.com>",
+     "type": "system",
+     "default": true
+  }
+]
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v11
+        </td>
+        <td>
+            Last version in which <code>/OutboundEmailConfiguration/list</code> GET is available. Use
+            <code>/Emails/enum/outbound_email_id</code> GET instead.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added the <code>/OutboundEmailConfiguration/list</code> GET endpoint.
+        </td>
+    </tr>
+</table>

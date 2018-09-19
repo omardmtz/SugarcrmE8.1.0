@@ -1,0 +1,57 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if meta.short}}
+    <a class="cube module-list-link" href="#{{buildRoute module=module}}" data-route="#{{buildRoute module=module}}" track="click:cube" tabindex="-1"><img src="{{buildUrl url='styleguide/assets/img/logo.svg'}}" alt="{{str 'LBL_SUGAR_CUBE_ALT' module}}"></a>
+{{else}}
+    <a class="cube btn btn-invisible btn-link" href="#{{buildRoute module=module}}" data-route="#{{buildRoute module=module}}" track="click:cube" aria-label="{{getModuleName module plural=true}}"><img src="{{buildUrl url='styleguide/assets/img/logo.svg'}}" alt="{{str 'LBL_SUGAR_CUBE_ALT' module}}"></a>
+    {{#if actions}}
+    <button type="button" title="{{str 'LBL_LINK_MORE' module}}" data-toggle="dropdown" class="btn btn-invisible dropdown-toggle" track="click:cube-dropdown" aria-label="{{getModuleName module plural=true}} - {{str 'LBL_LINK_MORE' module}}"><i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-menu scroll">
+        <ul role="menu">
+            {{#each actions}}
+                {{#eq type 'divider'}}
+                    <li class="divider"></li>
+                {{else}}
+                    <li><a class="ellipsis_inline" tabindex="-1"
+                           data-navbar-menu-item="{{label}}"
+                        {{#if event}}
+                           href="javascript:void(0);"
+                           data-event="{{event}}"
+                           track="click:{{event}}"
+                        {{else}}
+                           href="{{route}}"
+                           data-route="{{route}}"
+                           {{#if openwindow}}
+                           data-openwindow="true"
+                           {{/if}}
+                           track="click:{{route}}"
+                        {{/if}}>{{#if icon}}<i class="fa {{icon}}"></i>{{/if}}
+                        {{#if label_module}}
+                            {{str label label_module}}
+                        {{else}}
+                            {{str label ../../../module}}
+                        {{/if}}
+                        </a>
+                    </li>
+                {{/eq}}
+            {{/each}}
+            <li class="divider" data-container="dashboards"></li>
+            {{#if ../dashboardBwcLink}}
+            <li class="divider" data-container="legacy-dashboards"></li>
+            <li><a class="ellipsis_inline" tabindex="-1" data-route="#{{../dashboardBwcLink}}" href="#{{../dashboardBwcLink}}"><i class="fa fa-clock-o"></i>{{str 'LBL_DASHBOARD_BWC' module}}</a></li>
+            {{/if}}
+            <li class="divider" data-container="recently-viewed"></li>
+        </ul>
+    </div>
+    {{/if}}
+{{/if}}

@@ -1,0 +1,55 @@
+.opportunities-treemap svg {
+  background-color: @grayLighter;
+
+  text {
+    pointer-events: none;
+  }
+
+  .depth text {
+    fill: @white;
+  }
+
+  .grandparent text {
+    font-weight: bold;
+  }
+
+  rect {
+    fill: none;
+    stroke: @white;
+  }
+
+  rect.stage_closedwon {
+    fill: darken(@green, 5%);
+  }
+
+  rect.stage_prospecting {
+    fill: darken(@orange, 5%);
+  }
+
+  rect.stage_closedlost {
+    fill: darken(@red, 5%);
+  }
+
+  rect.stage_qualification {
+    fill: @blue;
+  }
+
+  rect.parent,
+  .grandparent rect {
+    stroke-width: 3px;
+  }
+
+  .grandparent rect {
+    fill: @white;
+  }
+
+  .children rect.parent,
+  .grandparent rect {
+    cursor: pointer;
+  }
+
+  rect.parent {
+    pointer-events: all;
+  }
+}
+

@@ -1,0 +1,38 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">Create Lead with optional post-save actions</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to create a Lead with the optional post-save actions for Convert Target/Prospect and
+    Create Lead from Email operations.
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td>prospect_id</td>
+            <td>Pass a prospect id if Lead is being created as part of a Convert Target/Prospect process</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>inbound_email_id</td>
+            <td>Pass an inbound email id if Lead is being created from an Email</td>
+            <td>Optional</td>
+        </tr>
+    </table>
+</div>

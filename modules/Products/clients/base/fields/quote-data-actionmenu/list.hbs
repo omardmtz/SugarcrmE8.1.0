@@ -1,0 +1,24 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="btn btn-invisible checkall">
+    <input data-check="one" type="checkbox" name="check" {{#if model.selected}}checked{{/if}}>
+</div>
+{{#if dropdownFields}}
+    <a track="click:listactiondropdown" class="btn btn-invisible dropdown-toggle"
+       data-toggle="dropdown" href="javascript:void(0);" data-placement="bottom"
+       rel="tooltip" title="{{str 'LBL_LISTVIEW_ACTIONS'}}"
+       role="button" tabindex="{{tabIndex}}" aria-label="{{str 'LBL_LISTVIEW_ACTIONS'}}">
+        <span class="fa fa-ellipsis-v"></span></a>
+    <ul data-menu="dropdown" class="dropdown-menu" role="menu"
+        data-row-module="{{../model.module}}" data-row-model-id="{{../model.cid}}"></ul>
+{{/if}}

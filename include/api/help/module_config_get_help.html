@@ -1,0 +1,135 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the config settings for a given module.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint is normally used for the forecasting module.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            &lt;config field&gt;
+        </td>
+        <td>
+            &lt;config field type&gt;
+        </td>
+        <td>
+            The list of config fields will be returned.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "is_setup":1,
+   "is_upgrade":0,
+   "has_commits":1,
+   "timeperiod_type":"chronological",
+   "timeperiod_interval":"Annual",
+   "timeperiod_leaf_interval":"Quarter",
+   "timeperiod_start_date":"2013-01-01",
+   "timeperiod_shown_forward":2,
+   "timeperiod_shown_backward":2,
+   "forecast_ranges":"show_binary",
+   "buckets_dom":"commit_stage_binary_dom",
+   "show_binary_ranges":{
+      "include":{
+         "min":70,
+         "max":100
+      },
+      "exclude":{
+         "min":0,
+         "max":69
+      }
+   },
+   "show_buckets_ranges":{
+      "include":{
+         "min":85,
+         "max":100
+      },
+      "upside":{
+         "min":70,
+         "max":84
+      },
+      "exclude":{
+         "min":0,
+         "max":69
+      }
+   },
+   "show_custom_buckets_ranges":{
+      "include":{
+         "min":85,
+         "max":100
+      },
+      "upside":{
+         "min":70,
+         "max":84
+      },
+      "exclude":{
+         "min":0,
+         "max":69
+      }
+   },
+   "sales_stage_won":[
+      "Closed Won"
+   ],
+   "sales_stage_lost":[
+      "Closed Lost"
+   ],
+   "show_worksheet_likely":1,
+   "show_worksheet_best":1,
+   "show_worksheet_worst":0,
+   "show_projected_likely":1,
+   "show_projected_best":1,
+   "show_projected_worst":0,
+   "show_forecasts_commit_warnings":1
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/config</code> GET endpoint.
+        </td>
+    </tr>
+</table>

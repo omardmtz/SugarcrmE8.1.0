@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "allowJs": true
+    },
+    "extends": "./node_modules/@sugarcrm/seedbed/tsconfig.json",
+    "exclude": [
+        "./node_modules"
+    ],
+    "include": [
+        "tests/end-to-end/**/*.ts"
+    ]
+}

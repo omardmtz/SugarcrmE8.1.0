@@ -1,0 +1,233 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists all populated fields of type "file" or of type "image" for a record.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            field
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The fields containing file properties.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-type
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files content type.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-length
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The files content length.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.name
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files ID.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.width
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The width of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.height
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The height of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.uri
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The URI of the file.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "picture":{
+      "content-type":"image\/png",
+      "content-length":72512,
+      "name":"1a7b8f5c-b11c-0094-c8d8-512e9daaa983",
+      "width":933,
+      "height":519,
+      "uri":"http:\/\/sugarcrm\/rest\/v10\/Contacts\/fa300a0e-0ad1-b322-9601-512d0983c19a\/file\/picture"
+   },
+   "record": {
+      "my_favorite": false,
+      "following": true,
+      "id": "fa300a0e-0ad1-b322-9601-512d0983c19a",
+      "name": "Test",
+      "date_modified": "2014-05-16T03:49:12+02:00",
+      "modified_user_id": "1",
+      "modified_by_name": "admin",
+      "created_by": "1",
+      "created_by_name": "Administrator",
+      "doc_owner": "1",
+      "description": "",
+      "deleted": false,
+      "assigned_user_id": "1",
+      "assigned_user_name": "Administrator",
+      "team_count": "",
+      "team_name": [
+         {
+            "id": 1,
+            "name": "Global",
+            "name_2": "",
+            "primary": true
+         }
+      ],
+      "email": [],
+      "email1": "",
+      "email2": "",
+      "invalid_email": "",
+      "email_opt_out": "",
+      "email_addresses_non_primary": "",
+      "salutation": "",
+      "first_name": "",
+      "last_name": "Test",
+      "full_name": "Test",
+      "title": "",
+      "facebook": "",
+      "twitter": "",
+      "googleplus": "",
+      "department": "",
+      "do_not_call": false,
+      "phone_home": "",
+      "phone_mobile": "",
+      "phone_work": "",
+      "phone_other": "",
+      "phone_fax": "",
+      "primary_address_street": "",
+      "primary_address_city": "",
+      "primary_address_state": "",
+      "primary_address_postalcode": "",
+      "primary_address_country": "",
+      "alt_address_street": "",
+      "alt_address_city": "",
+      "alt_address_state": "",
+      "alt_address_postalcode": "",
+      "alt_address_country": "",
+      "assistant": "",
+      "assistant_phone": "",
+      "picture": "",
+      "email_and_name1": "",
+      "lead_source": "",
+      "account_name": "",
+      "account_id": "",
+      "dnb_principal_id": "",
+      "opportunity_role_fields": "",
+      "opportunity_role_id": "",
+      "opportunity_role": "",
+      "reports_to_id": "",
+      "report_to_name": "",
+      "birthdate": "",
+      "portal_name": "",
+      "portal_active": false,
+      "portal_password": null,
+      "portal_password1": null,
+      "portal_app": "",
+      "preferred_language": "en_us",
+      "campaign_id": "",
+      "campaign_name": "",
+      "c_accept_status_fields": "",
+      "m_accept_status_fields": "",
+      "accept_status_id": "",
+      "accept_status_name": "",
+      "accept_status_calls": "",
+      "accept_status_meetings": "",
+      "sync_contact": false,
+      "mkto_sync": false,
+      "mkto_id": null,
+      "mkto_lead_score": null,
+      "_acl": {
+         "fields": {}
+      },
+      "_module": "Contacts"
+  }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/file</code> GET endpoint.
+        </td>
+    </tr>
+</table>

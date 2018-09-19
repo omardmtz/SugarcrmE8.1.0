@@ -1,0 +1,134 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Removes an attachment from a field for a record and subsequently removes the file from the file system.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            field
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The fields containing file properties.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-type
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files content type.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-length
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The files content length.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.name
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files ID.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.width
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The width of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.height
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The height of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.uri
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The URI of the file.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "picture":{}
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/file/:field</code> DELETE endpoint.
+        </td>
+    </tr>
+</table>

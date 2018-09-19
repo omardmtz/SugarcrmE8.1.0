@@ -1,0 +1,303 @@
+@sweetspotWidth: 500px;
+@sweetspotHalfWidth: 50px;
+@sweetspotHeight: 60px;
+@sweetspotGrey: #dbdbdb;
+@sweetspotDarkText: #e5e5e5;
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sweetspot {
+  max-height: 520px;
+  .noselect();
+
+  display: none;
+  position: fixed;
+  width: @sweetspotWidth;
+  min-height: @sweetspotHeight;
+  background-color: @grayLighter;
+  top: 14%;
+  z-index: 100000;
+  left: ~'-moz-calc(50% - 250px)';
+  left: ~'-webkit-calc(50% - 250px)';
+  left: ~'calc(50% - 250px)';
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 6px solid rgba(0, 0, 0, 0.5);
+
+  &[data-theme=light] {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.5);
+
+    input[type=text] {
+      color: #333;
+      background-color: transparent;
+    }
+
+    ul {
+      background-color: transparent;
+    }
+
+    .sweetspot-results {
+      p {
+        margin: 0 10px;
+        padding: 2px 0 0;
+        background-color: transparent;
+        color: @gray;
+        border-bottom: 1px solid #c5c5c5;
+      }
+
+      li[data-sweetaction] {
+        border-radius: 0;
+
+        &.active {
+          background-color: rgba(0, 0, 0, 0.07);
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.07);
+        }
+      }
+    }
+  }
+
+  &[data-theme=dark] {
+    border-radius: 2px;
+    border: 1px solid @grayDark;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: #343433;
+
+    input[type=text] {
+      color: @sweetspotDarkText;
+      background-color: transparent;
+    }
+
+    ul {
+      background-color: #343433;
+    }
+
+    img {
+      opacity: 1;
+    }
+
+    i {
+      color: rgba(255, 255, 255, 0.8);
+
+      &:hover {
+        color: @sweetspotDarkText;
+        cursor: pointer;
+      }
+    }
+
+    .sweetspot-results {
+      p {
+        margin: 0 10px;
+        padding: 2px 0 0;
+        background-color: transparent;
+        color: @sweetspotDarkText;
+        border-bottom: 1px solid #6c6c6c;
+      }
+
+      li[data-sweetaction] {
+        border-radius: 0;
+
+        a {
+          color: @sweetspotDarkText;
+
+          > div.result-text {
+            div.result-keyword.label {
+              background-color: rgba(255, 255, 255, 0.8);
+              color: #343433;
+              border: none;
+            }
+          }
+        }
+
+        .sweetspot-icon {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        .fa-mail-forward {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        &.active {
+          background-color: rgba(255, 255, 255, 0.07);
+
+          .fa-mail-forward {
+            color: rgba(255, 255, 255, 0.8);
+          }
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.07);
+        }
+      }
+    }
+  }
+
+  input[type=text] {
+    display: block;
+    border: 0;
+    padding: 0 5px;
+    margin: 0;
+    position: absolute;
+    width: calc(~"100% - 75px");
+    color: @grayDark;
+    background-color: @sweetspotGrey;
+    font-size: 34px;
+    box-shadow: none;
+    height: 50px;
+    top: 5px;
+    left: 5px;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0.6;
+  }
+
+  i {
+    margin: 3px 3px 0 0;
+
+    &:hover {
+      color: #333;
+      cursor: pointer;
+    }
+  }
+
+  .sweetspot-searchbar {
+    height: @sweetspotHeight;
+  }
+
+  .sweetspot-results {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    list-style-type: none;
+
+    > li {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li[data-sweetaction] {
+        height: 50px;
+        margin: 5px;
+        background-color: transparent;
+        border-radius: 3px;
+        position: relative;
+
+        span.label {
+          position: absolute;
+          top: 9px;
+          left: 6px;
+        }
+
+        a {
+          color: @grayDark;
+          position: relative;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: block;
+          height: 100%;
+          outline: 0;
+
+          > div.result-text {
+            div.result-keyword.label {
+              display: block;
+              float: right;
+              margin: 6px 0 0 3px;
+            }
+
+            div.result-name {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              display: block;
+            }
+
+            position: absolute;
+            white-space: nowrap;
+            left: 50px;
+            font-size: 24px;
+            top: 9px;
+            line-height: 36px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            bottom: 9px;
+            right: 50px;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        &.active {
+          background-color: @sweetspotGrey;
+
+          .fa-mail-forward {
+            display: block;
+            color: rgba(0, 0, 0, 0.7);
+          }
+
+          .result-icon {
+            display: none;
+          }
+        }
+
+        &:hover {
+          background-color: @sweetspotGrey;
+        }
+
+        .fa-mail-forward {
+          display: none;
+        }
+
+        .sweetspot-icon {
+          position: absolute;
+          right: 20px;
+          top: 12px;
+          font-size: 20px;
+          color: rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    p {
+      height: 18px;
+      margin: 0;
+      padding: 2px 10px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: @sweetspotGrey;
+      border-radius: 0;
+      font-size: 11px;
+      font-variant: small-caps;
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  #sweetspot {
+    width: 97%;
+    left: auto;
+    right: auto;
+  }
+}

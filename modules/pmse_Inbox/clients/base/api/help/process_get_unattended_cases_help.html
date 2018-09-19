@@ -1,0 +1,105 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the processes to show on Unattended Process view 
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint gets the list of unattended processes 
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>module_list</td>
+            <td>string</td>
+            <td>Identifier used to determine which field to filter against</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>q</td>
+            <td>string</td>
+            <td>Filter applied to a field to determine which processes to return</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>order_by</td>
+            <td>string</td>
+            <td>Sort definition to apply to the result</td>
+            <td>false</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>next_offset</td>
+            <td>integer</td>
+            <td>Next offset for more results</td>
+        </tr>
+        <tr>
+            <td>records</td>
+            <td>&lt;field&gt;:&lt;value&gt;</td>
+            <td>List of unattended process attributes</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "next_offset":"-1",
+    "records":
+    [
+        {
+            "id":"3922976c-284f-11e6-9f40-6c4008960436",
+            "assigned_user_id":"1",
+            "date_modified":"2016-06-01 23:18:59",
+            "date_entered":"2016-06-01T16:18:59-07:00",
+            "name":"ABC2",
+            "cas_id":"2",
+            "cas_title":"ABC2",
+            "cas_status":"IN PROGRESS",
+            "pro_title":"PD1",
+            "pro_id":"6e172e2c-2842-11e6-a4bb-6c4008960436",
+            "cas_init_user":"1",
+            "cas_user_full_name":"Sarah Smith",
+            "prj_id":"6e025038-2842-11e6-b4f7-6c4008960436",
+            "prj_user_id_full_name":"Administrator",
+            "cas_sugar_object_id":"38beb03a-284f-11e6-b059-6c4008960436",
+            "cas_sugar_module":"Accounts",
+            "assigned_user_name":"Administrator"
+        }
+    ]
+}
+</pre>

@@ -1,0 +1,59 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: embeded -->
+<script>
+function set_return(href_object, action_type){
+	window.opener.document.getElementById(action_type).value = this.document.getElementById('selector').value;
+	selected_text = this.document.getElementById('selector').options[this.document.getElementById('selector').selectedIndex].text;
+	window.opener.changehref_text(href_object, selected_text);
+	window.close();
+	
+//end function set_return
+}	
+
+
+</script>
+<!-- END: embeded -->
+<!-- BEGIN: main -->
+
+{SET_RETURN_JS}
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" colspan="2">
+ <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="window.close();" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  ">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+&nbsp;
+</td>
+</tr>
+<tr>
+			<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+	<td scope="row" width="60%" align="right"><slot>{SELECTOR_TAG}&nbsp;</slot></td>
+	<td ><slot><select id='selector' name='selector' tabindex='2' onchange="set_return({SELECTOR_JSCRIPT_RETURN});">{SELECTOR_DROPDOWN}</select></slot></td>
+			</form>
+</tr>
+
+</table>
+	
+<script>
+
+</script>
+
+<!-- END: main -->

@@ -1,0 +1,164 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<link type="text/css" href="modules/pmse_Project/css/jcore.adam-ui.css" rel="stylesheet" />
+<link type="text/css" href="modules/pmse_Project/css/jcore.adam.css" rel="stylesheet" />
+<link type="text/css" href="modules/pmse_Project/css/pmse.css" rel="stylesheet" />
+<link type="text/css" href="modules/pmse_Project/css/emailTemplate.css" rel="stylesheet" />
+
+<div class="drawer transition active" style="height:100%;">
+    <div class="row-fluid">
+        <div class="main-pane span12">
+            <div>
+                <div>
+                    <div>
+
+                        <div class="headerpane">
+                            <h1>
+                                <div class="record-cell">
+                                    <span class="module-title">
+                                    {{str 'LBL_PMSE_EMAIL_TEMPLATES_DASHLET' this.module}} | <b id="template-name-title">{{this.templateName}}</b><b id="dirty-notificator"></b> {{this.targetModule}}
+                                    </span>
+                                </div>
+                                <div class="btn-toolbar pull-right">
+                                    <div class="btn-toolbar pull-right dropdown">
+                                        <span sfuuid="1023" class="list-headerpane">
+                                            <input  id="cancel" class="btn btn-invisible btn-link" type="button" title="{{str 'LBL_PMSE_BUTTON_CLOSE' this.module}}" value="{{str 'LBL_PMSE_BUTTON_CLOSE' this.module}}">
+                                            <input id="save" href="javascript:void(0);" class="rowaction btn btn-primary" type="button" title="{{str 'LBL_PMSE_BUTTON_SAVE' this.module}}" name="btnSubmit" value="{{str 'LBL_PMSE_BUTTON_SAVE' this.module}}">
+                                        </span>
+                                        <span sfuuid="1024" class="list-headerpane">
+                                            <a class="btn btn-invisible btn-link drawerTrig" href="javascript:void(0);" rel="tooltip" title="" data-placement="left" track="click:togglesidebar" data-original-title="Toggle Dashboard Visibility"><i class="fa fa-angle-double-left"></i></a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </h1>
+                        </div>
+
+                        <form id="email_template_form">
+                            <div class="record">
+                                <div class="form-horizontal">
+                                    <fieldset class="card2">
+                                        <div class="row-fluid control-group panel_body">
+                                            <div class="control-label span4 begin-fieldgroup">
+                                                <div class="control-label-background span4">
+                                                    <label class="tright record-label">{{str 'LBL_PMSE_DASHLET_LABEL_NAME' this.module}}</label>
+                                                </div>
+                                            </div>
+                                            <div class="controls span8 record-cell " data-type="" data-name="subject">
+                                                <span class="normal index">
+                                                    <span class="edit">
+                                                        <input type="text" name="template_name" class="inherit-width required" placeholder="Required" style="width: 95%" id="template_name" value="{{this.templateName}}"  />
+
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row-fluid control-group panel_body">
+                                            <div class="control-label span4 ">
+                                                <div class="control-label-background span4">
+                                                    <label class="tright record-label"> {{str 'LBL_PMSE_DASHLET_LABEL_FROM_NAME' this.module}}</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="controls span8 record-cell ">
+                                                <span class="normal index" >
+                                                    <span class="edit">
+                                                       <input type="text" name="from_name" style="width: 95%" class="inherit-width"  id="from_name" value="{{this.fromName}}"/>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row-fluid control-group panel_body">
+                                            <div class="control-label span4 ">
+                                                <div class="control-label-background span4">
+                                                    <label class="tright record-label">  {{str 'LBL_PMSE_DASHLET_LABEL_FROM_ADDRESS' this.module}}</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="controls span8 record-cell ">
+                                                <span class="normal index" data-fieldname="subject" data-index="">
+                                                    <span class="edit">
+                                                       <input type="text" name="from_address" style="width: 95%" class="inherit-width" id="from_address" value="{{this.fromAddres}}"/>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row-fluid control-group panel_body">
+                                            <div class="control-label span4 ">
+                                                <div class="control-label-background span4">
+                                                    <label class="tright record-label">  {{str 'LBL_PMSE_DASHLET_LABEL_SUBJECT' this.module}}</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="controls span8 record-cell ">
+                                                <span class="normal index">
+                                                    <span class="edit">
+                                                       <input type="text" name="email_subject" id="email_subject" style="width: 90%" class="inherit-width required" style="width: 90%" placeholder="Required" value="{{this.subject}}"/>
+                                                        <a href="#" id="variables_panel_button">
+                                                            <span class="adam-item-icon adam-menu-icon-configure" style="top: 0px; position: relative; display: inline-block; vertical-align: middle;"></span>
+                                                        </a>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row-fluid control-group panel_body">
+                                            <div class="control-label span4 ">
+                                                <div class="control-label-background span4">
+                                                    <label class="tright record-label">{{str 'LBL_PMSE_DASHLET_LABEL_DESC' this.module}}</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="controls span8 record-cell ">
+                                                <span class="normal index">
+                                                    <span class="edit">
+                                                        <textarea id="template_description" class="inherit-width" style="width: 95%" style="height: 15px" cols="105">{{this.templateDescription}}</textarea>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row-fluid control-group panel_body hidden">
+                                            <div class="control-label span4 ">
+                                                <div class="control-label-background span4">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="controls span12 record-cell">
+                                <span class="normal index">
+                                    <span sfuuid="1559" class="edit">
+                                    <div  id="email_body_container" style="width: 90%;  display:inline-block; vertical-align: top" class="inherit-width">
+                                        <textarea id="email_body" cols="500">{{this.bodyHtml}}</textarea>
+                                    </div>
+
+                                    <a href="#" id="variables_window_button" align="top">
+                                        <span class="adam-item-icon adam-menu-icon-configure" style="top: 0px; position: relative; display: inline-block; vertical-align: middle;"></span>
+                                    </a>
+                                    </span>
+                                </span>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

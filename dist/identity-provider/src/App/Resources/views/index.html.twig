@@ -1,0 +1,68 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<html class="landscape" style="font-size: 14px;">
+<head>
+    <title>SugarCRM Identity Provider</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=320.1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          id="viewport-meta">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-itunes-app" content="app-id=599208633">
+    <meta name="google-play-app" content="app-id=com.sugarcrm.nomad">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico', 'images') }}">
+    <link rel="stylesheet" href="{{ asset('styles.css', 'css') }}" type="text/css"/>
+    <script type="text/javascript" src="{{ asset('main.js', 'js') }}"></script>
+</head>
+<body class="tablet desktop ios">
+<div id="nomad">
+    <div id="menu-left" track="swipeLeft swipeRight:menu-left"></div>
+    <div id="right-menu"></div>
+    <div id="wrapper">
+        <div id="content">
+            <div class="background" style="display: none;">&nbsp;</div>
+            <div class="layout__Login layout__login layout__def" layout-name="login">
+                <div class="view__login" style="opacity: 1;">
+                    <div class="page__login">
+                        {% block content %}{% endblock %}
+                    </div>
+                    <div class="login__links">
+                        <div class="version">v. 0.0.1</div>
+                        <i class="separator"></i>
+                        <a href="http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/"
+                           class="legal-link login-links__link fast-click-highlighted" track="click:tos">Terms of
+                            Use</a>
+                        <i class="separator"></i>
+                        <a href="javascript:void(0)"
+                           class="about-link login-links__link fast-click-highlighted">About</a>
+                        <i class="separator"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content-child">
+            <div class="background">&nbsp;</div>
+        </div>
+    </div>
+    <div id="content-overlay"></div>
+    {% block alert %}{% endblock %}
+    <div id="actionsheet-overlay" class="actionsheet-overlay"></div>
+</div>
+
+
+</body>
+</html>

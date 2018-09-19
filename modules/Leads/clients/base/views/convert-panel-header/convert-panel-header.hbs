@@ -1,0 +1,30 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="accordion-heading {{#unless this.meta.dependentModules}}enabled{{/unless}}" data-module="{{this.meta.module}}">
+    <span class="pull-left step-circle">
+        <span>{{this.meta.moduleNumber}}</span>
+        <i class="fa fa-check-circle"></i>
+    </span>
+    <span class="title">{{this.initial.title}}</span>
+    <span class="dupecheck-results"></span>
+    <span class="btn btn-invisible active-indicator pull-right"><i class="fa fa-chevron-down"></i></span>
+    <span class="buttons pull-right">
+        {{#each meta.buttons}}
+            {{field ../this}}
+        {{/each}}
+    </span>
+    <span class="subview-toggle pull-right hide">
+        <a class="toggle-link dupecheck" data-next-toggle="create" href="javascript:void(0)">{{str 'LBL_CONVERT_IGNORE_DUPLICATES' module}}</a>
+        <a class="toggle-link create" data-next-toggle="dupecheck" href="javascript:void(0)" >{{str 'LBL_CONVERT_BACK_TO_DUPLICATES' module}}</a>
+    </span>
+</div>

@@ -1,0 +1,110 @@
+# Your installation or use of this SugarCRM file is subject to the applicable
+# terms available at
+# http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+# If you do not agree to all of the applicable terms or do not have the
+# authority to bind the entity as an authorized representative, then do not
+# install or use this SugarCRM file.
+#
+# Copyright (C) SugarCRM Inc. All rights reserved.
+
+default:
+  autoload:
+    'Sugarcrm\IdentityProvider\IntegrationTests\Bootstrap': %paths.base%/bootstrap
+
+  suites:
+    default:
+      paths:
+        features: %paths.base%/Default
+      contexts:
+        - Sugarcrm\IdentityProvider\IntegrationTests\Bootstrap\FeatureContext:
+            sugarAdmin:
+              username: admin
+              password: admin
+    saml:
+      paths:
+        features: %paths.base%/Saml
+      contexts:
+        - Sugarcrm\IdentityProvider\IntegrationTests\Bootstrap\SamlFeatureContext:
+            samlServer: "http://saml-server/simplesaml"
+            sugarAdmin:
+              username: admin
+              password: admin
+            mangoInstances:
+              behat-tests-mango-saml-base: "http://behat-tests-mango-saml-base"
+              behat-tests-mango-saml-same-window: "http://behat-tests-mango-saml-same-window"
+              behat-tests-mango-saml-same-window-no-user-provision: "http://behat-tests-mango-saml-same-window-no-user-provision"
+            defaultInstance: behat-tests-mango-saml-base
+    ldap:
+      paths:
+        features: %paths.base%/Ldap
+      contexts:
+        - Sugarcrm\IdentityProvider\IntegrationTests\Bootstrap\LdapFeatureContext:
+            sugarAdmin:
+              username: admin
+              password: admin
+            ldapConfig:
+              servers:
+                ldap: %%LDAP_HOST%%
+                ldap_ssl: ldaps://%%LDAP_HOST%%
+    oidc:
+      paths:
+        features: %paths.base%/OIDC
+      contexts:
+        - Sugarcrm\IdentityProvider\IntegrationTests\Bootstrap\OIDCFeatureContext:
+            sugarAdmin:
+              username: admin
+              password: admin
+            oidcClient:
+              clientId: mangoOIDCClientId
+              clientSecret: mangoOIDCClientSecret
+              redirectUrl: http://localhost/consumer
+              accessTokenFile:
+              accessTokenRefreshUrl:
+
+    rest:
+      paths:
+        features: %paths.base%/Rest
+      contexts:
+        - Rezzza\RestApiBehatExtension\RestApiContext
+        - Rezzza\RestApiBehatExtension\Json\JsonContext
+        - Sugarcrm\IdentityProvider\IntegrationTests\Bootstrap\AuthenticationRestContext:
+            oidcClient:
+              clientId: mangoOIDCClientId
+              clientSecret: mangoOIDCClientSecret
+              redirectUrl: http://localhost/consumer
+              accessTokenFile:
+              accessTokenRefreshUrl:
+            oidcUrl: '%%HYDRA_URL%%'
+
+    soap:
+      paths:
+        features: %paths.base%/SOAP
+      contexts:
+        - Sugarcrm\IdentityProvider\IntegrationTests\Bootstrap\SOAPFeatureContext:
+            mangoInstances:
+              behat-tests-mango: "http://behat-tests-mango"
+              behat-tests-mango-oidc: "http://behat-tests-mango-oidc.%%IDM_NS%%"
+            sugarAdmin:
+              username: admin
+              password: admin
+
+
+  extensions:
+    Behat\MinkExtension:
+      browser_name: chrome
+      default_session: selenium2
+      base_url: '%%MANGO_URL%%'
+      selenium2:
+        wd_host: "http://%%SELENIUM_HOST%%:4444/wd/hub"
+      sessions:
+        default:
+          goutte: ~
+    Rezzza\RestApiBehatExtension\Extension:
+      rest:
+        base_url: '%%IDP_SERVICE_URL%%'
+        store_response: true
+    Behat\SoapExtension:
+      # An associative array as second argument for \SoapClient::__soapCall().
+      options: {}
+      # An associative array as parameters for \DOMXpath::registerNamespace().
+      namespaces: {}

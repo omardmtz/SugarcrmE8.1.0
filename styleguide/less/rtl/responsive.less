@@ -1,0 +1,51 @@
+@media (max-width: 480px) {
+  .preview-pane {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  div.record div.record-cell:not(:first-child) {
+    margin-left: @fluidGridGutterWidth;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .preview-pane {
+    right: 100%;
+    left: initial;
+    margin-right: 25%;
+    margin-left: 0;
+
+    &.active {
+      box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .preview-pane.active {
+    right: 0;
+    animation-name: preview-in-rtl;
+    animation-duration: 0.3s;
+  }
+
+  .preview-pane {
+    animation-name: preview-out-rtl;
+    animation-duration: 0.3s;
+    display: block;
+    opacity: 1;
+  }
+
+  /* RTL special override */
+  #content > div {
+    overflow-x: hidden;
+  }
+
+  /* iPad/iPhone hack SC-5843 */
+  &.touch .main-content {
+    direction: ltr;
+  }
+
+  &.touch .dataTable {
+    direction: rtl;
+  }
+}

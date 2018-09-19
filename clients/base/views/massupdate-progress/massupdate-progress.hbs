@@ -1,0 +1,36 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="modal progress-modal">
+    <div class="modal-header header">
+        <h3 data-holder="title">{{str 'TPL_MASSUPDATE_TITLE' this.module this}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row-fluid">
+            <div class="offset1 span10">
+                <div class="progress-label">
+                    <span data-holder="message"></span>
+                    <span data-holder="estimate"></span>
+                </div>
+                <div class="progress progress-info progress-striped active" data-holder="bar">
+                    <div class="bar" data-holder="progressbar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            {{#each meta.buttons}}
+                {{field ../this model=../model}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop"></div>

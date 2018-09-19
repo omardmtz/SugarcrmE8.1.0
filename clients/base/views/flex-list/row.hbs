@@ -1,0 +1,29 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<tr name="{{module}}_{{model.id}}" class="single">
+    {{#each view.leftColumns}}
+        <td>
+            {{field ../view model=../model template=../view.viewName}}
+        </td>
+    {{/each}}
+    {{#each view._fields.visible}}
+        <td{{#if align}} class="{{align}}"{{/if}} data-type="{{type}}">
+            {{field ../view model=../model template=../view.viewName}}
+        </td>
+    {{/each}}
+    {{#each view.rightColumns}}
+        <td>
+            {{field ../view model=../model template=../view.viewName}}
+        </td>
+    {{/each}}
+</tr>

@@ -1,0 +1,262 @@
+.upgrade {
+  position: absolute;
+  width: 100%;
+
+  .modal {
+    width: 700px;
+    margin-left: -350px;
+    top: 20%;
+
+    img.logo {
+      height: 18px;
+    }
+  }
+
+  .modal-header {
+    padding: 9px 10px;
+
+    .step-circle .fa-check-circle {
+      display: inline-block;
+    }
+  }
+
+  .modal-footer {
+    .version {
+      float: left;
+      padding: 4px 12px;
+    }
+  }
+
+  .modal-header-upgrade {
+    position: relative;
+    padding: 10px 0;
+
+    .step-circle {
+      position: absolute;
+      margin-right: 0;
+      top: 14px;
+      left: 8px;
+    }
+
+    .upgrade-title {
+      display: inline-block;
+      box-sizing: border-box;
+      padding-left: 45px;
+      margin-left: 0;
+    }
+
+    .upgrade-title span {
+      display: inline-block;
+    }
+
+    .upgrade-title h3 {
+      line-height: 24px;
+      white-space: nowrap;
+    }
+
+    .progress-section {
+      display: inline-block;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0 14px;
+      text-align: center;
+    }
+  }
+
+  .modal-body {
+    min-height: 168px;
+    margin: 0 0 78px;
+    max-height: 342px;
+    padding: 10px 8px;
+
+    &.record .record-cell {
+      padding-left: 11px;
+    }
+
+    h1 {
+      margin-left: 36px;
+      margin-bottom: 0;
+      font-size: @upgradeFontSizeHeader;
+      font-weight: 600;
+      color: @black;
+    }
+
+    .fa {
+      position: absolute;
+      left: 16px;
+      margin-top: 3px;
+      font-size: 18px;
+    }
+
+    p {
+      margin-left: 37px;
+      margin-right: 37px;
+    }
+  }
+
+  .progress .bar.in-progress {
+    background-image: none;
+    background-color: #ebb71c;
+  }
+
+  .progress .bar.error {
+    background-image: none;
+    background-color: #b81213;
+  }
+  .control-group input[type="password"], .upgrade .control-group input[type="text"] {
+    margin-bottom: 10px;
+  }
+
+  .thumbnails {
+    margin: 0;
+
+    li {
+      margin-bottom: 9px;
+    }
+
+    li.span3 .thumbnail {
+      padding: 14px 6px;
+      height: 44px;
+    }
+
+    .thumbnail {
+      height: 60px;
+      padding: 6px;
+      text-align: center;
+      color: #58595b;
+      font-size: 11px;
+      background-color: #f3f3f3;
+      background-image: linear-gradient(to bottom, #f8f8f8, #ededed);
+      background-repeat: repeat-x;
+      transition: all 0s;
+
+      &:hover {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.1);
+        border: none;
+      }
+
+      &:hover i {
+        text-decoration: none;
+        color: #58595b;
+      }
+
+      i {
+        font-size: 24px;
+        display: inline-block;
+        width: 100%;
+        color: #bbb;
+      }
+    }
+  }
+
+  [data-step="2"],
+  [data-step="3"] {
+    display: none;
+  }
+
+  #alerts .alert {
+    display: none;
+  }
+
+  .file-upload.focus {
+    color: @white;
+    margin-bottom: 0;
+    font-weight: normal;
+
+    input[type="file"] {
+      display: inline-block;
+      margin-left: -1px;
+      height: 22px;
+    }
+  }
+}
+
+.upgrade .color_red {
+  color: #b81213;
+  background: none;
+}
+
+.upgrade .color_yellow {
+  color: #e6af17;
+  background: none;
+}
+
+.upgrade .alert-danger {
+  background-color: #b81213;
+  color: #fff;
+  text-shadow: none !important;
+}
+
+.upgrade .color_green {
+  color: #37880e;
+  background: none;
+}
+
+.upgrade .alert-success {
+  background-color: #37880e;
+  color: #fff;
+  text-shadow: none !important;
+}
+
+.upgrade .alert-wrapper {
+  width: 600px;
+}
+
+.upgrade .alert .close {
+  right: 1px;
+  top: 1px;
+}
+
+.upgrade .alert .close .fa-times {
+  color: #000;
+}
+
+.upgrade .fa-ellipsis-h {
+  background: #ebb542;
+  border-radius: 10px;
+  padding: 2px 1px 0;
+  line-height: 14px;
+  color: #fff;
+}
+
+.upgrade .upload-file {
+  border: 3px solid #eee;
+  display: inline-block;
+  height: 36px;
+  padding-top: 4px;
+  border-radius: 4px;
+  width: 75%;
+}
+
+.upgrade .upload-file > span:first-child {
+  margin-left: 4px;
+}
+
+.upgrade .upgrade-check {
+  position: absolute;
+  margin-top: -20px;
+  right: 14px;
+  width: 196px;
+  height: 2px;
+}
+
+.upgrade .healthcheck-check {
+  position: absolute;
+  margin-top: -20px;
+  right: 14px;
+  width: 196px;
+  height: 2px;
+}
+
+@media (max-width: 768px) {
+  .upgrade .modal {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 44px;
+    left: 0;
+    margin: 0;
+    padding: 4px 0;
+    border: 0;
+  }
+}

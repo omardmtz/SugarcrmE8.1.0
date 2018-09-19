@@ -1,0 +1,58 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+			<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="WorkFlow">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+		<td><input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='Save'; return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
+	<td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	<td align='right'>{ADMIN_EDIT}</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+<td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<td width="25%" scope="row"><slot>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+	<td width="25%" ><slot><input name='name' tabindex='1' size='40' maxlength='50' type="text" value="{NAME}"></slot></td>
+	<td width="25%" scope="row"><slot>{MOD.LBL_TYPE} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+	<td width="25%" ><slot><select name='type' tabindex='2'>{TYPE}</select></slot></td>
+	</tr><tr>
+	<td scope="row"><slot>{MOD.LBL_STATUS}</slot></td>
+	<td ><slot><input name='status' class="checkbox" type="checkbox" tabindex='1' {STATUS}></slot></td>
+	<td scope="row"><slot>{MOD.LBL_BASE_MODULE} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+	<td ><slot><select name='base_module' tabindex='2'>{BASE_MODULE}</select></slot></td>
+	</tr><tr>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	</tr><tr>
+	<td valign="top" scope="row"><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+	<td  colspan='3'><slot><textarea name='description' tabindex='3' cols="60" rows="4">{DESCRIPTION}</textarea></slot></td>
+	</tr></table>
+</td></tr></table>
+	</form>
+
+
+{JAVASCRIPT}
+
+<!-- END: main -->

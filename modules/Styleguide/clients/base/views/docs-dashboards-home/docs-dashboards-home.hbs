@@ -1,0 +1,104 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<section id="dashboards_home">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span3">
+      <h3>About</h3>
+      <p>The home dashboard provides quick access to a user customizable layout of dashlets. Dashboard definitions are unique to each user and as many as needed can be created by the user.</p>
+      <p>Dashlets are arranged in rows within a one, two or three column layout. Each row can contain one to three dashlets.</p>
+      <p>The dashboard layout and title can be edited via the action menu in the dashboard headerpane or new dashboards can be created. Once more than one dashboard is created, they can be selected via the Cube dropdown in the navbar.</p>
+
+      <h3>Home dashboard layout</h3>
+      <p>Once a layout is created, rows can be arranged within a column using drag and drop while dashlets can be swapped with another in the layout using drag and drop as well.</p>
+      <p>The general styling of the dashboard should normally not need to be modified, however, the related LESS files are <code>styleguide/less/sugar/dashboard.less</code> and <code>styleguide/less/sugar/dashlets.less</code>.
+
+      <h3>CSS Classes and Javascript</h3>
+      <p>Dashboard layouts make extensive use of three core Bootstrap modules&mdash;<a href="#Styleguide/docs/base-grid">fluid grid</a> (row-fluid &amp; span[1-12]), wells, and thumbnails.</p>
+      <p>The drag and drop capability is provided by <a href="http://api.jqueryui.com/category/interactions/" target="_blank">jQuery UI Interactions</a> including Sortable, Draggable and Dropable.</p>
+      <p>The CSS classes specific to dashboard layouts are: <code>.dashboard</code>, <code>.dashlets</code>, <code>.dashlet-row</code>, <code>.dashlet-cell</code>, <code>.dashlet-container</code>, <code>.cols</code>, and <code>.rows</code>.</p>
+      <p>Please see the <a href="#Styleguide/docs/dashboards-dashlets">Styleguide Dashlets</a> page for detailed information about dashlets.</p
+
+      <h3>Responsive Layout</h3>
+      <p>For browser windows less than 768px wide, the dashboard layout will automatically adjust to one column with one dashlet per row.</p>
+    </div>
+
+    <div class="span6">
+      <h3>Basic layout and classes</h3>
+<pre class="prettyprint linenums">
+&lt;div class="dashboard"&gt;
+    &lt;div class="cols row-fluid"&gt;
+        &lt;div class="preview-headerbar"&gt;
+            &lt;div class="headerpane"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;ul class="dashlets row-fluid"&gt;
+            &lt;li class="span4"&gt;
+                &lt;ul class="dashlet-row ui-sortable"&gt;
+                    &lt;li class="row-fluid sortable"&gt;
+                        &lt;div class="rows well"&gt;
+                            &lt;ul class="dashlet-cell rows row-fluid"&gt;
+                                &lt;li class="dashlet-container span4 ui-droppable"&gt;
+                                    &lt;div class="dashlet"&gt;&lt;/div&gt;
+                                &lt;/li&gt;
+                                &lt;li class="dashlet-container span4 ui-droppable"&gt;
+                                    &lt;div class="dashlet"&gt;&lt;/div&gt;
+                                &lt;/li&gt;
+                                &lt;li class="dashlet-container span4 ui-droppable"&gt;
+                                    &lt;div class="dashlet"&gt;&lt;/div&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="row-fluid sortable"&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class="span8"&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+
+    <div class="span3">
+      <h3>Home dashboard examples</h3>
+      <p><a data-modal="#dashboards_homepage_2"><img src="styleguide/content/img/dashboards_home_1.png"></a></p>
+      <p><a data-modal="#dashboards_homepage_2"><img src="styleguide/content/img/dashboards_home_2.png"></a></p>
+    </div>
+  </div>
+
+</section>
+
+<div id="dashboards_homepage_2" class="modal hide fade" style="width:90%;margin-left:-45%;">
+  <div class="modal-header">
+    <a class="close btn btn-invisible" data-dismiss="modal"><i class="fa fa-times"></i></a>
+    <h4>Edit Dashboard Layout</h4>
+  </div>
+  <div class="modal-body" style="padding:12px;max-height:90%;text-align:center;">
+    <img src="styleguide/content/img/dashboards_home_2.png">
+  </div>
+</div>
+
+<div id="dashboards_homepage_2" class="modal hide fade" style="width:90%;margin-left:-45%;">
+  <div class="modal-header">
+    <a class="close btn btn-invisible" data-dismiss="modal"><i class="fa fa-times"></i></a>
+    <h4>Example Home Dashboard Layout</h4>
+  </div>
+  <div class="modal-body" style="padding:12px;max-height:90%;text-align:center;">
+    <img src="styleguide/content/img/dashboards_home_2.png">
+  </div>
+</div>

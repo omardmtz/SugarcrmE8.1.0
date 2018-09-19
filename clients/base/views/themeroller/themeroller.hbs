@@ -1,0 +1,59 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="headerpane">
+    <h1>
+       <span class="record-cell">
+            {{str "LBL_COFIGURE_PORTAL_THEME"}}
+       </span>
+        <div class="btn-toolbar pull-right">
+            <a class="btn btn-invisible btn-link"
+               href="#bwc/index.php?module=ModuleBuilder&action=index&type=sugarportal"
+               name="back_button">
+                {{str "LBL_CANCEL_BUTTON_LABEL"}}
+            </a>
+            <button href="javascript:void(0)" class="btn btn-primary" name="save_button" style="margin-left: 10px">
+                <i class="fa fa-arrow-circle-o-up"></i> {{str "LBL_SAVE_AND_DEPLOY_BTN"}}</button>
+        </div>
+    </h1>
+</div>
+
+<div class="record">
+    <div class="row-fluid panel_body">
+        <div class="span12 record-cell">
+            <h1>
+                <small>{{str "LBL_COLORS"}}</small>
+            </h1>
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    {{#each lessVars.colors}}
+                    <tr>
+                        <td>{{str name}}</td>
+                        <td class="swatch-col" style="background-color: {{value}}"><span class="swatch"></span></td>
+                        <td>
+                            <input type="text" name="{{name}}" rel="colorpicker" value="{{value}}" class="hexvar span10">
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <div class="row-fluid">
+                <div class="btn-toolbar pull-right">
+                    <a href="javascript:void(0)" class="btn pull-right"  name="reset_button">{{str "LBL_RESET_THEME_LNK"}}</a>
+                    <button href="javascript:void(0)" class="btn pull-right" name="refresh_button" style="margin-left: 10px">
+                        <i class="fa fa-refresh"></i> {{str "LBL_RESET"}}</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="error-message">
+    <h1>{{str 'ERR_NO_VIEW_ACCESS_TITLE'}}</h1>
+    <p>{{str 'ERR_NO_VIEW_ACCESS_REASON'}}</p>
+    <p>{{{str 'ERR_NO_VIEW_ACCESS_ACTION'}}}</p>
+</div>
+<div class="sugar-cube-wrapper">
+    {{{subFieldTemplate 'sugar-cube' 'detail' cubeOptions}}}
+</div>

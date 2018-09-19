@@ -1,0 +1,933 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+#businessrulecontainer {
+
+  // conflicts with businessrules.less
+  /*padding: 5px;*/
+}
+
+#businessruleheader {
+  display: block;
+  padding: 5px;
+  white-space: nowrap;
+  width: auto;
+}
+
+#businessruledesigner {
+
+  // conflicts with businessrules.less
+  /*background-color: #efefef;*/
+}
+
+.brTitle {
+  padding: 5px 8px;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 25px;
+}
+
+.brModule {
+  padding: 5px 12px;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.decision-table,
+.decision-table input,
+.decision-table select,
+.decision-table button {
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+.decision-table {
+
+  // conflicts with businessrules.less
+  /*background: #ebebeb;*/
+
+  /*margin-bottom: 2em;*/
+  /*-webkit-box-shadow: #999999 0px 2px 10px;*/
+  /*-moz-box-shadow: #999999 0px 2px 10px;*/
+  /*box-shadow: #999999 0px 2px 10px;*/
+  /*-webkit-border-radius: 6px;*/
+  /*-moz-border-radius: 6px;*/
+  /*-ms-border-radius: 6px;*/
+  /*-o-border-radius: 6px;*/
+  /*border-radius: 6px;*/
+}
+
+.decision-table th,
+.decision-table td {
+  border: 1px solid #cccccc;
+
+  // conflicts with businessrules.less
+  /*border: 1px solid #cccccc !important;*/
+}
+
+.decision-table thead tr {
+  color: #666;
+}
+
+.decision-table th {
+  padding: 0px;
+  background: #EBEBEB;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.decision-table td {
+  margin: 0px;
+  text-align: center;
+  width: auto;
+  padding: 0px;
+}
+
+.decision-table th > * {
+  padding: 0.5em;
+  display: block;
+  border: none;
+  margin: 0px;
+}
+
+.decision-table button {
+  cursor: pointer;
+}
+
+.decision-table input,
+.decision-table select {
+  border: none;
+  margin: 0px;
+  background: none;
+}
+
+.decision-table select {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.decision-table table {
+  border: none;
+  position: relative;
+}
+
+.decision-table table .cell-edit td {
+  background-color: #ff9;
+}
+
+.decision-table table .error td {
+  background-color: #f99;
+}
+
+.decision-table table th.error > *,
+.decision-table table td.error > * {
+  background: #f99;
+}
+
+.decision-table table td {
+  vertical-align: middle;
+}
+
+.decision-table table td > * {
+  display: block;
+  white-space: nowrap;
+  /*width: 100%;*/
+  padding: 0.4em;
+  text-align: center;
+  font-size: 1em;
+  width: 10em;
+}
+
+.decision-table table td span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.decision-table table thead tr:nth-child(1) > * {
+  border-top: none;
+}
+
+.decision-table table tr:nth-child(even) {
+
+  // conflicts with businessrules.less
+  /*background: #F6F6F6;*/
+}
+
+.decision-table table tr:nth-child(odd) {
+
+  // conflicts with businessrules.less
+  /*background: #FFF;*/
+}
+
+.decision-table table tr > *:first-child {
+  border-left: none;
+}
+
+.decision-table table tr > *:last-child {
+  border-right: none;
+}
+
+.decision-table .decision-table-operator {
+  width: auto !important;
+}
+
+.decision-table .decision-table-operator > * {
+  width: 92px;
+}
+
+.decision-table .decision-table-operator select {
+  width: 102px;
+  height: 1.8em;
+}
+
+.decision-table .decision-table-close-button {
+  position: absolute;
+  top: 0px;
+  background: #222;
+  width: 0.5em;
+  height: 0.5em;
+  padding: 0.1em;
+}
+
+.decision-table .decision-table-close-button:focus, .decision-table .decision-table-close-button:hover {
+  background: #C00;
+}
+
+.decision-table .decision-table-add-button {
+  margin: 0px;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  background: #dfdfdf;
+  border: 1px solid #bbb;
+}
+
+.decision-table .decision-table-separator-border {
+  border-right-width: 2px;
+}
+
+select.field-invalid {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #e61718;
+}
+
+table.decision-table-index span {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+th.decision-table-title {
+  text-align: left;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, white), color-stop(2%, #eeeeee), color-stop(100%, #dfdfdf));
+  background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 2%, #dfdfdf 100%);
+  background-image: -moz-linear-gradient(top, white 0%, #eeeeee 2%, #dfdfdf 100%);
+  background-image: -o-linear-gradient(top, white 0%, #eeeeee 2%, #dfdfdf 100%);
+  background-image: linear-gradient(top, #ffffff 0%, #eeeeee 2%, #dfdfdf 100%);
+  text-shadow: 1px 1px 0 white;
+}
+
+div.decision-table-conditions-header,
+div.decision-table-conclusions-header {
+  float: left;
+  padding: 0px;
+  overflow: hidden;
+}
+
+div.decision-table-conditions-header select,
+div.decision-table-conclusions-header select {
+  display: block;
+  background: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
+  background-image: -webkit-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+  background-image: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+  background-image: -o-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+  background-image: linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+}
+
+div.decision-table-conditions-header select option,
+div.decision-table-conclusions-header select option {
+  background: #FFF;
+  color: #222;
+}
+
+div.decision-table-conditions-header select:focus,
+div.decision-table-conclusions-header select:focus {
+  background: #fff;
+}
+
+div.decision-table-conditions-header th,
+div.decision-table-conclusions-header th {
+  width: 14.6em;
+  height: 2.5em;
+  position: relative;
+}
+
+div.decision-table-conclusions-header span {
+  width: 8em;
+}
+
+div.decision-table-conclusions-header span.decision-table-return {
+  width: 10em;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.decision-table-add-button .icon-plus,
+.decision-table-add-row .icon-plus,
+.decision-table-remove {
+  color: #58595b;
+}
+
+.decision-table-add-row {
+  background: none;
+  display: block;
+  width: 100%;
+}
+
+.decision-table-container {
+  width: inherit;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.decision-table-remove {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+div.decision-table-scroll-x {
+  overflow-x: auto;
+}
+
+table.decision-table-index span {
+  width: 24px;
+}
+
+.decision-table-name,
+.decision-table-type,
+.decision-table-remove {
+  cursor: pointer;
+}
+
+.decision-table-name > select,
+.decision-table-type > select,
+.decision-table-remove > select {
+  width: auto;
+  padding: 0px;
+}
+
+.decision-table-name {
+  margin-left: 0.5em;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.decision-table-name > input {
+  padding: 1px;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+  width: 100%;
+}
+
+.decision-table-module {
+  float: right;
+}
+
+.decision-table span.decision-table-remove {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 18px;
+}
+
+/*.decision-table span.decision-table-remove::before {*/
+/*text-align: center;*/
+/*}*/
+.business-rules-error-log {
+  color: #f00;
+}
+
+.expression-field-panel {
+  padding: 0.3em;
+}
+
+.expression-field-panel .multiple-item-container {
+  display: block;
+  background: #fff;
+  height: 6em;
+}
+
+.expression-field-panel .multiple-item-panel {
+  margin: 0px;
+}
+
+.expression-container.list-mode {
+  padding: 0;
+  width: 10.8em;
+}
+
+.expression-container-cell {
+  height: 1.5em;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*
+    Since we moved to templates we need to set this
+    so that inner hidden elements get an appropriate
+    width to set themselves to.
+  */
+  width: 100%;
+}
+
+.expression-container-input {
+  width: 100%;
+}
+
+.adam.single-item {
+  background: #3d9af5;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
+  padding: 4px 6px 4px 4px;
+  display: inline-block;
+  height: 12px;
+  white-space: nowrap;
+  margin-top: 3px;
+  /* margin-left: -6px; */
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 12px;
+  vertical-align: top;
+}
+
+.adam.single-item a {
+  text-decoration: none;
+}
+
+.adam.single-item-content {
+  color: #ffffff;
+}
+
+.adam.single-item-text {
+  vertical-align: top;
+}
+
+.adam.single-item-remove {
+  margin-left: 2px;
+  margin-right: -2px;
+  color: #cee5fc;
+  font-size: 14px;
+  line-height: 12px;
+}
+.adam.single-item-remove:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.adam.item-container {
+  border: 1px solid #dcdcdc;
+  position: relative;
+  margin-left: 0;
+  background-color: #fff;
+  margin-bottom: 0;
+  overflow: hidden;
+  height: 26px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  display: block;
+  overflow: auto;
+  padding: 2px;
+  position: static;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.adam.item-container > .adam.single-item {
+  margin: 2px;
+}
+
+.adam.item-container-input {
+  background: none;
+  border: 0;
+  margin: 3px 0;
+  width: 1px;
+}
+
+.adam.item-container-input:focus {
+  outline: 0 none;
+}
+
+.adam.field-panel-button {
+  margin-left: 0px;
+  padding: 2px 6px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.adam.field-panel {
+  display: inline-block;
+  min-width: 200px;
+  overflow: initial;
+  padding: 2px 2px 0 2px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(10%, #eaeaea));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #eaeaea 10%);
+  background: -moz-linear-gradient(top, #ffffff 0%, #eaeaea 10%);
+  background: -o-linear-gradient(top, #ffffff 0%, #eaeaea 10%);
+  background: linear-gradient(top, #ffffff 0%, #eaeaea 10%);
+  box-sizing: border-box;
+}
+
+.adam.field-panel.focused {
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0;
+  border-top-width: 0;
+}
+
+.adam.field-panel > * {
+  margin-bottom: 2px;
+  margin-top: 0px;
+}
+
+.adam.field-panel-button-group {
+  border: 1px solid #ccc;
+  padding: 2px 1px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.adam.field-panel-button-group-label {
+  margin: 0 12px 0 4px;
+}
+
+.adam.field-panel-button-container {
+  white-space: normal;
+}
+
+.adam.list-panel {
+  display: inline-block;
+  overflow: auto;
+  margin: 0;
+}
+
+.adam.list-item {
+  list-style-type: none;
+  cursor: pointer;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 5px;
+  margin: 0px;
+  background: #FFF;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  min-height: 18px;
+}
+
+.adam.list-panel > .list-item:first-child {
+  min-height: 0;
+}
+
+.adam.list-panel > .list-item:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+.adam.list-panel > .list-item:nth-child(odd):hover,
+.adam.list-item:hover {
+  background: #eaeaea;
+}
+
+.adam.list-panel-message {
+  padding: 0.3em 0.8em;
+}
+
+.adam.list-panel-spinner {
+  margin-right: 0.5em;
+}
+
+.adam.collapsible-panel > * {
+  border: 1px solid #CCC;
+}
+
+.adam.collapsible-panel-header {
+  color: #CFCFCF;
+  font-weight: bold;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #555;
+  font-size: inherit;
+  /* background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(50%, #555555), color-stop(50%, #444444), color-stop(100%, #555555));
+  background-image: -webkit-linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%);
+  background-image: -moz-linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%);
+  background-image: -o-linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%);
+  background-image: linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%); */
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(50%, #555555), color-stop(50%, #444444), color-stop(100%, #555555));
+  background: -webkit-linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%);
+  background: -moz-linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%);
+  background: -o-linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%);
+  background: linear-gradient(top, #555555 0%, #555555 50%, #444444 50%, #555555 100%);
+  -webkit-border-radius: inherit;
+  -moz-border-radius: inherit;
+  -ms-border-radius: inherit;
+  -o-border-radius: inherit;
+  border-radius: inherit;
+  border-width: 0;
+  white-space: nowrap;
+}
+
+.adam.collapsible-panel-title {
+  font-size: 11px;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.adam.collapsible-panel-icon {
+  width: 7px;
+  display: inline-block;
+  font-size: 11px;
+  margin-right: 5px;
+  color: inherit;
+}
+
+.adam.collapsible-panel-body {
+  position: relative;
+  border-width: 0 1px 1px 1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.adam.form-panel-field,
+.adam.form-panel-button {
+  display: inline-block;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.adam.form-panel-field {
+  margin-bottom: 0.5em;
+  vertical-align: top;
+}
+
+.adam.form-panel-button {
+  text-align: center;
+}
+.adam.form-panel-button .btn {
+  margin: 0;
+}
+
+.adam.form-panel-field-control {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 18px;
+  height: 24px;
+  margin-bottom: 0;
+}
+.adam.form-panel-field-control .formpanel-radio {
+  margin-right: 5px;
+}
+
+.adam.form-panel-field.adam-formpanelnumber .adam.form-panel-field-control,
+.adam.form-panel-field.adam-formpanelcurrency .adam.form-panel-field-control {
+  text-align: right;
+}
+
+.adam.form-panel-field.adam-formpanelcurrency input[type="text"].adam.form-panel-field-control {
+  width: 50% !important;
+}
+
+.adam.form-panel-field.adam-formpanelmultiselect .select2-choices {
+  height: 27px !important;
+  overflow: scroll;
+}
+
+.adam-formpanelcurrency .currency-part {
+  width: 50%;
+  float: left;
+}
+
+.adam.form-panel-footer {
+  padding: 3px;
+  text-align: center;
+}
+
+.adam.form-panel-label {
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adam.collapsible-panel-body.form-panel-body {
+  margin: 0;
+  padding: 3px;
+}
+
+.adam-formpaneldatetime .edit * {
+  width: 50%;
+}
+
+.adam.email-picker-suggest {
+  color: inherit;
+  display: block;
+  text-decoration: inherit;
+}
+
+.adam.email-picker-suggest-name {
+  display: block;
+}
+
+.adam.multiplelevel-list .collapsible-panel-body {
+  overflow: hidden;
+}
+
+.adam.group-list,
+.groupitem-panel {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top: 0px;
+}
+
+.adam.group-list,
+.adam.groupitem-list {
+  margin: 0;
+  padding: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.adam.group-list {
+  left: 0px;
+}
+
+.groupitem-panel {
+  left: 100%;
+}
+
+.groupitem-header {
+  background: #ccc;
+  color: #666;
+  padding: 0.1em 0.5em;
+  font-weight: bold;
+}
+
+.groupitem-back {
+  top: 0;
+  right: 0;
+  position: absolute;
+  margin-right: 0.5em;
+  font-size: 1.3em;
+  line-height: 1.3em;
+  cursor: pointer;
+}
+
+.adam.group-list .list-item {
+  padding: 0px;
+}
+
+.adam.group-list .list-item-content {
+  padding: 5px 1.9em 5px 5px;
+  display: block;
+  color: #777;
+  text-decoration: none;
+  font-weight: bold;
+  /* width: 100%;
+  box-sizing: border-box; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adam.group-list .list-item-groupicon {
+  position: absolute;
+  right: 0px;
+  font-size: 1.3em;
+  margin: 0 0.3em;
+  color: #999;
+}
+
+.adam.group-list .list-item-content:hover {
+  color: inherit;
+}
+.adam.group-list .list-item-content:hover .list-item-groupicon {
+  color: inherit;
+}
+
+.adam.multiplelevel-list .groupitem-name {
+  white-space: nowrap;
+  display: block;
+  padding-right: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adam.expression-builder {
+  display: inline-block;
+}
+
+.adam.expressionbuilder-variableitem-datatype {
+  display: block;
+  font-size: 0.9em;
+  line-height: 1em;
+}
+
+.adam.multiple-panel-content {
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  width: 100%;
+}
+
+.adam.collapsible-panel.multiple-panel > .collapsible-panel-body {
+  overflow: hidden;
+}
+.adam.collapsible-panel.multiple-panel > .collapsible-panel-body .adam.multiple-panel-content .collapsible-panel-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.adam.collapsible-panel.multiple-panel .list-panel.collapsible-panel-body {
+  max-height: inherit;
+  position: absolute;
+}
+.adam.collapsible-panel.multiple-panel .list-panel.adam-main-list .list-item {
+  padding: 0;
+}
+.adam.collapsible-panel.multiple-panel .list-panel .list-item-content {
+  padding: 5px 1.9em 5px 5px;
+  display: block;
+  color: #777;
+  text-decoration: none;
+  font-weight: bold;
+  /* width: 100%;
+  box-sizing: border-box; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.adam.collapsible-panel.multiple-panel .list-panel .list-item-content:hover {
+  color: inherit;
+}
+.adam.collapsible-panel.multiple-panel .list-panel .list-item-content:hover .list-item-arrow {
+  color: inherit;
+}
+.adam.collapsible-panel.multiple-panel .list-panel .list-item-arrow {
+  position: absolute;
+  right: 0px;
+  font-size: 1.3em;
+  margin: 0 0.3em;
+  color: #999;
+}
+
+.adam.multiple-panel-contentheader {
+  background: #ccc;
+  color: #666;
+  padding: 0.1em 0.5em;
+  font-weight: bold;
+}
+
+.adam.multiple-panel-title {
+  white-space: nowrap;
+  display: block;
+  padding-right: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adam.multiple-panel-back {
+  top: 0;
+  right: 0;
+  position: absolute;
+  margin-right: 0.5em;
+  font-size: 1.3em;
+  line-height: 1.3em;
+  cursor: pointer;
+}
+
+.close-list-item {
+  text-align: center;
+}
+
+.adam.single-item:hover {
+  background: #DFEAFA;
+}
+
+.adam.single-item.pill-placeholder {
+  background: #999999;
+}
+
+.adam.single-item.ui-sortable-helper {
+  -ms-transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+
+.adam.single-item:hover span {
+  color: #555555;
+}
+
+.adam.single-item:hover .single-item-remove {
+  color: #555555;
+}
+
+.close-list-item {
+  text-align: center;
+}
+
+.decision-table tfoot tr {
+  height: 30px;
+}
+
+td.decision-table-conclusion-column {
+  // conflicts with businessrules.less
+  /*background: #fff;*/
+
+  min-width: 200px;
+}
+
+.ui-sortable tr {
+  cursor: pointer;
+}
+
+.ui-sortable tr:hover {
+  // conflicts with businessrules.less
+  /*background-color: #ff9;*/
+}
+
+.index {
+  width: 20px;
+}
+
+span.remove-index, span.checkbox-index {
+  width: 1.5em;
+}
+
+.decision-table-btn-hidden {
+  display: none;
+}

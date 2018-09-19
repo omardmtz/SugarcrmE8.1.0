@@ -1,0 +1,63 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if showTargetQuota}}
+    <div class="row-fluid">
+        <span class="span6">
+            {{str "LBL_QUOTA" "Forecasts"}}
+        </span>
+        <span class="span6 tright">
+            {{target_quota_amount_str}}
+        </span>
+    </div>
+{{/if}}
+
+<div class="row-fluid">
+    <span class="span6">
+        {{quota_label}}
+    </span>
+    <span class="span6 tright">
+        {{quota_amount_str}}
+    </span>
+</div>
+
+<div class="row-fluid">
+    <span class="span6">
+        {{str "LBL_CLOSED" "Forecasts"}}
+    </span>
+    <span class="span6 tright">
+        {{closed_amount_str}}
+    </span>
+</div>
+
+<div class="row-fluid deficitRow">
+    <span class="span6">
+        {{deficit_label}}
+    </span>
+    <span class="span6 tright">
+        {{deficit_amount_str}}
+    </span>
+</div>
+
+<div class="row-fluid bestNumbers">
+    {{#if show_details_worst}}
+        {{{worst_details}}}
+    {{/if}}
+
+    {{#if show_details_likely}}
+        {{{likely_details}}}
+    {{/if}}
+
+    {{#if show_details_best}}
+        {{{best_details}}}
+    {{/if}}
+</div>

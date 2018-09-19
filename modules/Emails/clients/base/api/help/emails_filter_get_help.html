@@ -1,0 +1,110 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists filtered emails.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    Adds additional operators to <a onclick="openLongHelp('3d2524f2398c30db68af051c799f3c18');">Filter API</a> that are
+    specific to Emails. A special macro, <b>$current_user_id</b>, is a convenience that allows for finding emails
+    involving the current user.
+</span>
+
+<h4>Filter By Sender</h4>
+<div class="well well-small">
+    This will return all emails sent by the current user, by the contact whose ID is
+    <code>fa300a0e-0ad1-b322-9601-512d0983c19a</code>, using the email address sam@example.com, which is referenced by
+    the ID <code>b0701501-1fab-8ae7-3942-540da93f5017</code>, or by the lead whose ID is
+    <code>73b1087e-4bb6-11e7-acaa-3c15c2d582c6</code> using the email address wally@example.com, which is referenced by
+    the ID <code>b651d834-4bb6-11e7-bfcf-3c15c2d582c6</code>.
+<pre class="pre-scrollable">
+{
+  "filter": [{
+    "$from": [
+      {
+        "parent_type": "Users",
+        "parent_id": "$current_user_id"
+      },
+      {
+        "parent_type": "Contacts",
+        "parent_id": "fa300a0e-0ad1-b322-9601-512d0983c19a"
+      },
+      {
+        "email_address_id": "b0701501-1fab-8ae7-3942-540da93f5017"
+      },
+      {
+        "parent_type": "Leads",
+        "parent_id": "73b1087e-4bb6-11e7-acaa-3c15c2d582c6",
+        "email_address_id": "b651d834-4bb6-11e7-bfcf-3c15c2d582c6"
+      }
+    ]
+  }]
+}
+</pre>
+</div>
+
+<h4>Filter By Recipients</h4>
+<div class="well well-small">
+    This would return all archived emails received by the current user.
+<pre class="pre-scrollable">
+{
+  "filter": [{
+    "$or": [{
+      "$to": [
+        {
+          "parent_type": "Users",
+          "parent_id": "$current_user_id"
+        }
+      ],
+      "$cc": [
+        {
+          "parent_type": "Users",
+          "parent_id": "$current_user_id"
+        }
+      ],
+      "$bcc": [
+        {
+          "parent_type": "Users",
+          "parent_id": "$current_user_id"
+        }
+      ]
+    }]
+  }, {
+    "state": {
+      "$in": [
+        "Archived"
+      ]
+    }
+  }]
+}
+</pre>
+</div>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added the <code>$from</code>, <code>$to</code>, <code>$cc</code>, and <code>$bcc</code> operators to
+            <code>/Emails/filter</code> GET endpoint.
+        </td>
+    </tr>
+</table>

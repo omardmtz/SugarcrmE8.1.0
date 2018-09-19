@@ -1,0 +1,25 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="control-group email">
+    <input type="text" class="existingAddress" {{#if max_length}} maxlength="{{max_length}}"{{/if}} placeholder="{{str "LBL_EMAIL_TITLE"}}" value="{{email_address}}">
+    <div class="btn-toolbar prevent-mousedown">
+        <div class="btn-group" data-toggle="buttons-checkbox">
+            <button type="button" class="{{#if primary_address}}active {{/if}}is_primary btn btn-edit" data-emailproperty="primary_address" rel="tooltip" title="{{str "LBL_EMAIL_PRIMARY"}}" aria-label="{{str "LBL_EMAIL_PRIMARY"}}" aria-pressed="{{#if primary_address}}true{{else}}false{{/if}}"><i class="fa fa-star"></i></button>
+            <button type="button" class="{{#if opt_out}}active {{/if}}btn btn-edit" data-emailproperty="opt_out" rel="tooltip" title="{{str "LBL_EMAIL_OPT_OUT"}}" aria-label="{{str "LBL_EMAIL_OPT_OUT"}}" aria-pressed="{{#if opt_out}}true{{else}}false{{/if}}"><i class="fa fa-ban"></i></button>
+            <button type="button" class="{{#if invalid_email}}active {{/if}}btn btn-edit" rel="tooltip" data-emailproperty="invalid_email" title="{{str "LBL_EMAIL_INVALID"}}" aria-label="{{str "LBL_EMAIL_INVALID"}}" aria-pressed="{{#if invalid_email}}true{{else}}false{{/if}}"><i class="fa fa-exclamation-circle"></i></button>
+        </div>
+        <div class="btn-group prevent-mousedown">
+            <a href="javascript:void(0)" class="btn removeEmail" rel="tooltip" title="{{str "LBL_REMOVE"}}"><i class="fa fa-minus"></i></a>
+        </div>
+    </div>
+</div>

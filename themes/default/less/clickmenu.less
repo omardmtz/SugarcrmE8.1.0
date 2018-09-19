@@ -1,0 +1,348 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+ul.clickMenu {
+    list-style: none;
+    padding: 0px;
+    margin: 0 !important;
+    vertical-align: bottom;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    background-image: -moz-linear-gradient(center top,
+    #ffffff 0%,
+    #f1f1f1 10%,
+    #efefef 100%
+    );
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #ffffff),
+        color-stop(.10, #f1f1f1),
+        color-stop(1, #efefef)
+    );
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#dfdfdf');
+    border: 1px solid #aaaaaa;
+    display: inline-block;
+    font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+/*hack for IE7*/
+    *display:inline;
+    *zoom:1;
+}
+ul.clickMenu form, div.action_buttons form, div.action_buttons input {float:left;}
+ul.SugarActionMenuIESub {
+    font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+}
+
+ul#globalLinksSubnav.SugarActionMenuIESub li a:hover, ul#quickCreateULSubnav.SugarActionMenuIESub li a:hover,
+ul.clickMenu:hover > li > span > a, ul.clickMenu:hover > li > a, ul.clickMenu:hover > li > form > a {
+/*color: #fff !important;*/
+}
+
+ul.clickMenu li span:hover {
+    background-position: 5px 3px;
+}
+ul.clickMenu li, ul.SugarActionMenuIESub li {
+    float: left;
+    margin: 0;
+    padding: 0 0 0 0;
+    list-style: none;
+    position: relative; /*--Declare X and Y axis base--*/
+    cursor: pointer;
+}
+ul.SugarActionMenuIESub li a,
+ul.clickMenu li a, .list tr.pagination td.buttons ul.clickMenu > li > a:link, .list tr.pagination td.buttons ul.clickMenu > li > a{
+    display: block;
+    text-decoration: none;
+    float: left;
+    font-weight: normal !important;
+    padding: 3px 10px 3px 10px !important;
+    color: #000;
+    font-size: 12px;
+}
+
+.list tr.pagination td.buttons ul.clickMenu:hover > li > a:link, .list tr.pagination td.buttons ul.clickMenu:hover > li > a{
+/*color: #fff;*/
+}
+
+ul.clickMenu li.single a{
+    padding-right: 8px !important;
+}
+
+ul.clickMenu li a:hover{
+    text-decoration: none !important;
+}
+ul.clickMenu li > span { /*--Drop down trigger styles--*/
+    width: 20px;
+    height: 21px;
+    float: left;
+    background: url(../../../../index.php?entryPoint=getImage&imageName=actionMenuArrow.png) no-repeat 5px -25px;
+    cursor: pointer;
+}
+
+ul.clickMenu li > span.ab { /*--Drop down trigger styles--*/
+    border-left: 1px #aaa solid;
+}
+ul.clickMenu li span.subhover {
+    cursor: pointer;
+} /*--Hover effect for trigger--*/
+div.action_buttons .subnav-sub { display:none; }
+
+ul.clickMenu li ul.subnav, ul.clickMenu ul.subnav-sub, ul.SugarActionMenuIESub {
+    list-style: none;
+    position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+    left: 0; top: 23px;
+    background: #fff;
+    margin: 0;
+    display: none;
+    float: left;
+    width: auto;
+    border: 1px solid #ccc;
+    box-shadow: #999 0px 5px 10px;
+    -moz-box-shadow: #999 0px 5px 10px;
+    -webkit-box-shadow: #999 0px 5px 10px;
+    padding: 8px 0px;
+    z-index: 10;
+    overflow:hidden;
+/*css hack for IE7*/
+    *overflow:visible;
+}
+ul.clickMenu li ul.subnav.upper, ul.clickMenu ul.subnav-sub.upper, ul.SugarActionMenuIESub.upper {
+    box-shadow: #999 5px 0px 10px;
+    -moz-box-shadow: #999 5px 0px 10px;
+    -webkit-box-shadow: #999 5px 0px 10px;
+}
+ul.clickMenu li ul.subnav li, ul.clickMenu ul.subnav-sub li, ul.SugarActionMenuIESub li{
+    margin: 0;
+    padding: 0px;
+    clear: both;
+/*width: 170px;*/
+    width:100%;
+    white-space: nowrap;
+
+}
+ul.clickMenu.subpanel.records {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    background-image: none;
+}
+
+/** Bug53826: Disable whole subpanel hover action
+ul.clickMenu.subpanel.records:hover {
+   		background-image: -moz-linear-gradient(center top,
+		#ffffff 0%,
+		#255e90 2%,
+		#3d74a5 100%
+		) !important;
+		background-image: -webkit-gradient(
+	    linear,
+	    left top,
+	    left bottom,
+	    color-stop(0, #ffffff),
+	    color-stop(.02, #255e90),
+	    color-stop(1, #3d74a5)
+	   ) !important;
+
+	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#255e90', endColorstr='#3d74a5') !important;
+}
+*/
+ul.clickMenu.subpanel.records li div:hover a{
+    color: #fff !important;
+}
+ul.clickMenu.subpanel.records li a{
+    color: #aaa;
+}
+
+ul.clickMenu.subpanel.records li > span{
+    opacity: .5;
+}
+
+ul.clickMenu.subpanel.records li ul.subnav li a span {
+    height: 0px;
+    width: 0px;
+    background-image: none;
+}
+
+ul.clickMenu.button.nosplit li > span {
+    width: auto;
+    background-position: right -25px;
+    padding: 3px 15px 3px 10px !important;
+    height: auto;
+}
+
+ul.clickMenu.button.nosplit:hover li > span {
+    background-position: right 3px;
+}
+
+ul.clickMenu.button.nosplit li > span a {
+    padding: 0px !important;
+}
+
+ul.clickMenu.button.nosplit {
+    padding-right: 5px;
+}
+
+ul.clickMenu.button.nosplit li ul.subnav {
+    width: auto;
+}
+
+ul.clickMenu li a.disabled {
+    color:gray !important;
+    cursor:default !important;
+}
+
+.oddListRowS1:hover td ul.clickMenu.subpanel.records , .evenListRowS1:hover td ul.clickMenu.subpanel.records {
+    background-image: -moz-linear-gradient(center top,
+    #ffffff 0%,
+    #eeeeee 10%,
+    #dfdfdf 100%
+    );
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #ffffff),
+        color-stop(.10, #eeeeee),
+        color-stop(1, #dfdfdf)
+    );
+    border: 1px solid #AAAAAA;
+}
+
+.oddListRowS1:hover td ul.clickMenu.subpanel.records li a, .evenListRowS1:hover td ul.clickMenu.subpanel.records li a {
+    color: #000;
+}
+
+.oddListRowS1:hover td ul.clickMenu.subpanel.records li span, .evenListRowS1:hover td ul.clickMenu.subpanel.records li span {
+    opacity: 1;
+}
+
+ul.clickMenu li ul.subnav li a,ul.clickMenu li ul.subnav li input, ul.subnav-sub li a, ul.SugarActionMenuIESub li a {
+    float: left;
+    background: #fff;
+    padding: 3px 10px !important;
+    border: 0px !important;
+/*width: 150px;*/
+    width:100%;
+    text-align: left;
+    font-size: 12px !important;
+    color: #000;
+
+}
+
+ul.clickMenu li ul.subnav li input {
+    padding: 2px 10px !important;
+/*width: 170px;*/
+    width:100%
+}
+td.paginationActionButtons ul.clickMenu li a { font-size:12px !important; }
+
+ul.SugarActionMenuIESub li a:hover, ul.clickMenu.SugarActionMenu li a:hover, ul.clickMenu.SugarActionMenu li span.subhover:hover,
+ul.clickMenu li ul.subnav li a:hover,ul.clickMenu li ul.subnav li input:hover, ul.clickMenu.subpanel.records li ul.subnav li a:hover, ul.clickMenu ul.subnav-sub li a:hover { /*--Hover effect for subnav links--*/
+    background-color: #355b7e;
+    color: #fff !important;
+    font-weight: normal !important;
+    cursor: pointer;
+    text-shadow: none;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+
+}
+ul.clickMenu li ul.subnav li a:hover,ul.clickMenu li ul.subnav li input:hover, ul.clickMenu.subpanel.records li ul.subnav li a:hover, ul.clickMenu ul.subnav-sub li a:hover {
+    font-size: 12px !important;
+}
+
+
+ul.clickMenu.showLess .moreOverflow , ul.clickMenu.showLess .moduleMenuOverFlowLess, ul.clickMenu.showMore .moduleMenuOverFlowMore {
+    display:none;
+}
+
+#globalLinksDivider {
+    float: right;
+    margin-right: 0px;
+}
+ul#globalLinksSubnav, ul#quickCreateULSubnav{
+    font-family: Arial;
+}
+ul#globalLinks.clickMenu {
+    background: none;
+    border: 0px none;
+    padding-right: 0px;
+    font-family: Arial;
+}
+
+ul#globalLinks.clickMenu li > span {
+    height: 43px;
+    background-image: url(../../../../index.php?entryPoint=getImage&imageName=tabDownArrowOff.png);
+    background-position: right center;
+    width: auto;
+    margin-right: 10px;
+    padding-right: 8px;
+}
+
+ul#globalLinks.clickMenu li > span a {
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 13px;
+    padding: 0px 10px !important;
+}
+
+
+ul#globalLinks.clickMenu li ul.subnav {
+    top: 43px;
+    right: 0px;
+    left: auto;
+}
+
+ul#globalLinks.clickMenu > li > a {
+    color: #fff;
+    font-size: 14px;
+    padding: 14px 7px !important;
+}
+
+#contentTable .yui-nav, #contentTable .yui-nav * { position:static; }
+
+ul#selectLink.clickMenu {
+    height: 22px;
+    min-width: 20px;
+}
+td.paginationActionButtons ul.clickMenu .massall,
+ul#selectLink.clickMenu .massall, td.selectCol .massall{
+    float: left;
+    margin: 4px 4px;
+}
+
+td.paginationActionButtons ul.selectmenu > li > a, td.selectCol ul.selectmenu > li > a, ul#selectLink.clickMenu > li > a {
+    padding: 0px !important;
+}
+
+ul#selectLink.clickMenu li span {
+    height: 20px;
+}
+
+ul#selectLink.clickMenu li ul.subnav {
+
+}
+
+ul#detailViewActions.clickMenu {
+    margin-top: 2px !important;
+}
+
+.selectActions.clickMenu {
+    display: none;
+}
+
+ul.clickMenu.show {
+    display:inline-block;
+/*css hack for IE*/
+    *display:inline;
+    *zoom:1;
+}

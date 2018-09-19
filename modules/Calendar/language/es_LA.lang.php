@@ -1,0 +1,195 @@
+<?php
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+ 
+$mod_strings = array (
+	'LBL_MODULE_NAME' => 'Calendario',
+	'LBL_MODULE_NAME_SINGULAR' => 'Calendario',
+	'LBL_MODULE_TITLE' => 'Calendario',
+	'LNK_NEW_CALL' => 'Programar llamada',
+	'LNK_NEW_MEETING' => 'Programar reunión',
+	'LNK_NEW_APPOINTMENT' => 'Crear Cita',
+	'LNK_NEW_TASK' => 'Crear tarea',
+	'LNK_CALL_LIST' => 'Llamadas',
+	'LNK_MEETING_LIST' => 'Reuniones',
+	'LNK_TASK_LIST' => 'Tareas',
+	'LNK_VIEW_CALENDAR' => 'Hoy',
+	'LNK_IMPORT_CALLS' => 'Importar Llamadas',
+	'LNK_IMPORT_MEETINGS' => 'Importar Reuniones',
+	'LNK_IMPORT_TASKS' => 'Importar Tareas',
+	'LBL_MONTH' => 'Mes',
+	'LBL_DAY' => 'Día',
+	'LBL_YEAR' => 'Año',
+	'LBL_WEEK' => 'Semana',
+	'LBL_PREVIOUS_MONTH' => 'Mes Anterior',
+	'LBL_PREVIOUS_DAY' => 'Día Anterior',
+	'LBL_PREVIOUS_YEAR' => 'Año Anterior',
+	'LBL_PREVIOUS_WEEK' => 'Semana Anterior',
+	'LBL_NEXT_MONTH' => 'Mes Siguiente',
+	'LBL_NEXT_DAY' => 'Día Siguiente',
+	'LBL_NEXT_YEAR' => 'Año Siguiente',
+	'LBL_NEXT_WEEK' => 'Semana Siguiente',
+	'LBL_AM' => 'AM',
+	'LBL_PM' => 'PM',
+	'LBL_SCHEDULED' => 'Planificado',
+	'LBL_BUSY' => 'Ocupado',
+	'LBL_CONFLICT' => 'Conflicto',
+	'LBL_USER_CALENDARS' => 'Calendarios del Usuario',
+	'LBL_SHARED' => 'Compartido',
+	'LBL_PREVIOUS_SHARED' => 'Anterior',
+	'LBL_NEXT_SHARED' => 'Siguiente',
+	'LBL_SHARED_CAL_TITLE' => 'Calendario Compartido',
+	'LBL_USERS' => 'Usuarios',
+	'LBL_REFRESH' => 'Actualizar',
+	'LBL_EDIT_USERLIST' => 'Lista de Usuarios',
+	'LBL_SELECT_USERS' => 'Seleccione usuarios para la visualización de calendario',
+	'LBL_FILTER_BY_TEAM' => 'Filtrar lista de usuarios por equipo:',
+	'LBL_ASSIGNED_TO_NAME' => 'Asignado a',
+	'LBL_DATE' => 'Fecha y Hora de Inicio',  
+	'LBL_CREATE_MEETING' => 'Programar Reunión',
+	'LBL_CREATE_CALL' => 'Registrar Llamada',
+	'LBL_HOURS_ABBREV' => 'h',
+	'LBL_MINS_ABBREV' => 'm',
+
+
+	'LBL_YES' => 'Sí',
+	'LBL_NO' => 'No',
+	'LBL_SETTINGS' => 'Configuración',
+	'LBL_CREATE_NEW_RECORD' => 'Crear Actividad',
+    'LBL_CREATE_NEW_CALL' => 'Crear Llamada',
+    'LBL_CREATING_NEW_ACTIVITY' => 'Usted esta creando una nueva reunión. Quiere<a href="javascript:void(0);" data-action="create-task">crear una tarea</a> o <a href="javascript:void(0);" data-action="schedule-call">agendar una llamada</a>',
+	'LBL_LOADING' => 'Cargando ...',
+	'LBL_SAVING' => 'Guardando...',
+	'LBL_SENDING_INVITES' => 'Guardando y Enviando Invitaciones .....',
+	'LBL_CONFIRM_REMOVE' => '¿Esta seguro de que desea eliminar el registro?',
+	'LBL_CONFIRM_REMOVE_ALL_RECURRING' => '¿Está seguro que desea eliminar todos los registros recurrentes?',
+	'LBL_EDIT_RECORD' => 'Editar Actividad',
+    'LBL_EDIT_CALL' => 'Editar Llamada',
+	'LBL_ERROR_SAVING' => 'Error al guardar',
+    'LBL_NO_ACCESS' => 'Usted no tiene acceso',
+	'LBL_ERROR_LOADING' => 'Error al cargar',
+	'LBL_GOTO_DATE' => 'Ir a Fecha',
+	'NOTICE_DURATION_TIME' => 'El tiempo de duración debe ser mayor que 0',
+	'LBL_STYLE_BASIC' => 'Básico',
+	'LBL_STYLE_ADVANCED' => 'Avanzado',
+
+	'LBL_INFO_TITLE' => 'Detalles Adicionales',
+	'LBL_INFO_DESC' => 'Descripción',
+	'LBL_INFO_START_DT' => 'Fecha Inicio',
+	'LBL_INFO_DUE_DT' => 'Fecha Fin',
+	'LBL_INFO_DURATION' => 'Duración:',
+	'LBL_INFO_NAME' => 'Asunto',
+	'LBL_INFO_RELATED_TO' => 'Relacionado con',
+
+	'LBL_NO_USER' => 'Ningún resultado para el campo: Asignado a',
+	'LBL_SUBJECT' => 'Asunto',
+	'LBL_DURATION' => 'Duración:',
+	'LBL_STATUS' => 'Estado',
+	'LBL_DATE_TIME' => 'Fecha y Hora',
+
+
+	'LBL_SETTINGS_TITLE' => 'Configuración',
+	'LBL_SETTINGS_DISPLAY_TIMESLOTS' => 'Mostrar espacios de tiempo en la vista de Día y Semana:',
+	'LBL_SETTINGS_TIME_STARTS'=>'Hora de inicio:', 
+	'LBL_SETTINGS_TIME_ENDS'=>'Hora de finalización:', 
+	'LBL_SETTINGS_CALLS_SHOW' => 'Mostrar Llamadas:',
+	'LBL_SETTINGS_TASKS_SHOW' => 'Mostrar Tareas:', 
+
+	'LBL_SAVE_BUTTON' => 'Guardar',
+	'LBL_DELETE_BUTTON' => 'Eliminar',
+	'LBL_APPLY_BUTTON' => 'Aplicar',
+	'LBL_SEND_INVITES' => 'Guardar y Enviar Invitaciones',
+	'LBL_CANCEL_BUTTON' => 'Cancelar',
+	'LBL_CLOSE_BUTTON' => 'Cerrar:',
+
+	'LBL_GENERAL_TAB' => 'Detalles',
+	'LBL_PARTICIPANTS_TAB' => 'Invitados',
+	'LBL_REPEAT_TAB' => 'Repetir',	
+	
+	'LBL_REPEAT_TYPE' => 'Repetir',
+	'LBL_REPEAT_INTERVAL' => 'Cada',
+	'LBL_REPEAT_END' => 'Fin',	
+	'LBL_REPEAT_END_AFTER' => 'Después de',
+	'LBL_REPEAT_OCCURRENCES' => 'Ocurrencias',
+	'LBL_REPEAT_END_BY' => 'Por',	
+	'LBL_REPEAT_DOW' => 'En',	
+	'LBL_REPEAT_UNTIL' => 'Repetir Hasta',
+	'LBL_REPEAT_COUNT' => 'Número de recurrencias',
+	'LBL_RECURRING_LIMIT_ERROR' => 'Este $moduleTitle recurrente no se puede programar debido a que excede el $limit máximo de recurrencias permitidas.',
+	
+	'LBL_EDIT_ALL_RECURRENCES' => 'Editar todas las Recurrencias',
+	'LBL_REMOVE_ALL_RECURRENCES' => 'Eliminar todas las Recurrencias',
+
+	'LBL_DATE_END_ERROR' => 'La fecha de finalización es antes que la fecha de inicio',
+	'ERR_YEAR_BETWEEN' => 'Lo siento, el calendario no dispone del año solicitado<br />Es necesario que el año sea entre 1970 y 2037',
+	'ERR_NEIGHBOR_DATE' => 'get_neighbor_date_str: no definido para esta vista',
+
+    'LBL_CALENDAR_EVENT_LIMIT_EXCEEDED' => "El número de evento recurrente {0} ha excedido el límite",
+    'LBL_CALENDAR_EVENT_NOT_A_RECURRING_EVENT' => "{0} no es un evento recurrente",
+    'LBL_CALENDAR_EVENT_NOT_A_PARENT_OCCURRENCE' => "{0} no es una recurrencia principal",
+    'LBL_CALENDAR_EVENT_RECURRENCE_MODULE_NOT_SUPPORTED' => "{0} no es reconocido como un módulo de evento recurrente",
+
+);
+
+$mod_list_strings = array(
+	'dom_cal_weekdays'=>
+		array(
+			"Sun",
+			"Mon",
+			"Tue",
+			"Wed",
+			"Thu",
+			"Fri",
+			"Sat",
+		),
+	'dom_cal_weekdays_long'=>
+		array(
+			"Sunday",
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+		),
+	'dom_cal_month'=>
+		array(
+			"",
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec",
+		),
+	'dom_cal_month_long'=>
+		array(
+			"",
+			"January",
+			"February",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+			"November",
+			"December",
+		),
+);

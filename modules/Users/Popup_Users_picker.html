@@ -1,0 +1,75 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+
+{SET_RETURN_JS}
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr><td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<form class="edit view">
+{sugar_csrf_form_token}
+<td scope="row" nowrap="nowrap"><slot>{MOD.LBL_FIRST_NAME}</slot></td>
+<td ><slot><input type="text" size="10" tabindex='1' name="first_name"  value="{LAST_SEARCH.FIRST_NAME}" /></slot></td>
+<td scope="row" valign="top" nowrap="nowrap"><slot>{MOD.LBL_USER_NAME}</slot></td>
+<td ><slot><input type="text" size="10" tabindex='2' name="user_name"  value="{LAST_SEARCH.USER_NAME}" /></slot></td>
+<td rowspan='2' valign="top" align="right"><input type="hidden" name="action" value="PopupUsers"/>
+<input type="hidden" name="query" value="true"/>
+<input type="hidden" name="module" value="{MODULE_NAME}" />
+<input type="hidden" name="record" value="{RECORD_VALUE}" />
+<input type="hidden" name="form_submit" value="{FORM_SUBMIT}" />
+<input type="hidden" name="form" value="{FORM}" />
+<input type="hidden" name="parent_id" value="{parent_id}" />
+<input type="hidden" name="parent_name" value="{parent_name}" />
+<input class="button" type="submit" name="button" tabindex='2' value="{APP.LBL_SEARCH_BUTTON_LABEL}" /></slot></td>
+</tr><tr>
+<td scope="row" nowrap="nowrap"><slot>{MOD.LBL_LAST_NAME}</slot></td>
+<td ><slot><input type="text" size="10" tabindex='1' name="last_name"  value="{LAST_SEARCH.LAST_NAME}" /></slot></td>
+<td scope="row" nowrap="nowrap"><slot>&nbsp;</slot></td>
+<td ><slot>&nbsp;</slot></td>
+</form>
+</tr>
+</table>
+</td></tr></table>
+<!-- END: SearchHeader -->
+<!-- BEGIN: SearchHeaderEnd -->
+
+</td></tr>
+</table>
+</td></tr></table>
+</form>
+<!-- END: SearchHeaderEnd -->
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+<tr height="20" >
+<td scope="col"  nowrap="nowrap">{CHECKALL}</td>
+<td scope="col" width="50%"  nowrap="nowrap"><slot><a href="{ORDER_BY}last_name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{first_name_arrow}{arrow_end}</a></slot></td>
+<td scope="col" width="50%"  nowrap="nowrap"><slot><a href="{ORDER_BY}user_name" class="listViewThLinkS1" >{MOD.LBL_LIST_USER_NAME}{arrow_start}{user_name_arrow}{arrow_end}</a></slot></td>
+</tr>
+
+<!-- BEGIN: row -->
+<tr height="20" class="{ROW_COLOR}S1">
+<td valign="top">{PREROW}</td>
+<td scope='row' valign="top" ><slot>{USER.FIRST_NAME} {USER.LAST_NAME}</slot></td>
+<td valign="top" ><slot>{USER.USER_NAME}</slot></td>
+</tr>
+
+<!-- END: row -->
+</form>
+</table>
+<!-- END: main -->

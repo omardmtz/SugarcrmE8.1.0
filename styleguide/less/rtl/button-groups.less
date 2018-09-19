@@ -1,0 +1,42 @@
+.btn-toolbar {
+  padding-right: 20px;
+  padding-left: initial;
+}
+
+.btn-group .btn {
+  margin-right: -1px;
+  margin-left: 0;
+  border-radius: 0;
+}
+
+.btn-group {
+  span:first-child .btn,
+  & > .btn:first-child {
+    margin-left: 0;
+    border-top-right-radius: @baseBorderRadius;
+    border-bottom-right-radius: @baseBorderRadius;
+  }
+
+  span:last-child .btn,
+  & > .btn:last-child,
+  & > .dropdown-toggle {
+    border-top-left-radius: @baseBorderRadius;
+    border-bottom-left-radius: @baseBorderRadius;
+  }
+
+  // Reset corners for large buttons
+  .btn.large:first-child {
+    border-top-right-radius: @baseBorderRadius;
+    border-bottom-right-radius: @baseBorderRadius;
+  }
+}
+
+.control-group .controls.btn-group-fit.controls-two {
+  padding-right: 0;
+  padding-left: 63px;
+}
+
+.control-group .controls.btn-group-fit .btn-group {
+  left: 0;
+  right: auto;
+}

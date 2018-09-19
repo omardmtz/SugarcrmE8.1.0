@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>crosstab.js</title>
+    <style type="text/css">
+        .tab {
+            display: inline-block;
+        }
+
+        .remove-tab {
+            display: block;
+        }
+    </style>
+</head>
+<body ng-app="crossTabAppMaster">
+    <div ng-controller="crossTabMasterCtrl">
+        <button ng-click="getLocalStorageSetupKeys()">
+            Get Local Storage Setup Keys
+        </button>
+        <button ng-click="clearLocalStorageSetupKeys()">
+            Clear Local Storage Setup Keys
+        </button>
+        <button ng-click="addTab()">Add Tab</button>
+        <br />
+        <div>
+            <div class="tab" ng-repeat="tab in tabs">
+                <button class="remove-tab" ng-click="removeTab($index)">Close Tab</button>
+                <iframe id="iframe-{{$index}}" class="crosstab-frame" ng-src="/samples/index.html" height="400" width="300"></iframe>
+            </div>
+
+        </div>
+        <div id="logDiv"></div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script>
+        var crossTabApp = angular.module('crossTabAppMaster', []);
+
+        crossTabApp.controller('crossTabMasterCtrl', function ($scope) {
+            $scope.tabs = [];
+            $scope.addTab = function () {
+                $scope.tabs.push({});
+            };
+
+            $scope.removeTab = function (index) {
+                var iframe = document.getElementById('iframe-' + index);
+                // IE Doesn't have new Event()
+                var event = document.createEvent('CustomEvent');
+                event.initCustomEvent('beforeunload', false, false, null);
+                //var event = new Event('beforeunload');
+                iframe.contentWindow.dispatchEvent(event);
+                $scope.tabs.splice(index, 1);
+            };
+
+            var localStorage = window.localStorage;
+            var localStorageSupported = true;
+
+            try {
+                localStorageSupported = !!localStorage;
+            } catch (e) {
+                localStorageSupported = false;
+            }
+
+            $scope.clearLocalStorageSetupKeys = function () {
+                if (localStorageSupported) {
+                    console.log('clearing local storage keys');
+                    localStorage.removeItem('crosstab.SUPPORTED');
+                    localStorage.removeItem('crosstab.FROZEN_TAB_ENVIRONMENT');
+                }
+            };
+
+            $scope.getLocalStorageSetupKeys = function () {
+                if (localStorageSupported) {
+                    console.log('getting local storage keys');
+                    console.log(localStorage.getItem('crosstab.SUPPORTED'));
+                    console.log(localStorage.getItem('crosstab.FROZEN_TAB_ENVIRONMENT'));
+                }
+            };
+
+            window.addEventListener('beforeunload', function () {
+                if (localStorageSupported) {
+                    localStorage.removeItem('crosstab.TABS_KEY');
+                }
+            }, false);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<h4 class="merge-interface-header">
+    <span class="record-name" data-container="primary-title"></span>
+    <button class="btn btn-invisible pull-right"
+            rel="tooltip" data-placement="bottom" data-toggle="proto"
+            data-mode="preview" title="{{str 'LBL_PREVIEW'}}">
+        <i class="fa fa-eye"></i>
+    </button>
+</h4>
+<div class="record record-merge-interface">
+    <div class="merge-interface row-fluid">
+        <div class="label-div">
+            <div class="col pull-left">
+                {{#each meta.panels}}
+                    {{#each fields}}
+                        <div class="merge-row merge-row-field-{{type}} {{#if maxHeight}}merge-row-field-height{{maxHeight}}{{/if}}">
+                            <label class="ellipsis_inline"
+                                   title="{{str label ../../module}}"
+                                   data-placement="right">
+                                {{str label ../../module}}
+                            </label>
+                        </div>
+                    {{/each}}
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="rows-div fluid-div num-cols-{{collection.models.length}}" data-container="merge-container">
+            <div class="row-div-cnt">
+                {{#each collection.models}}
+                    <div class="col" data-record-id="{{id}}" data-container="merge-record">
+                        <button class="fa fa-times-circle btn btn-invisible pull-right"
+                                data-action="delete" rel="tooltip" title="{{str "LBL_MERGE_DUPLICATES_REMOVE_TOOLTIP" ../module}}">
+                        </button>
+                        <div class="primary-lbl {{#if readonly}}disabled{{/if}}" data-container="primary-label">
+                            {{#eq id ../primaryRecord.id}}
+                                <span data-container="primary-label-span">{{str "LBL_COLLECTION_PRIMARY"}}</span>
+                            {{/eq}}
+                        </div>
+                        <div class="box">
+                            {{#each ../meta.panels}}
+                                {{#each fields}}
+                                    <div class="merge-row control-group merge-row-field-{{type}} {{#if maxHeight}}merge-row-field-height{{maxHeight}}{{/if}}">
+                                        <div class="controls">
+                                            {{#unless noRadioBox}}
+                                                <input type="radio" name="copy_{{name}}" class="copy"
+                                                       data-action="copy"
+                                                       data-field-name="{{name}}"
+                                                       data-record-id="{{../../../id}}" />
+                                                {{! FIXME see SC-2065}}
+                                                <label for="">{{field ../../../../this model=../../../this}}</label>
+                                            {{else}}
+                                                {{field ../../../../this model=../../../this}}
+                                            {{/unless}}
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            {{/each}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

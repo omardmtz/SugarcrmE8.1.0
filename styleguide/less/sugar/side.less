@@ -1,0 +1,42 @@
+/* SIDE
+  ----------------*/
+
+.side {
+  &.side-collapsed {
+    display: none;
+  }
+
+  > .tab-pane,
+  > .side-pane,
+  > .preview-pane,
+  > .help-pane {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  > .side-pane > div {
+    padding: 12px 5%;
+  }
+
+  .accordion {
+    margin: -10px 0 0 0;
+
+    .accordion-group {
+      margin-bottom: -1px;
+      border-radius: 0;
+      border-color: @grayLighter;
+    }
+  }
+
+  article {
+    padding: 0;
+
+    a {
+      padding: 10px;
+      display: block;
+    }
+  }
+}

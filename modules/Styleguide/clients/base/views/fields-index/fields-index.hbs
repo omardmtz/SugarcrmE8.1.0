@@ -1,0 +1,200 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if documentation}}
+{{{documentation}}}
+{{else}}
+<div class="page-header">
+    <p class="lead">{{{page.description}}}</p>
+</div>
+{{/if}}
+
+<div class="field-examples">
+    {{#useTable}}
+    <table class="accordion table table-bordered table-striped table-condensed" id="accordion_fields">
+        <thead>
+            <tr>
+                <th>Sugar Field</th><th>Field Name</th><th>Example</th><th>Documentation</th>
+            </tr>
+        </thead>
+    {{/useTable}}
+
+    {{#each tempfields}}
+
+        {{#if ../useTable}}
+        <tbody class="accordion-group">
+            <tr class="accordion-heading">
+                <td>{{this.type}}</td>
+                <td>{{this.name}}</td>
+                <td>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_fields" data-target="#collapse_field_{{this.type}}">Example</a>
+                </td>
+                <td><a href="#Styleguide/fields/{{this.type}}">Documentation</a></td>
+            </tr>
+            <tr>
+                <td class="accordion-body collapse" colspan="5">
+                    <div class="accordion-inner" id="collapse_field_{{this.type}}" style="height:0px;">
+        {{/if}}
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <h3>Base View</h3>
+                            </div>
+                            <div class="span4">
+                                <h3>Record View</h3>
+                            </div>
+                            <div class="span4">
+                                <h3>List View</h3>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <h4>Detail</h4>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <div class="base" id="{{this.type}}_detail_base">
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="record">
+                                    <div class="row-fluid">
+                                        <div class="span12 record-cell" data-type="{{this.type}}">
+                                            <span class="normal index" data-fieldname="{{this.name}}" id="{{this.type}}_detail_record"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="list-view">
+                                    <table class="table table-striped dataTable">
+                                        <tbody>
+                                            <tr class="single">
+                                                <td data-type="{{this.type}}" id="{{this.type}}_detail_list">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <h4>Edit</h4>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <div class="base" id="{{this.type}}_edit_base">
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="record">
+                                    <div class="row-fluid">
+                                        <div class="span12 record-cell" data-type="{{this.type}}" id="{{this.type}}_edit_record">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="list-view">
+                                    <table class="table table-striped dataTable">
+                                        <tbody>
+                                            <tr class="single tr-inline-edit">
+                                                <td data-type="{{this.type}}" id="{{this.type}}_edit_list">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <h4>Error</h4>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span4" data-type="{{this.type}}">
+                                <div class="base" id="{{this.type}}_error_base">
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="record">
+                                    <div class="row-fluid">
+                                        <div class="span12 record-cell" data-type="{{this.type}}" id="{{this.type}}_error_record">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="list-view">
+                                    <table class="table table-striped dataTable">
+                                        <tbody>
+                                            <tr class="single tr-inline-edit">
+                                                <td data-type="{{this.type}}" id="{{this.type}}_error_list">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <h4>Disabled</h4>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <div class="base" id="{{this.type}}_disabled_base">
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="record">
+                                    <div class="row-fluid">
+                                        <div class="span12 record-cell" data-type="{{this.type}}" id="{{this.type}}_disabled_record">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="list-view">
+                                    <table class="table table-striped dataTable">
+                                        <tbody>
+                                            <tr class="single tr-inline-edit">
+                                                <td data-type="{{this.type}}" id="{{this.type}}_disabled_list">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+        {{#if ../useTable}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        {{/if}}
+    {{/each}}
+    {{#useTable}}
+    </table>
+    {{/useTable}}
+</div>

@@ -1,0 +1,26 @@
+{
+  "name": "crosstab",
+  "version": "v0.2.7",
+  "homepage": "https://github.com/tejacques/crosstab",
+  "authors": [
+    "Tom Jacques"
+  ],
+  "description": "A utility library from cross-tab communication using localStorage.",
+  "main": [
+    "./src/crosstab.js"
+  ],
+  "keywords": [
+    "tab",
+    "cross",
+    "crosstab",
+    "inter",
+    "intercom",
+    "broadcast",
+    "localStorage"
+  ],
+  "license": "Apache License Version 2.0",
+  "moduleType": [
+    "amd",
+    "globals"
+  ]
+}

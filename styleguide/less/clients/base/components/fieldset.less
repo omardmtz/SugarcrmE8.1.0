@@ -1,0 +1,219 @@
+.record-cell {
+  .fieldset-text {
+    text-align: center;
+    margin-top: 20px;
+    padding-left: 4px;
+  }
+
+  &[data-type="fieldset"] {
+    .error {
+      .input-append.date {
+        .error-tooltip.add-on {
+          left: -15px;
+        }
+
+        input[type="text"] {
+          width: 124px;
+        }
+      }
+    }
+
+    h1 {
+      .select2-container {
+        margin: 0 14px 0 -7px;
+      }
+
+      input[type="text"] {
+        border-width: 1px;
+        padding: 6px;
+        border-radius: @baseBorderRadius;
+        margin-right: 14px;
+        width: 210px;
+        font-size: @fontSizeLarge;
+      }
+    }
+  }
+
+  .normal > .fieldset {
+    .fieldset-field {
+      input[type="text"],
+      textarea {
+        margin-top: -1px;
+        border-radius: 0;
+
+        &:focus {
+          z-index: 2;
+        }
+
+        & + .error-tooltip.add-on {
+          margin-top: -1px;
+        }
+      }
+
+      &:first-child input[type="text"],
+      &:first-child textarea {
+        border-top-left-radius: @baseBorderRadius;
+        border-top-right-radius: @baseBorderRadius;
+      }
+
+      &:last-child input[type="text"],
+      &:last-child textarea,
+      .address_country {
+        border-bottom-left-radius: @baseBorderRadius;
+        border-bottom-right-radius: @baseBorderRadius;
+      }
+      .record-label + .edit input[type="text"],
+        .record-label + .edit textarea {
+        border-radius: @baseBorderRadius;
+      }
+    }
+
+    &:not(.edit) .fieldset-field {
+      .address_city,
+      .address_state {
+        float: left;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .normal > .fieldset-inline {
+    display: table;
+    min-height: 0;
+    width: 100%;
+    padding: 0;
+
+    &.fieldset-wrap {
+      display: block;
+    }
+
+    &.detail {
+      .ellipsis_inline {
+        margin-bottom: 0;
+        height: 18px;
+        padding: 5px 0 5px 7px;
+      }
+    }
+
+    &.nodata {
+      padding: 5px 7px;
+    }
+  }
+}
+
+.fieldset {
+  .fieldset-field:first-child {
+    .record-label {
+      margin: -2px 0 2px;
+    }
+  }
+
+  .fieldset-field:not(:first-child) {
+    .record-label {
+      margin: 2px 0 -2px;
+    }
+  }
+
+  .fieldset-field:last-child {
+    .detail,
+    .edit {
+      display: block;
+    }
+  }
+}
+
+.fieldset-inline {
+  .fieldset-field {
+    display: table-cell;
+    padding-right: 8px;
+    vertical-align: top;
+
+    .record-label {
+      white-space: nowrap;
+      min-height: 11px;
+
+      &:empty {
+        display: none;
+
+        & + .edit {
+          display: block;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  .fieldset-field:last-child {
+    padding-right: 0;
+  }
+
+  &:not(.edit):not(.fieldset-equal):not(.fieldset-wrap) {
+    .fieldset-field:last-child {
+      width: 100%;
+    }
+  }
+
+  &.fieldset-wrap {
+    .fieldset-field {
+      display: inline-block;
+    }
+
+    label {
+      white-space: nowrap;
+    }
+  }
+
+  &.detail {
+    padding: 0;
+
+    .ellipsis_inline {
+      margin-bottom: 0;
+      height: 18px;
+      padding: 5px 0 5px 7px;
+    }
+
+    .fieldset-field {
+      &[data-type="label"] {
+        vertical-align: bottom;
+        padding-right: 0;
+
+        .ellipsis_inline {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+
+  &.edit {
+    .fieldset-field {
+      &[data-type="label"] {
+        text-align: center;
+      }
+    }
+  }
+
+  &.nodata {
+    padding: 5px 7px;
+  }
+
+  &:not(.edit):not(.fieldset-equal):not(.fieldset-wrap) .fieldset-field:last-child {/* temporary hack SC-4564 */
+    width: 100%;
+    max-width: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.fieldset.list {
+  &:not(.edit) {
+    .fieldset-field:last-child {
+      width: auto;
+      padding: 0;
+    }
+  }
+
+  .list:empty {
+    display: none;
+  }
+}

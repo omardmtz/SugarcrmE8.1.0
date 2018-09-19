@@ -1,0 +1,37 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="35%" >{MOD.LBL_LIST_QUOTE_NAME}</td>
+	<td scope="col" width="35%" >{MOD.LBL_LIST_ACCOUNT_NAME}</td>
+	<td scope="col" width="10%" >{MOD.LBL_LIST_AMOUNT}</td>
+	<td scope="col" width="10%" >{MOD.LBL_LIST_DATE_QUOTE_EXPECTED_CLOSED}</td>
+	<td scope="col" width="10%" >&nbsp;</td>
+
+	  </tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope="row" valign=TOP><a href="{URL_PREFIX}index.php?action=DetailView&module=Quotes&record={QUOTE.ID}"  >{QUOTE.NAME}</a></td>
+    	<td valign=TOP><a href="{URL_PREFIX}index.php?action=DetailView&module=Accounts&record={QUOTE.SHIPPING_ACCOUNT_ID}"  >{QUOTE.SHIPPING_ACCOUNT_NAME}</A></td>
+    	<td valign=TOP>{QUOTE.TOTAL}</td>
+    	<td valign=TOP>{QUOTE.DATE_QUOTE_EXPECTED_CLOSED}</td>
+    	<td nowrap align="center" valign=TOP><a  class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Quotes&record={QUOTE.ID}{RETURN_URL}">{EDIT_INLINE_PNG}</a>&nbsp;<a  class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Quotes&record={QUOTE.ID}{RETURN_URL}">{APP.LNK_EDIT}</a></td>
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

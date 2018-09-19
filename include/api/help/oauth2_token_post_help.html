@@ -1,0 +1,255 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the token portion of the OAuth 2.0 specification.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                grant_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Type of request. Available grant types are "password" and "refresh_token".
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                client_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Used to identify the client. A client_id of "sugar" will automatically create an OAuth Key in the system that is used for "password" authentication. A client_id of "support_portal" will create an OAuth Key that will allow for portal authentication. Additional client_id's can be created by the administrator in Admin > OAuth Keys to allow for additional grant types. If the client secret is populated, it will be validated against the client id.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                client_secret;
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The clients secret key.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                username
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The username of the user authenticating to the system.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                password
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The plaintext password the user authenticating to the system.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                platform
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The platform type. Available types are "base", "mobile", and "portal".
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request for Password Grant Types</h3>
+<pre class="pre-scrollable">
+{
+   "grant_type":"password",
+   "client_id":"sugar",
+   "client_secret":"",
+   "username":"admin",
+   "password":"password",
+   "platform":"base"
+}
+</pre>
+
+<h3>Request for Refresh Token Grant Types</h3>
+<pre class="pre-scrollable">
+{
+    "grant_type":"refresh_token",
+    "refresh_token":"c1be5132-655b-1ca3-fb44-512e36709871",
+    "client_id":"sugar",
+    "client_secret":"",
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                access_token
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The access token needed to authenticate for other methods.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                expires_in
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The length of time until access_token expires in seconds.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                token_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The token type. Currently only "bearer" is supported.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                null|<scope>
+            </td>
+            <td>
+
+            </td>
+            <td>
+                The Oauth scope. Normally returned as null.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                refresh_token
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The token needed to extend the access_token expiration timeout.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                refresh_expires_in
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The length of time until refresh_token expires in seconds.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                download_token
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The token used to download images and files.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "access_token":"802b64c0-5eac-8431-a541-5342d38ac527",
+   "expires_in":3600,
+   "token_type":"bearer",
+   "scope":null,
+   "refresh_token":"85053198-24b1-4521-b1a1-5342d382e0b7",
+   "refresh_expires_in":1209600,
+   "download_token":"8c9b5461-0d95-8d87-6084-5342d357b39e"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/oauth2/token</code> POST endpoint.
+        </td>
+    </tr>
+</table>

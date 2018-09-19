@@ -1,0 +1,47 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: main -->
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" class="edit view" width="100%">
+<form name="RepairView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="CustomQueries">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="action" value="EditView">
+			<input type="hidden" name="edit" value="{EDIT}">
+			<input type="hidden" name="return_module" value="CustomQueries">
+			<input type="hidden" name="return_id" value="{ID}">
+			<input type="hidden" name="return_action" value="EditView">
+			<input type="hidden" name="repair" value="{REPAIR}">
+<tr>
+    <td>
+<table width="100%" align='left' border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" colspan="2" scope="row">
+<slot><font color="red">{MOD.QUERY_ERROR_MSG}</font><BR><BR>{QUERY_MSG}
+</slot></td>
+</tr>
+<tr>
+<td width="50%" scope="row"><slot>&nbsp;</slot></td>
+<td width="50%" align="right" scope="row"><slot><input title="{MOD.LBL_REPAIR_BUTTON_TITLE}" accessKey="{MOD.LBL_REPAIR_BUTTON_KEY}" class="button" type="submit" name="button" value="  {MOD.LBL_REPAIR_BUTTON_LABEL}  " >
+</slot>
+</td>
+</tr>
+</table>
+</form>
+<!-- END: main -->

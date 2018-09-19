@@ -1,0 +1,67 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- $Id: Popup_picker.html 42215 2008-11-26 20:35:04Z jmertic $ -->
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+<script type="text/javascript" src="include/javascript/popup_helper.js?v={VERSION_MARK}"></script>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr>
+<td>
+<form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
+{sugar_csrf_form_token}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td scope="row" nowrap="nowrap" width="40%">{MOD.LBL_NAME}&nbsp;&nbsp;<input type="text" name="name"  size="20" value="{NAME}" /></td>
+<td width="10%" align="right">
+<input type="hidden" name="module" value="{MODULE_NAME}" />
+<input type="hidden" name="action" value="Popup" />
+<input type="hidden" name="query" value="true" />
+<input type="hidden" name="func_name" value="" />
+<input type="hidden" name="request_data" value="{request_data}" />
+<input type="hidden" name="populate_parent" value="false" />
+<input type="hidden" name="record_id" value="" />
+<input type="submit" name="button" class="button" id="search_form_submit"
+	title="{APP.LBL_SEARCH_BUTTON_TITLE}"
+	value="{APP.LBL_SEARCH_BUTTON_LABEL}" />
+<input type="hidden" name="mode" value="{MULTI_SELECT}" />
+</td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</table>
+
+<!-- END: SearchHeader -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+<tr height="20" >
+<td scope="col"  NOWRAP>{CHECKALL}</td>
+<td scope="col" width="65%" ><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="35%" ><a href="{ORDER_BY}assigned_user_name" class="listViewThLinkS1">{MOD.LBL_LIST_ASSIGNED_USER_ID}{arrow_start}{assigned_user_name_arrow}{arrow_end}</a></td>
+</tr>
+<!-- BEGIN: row -->
+<tr height="20" class="{ROW_COLOR}S1">
+<td valign="top">{PREROW}</td>
+<td scope="row"><a href="#" 
+	onclick="send_back('ProjectTask','{PROJECT_TASK.ID}');">{PROJECT_TASK.NAME}</a></td>
+<td valign="top">{PROJECT_TASK.ASSIGNED_USER_NAME}</td>
+</tr>
+
+<!-- END: row -->
+</table>
+{ASSOCIATED_JAVASCRIPT_DATA}
+<!-- END: main -->

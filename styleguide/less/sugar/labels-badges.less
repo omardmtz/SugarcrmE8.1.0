@@ -1,0 +1,329 @@
+/* LABELS BADGES
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// Base classes
+.label,
+.badge {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: @baseFontSize * 0.846;
+  font-weight: bold;
+  line-height: 14px; // ensure proper line-height if floated
+  color: @white;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: @grayLight;
+}
+// Set unique padding and border-radius
+.label {
+  border-radius: 3px;
+}
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 9px;
+}
+
+// Empty labels/badges collapse
+.label,
+.badge {
+  &:empty {
+    display: none;
+  }
+}
+
+// Hover state, but only for links
+a {
+  &.label:hover,
+  &.badge:hover {
+    color: @white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+// Colors
+// Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
+.label,
+.badge {
+  // Important (red)
+  &-important { background-color: @errorText; }
+  &-important[href] { background-color: darken(@errorText, 10%); }
+  // Warnings (orange)
+  &-warning { background-color: @orange; }
+  &-warning[href] { background-color: darken(@orange, 10%); }
+  // Success (green)
+  &-success { background-color: @successText; }
+  &-success[href] { background-color: darken(@successText, 10%); }
+  // Info (turquoise)
+  &-info { background-color: @infoText; }
+  &-info[href] { background-color: darken(@infoText, 10%); }
+  // Inverse (black)
+  &-inverse { background-color: @grayDark; }
+  &-inverse[href] { background-color: darken(@grayDark, 10%); }
+}
+
+// Quick fix for labels/badges in buttons
+.btn {
+  .label,
+  .badge {
+    position: relative;
+    top: -1px;
+  }
+}
+
+.btn-mini {
+  .label,
+  .badge {
+    top: 0;
+  }
+}
+
+/* twitter-bootstrap import END */
+
+.label-spacer,
+.label {
+  text-shadow: none;
+  display: inline-block;
+  cursor: default;
+  padding: 2px 4px;
+  background: @gray;
+  border: 1px solid @gray;
+  color: @white;
+  font-weight: 600;
+  text-align: center;
+  border-radius: @borderRadiusSmall;
+  box-sizing: border-box;
+}
+// undo link styling
+a.label,
+a > .label,
+.label a {
+  font-weight: 500;
+  text-shadow: none;
+  color: @white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.full-width {
+  > .label {
+    display: block;
+  }
+}
+
+.disabled .label-Users,
+  .inactive [class*="label-"],
+  [data-type="follow"] .label,
+  [data-type="follow"] .label:hover {
+  background-color: transparent;
+  border: 1px solid @gray;
+  color: @grayDark;
+  font-weight: 500;
+}
+
+[data-type="follow"] {
+  .label[class*="label-"] {
+    background-color: @gray;
+    border: 1px solid @gray;
+    color: @white;
+    font-weight: 600;
+    width: 100%;
+  }
+}
+
+[data-type="follow"],
+[data-type="badge"] {
+  .label:not([class*="label-"]) {
+    background: transparent;
+    border-color: @gray;
+    color: @grayDark;
+    font-weight: 500;
+    width: 100%;
+  }
+}
+
+[data-type="badge"] [data-action="convert"]:hover {
+  cursor: pointer;
+  background-color: @gray;
+  color: @white;
+  font-weight: 600;
+}
+
+.label-module {
+  height: @sizeDefault;
+  width: @sizeDefault;
+  font-size: 11px;
+  line-height: 11px;
+  padding: 3px 0 0 3px;
+  text-align: left;
+  margin: 0;
+  font-weight: 400;
+  border: none;
+  border-radius: @baseBorderRadius;
+  box-sizing: border-box;
+}
+
+.label-module-lg {
+  height: @sizeLarge;
+  width: @sizeLarge;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 4px 0 0 5px;
+}
+
+.label-module-md {
+  height: @sizeMedium;
+  width: @sizeMedium;
+  font-size: 13px;
+  line-height: 13px;
+  padding: 3px 0 0 4px;
+}
+
+.label-module-btn {
+  height: @sizeButton;
+  width: @sizeButton;
+  font-size: 11px;
+  line-height: 11px;
+  padding: 3px 0 0 4px;
+}
+
+.label-module-sm {
+  height: @sizeSmall;
+  width: @sizeSmall;
+  border-radius: @borderRadiusSmall;
+  font-size: 10px;
+  line-height: 10px;
+  padding: 2px 0 0 2px;
+}
+
+.label-module-mini {
+  height: @sizeMini;
+  width: @sizeMini;
+  border-radius: @borderRadiusMini;
+  font-size: 8px;
+  line-height: 8px;
+  padding: 3px 0 0 2px;
+}
+
+.dropdown-menu .label-module-mini {
+  margin: -2px 10px 0 0;
+  vertical-align: middle;
+}
+
+.label-spacer {
+  visibility: hidden !important;
+  display: block !important;
+  height: 0 !important;
+  padding: 0 7px !important;
+  line-height: 0 !important;
+  border: none !important;
+}
+
+.label {
+  &-important {
+    background-color: @errorBackground;
+    border: 1px solid @errorBackground;
+  }
+
+  &-warning {
+    background-color: @warningBackground;
+    color: @warningAlertText;
+    border: 1px solid @warningBorder;
+  }
+
+  &-pending {
+    background-color: transparent;
+    color: @grayDark;
+    border: 1px solid @gray;
+  }
+
+  &-success {
+    background-color: @successBackground;
+    border: 1px solid @successBackground;
+  }
+
+  &-info {
+    background-color: @infoBackground;
+    border: 1px solid @infoBackground;
+  }
+
+  &-inverse,
+  &-unknown { background-color: @gray; }
+  &-log { background-color: @black; }
+
+  /* Modules */
+  &-Accounts { background-color: @el-accounts; }
+  &-Bugs { background-color: @el-bugs; }
+  &-Calendar { background-color: @el-calendar; }
+  &-Calls { background-color: @el-calls; }
+  &-Campaigns { background-color: @el-campaigns; }
+  &-CampaignLog { background-color: @el-campaignlog; }
+  &-Cases { background-color: @el-cases; }
+  &-Contacts { background-color: @el-contacts; }
+  &-Documents { background-color: @el-documents; }
+  &-Emails { background-color: @el-emails; }
+  &-Files { background-color: @el-files; }
+  &-Forecasts { background-color: @el-forecasts; }
+  &-KBArticles { background-color: @el-kbarticles; }
+  &-KBContents { background-color: @el-kbcontents; }
+  &-KBDocuments { background-color: @el-kbdocuments; }
+  &-KBLocalizations { background-color: @el-kblocalizations; }
+  &-KBRevisions { background-color: @el-kbrevisions; }
+  &-Leads { background-color: @el-leads; }
+  &-Meetings { background-color: @el-meetings; }
+  &-Notes { background-color: @el-notes; }
+  &-Opportunities { background-color: @el-opportunities; }
+  &-pmse_Business_Rules { background-color: @el-pmse; }
+  &-pmse_Emails_Templates { background-color: @el-pmse; }
+  &-pmse_Inbox { background-color: @el-pmse; }
+  &-pmse_Project { background-color: @el-pmse; }
+  &-Products { background-color: @el-products; }
+  &-Prospects { background-color: @el-prospects; }
+  &-ProspectLists { background-color: @el-prospectlists; }
+  &-Quotas { background-color: @el-quotas; }
+  &-Quotes { background-color: @el-quotes; }
+  &-Reports { background-color: @el-reports; }
+  &-RevenueLineItems { background-color: @el-rli; }
+  &-Tags { background-color: @el-tags; }
+  &-Tasks { background-color: @el-tasks; }
+  &-Users { background-color: @el-users; }
+  &-Workflow { background-color: @el-workflow; }
+  &-DataPrivacy { background-color: @el-dataprivacy; }
+}
+
+// had to move &-dark-text out because a > .label was overriding
+a .label-dark-text {
+  color: @grayDark;
+}
+
+/* Disabled: no box-shadow*/
+.disabled .label-module.label,
+.disabled .label-module-sm.label,
+.disabled .label-module-mini.label {
+  box-shadow: none;
+}
+
+/* NEW SKIN START */
+
+.label-module,
+.label-module-md,
+.label-module-sm,
+.label-module-mini {
+  /* override */
+  border-radius: @labelBorderRadius;
+  text-align: center;
+  padding: 0;
+  display: inline-flex;
+
+  /* additive */
+  justify-content: center;
+  align-items: center;
+}
+
+/* NEW SKIN END */

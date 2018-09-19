@@ -1,0 +1,45 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="row-fluid helplet-container">
+    <div class="helplet">
+        <div data-helplet="content" class="helplet-content">
+            {{#if meta.resources}}
+                <ul class="resource-list">
+                    {{#each meta.resources}}
+                        <li class="resource {{css_class}}">
+                            {{#if id}}
+                            <a class="btn btn-link btn-invisible" href="javascript:void(0);" data-action="{{id}}">
+                            {{else}}
+                            <a class="btn btn-link btn-invisible" href="{{url}}" target="_blank">
+                            {{/if}}
+                                <span class="label label-module label-module-sm pull-left {{color}}">
+                                    <i class="fa fa-2x {{icon}}"></i>
+                                </span>
+                                <div class="resource-info">
+                                    {{str link module}}
+                                </div>
+                            </a>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{else}}
+                <div class="helplet-body">
+                    <p>{{{helpObject.more_help}}}</p>
+                    {{#if helpObject.body}}
+                        <p class="body-text">{{nl2br helpObject.body}}</p>
+                    {{/if}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

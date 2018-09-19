@@ -1,0 +1,80 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if tweets}}
+    <div class="twitter-widget scroll">
+        {{#each tweets}}
+            <div class="news-article">
+                <div class="row-fluid">
+                    <div class="span1">
+                        <a target="_blank" href="https://twitter.com/{{screen_name}}"><img src="{{profile_image_url}}" class="pull-right"></a>
+                    </div>
+                    <div class="span11">
+                        <div class="row-fluid header">
+                            <div class="span6">
+                                <h5>
+                                    <a target="_blank" href="https://twitter.com/{{screen_name}}"><strong>{{name}}</strong></a>
+                                    <a target="_blank" href="https://twitter.com/{{screen_name}}">@{{screen_name}}</a>
+                                </h5>
+                            </div>
+                            <div class="span6">
+                                <a class="pull-right" target="_blank" href="https://twitter.com/{{screen_name}}/status/{{id}}">
+                                    {{#if useAbsTime}}
+                                        {{date}}
+                                    {{else}}
+                                        {{relativeTime date class='date' rel='tooltip'}}
+                                    {{/if}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <p>{{{text}}}</p>
+                        </div>
+                        <div class="details">
+                            <a class=""
+                               target="twitter"
+                               href="https://twitter.com/intent/tweet?in_reply_to={{id}}"
+                               title="reply"><i
+                                    class="fa fa-reply"></i> {{str "LBL_TWITTER_REPLY"}}
+                            </a>
+                            <a class=""
+                               title="retweet" target="twitter"
+                               href="https://twitter.com/intent/retweet?tweet_id={{id}}"><i
+                                    class="fa fa-retweet"></i> {{str "LBL_TWITTER_RETWEET"}}
+                            </a>
+                            <a class="" target="twitter"
+                               href="https://twitter.com/intent/favorite?tweet_id={{id}}"><i
+                                    class="fa fa-star"></i> {{str "LBL_TWITTER_FAVORITE"}}
+                            </a>
+                            {{#if ../caseCreateAcl}}
+                                {{#if ../../tweet2case}}
+                                    <a class="create-case" data-screen_name="{{screen_name}}" data-url="https://twitter.com/{{screen_name}}/status/{{id}}" href="javascript: void(0);"><i
+                                            class="fa fa-plus"></i> {{str 'LNK_NEW_CASE' 'Cases'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+{{else}}
+    <div class="block-footer">{{str "LBL_NO_DATA_AVAILABLE"}}</div>
+{{/if}}
+
+{{#if current_twitter_user_name}}
+<div class="block-footer">
+    <div class="pull-left">  <i class="fa fa-twitter"></i> @{{current_twitter_user_name}} <img class="fa fa-large" src="{{current_twitter_user_pic}}"></div>
+</div>
+{{/if}}

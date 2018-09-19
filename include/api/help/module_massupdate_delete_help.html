@@ -1,0 +1,119 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    An API to mass delete records.
+</span>
+
+<h2>Query String Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            massupdate_params
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Mass update parameters.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.uid
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            A list of ids.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<h4>Mass Deleting Records by ID in a Module</h4>
+<pre class="pre-scrollable">
+{
+    "massupdate_params":{
+        "uid":[
+            "ebf22b86-94ea-1601-4f4f-512d09173438",
+            "e3b71c55-d96b-80bb-1696-512d09672398"
+        ]
+    }
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            Status
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The status of the mass update. Possible value is 'done'.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Done Example</h3>
+<pre class="pre-scrollable">
+{
+    "status":"done"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/MassUpdate</code> DELETE endpoint.
+        </td>
+    </tr>
+</table>

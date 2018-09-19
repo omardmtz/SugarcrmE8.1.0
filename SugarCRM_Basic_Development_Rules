@@ -1,0 +1,13 @@
+SUGARCRM'S 5 BASIC DEVELOPMENT RULES FOR SUGAR PRODUCTS
+
+The following is a quick reminder of what not to do when you are configuring or modifying this Sugar product:
+
+1. Do not remove or alter any SugarCRM or Sugar copyright, trademark or proprietary notices that appear in this Sugar product.
+
+2. Do not "fork" this software (e.g., take a copy of source code from this product and start independent development on it, creating a distinct and separate piece of software).
+
+3. Do not modify, remove or disable any portion of SugarCRM's "Critical Control Software."
+
+4. Do not combine or use this Sugar product with software that is licensed under a prohibited license (e.g., AGPL, GPL v3, Creative Commons or another similar license that would "taint" the Sugar product and require you to share the source code for this product with a third party).
+
+5. Do not use any part of this Sugar product for the purpose of building a competitive product or service or copying its features or user interface.

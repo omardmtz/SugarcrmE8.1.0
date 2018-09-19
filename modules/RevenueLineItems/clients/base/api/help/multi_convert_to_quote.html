@@ -1,0 +1,58 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">Convert Multiple Revenue Line Item to a quote.</div>
+<div class="summary">
+    <h2>Summary:</h2>
+     This endpoint is used to convert multiple Revenue Line Items to a single quote
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Valid Urls:</h2>
+    <ul>
+        <li>POST: /rest/v10/RevenueLineItems/multi-quote</li>
+    </ul>
+</div>
+<div class="output">
+    <h2>Input Example:</h2>
+    <code class="codesample">
+        {
+            records : [
+                'id_1',
+                'id_2',
+            ]
+            opportunity_id:"123-456-789-0",
+            account_id:"12-3-4-5"
+        }
+    </code>
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        {
+            id:"123-456-789-0",
+            name:"My Test Quote"
+        }
+    </code>
+</div>

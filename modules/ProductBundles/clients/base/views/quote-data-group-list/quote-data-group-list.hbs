@@ -1,0 +1,29 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#each collection.models}}
+    {{partial 'row' ../this groupId=../this.model.cid module=this.module view=../this model=this fields=../_fields listColSpan=../listColSpan}}
+{{/each}}
+<tr class="quote-data-group-list empty-row">
+    <td colspan="{{emptyListColSpan}}">
+        <div class="empty-row-droppable droppable">
+            {{#if isDefaultGroupList}}
+                {{str 'LBL_QUOTE_DATA_EMPTY_ROW_DEFAULT_GROUP' 'ProductBundles'}}
+            {{else}}
+                {{str 'LBL_QUOTE_DATA_EMPTY_ROW_WITH_GROUP' 'ProductBundles'}}
+            {{/if}}
+        </div>
+    </td>
+</tr>
+<tr class="quote-data-group-list sortable ui-sortable hidden" name="emptyRow">
+    <td colspan="{{emptyListColSpan}}">&nbsp;</td>
+</tr>

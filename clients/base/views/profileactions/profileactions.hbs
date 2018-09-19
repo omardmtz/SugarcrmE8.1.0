@@ -1,0 +1,36 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<ul class="nav megamenu" id="userList">
+    <li class="dropdown" id="userActions" data-menu="user-actions">
+        <div class="btn-group">
+            <button data-toggle="dropdown" class="btn btn-invisible btn-link dropdown-toggle" rel="tooltip" data-placement="bottom" title="{{userName}}" track="click:userActions" aria-label="{{str 'LBL_USER_MENU'}}">
+                {{#if pictureUrl}}
+                    <img src="{{pictureUrl}}" alt="{{userName}}" class="avatar avatar-btn">
+                {{else}}
+                    <i class="fa fa-user fa-3X"></i>
+                {{/if}}
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-menu scroll pull-right">
+                <ul role="menu">
+                    {{#each menulist}}
+                        {{#if css_class}}<li class="{{css_class}}">{{else}}<li>{{/if}}
+                        <a href="{{route}}" {{#if openwindow}}target="_blank"{{/if}} track="click:userAction-{{label}}" tabindex="-1">
+                            {{#if img_url}}<span><img src="{{img_url}}" alt="{{../../userName}}" class="avatar avatar-sm"></span>{{else}}{{#if icon}}<i class="fa {{icon}}"></i>{{/if}}{{/if}}{{str label module}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>

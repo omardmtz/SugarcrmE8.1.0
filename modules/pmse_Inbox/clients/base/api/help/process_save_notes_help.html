@@ -1,0 +1,102 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Creates a new note for a process
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+This endpoint creates a new note for a process
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>data</td>
+            <td>array</td>
+            <td>Collection of data for a note containing the following:</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>data.cas_id</td>
+            <td>string</td>
+            <td>The id of the process trigger sequence</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>data.cas_index</td>
+            <td>string</td>
+            <td>The step in the process</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>data.not_content</td>
+            <td>string</td>
+            <td>The content of the note</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>data.not_type</td>
+            <td>string</td>
+            <td>The type of note, defaults to 'GENERAL'</td>
+            <td>false</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>success</td>
+            <td>boolean</td>
+            <td>Result of the update</td>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>Id of new note</td>
+        </tr>
+        <tr>
+            <td>date_entered</td>
+            <td>date</td>
+            <td>Date of creation</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "success":true,
+    "id":"06c075d0-28e7-11e6-8bb1-6c4008960436",
+    "date_entered":"2016-06-02T10:25:39-07:00"
+}
+</pre>

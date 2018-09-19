@@ -1,0 +1,131 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Gets general info about connectors.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Result Arguments</h2>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "connectors": {
+        "ext_rest_twitter": {
+            "testing_enabled": true,
+            "test_passed": false,
+            "eapm_bean": false,
+            "field_mapping": {
+                "beans": {
+                    "Accounts": {
+                        "name": "name",
+                        "id": "id"
+                    },
+                    "Contacts": {
+                        "name": "full_name",
+                        "id": "id"
+                    },
+                    "Leads": {
+                        "name": "account_name",
+                        "id": "id"
+                    },
+                    "Prospects": {
+                        "name": "account_name",
+                        "id": "id"
+                    }
+                }
+            },
+            "id": "ext_rest_twitter",
+            "name": "Twitter"
+        },
+        "ext_eapm_google": {
+            "testing_enabled": false,
+            "test_passed": false,
+            "eapm_bean": false,
+            "field_mapping": [],
+            "id": "ext_eapm_google",
+            "name": "Google"
+        },
+        "ext_eapm_gotomeeting": {
+            "testing_enabled": false,
+            "test_passed": false,
+            "eapm_bean": false,
+            "field_mapping": [],
+            "id": "ext_eapm_gotomeeting",
+            "name": "GoToMeeting"
+        },
+        "ext_eapm_ibmsmartcloud": {
+            "testing_enabled": false,
+            "test_passed": false,
+            "eapm_bean": false,
+            "field_mapping": [],
+            "id": "ext_eapm_ibmsmartcloud",
+            "name": "IBM SmartCloud"
+        },
+        "ext_eapm_webex": {
+            "testing_enabled": false,
+            "test_passed": false,
+            "eapm_bean": false,
+            "field_mapping": [],
+            "id": "ext_eapm_webex",
+            "name": "WebEx"
+        },
+        "ext_eapm_lotuslive": {
+            "testing_enabled": false,
+            "test_passed": false,
+            "eapm_bean": false,
+            "field_mapping": [],
+            "id": "ext_eapm_lotuslive",
+            "name": "LotusLive"
+        },
+        "ext_rest_dnb": {
+            "testing_enabled": false,
+            "test_passed": false,
+            "eapm_bean": false,
+            "field_mapping": {
+                "beans": {
+                    "Accounts": {
+                        "name": "name",
+                        "id": "id"
+                    }
+                }
+            },
+            "id": "ext_rest_dnb",
+            "name": "DNB"
+        },
+        "_hash": "\u0000d4751e1632fd5d1d2c9069a1f176e6f"
+    },
+    "_hash": "2cd9132603ead4f79715c69ee98e64f1"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;connectors&gt;</code> GET endpoint.
+        </td>
+    </tr>
+</table>

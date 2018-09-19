@@ -1,0 +1,81 @@
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+[
+    {"pattern": "clients/{base,portal}/**/*.hbs", "included": false, "served": true, "watched": false},
+    {"pattern": "modules/**/clients/base/**/*.hbs", "included": false, "served": true, "watched": false},
+    {"pattern": "modules/**/clients/portal/**/*.hbs", "included": false, "served": true, "watched": false},
+    {"pattern": "tests/unit-js/fixtures/*.json", "included": false, "served": true, "watched": false},
+    {"pattern": "tests/unit-js/modules/**/fixtures/*.json", "included": false, "served": true, "watched": false},
+
+    "sidecar/minified/sidecar.min.js",
+    {"pattern": "sidecar/minified/sidecar.min.js.map", "included": false},
+    "include/javascript/sugar7/hbs-helpers.js",
+    "include/javascript/modernizr.js",
+    "include/javascript/nprogress/nprogress.js",
+
+    // For sugar7 the plan is to generate a sugar.min.js .. in the meantime load each file
+    "include/javascript/sugar7/field.js",
+    "include/javascript/sugar7/alert.js",
+    "include/javascript/sugar7/bwc.js",
+    "include/javascript/sugar7/utils.js",
+    "include/javascript/sugar7/language.js",
+    "include/javascript/sugar7/tooltip.js",
+    "include/javascript/sugar7/tutorial.js",
+    "include/javascript/sugar7/help.js",
+    "include/javascript/sugar7/underscore-mixins.js",
+    "include/javascript/sugar7/utils-filters.js",
+    "include/javascript/sugar7/utils-search.js",
+    "include/javascript/sugar7/error.js",
+    "include/javascript/sugar7.js",
+    "include/javascript/sugar7/accessibility/accessibility.js",
+    "include/javascript/sugar7/accessibility/click.js",
+    "include/javascript/sugar7/accessibility/label.js",
+
+    // TODO: decide if we're going to only serve or if we should have
+    // them all by default
+    {"pattern": "include/javascript/sugar7/plugins/*.js", "included": true, "served": true, "watched": true},
+
+    "portal2/tests/config.js",
+
+    "include/javascript/jquery/jquery.dataTables.min.js",
+    "include/javascript/jquery/sugar.resizableColumns.js",
+    "include/javascript/twitterbootstrap/bootstrap-collapse.js",
+    "include/javascript/twitterbootstrap/bootstrap-tooltip.js",
+    "include/javascript/twitterbootstrap/bootstrap-tab.js",
+    "include/javascript/twitterbootstrap/bootstrap-dropdown.js",
+    "include/javascript/twitterbootstrap/bootstrap-datepicker.js",
+    "include/javascript/jquery/jquery.timepicker.js",
+    "include/javascript/select2/select2.js",
+    "include/javascript/tiny_mce/tiny_mce.js",
+    "include/javascript/mousetrap/mousetrap.js",
+    "include/javascript/sugar7/shortcuts.js",
+
+    // jasmine and sinon core files
+    "portal2/node_modules/sinon/pkg/sinon.js",
+    "portal2/node_modules/jasmine-sinon/lib/jasmine-sinon.js",
+    "tests/unit-js/jshelpers/spec-helper.js",
+    "tests/unit-js/jshelpers/component-helper.js",
+
+    // Fixtures
+    "tests/unit-js/fixtures/metadata.js",
+    "tests/unit-js/fixtures/search.js",
+    "tests/unit-js/modules/**/fixtures/*.js",
+
+    "portal2/lib/sugar.searchahead.js",
+    "portal2/portal.js",
+    "portal2/user.js",
+    "portal2/error.js",
+
+    {"pattern": "clients/{base,portal}/**/*.js", "included": false, "served": true, "watched": true},
+    {"pattern": "modules/**/clients/base/**/*.js", "included": false, "served": true, "watched": true},
+    {"pattern": "modules/**/clients/portal/**/*.js", "included": false, "served": true, "watched": true}
+]

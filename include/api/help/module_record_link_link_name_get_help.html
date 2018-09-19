@@ -1,0 +1,683 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists related records.
+</span>
+
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            next_offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The next offset to retrieve records.  -1 will be returned when there are no more records.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            records
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The record result set.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "next_offset":-1,
+   "records":[
+      {
+         "id":"8703fbf3-0ffa-c288-8d2c-512f943ecdc3",
+         "name":"Bill Edwards",
+         "date_entered":"2013-02-28T17:32:00+00:00",
+         "date_modified":"2013-02-28T17:32:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"",
+         "assigned_user_name":"",
+         "team_name":[
+            {
+               "id":1,
+               "name":"Global",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Bill",
+         "last_name":"Edwards",
+         "full_name":"Bill Edwards",
+         "title":"",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"",
+         "email":[
+
+         ],
+         "phone_mobile":"",
+         "phone_work":"",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"",
+         "email2":"",
+         "invalid_email":"",
+         "email_opt_out":"",
+         "primary_address_street":"",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"",
+         "primary_address_state":"",
+         "primary_address_postalcode":"",
+         "primary_address_country":"",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"",
+         "account_id":"",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"Primary Decision Maker",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"",
+         "portal_active":false,
+         "portal_password":"",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      },
+      {
+         "id":"e1c495cb-af17-1b37-dd66-512f934fe155",
+         "name":"Bill Edwards",
+         "date_entered":"2013-02-28T17:25:00+00:00",
+         "date_modified":"2013-02-28T17:25:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"",
+         "assigned_user_name":"",
+         "team_name":[
+            {
+               "id":1,
+               "name":"Global",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Bill",
+         "last_name":"Edwards",
+         "full_name":"Bill Edwards",
+         "title":"",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"",
+         "email":[
+
+         ],
+         "phone_mobile":"",
+         "phone_work":"",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"",
+         "email2":"",
+         "invalid_email":"",
+         "email_opt_out":"",
+         "primary_address_street":"",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"",
+         "primary_address_state":"",
+         "primary_address_postalcode":"",
+         "primary_address_country":"",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"",
+         "account_id":"",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"Primary Decision Maker",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"",
+         "portal_active":false,
+         "portal_password":"",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      },
+      {
+         "id":"456b7848-9959-5a64-cd34-512d0938addd",
+         "name":"Corinne Embree",
+         "date_entered":"2013-02-26T19:12:00+00:00",
+         "date_modified":"2013-02-26T19:12:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"seed_sarah_id",
+         "assigned_user_name":"Sarah Smith",
+         "team_name":[
+            {
+               "id":"East",
+               "name":"East",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Corinne",
+         "last_name":"Embree",
+         "full_name":"Corinne Embree",
+         "title":"Director Sales",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"(240) 738-6167",
+         "email":[
+            {
+               "email_address":"beans.hr@example.info",
+               "opt_out":"1",
+               "invalid_email":"0",
+               "primary_address":"0"
+            },
+            {
+               "email_address":"qa.section@example.edu",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"1"
+            }
+         ],
+         "phone_mobile":"(897) 699-6526",
+         "phone_work":"(047) 244-8530",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"qa.section@example.edu",
+         "email2":"beans.hr@example.info",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "primary_address_street":"9 IBM Path",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"Persistance",
+         "primary_address_state":"CA",
+         "primary_address_postalcode":"95746",
+         "primary_address_country":"USA",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"Email",
+         "account_name":"Underwater Mining Inc.",
+         "account_id":"9500a9fe-6f8b-7497-f97c-512d096b7d29",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"Primary Decision Maker",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"CorinneEmbree164",
+         "portal_active":true,
+         "portal_password":"$1$O4zjzNIH$sN6M1M69Utg4kgEHCLOof.",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      },
+      {
+         "id":"5ab25310-070b-8c5c-465b-512d096abdc0",
+         "name":"Winnie Kingsley",
+         "date_entered":"2013-02-26T19:12:00+00:00",
+         "date_modified":"2013-02-26T19:12:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"seed_max_id",
+         "assigned_user_name":"Max Jensen",
+         "team_name":[
+            {
+               "id":"East",
+               "name":"East",
+               "name_2":"",
+               "primary":false
+            },
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Winnie",
+         "last_name":"Kingsley",
+         "full_name":"Winnie Kingsley",
+         "title":"Director Sales",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"(398) 120-6222",
+         "email":[
+            {
+               "email_address":"kid15@example.cn",
+               "opt_out":"1",
+               "invalid_email":"0",
+               "primary_address":"0"
+            },
+            {
+               "email_address":"beans.the@example.edu",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"1"
+            }
+         ],
+         "phone_mobile":"(119) 631-8128",
+         "phone_work":"(014) 508-8439",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"beans.the@example.edu",
+         "email2":"kid15@example.cn",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "primary_address_street":"48920 San Carlos Ave",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"Sunnyvale",
+         "primary_address_state":"CA",
+         "primary_address_postalcode":"34173",
+         "primary_address_country":"USA",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"Existing Customer",
+         "account_name":"Slender Broadband Inc",
+         "account_id":"181461c6-dc81-1115-1fe0-512d092e8f15",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"Primary Decision Maker",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"WinnieKingsley180",
+         "portal_active":true,
+         "portal_password":"$1$JqtC6H8X$RUsSKupX9N8k\/6I5sFPcW\/",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      },
+      {
+         "id":"112eb683-cbce-f9ff-8620-512d0984ab8b",
+         "name":"Bobby Loh",
+         "date_entered":"2013-02-26T19:12:00+00:00",
+         "date_modified":"2013-02-26T19:12:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"seed_jim_id",
+         "assigned_user_name":"Jim Brennan",
+         "team_name":[
+            {
+               "id":"East",
+               "name":"East",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Bobby",
+         "last_name":"Loh",
+         "full_name":"Bobby Loh",
+         "title":"Director Sales",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"(072) 255-6617",
+         "email":[
+            {
+               "email_address":"qa26@example.co.uk",
+               "opt_out":"1",
+               "invalid_email":"0",
+               "primary_address":"0"
+            },
+            {
+               "email_address":"support.sales@example.name",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"1"
+            }
+         ],
+         "phone_mobile":"(688) 081-2677",
+         "phone_work":"(026) 825-3709",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"support.sales@example.name",
+         "email2":"qa26@example.co.uk",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "primary_address_street":"999 Baker Way",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"Ohio",
+         "primary_address_state":"NY",
+         "primary_address_postalcode":"82295",
+         "primary_address_country":"USA",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"Trade Show",
+         "account_name":"Avery Software Co",
+         "account_id":"af5f8dae-7169-b497-1d77-512d0937ed81",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"Primary Decision Maker",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"BobbyLoh147",
+         "portal_active":true,
+         "portal_password":"$1$TdxNvk4m$Uu2kJcwPhk3GT\/en3zTzk.",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      },
+      {
+         "id":"8c5ded51-f58e-9c8a-3cd0-512d0974740a",
+         "name":"Moises Hungate",
+         "date_entered":"2013-02-26T19:12:00+00:00",
+         "date_modified":"2013-02-26T19:12:00+00:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "description":"",
+         "img":"",
+         "deleted":false,
+         "assigned_user_id":"seed_max_id",
+         "assigned_user_name":"Max Jensen",
+         "team_name":[
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "salutation":"",
+         "first_name":"Moises",
+         "last_name":"Hungate",
+         "full_name":"Moises Hungate",
+         "title":"Director Sales",
+         "linkedin":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"(340) 150-7622",
+         "email":[
+            {
+               "email_address":"phone95@example.cn",
+               "opt_out":"1",
+               "invalid_email":"0",
+               "primary_address":"0"
+            },
+            {
+               "email_address":"dev49@example.us",
+               "opt_out":"0",
+               "invalid_email":"0",
+               "primary_address":"1"
+            }
+         ],
+         "phone_mobile":"(742) 516-1507",
+         "phone_work":"(316) 432-1203",
+         "phone_other":"",
+         "phone_fax":"",
+         "email1":"dev49@example.us",
+         "email2":"phone95@example.cn",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "primary_address_street":"9 IBM Path",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"San Mateo",
+         "primary_address_state":"CA",
+         "primary_address_postalcode":"92658",
+         "primary_address_country":"USA",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"Email",
+         "account_name":"P Piper & Sons",
+         "account_id":"2e702792-6854-d07b-8974-512d09a787fc",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"Primary Decision Maker",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "portal_name":"MoisesHungate155",
+         "portal_active":true,
+         "portal_password":"$1$BphrPXjf$cwxik5Fphiar.BX61KPfH1",
+         "portal_password1":"",
+         "portal_app":"",
+         "preferred_language":"en_us",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "sync_contact":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         }
+      }
+   ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/link/:link_name</code> GET endpoint.
+        </td>
+    </tr>
+</table>

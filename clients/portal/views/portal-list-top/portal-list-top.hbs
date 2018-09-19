@@ -1,0 +1,21 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="headerpane">
+    <h1><a href='#{{module}}'>{{getModuleName module plural=true}}</a></h1>
+    <div class="btn-toolbar pull-right dropdown">
+        {{#if context.attributes.isCreateEnabled}}
+            <a href="#{{buildRoute context=context model=model action='create'}}" title='{{str "LNK_CREATE" module}}' class="btn btn-invisible"><i class="fa fa-plus"></i></a>
+        {{/if}}
+        <a href="javascript:void(0);" class="btn btn-invisible search active"><i class="fa fa-search"></i></a>
+    </div>
+</div>

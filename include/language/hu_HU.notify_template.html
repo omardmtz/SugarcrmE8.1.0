@@ -1,0 +1,355 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: Quote_Subject -->
+SugarCRM ajánlat - {QUOTE_SUBJECT}
+<!-- END: Quote_Subject -->
+<!-- BEGIN: Quote -->
+{ASSIGNER} ajánlatot rendelt hozzá: {ASSIGNED_USER}.
+
+Tárgy: {QUOTE_SUBJECT}
+Állapot: {QUOTE_STATUS}
+Várható zárási dátum: {QUOTE_CLOSEDATE}
+Leírás: {QUOTE_DESCRIPTION}
+
+A ajánlat megtekinthatő itt:
+<{URL}>
+<!-- END: Quote -->
+
+
+<!-- BEGIN: Account_Subject -->
+SugarCRM kliens - {ACCOUNT_NAME}
+<!-- END: Account_Subject -->
+<!-- BEGIN: Account -->
+{ASSIGNER} klienst rendelt hozzá: {ASSIGNED_USER}.
+
+Név: {ACCOUNT_NAME}
+Típus: {ACCOUNT_TYPE}
+Leírás: {ACCOUNT_DESCRIPTION}
+
+A kliens megtekinthető itt:
+<{URL}>
+<!-- END: Account -->
+
+
+<!-- BEGIN: Case_Subject -->
+SugarCRM ügy - {CASE_SUBJECT}
+<!-- END: Case_Subject -->
+<!-- BEGIN: Case -->
+{ASSIGNER} ügyet rendelt hozzá: {ASSIGNED_USER}.
+
+Tárgy: {CASE_SUBJECT}
+Sürgősség: {CASE_PRIORITY}
+Állapot: {CASE_STATUS}
+Leírás: {CASE_DESCRIPTION}
+
+Az ügy megtekinhető itt:
+<{URL}>
+<!-- END: Case -->
+
+
+<!-- BEGIN: Task_Subject -->
+SugarCRM feladat - {TASK_SUBJECT}
+<!-- END: Task_Subject -->
+<!-- BEGIN: Task -->
+{ASSIGNER} feladatot rendelt hozzá: {ASSIGNED_USER}.
+
+Tárgy: {TASK_SUBJECT}
+Sürgősség: {TASK_PRIORITY}
+Határidő: {TASK_DUEDATE}
+Állapot: {TASK_STATUS}
+Leírás: {TASK_DESCRIPTION}
+
+A feladat megtekinthető itt:
+<{URL}>
+<!-- END: Task -->
+
+
+<!-- BEGIN: Meeting_Subject -->
+SugarCRM találkozó - {MEETING_SUBJECT}
+<!-- END: Meeting_Subject -->
+<!-- BEGIN: Meeting -->
+Meghívott: {MEETING_TO}
+
+{ASSIGNER} Önhöz rendelt egy találkozót.
+
+Tárgy: {MEETING_SUBJECT}
+Kezdés dátuma: {MEETING_STARTDATE}
+Befejezés dátuma: {MEETING_ENDDATE}
+<!-- BEGIN: Meeting_External_API -->
+Találkozó URL: {MEETING_URL}
+<!-- END: Meeting_External_API -->
+Leírás: {MEETING_DESCRIPTION}
+
+Fogadja el a találkozót:
+<{ACCEPT_URL}&accept_status=accept>
+
+Jelezze bizonytalanságát a találkozóval kapcsolatban:
+<{ACCEPT_URL}&accept_status=tentative>
+
+Utasítsa vissza a találkozót:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Meeting -->
+
+<!-- BEGIN: MeetingSpecial_Subject -->
+SugarCRM találkozó - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingSpecial -->
+{ASSIGNER} találkozót rendelt hozzá: {ASSIGNED_USER}.
+
+Tárgy: {MEETING_SUBJECT}
+Állapot: {MEETING_STATUS}
+Kezdés dátuma: {MEETING_STARTDATE}
+Befejezés dátuma: {MEETING_ENDDATE}
+Leírás: {MEETING_DESCRIPTION}
+
+A találkozó megtekinthatő itt:
+<{URL}>
+<!-- END: MeetingSpecial -->
+
+
+<!-- BEGIN: Email_Subject -->
+SugarCRM email - {EMAIL_SUBJECT}
+<!-- END: Email_Subject -->
+<!-- BEGIN: Email -->
+{ASSIGNER} emailt rendelt hozzá: {ASSIGNED_USER}.
+
+Tárgy: {EMAIL_SUBJECT}
+Küldés dátuma: {EMAIL_DATESENT}
+
+Az email megtekinthető itt:
+<{URL}>
+<!-- END: Email -->
+
+
+
+
+
+
+<!-- BEGIN: Contact_Subject -->
+SugarCRM kapcsolat - {CONTACT_NAME}
+<!-- END: Contact_Subject -->
+<!-- BEGIN: Contact -->
+{ASSIGNER} kapcsolatot rendelt hozzá: {ASSIGNED_USER}.
+
+Név: {CONTACT_NAME}
+Leírás: {CONTACT_DESCRIPTION}
+
+A kapcsolat megtekinthető itt:
+<{URL}>
+<!-- END: Contact -->
+
+
+<!-- BEGIN: Lead_Subject -->
+SugarCRM ajánlás - {LEAD_NAME}
+<!-- END: Lead_Subject -->
+<!-- BEGIN: Lead -->
+{ASSIGNER} ajánlást rendelt hozzá: {ASSIGNED_USER}.
+
+Név: {LEAD_NAME}
+Ajánlás forrása: {LEAD_SOURCE}
+Állapot: {LEAD_STATUS}
+Leírás: {LEAD_DESCRIPTION}
+
+Az ajánlás megtekinthető itt:
+<{URL}>
+<!-- END: Lead -->
+
+
+<!-- BEGIN: Opportunity_Subject -->
+SugarCRM lehetőség - {OPPORTUNITY_NAME}
+<!-- END: Opportunity_Subject -->
+<!-- BEGIN: Opportunity -->
+{ASSIGNER} lehetőséget rendelt hozzá: {ASSIGNED_USER}.
+
+Név: {OPPORTUNITY_NAME}
+Összeg: {OPPORTUNITY_AMOUNT}
+Zárás várható dátume: {OPPORTUNITY_CLOSEDATE}
+Értékesítés szintje: {OPPORTUNITY_STAGE}
+Leírás: {OPPORTUNITY_DESCRIPTION}
+
+A lehetőség megtekinthető itt:
+<{URL}>
+<!-- END: Opportunity -->
+
+
+<!-- BEGIN: Bug_Subject -->
+SugarCRM hiba - {BUG_SUBJECT}
+<!-- END: Bug_Subject -->
+<!-- BEGIN: Bug -->
+{ASSIGNER} hibát rendelt hozzá: {ASSIGNED_USER}.
+
+Hiba azonosítója: {BUG_BUG_NUMBER}
+Tárgy: {BUG_SUBJECT}
+Típus: {BUG_TYPE}
+Sürgősség: {BUG_PRIORITY}
+Állapot: {BUG_STATUS}
+Megoldás: {BUG_RESOLUTION}
+Kiadás: {BUG_RELEASE}
+Leírás: {BUG_DESCRIPTION}
+Munkanapló: {BUG_WORK_LOG}
+
+A hiba megtekinthető itt:
+<{URL}>
+<!-- END: Bug -->
+
+
+<!-- BEGIN: Default_Subject -->
+SugarCRM - hozzárendelt {OBJECT}
+<!-- END: Default_Subject -->
+<!-- BEGIN: Default -->
+{ASSIGNER} hozzárendelt egy {OBJECT}-t: {ASSIGNED_USER}.
+
+Megtekinthető itt:
+<{URL}>
+<!-- END: Default -->
+
+<!-- BEGIN: Call_Subject -->
+SugarCRM hívás - {CALL_SUBJECT}
+<!-- END: Call_Subject -->
+<!-- BEGIN: Call -->
+Másik fél: {CALL_TO}
+ {ASSIGNER} meghívta Önt egy hívásra
+Tárgy: {CALL_SUBJECT}
+Állapot: {CALL_STATUS}
+Kezdés dátuma: {CALL_STARTDATE}
+Időtartam: {CALL_HOURS} óra, {CALL_MINUTES} perc
+Leírás: {CALL_DESCRIPTION}
+
+Fogadja el a hívást:
+<{ACCEPT_URL}&accept_status=accept>
+
+Jelezze bizonytalanságát a hívással kapcsolatban:
+<{ACCEPT_URL}&accept_status=tentative>
+
+Mondja le a hívást:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Call -->
+
+<!-- BEGIN: CallSpecial_Subject -->
+SugarCRM hívás - {CALL_SUBJECT}
+<!-- END: CallSpecial_Subject -->
+<!-- BEGIN: CallSpecial -->
+{ASSIGNER} hívást rendelt hozzá: {ASSIGNED_USER}.
+
+Tárgy: {CALL_SUBJECT}
+Állapot: {CALL_STATUS}
+Kezdés dátuma: {CALL_STARTDATE}
+Időtartam: {CALL_HOURS} óra, {CALL_MINUTES} perc
+Leírás: {CALL_DESCRIPTION}
+
+A hívás megtekinthető itt:
+<{URL}>
+<!-- END: CallSpecial -->
+
+<!-- BEGIN: Campaign_Subject -->
+SugarCRM kampány - {CAMPAIGN_NAME}
+<!-- END: Campaign_Subject -->
+<!-- BEGIN: Campaign -->
+{ASSIGNER} kampányt rendelt hozzá: {ASSIGNED_USER}.
+
+Tárgy: {CAMPAIGN_NAME}
+Összeg: {CAMPAIGN_AMOUNT}
+Befejezés dátuma: {CAMPAIGN_CLOSEDATE}
+Állapot: {CAMPAIGN_STATUS}
+Leírás: {CAMPAIGN_DESCRIPTION}
+
+A kampány megtekinthető itt:
+<{URL}>
+<!-- END: Campaign -->
+
+<!-- BEGIN: Quota_Subject -->
+SugarCRM kvóta - az Ön kvótája ekkorra: {QUOTA_TIMEPERIOD}
+<!-- END: Quota_Subject -->
+<!-- BEGIN: Quota -->
+{ASSIGNER} kvótát rendelt hozzá: {ASSIGNED_USER}.
+
+Összeg: {QUOTA_AMOUNT}
+Idő periódus: {QUOTA_TIMEPERIOD}
+
+A kvóta megtekinthető itt:
+<{QUOTA_URL}>
+<!-- END: Quota -->
+
+<!-- BEGIN: KBDocument_Subject -->
+SugarCRM dokumentum - {KBDOCUMENT_NAME}
+<!-- END: KBDocument_Subject -->
+<!-- BEGIN: KBDocument -->
+
+{NOTIFICATION_MESSAGE}
+
+Név: {KBDOCUMENT_NAME}
+Létrehozás dátuma: {KBDOCUMENT_DATE_CREATED}
+Létrehozó személye: {KBDOCUMENT_CREATED_BY}
+Állapot: {KBDOCUMENT_STATUS}
+Leírás: {KBDOCUMENT_DESCRIPTION}
+
+A dokumentum megtekinthető itt:
+<{URL}>
+<!-- END: KBDocument -->
+
+<!-- BEGIN: Contract_Subject -->
+SugarCRM szerződés - {CONTRACT_NAME}
+<!-- END: Contract_Subject -->
+<!-- BEGIN: Contract-->
+
+{ASSIGNER} szerződést rendelt hozzá: {ASSIGNED_USER}.
+
+A szerződés megtekinthető itt:
+<{URL}>
+<!-- END:Contract-->
+
+<!-- BEGIN: ContractSpecial_Subject -->
+SugarCRM szerződés - {CONTRACT_NAME}
+<!-- END: ContractSpecial_Subject -->
+<!-- BEGIN: ContractSpecial -->
+
+Az Ön szerződése: {CONTRACT_NAME} lejár ekkor: {CONTRACT_END_DATE}.
+
+A szerződés megtekinthető itt:
+<{URL}>
+<!-- END:ContractSpecial-->
+
+<!-- BEGIN: MeetingReminder_Subject -->
+Találkozó emlékeztető - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingReminder -->
+Cím: {MEETING_SUBJECT}
+Időpont: {MEETING_STARTDATE}
+Helyszín: {MEETING_LOCATION}
+Létrehozó: {MEETING_CREATED_BY}
+<!-- END: MeetingReminder -->
+
+<!-- BEGIN: CallReminder_Subject -->
+Hívás emlékeztető - {CALL_SUBJECT}
+<!-- END: CallReminder_Subject -->
+<!-- BEGIN: CallReminder -->
+Cím: {CALL_SUBJECT}
+Időpont: {CALL_STARTDATE}
+Létrehozó: {CALL_CREATED_BY}
+<!-- END: CallReminder -->
+
+<!-- BEGIN: Note_Subject -->
+SugarCRM Note - {NOTE_SUBJECT}
+<!-- END: Note_Subject -->
+<!-- BEGIN: Note -->
+{ASSIGNER} has assigned a Note to {ASSIGNED_USER}.
+
+Subject: {NOTE_SUBJECT}
+Description: {NOTE_DESCRIPTION}
+
+You may review this Note at:
+<{URL}>
+<!-- END: Note -->

@@ -1,0 +1,109 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<form action="index.php" method="post" name="form" id="form">
+{sugar_csrf_form_token}
+		<table cellpadding="0" cellspacing="0" border="0" width='100%'>
+			<input type="hidden" name="module" value="EmailTemplates">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="isDuplicate" value=false>
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module">
+			<input type="hidden" name="return_action">
+			<input type="hidden" name="return_id">
+			{PORTAL_ON}
+		<tr>
+		<td>
+            {ACTION_BUTTON}
+        </td>
+		<td align='right'>{ADMIN_EDIT}</td>
+		</tr></table>
+
+	</form>
+
+<div class="detail view">
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0">
+{PAGINATION}
+    <tr>
+    <td scope="row" width='15%'><slot>{MOD.LBL_TYPE}</slot></td>
+    <td colspan="3"><slot>{TYPE}</slot></td>
+    </tr>
+	<tr>
+	<td scope="row" width='15%'><slot>{MOD.LBL_NAME}</slot></td>
+	<td><slot>{NAME}&nbsp;</slot></td>
+	<td scope="row"><slot>{APP.LBL_DATE_MODIFIED}</slot></td>
+	<td><slot>{DATE_MODIFIED} {APP.LBL_BY} {MODIFIED_BY}&nbsp;</slot></td>
+	<!--
+	<td><slot>{MOD.LBL_PUBLISH}</slot></td>
+	<td><slot><input type="checkbox" name="published" disabled {PUBLISHED}></slot></td>
+	-->
+	</tr>
+	<tr>
+	<td scope="row" width='15%'><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+	<td><slot>{DESCRIPTION}&nbsp;</slot></td>
+	<td scope="row"><slot>{APP.LBL_DATE_ENTERED}</slot></td>
+	<td><slot>{DATE_ENTERED} {APP.LBL_BY} {CREATED_BY}&nbsp;</slot></td>
+	</tr>
+<!--
+	<tr>
+	<td scope="row" valign="top"><slot></slot></td>
+	<td><slot></slot></td>
+	</tr>
+-->
+	<tr>
+	<td scope="row" valign="top"><slot>{MOD.LBL_SUBJECT}</slot></td>
+	<td><slot>{SUBJECT}&nbsp;</slot></td>
+	<td scope="row" valign="top">
+		{MOD.LBL_TEAMS}
+	</td>
+	<td><slot>{TEAM}&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row" width='15%'><slot>{MOD.LBL_SEND_AS_TEXT}</slot></td>
+	<td><slot><input id='text_only' type="checkbox" disabled="disabled" {TEXT_ONLY_CHECKED} /></slot></td>
+	
+	<td scope="row" width='15%'><slot>{APP.LBL_ASSIGNED_TO}</slot></td>
+	<td><slot>{ASSIGNED_USER_NAME}</slot></td>
+	
+	</tr>
+	<tr>
+	<td scope="row" valign="top"><slot>{MOD.LBL_BODY}</slot></td>
+        <td colspan="3"  style="background-color: #ffffff;" ><slot><div id="html_div" style="background-color: #ffffff;padding: 5px"><iframe id="html_frame" src="" style="width:100%; height:500px"></iframe></div>
+<input id='toggle_textarea_elem' onclick="toggle_textarea(this);" type="button" name="toggle_html" value="{MOD.LBL_SHOW_ALT_TEXT}"/><br>
+<div id="text_div" style="display: none;background-color: #ffffff;padding: 5px"><pre>{BODY}</pre></div></slot>
+<script>
+function toggle_textarea(obj)
+{
+ if(document.getElementById('text_div').style.display == 'none')
+ {
+        document.getElementById('text_div').style.display = 'block';
+        document.getElementById('toggle_textarea_elem').value = '{MOD.LBL_HIDE_ALT_TEXT}'
+ } else
+ {
+        document.getElementById('text_div').style.display = 'none';
+        document.getElementById('toggle_textarea_elem').value = '{MOD.LBL_SHOW_ALT_TEXT}'
+ }
+}
+document.getElementById("html_frame").contentWindow.document.write({BODY_HTML});
+document.getElementById("html_frame").contentWindow.document.close();
+</script>
+
+	</tr>
+	<tr>
+		<td scope="row" valign="top"><slot>{MOD.LBL_ATTACHMENTS}</td>
+		<td colspan="3"><slot>{ATTACHMENTS}&nbsp;</slot></td>
+	</tr>
+
+</table>
+</div>
+<!-- END: main -->

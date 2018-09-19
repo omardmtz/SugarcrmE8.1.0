@@ -1,0 +1,67 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: users -->
+<p><h3>{APP.LBL_USER_LIST}</h3>
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr>
+	<td colspan="5"></td>
+	</tr>
+
+	<tr height="20">
+	<td scope="col" width="25%" ><slot>{APP.LBL_LIST_NAME}</slot></td>
+	<td scope="col" width="20%" ><slot>{APP.LBL_LIST_USER_NAME}</slot></td>
+	<td scope="col" width="30%" ><slot>{APP.LBL_LIST_EMAIL}</slot></td>
+	<td scope="col" width="15%" ><slot>{APP.LBL_LIST_PHONE}</slot></td>
+	</tr>
+
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope="row" valign=TOP><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.ID}" >{USER.FIRST_NAME}&nbsp;{USER.LAST_NAME}</slot></td>
+    	<td valign=TOP><slot>{USER.USER_NAME}</slot></td>
+    	<td valign=TOP><slot><A HREF="mailto:{USER.EMAIL1}" >{USER.EMAIL1}</A></slot></td>
+    	<td valign=TOP  nowrap><slot>{USER.PHONE_WORK}</slot></td>
+
+</tr>
+
+<!-- END: row -->
+
+</table></p>
+<!-- END: users -->
+
+<!-- BEGIN: contacts -->
+<p><h3>{APP.LBL_CONTACT_LIST}</h3>
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr>
+		<td colspan="6"></td>
+	</tr>
+	<tr height="20">
+	<td scope="col" width="25%" ><slot>{APP.LBL_LIST_CONTACT_NAME}</slot></td>
+	<td scope="col" width="20%" ><slot>{APP.LBL_LIST_ACCOUNT_NAME}</slot></td>
+	<td scope="col" width="30%" ><slot>{APP.LBL_LIST_EMAIL}</slot></td>
+	<td scope="col" width="15%" ><slot>{APP.LBL_LIST_PHONE}</slot></td>
+	</tr>
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope="row" valign=TOP><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Contacts&record={CONTACT.ID}" >{CONTACT.FIRST_NAME}&nbsp;{CONTACT.LAST_NAME}</a></slot></td>
+    	<td valign=TOP><slot>{CONTACT.ACCOUNT_NAME}</slot></td>
+    	<td valign=TOP><slot><A HREF="mailto:{CONTACT.EMAIL1}" >{CONTACT.EMAIL1}</A></slot></td>
+    	<td valign=TOP  nowrap><slot>{CONTACT.PHONE_WORK}</slot></td>
+
+</tr>
+
+<!-- END: row -->
+
+</table></p>
+<!-- END: contacts -->

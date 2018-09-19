@@ -1,0 +1,51 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div data-role="parent" class="parenttree">
+    <input type="hidden" data-toggle="dropdown" data-role="toggle" name="{{def.id_name}}"/>
+    <div name="{{name}}" {{#if def.tabindex}} tabindex="{{def.tabindex}}"{{/if}} data-role="treeinput" class="divinput">
+        <span data-role="treevalue">{{#if value}}{{value}}{{/if}}{{#unless value}}{{emptyLabel}}{{/unless}}</span>
+        <abbr class="clear-field"><i class="fa fa-times" data-action="clear-field"></i></abbr>
+        <span class="select-arrow">
+            <b class="fa fa-caret-down" role="presentation"></b>
+        </span>
+    </div>
+    {{#unless hideHelp}}{{#if def.help}}<p class="help-block">{{str def.help module}}</p>{{/if}}{{/unless}}
+    <ul data-menu="dropdown" class="dropdown-menu" role="menu">
+        <li class="st">
+            <div class="input-append">
+                <input type="text" data-role="secondinput"/>
+                <span class="add-on fa" data-role="secondinputaddon"></span>
+            </div>
+        </li>
+        <li class="tree">
+            <div class="list" data-place="tree">
+            </div>
+        </li>
+         <li class="st">
+            <div class="row-fluid" data-place="bottom-options">
+                <div class="span10" data-action="create-label-cover">{{{str "LBL_CREATE_CATEGORY"}}}</div>
+                <div class="span2">
+                    <button class="btn btn-invisible pull-right" data-action="full-screen"><i class="fa fa-expand"></i></button>
+                </div>
+            </div>
+            <div class="row-fluid hide" data-place="bottom-create">
+                <div class="span2">
+                    <button class="btn btn-invisible pull-left" data-role="pseudo"><i class="fa fa-folder-open"></i></button>
+                </div>
+                <div class="span10">
+                    <input data-role="add-item" type="text" placeholder="{{str 'LBL_CREATE_CATEGORY_PLACEHOLDER' this.module}}"/>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div>

@@ -1,0 +1,418 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the definition data for an activity
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will retrieve the JSON encoded definition data for the Process
+    Definition activity identified by the <code>record</code> input parameter.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>record</td>
+            <td>String</td>
+            <td>The value for the act_uid field in the pmse_bpmn_activity record</td>
+            <td>True</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>success</td>
+            <td>Boolean</td>
+            <td>The status of the response</td>
+        </tr>
+        <tr>
+            <td>&lt;field&gt;</td>
+            <td>&lt;value&gt;</td>
+            <td>Field value in the pmse_bpmn_activity record</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "success":true,
+    "id":"566f0156-0ce3-75b4-da56-573cb73984aa",
+    "name":"Action # 1",
+    "date_entered":"2016-05-18 18:41:29",
+    "date_modified":"2016-05-18 18:42:00",
+    "modified_user_id":"1",
+    "created_by":"1",
+    "description":null,
+    "deleted":"0",
+    "pro_id":"9f8c4fcd-8d4c-949d-50b8-573caddf8c0c",
+    "act_type":"TASK",
+    "act_duration":"0",
+    "act_duration_unit":"DAYS",
+    "act_send_notification":"0",
+    "act_assignment_method":"balanced",
+    "act_assign_team":"",
+    "act_assign_user":"",
+    "act_value_based_assignment":"",
+    "act_reassign":"0",
+    "act_reassign_team":"",
+    "act_adhoc":"0",
+    "act_adhoc_behavior":"",
+    "act_adhoc_team":"",
+    "act_response_buttons":"",
+    "act_last_user_assigned":"",
+    "act_field_module":"Accounts",
+    "act_fields":"[{\u0022name\u0022:\u0022Assigned to\u0022,\u0022field\u0022:\u0022assigned_user_id\u0022,\u0022value\u0022:\u0022currentuser\u0022,\u0022type\u0022:\u0022user\u0022,\u0022label\u0022:\u0022Current user\u0022}]",
+    "act_readonly_fields":
+    [
+        {
+            "name":"phone_alternate",
+            "label":"Alternate Phone",
+            "readonly":false
+        },
+        {
+            "name":"annual_revenue",
+            "label":"Annual Revenue",
+            "readonly":false
+        },
+        {
+            "name":"billing_address_city",
+            "label":"Billing City",
+            "readonly":false
+        },
+        {
+            "name":"billing_address_country",
+            "label":"Billing Country",
+            "readonly":false
+        },
+        {
+            "name":"billing_address_postalcode",
+            "label":"Billing Postal Code",
+            "readonly":false
+        },
+        {
+            "name":"billing_address_state",
+            "label":"Billing State",
+            "readonly":false
+        },
+        {
+            "name":"billing_address_street",
+            "label":"Billing Street",
+            "readonly":false
+        },
+        {
+            "name":"created_by",
+            "label":"Created By",
+            "readonly":false
+        },
+        {
+            "name":"description",
+            "label":"Description",
+            "readonly":false
+        },
+        {
+            "name":"duns_num",
+            "label":"DUNS",
+            "readonly":false
+        },
+        {
+            "name":"employees",
+            "label":"Employees",
+            "readonly":false
+        },
+        {
+            "name":"facebook",
+            "label":"Facebook Account",
+            "readonly":false
+        },
+        {
+            "name":"phone_fax",
+            "label":"Fax",
+            "readonly":false
+        },
+        {
+            "name":"googleplus",
+            "label":"Google Plus ID",
+            "readonly":false
+        },
+        {
+            "name":"industry",
+            "label":"Industry",
+            "readonly":false
+        },
+        {
+            "name":"modified_user_id",
+            "label":"Modified By",
+            "readonly":false
+        },
+        {
+            "name":"name",
+            "label":"Name",
+            "readonly":false
+        },
+        {
+            "name":"phone_office",
+            "label":"Office Phone",
+            "readonly":false
+        },
+        {
+            "name":"ownership",
+            "label":"Ownership",
+            "readonly":false
+        },
+        {
+            "name":"rating",
+            "label":"Rating",
+            "readonly":false
+        },
+        {
+            "name":"shipping_address_city",
+            "label":"Shipping City",
+            "readonly":false
+        },
+        {
+            "name":"shipping_address_country",
+            "label":"Shipping Country",
+            "readonly":false
+        },
+        {
+            "name":"shipping_address_postalcode",
+            "label":"Shipping Postal Code",
+            "readonly":false
+        },
+        {
+            "name":"shipping_address_state",
+            "label":"Shipping State",
+            "readonly":false
+        },
+        {
+            "name":"shipping_address_street",
+            "label":"Shipping Street",
+            "readonly":false
+        },
+        {
+            "name":"sic_code",
+            "label":"SIC Code",
+            "readonly":false
+        },
+        {
+            "name":"ticker_symbol",
+            "label":"Ticker Symbol",
+            "readonly":false
+        },
+        {
+            "name":"twitter",
+            "label":"Twitter Account",
+            "readonly":false
+        },
+        {
+            "name":"account_type",
+            "label":"Type",
+            "readonly":false
+        },
+        {
+            "name":"website",
+            "label":"Website",
+            "readonly":false
+        }
+    ],
+    "act_expected_time":
+    {
+        "time":"",
+        "unit":"hour"
+    },
+    "act_required_fields":
+    [
+        {
+            "name":"phone_alternate",
+            "label":"Alternate Phone",
+            "required":false
+        },
+        {
+            "name":"annual_revenue",
+            "label":"Annual Revenue",
+            "required":false
+        },
+        {
+            "name":"billing_address_city",
+            "label":"Billing City",
+            "required":false
+        },
+        {
+            "name":"billing_address_country",
+            "label":"Billing Country",
+            "required":false
+        },
+        {
+            "name":"billing_address_postalcode",
+            "label":"Billing Postal Code",
+            "required":false
+        },
+        {
+            "name":"billing_address_state",
+            "label":"Billing State",
+            "required":false
+        },
+        {
+            "name":"billing_address_street",
+            "label":"Billing Street",
+            "required":false
+        },
+        {
+            "name":"created_by",
+            "label":"Created By",
+            "required":false
+        },
+        {
+            "name":"description",
+            "label":"Description",
+            "required":false
+        },
+        {
+            "name":"duns_num",
+            "label":"DUNS",
+            "required":false
+        },
+        {
+            "name":"employees",
+            "label":"Employees",
+            "required":false
+        },
+        {
+            "name":"facebook",
+            "label":"Facebook Account",
+            "required":false
+        },
+        {
+            "name":"phone_fax",
+            "label":"Fax",
+            "required":false
+        },
+        {
+            "name":"googleplus",
+            "label":"Google Plus ID",
+            "required":false
+        },
+        {
+            "name":"industry",
+            "label":"Industry",
+            "required":false
+        },
+        {
+            "name":"modified_user_id",
+            "label":"Modified By",
+            "required":false
+        },
+        {
+            "name":"phone_office",
+            "label":"Office Phone",
+            "required":false
+        },
+        {
+            "name":"ownership",
+            "label":"Ownership",
+            "required":false
+        },
+        {
+            "name":"rating",
+            "label":"Rating",
+            "required":false
+        },
+        {
+            "name":"shipping_address_city",
+            "label":"Shipping City",
+            "required":false
+        },
+        {
+            "name":"shipping_address_country",
+            "label":"Shipping Country",
+            "required":false
+        },
+        {
+            "name":"shipping_address_postalcode",
+            "label":"Shipping Postal Code",
+            "required":false
+        },
+        {
+            "name":"shipping_address_state",
+            "label":"Shipping State",
+            "required":false
+        },
+        {
+            "name":"shipping_address_street",
+            "label":"Shipping Street",
+            "required":false
+        },
+        {
+            "name":"sic_code",
+            "label":"SIC Code",
+            "required":false
+        },
+        {
+            "name":"ticker_symbol",
+            "label":"Ticker Symbol",
+            "required":false
+        },
+        {
+            "name":"twitter",
+            "label":"Twitter Account",
+            "required":false
+        },
+        {
+            "name":"account_type",
+            "label":"Type",
+            "required":false
+        },
+        {
+            "name":"website",
+            "label":"Website",
+            "required":false
+        }
+    ],
+    "act_related_modules":[],
+    "act_service_url":null,
+    "act_service_params":null,
+    "act_service_method":null,
+    "act_update_record_owner":null,
+    "execution_mode":"DEFAULT",
+    "assigned_user_id":"",
+    "au_first_name":null,
+    "au_last_name":null,
+    "cbu_first_name":null,
+    "cbu_last_name":"Administrator",
+    "mbu_first_name":null,
+    "mbu_last_name":"Administrator",
+    "my_favorite":null
+}
+</pre>

@@ -1,0 +1,51 @@
+/* WELLS
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// Base class
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: @wellBackground;
+  border: 1px solid darken(@wellBackground, 7%);
+  border-radius: @baseBorderRadius;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Sizes
+.well-large {
+  padding: 24px;
+  border-radius: @borderRadiusLarge;
+}
+
+.well-small {
+  padding: 9px;
+  border-radius: @borderRadiusSmall;
+}
+
+/* twitter-bootstrap import END */
+
+// To be used with original twitter bootstrap well for spacing purposes, overrides removing border and back color as well as shadows
+.well-invisible {
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: @baseBorderRadius;
+  box-shadow: none;
+}
+
+/* Remove bottom margin on example forms in wells */
+form.well {
+  padding: 14px;
+}
+
+/* Tighten up spacing */
+.well hr {
+  margin: 18px 0;
+}

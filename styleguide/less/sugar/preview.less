@@ -1,0 +1,380 @@
+/* PREVIEW
+  ----------------*/
+
+.preview-pane {
+  .preview-headerbar {
+    width: calc(~"34.042553198%");
+    position: fixed;
+    right: 0;
+    border-bottom: @borderWidget;
+    border-left: @borderWidget;
+    background: @white;
+    z-index: 1002;
+
+    h1 {
+      float: left;
+      font-size: @fontSizeHeaderTitle;
+      font-weight: 600;
+      max-width: 50%;
+    }
+
+    .preview-edit-btn {
+      margin: 14px 0 0;
+    }
+
+    .btn-toolbar {
+      padding-left: 0;
+    }
+  }
+}
+
+.preview-data {
+  margin: 0 7px;
+
+  .field-row {
+    &.hide {
+      display: none;
+    }
+
+    .field-label {
+      font-size: 11px;
+      color: @gray;
+    }
+
+    .field-value {
+      position: relative;
+      width: 100%;
+
+      &.no-label {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .record-cell {
+    &.edit {
+      .fieldset-field + .fieldset-field {
+        margin-top: -1px;
+      }
+
+      .fieldset-field .record-label {
+        display: none;
+      }
+
+      label {
+        color: @gray;
+      }
+    }
+
+    .field-value {
+      > .detail {
+        padding: 5px 7px;
+        display: block;
+
+        &.fieldset-inline .ellipsis_inline {
+          padding: 0;
+        }
+      }
+
+      > .nodata {
+        padding: 5px 7px;
+        display: block;
+      }
+    }
+
+    input[type="text"]:not(.select2-input),
+    input[type="password"],
+    textarea,
+    .uneditable-input {
+      font-size: 12px;
+    }
+
+    // Normal record-cell overrides
+
+    &[data-type="textarea"] {
+      span {
+        word-wrap: break-word;
+      }
+    }
+
+    &[data-type="badge"],
+    &[data-type="badge-select"],
+    &[data-type="event-status"] {
+      .detail {
+        padding: 3px 0 0 7px;
+      }
+    }
+
+    &[data-type="avatar"] {
+      &.edit {
+        margin-bottom: 10px;
+      }
+
+      .image_field.image_edit {
+        top: 0;
+        left: 5px;
+      }
+    }
+
+    &[data-type="fullname"] {
+      &.edit {
+        padding-left: 0;
+      }
+    }
+
+    &[data-type="participants"] {
+      > .detail {
+        padding: 0;
+      }
+
+      .participants {
+        width: 100%;
+
+        .row {
+          margin-left: 0;
+          display: block;
+
+          .cell:nth-child(2) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &[data-name="date_entered_by"] {
+      margin-bottom: 0;
+    }
+
+    &[data-type="parent"] {
+      > .edit {
+        padding: 5px 7px;
+        display: block;
+      }
+    }
+
+    &[data-type="html"],
+    &[data-type="bool"],
+    &[data-type="text"],
+    &[data-type="int"] {
+      > .nodata {
+        padding: 5px 7px;
+        display: block;
+      }
+    }
+
+    &[data-type="status"] {
+      .detail {
+        padding: 3px 7px 0;
+      }
+    }
+
+    &[data-type="attachments"] {
+      .detail {
+        padding: 0;
+      }
+
+      .select2-container {
+        float: none;
+
+        .select2-choices {
+          background-color: transparent;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .dashlet {
+    .dashlet-content {
+      :not(.tab-pane) { /* necessary to not affect empty dashlet tab with string "No data available." */
+        > .block-footer {
+          text-align: left;
+
+          .btn.more {
+            padding: 0;
+          }
+
+          .loading {
+            margin: 1px 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  .more,
+  .less {
+    padding-right: 0;
+  }
+}
+
+/* NEW SKIN START */
+
+.preview-pane {
+  .preview-headerbar {
+    /* override */
+    top: 45px;
+    height: 51px;
+    background: @previewHeaderBackground;
+
+    h1 {
+      /* override */
+      margin: 15px 0 9px 20px;
+    }
+
+    .btn-toolbar {
+      /* override */
+      margin: 10px 10px 9px;
+    }
+  }
+}
+
+.preview-data {
+  /* override */
+  padding: 60px 12px 10px;
+
+  &.block {
+    background: @previewDataBackground;
+  }
+
+  .field-row {
+    /* override */
+    display: block;
+
+    /* additive */
+    &:not(:first-child) {
+      border-top: 1px solid @previewFieldSeparator;
+    }
+
+    .field-label {
+      /* additive*/
+      display: block;
+      width: 100%;
+      text-align: left;
+      height: 17px;
+      padding: 0;
+      margin-top: 7px;
+
+      /* override */
+      font-size: @previewLabelFontSize;
+    }
+
+    .field-value {
+      /* override */
+      max-width: initial;
+      margin: 0;
+
+      /* additive */
+      font-size: @previewValueFontSize;
+      min-height: 19px;
+      margin-bottom: 7px;
+
+      > .detail {
+        /* override */
+        padding: 0;
+
+        .htmleditable {
+          float: none;
+        }
+      }
+
+      &[data-type="email"] {
+        .opt-out::before {
+          content: @fa-var-ban;
+          font-family: 'FontAwesome';
+          position: absolute;
+          left: 1px;
+          top: 1px;
+        }
+
+        .opt-out {
+          position: relative;
+          padding-left: 16px;
+        }
+      }
+    }
+  }
+}
+
+/* HACKS START */
+
+/*
+Temporary hacks
+These will be removed with completion of ticket https://sugarcrm.atlassian.net/browse/SC-5144
+*/
+
+.preview-pane {
+  .preview-data {
+    .field-label {
+      &[data-name=picture] {
+        display: none !important;
+      }
+    }
+
+    .field-value {
+      &[data-name=picture] {
+        position: absolute;
+        top: 2px;
+
+        .label,
+        .image_field .image_preview {
+          width: 32px;
+          height: 32px;
+        }
+
+        .image_field {
+          .image_preview {
+            /* additive */
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+              /* override */
+              width: inherit !important;
+              height: inherit !important;
+            }
+          }
+        }
+      }
+    }
+
+    .field-label,
+    .field-value {
+      &[data-name=name],
+      &[data-name=full_name] {
+        margin-left: 40px;
+        width: calc(~'100% - 40px');
+
+        > span:not(.hide) {
+          display: inline-block;
+          width: 100%;
+        }
+      }
+    }
+
+    .field-row > span + .field-label.ellipsis_inline[data-name=name] {
+      margin-left: 40px;
+    }
+  }
+
+  .field-row:nth-child(2) {
+    border-top: 0;
+
+    .field-label {
+      margin-top: 0;
+    }
+  }
+
+  .show-hide-toggle {
+    display: block !important;
+    margin-top: 0 !important;
+
+    > button {
+      padding-left: 0;
+    }
+  }
+}
+
+/* HACKS END */
+
+/* NEW SKIN END */

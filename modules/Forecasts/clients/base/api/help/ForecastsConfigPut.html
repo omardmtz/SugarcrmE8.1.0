@@ -1,0 +1,140 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<div class="longHelpTitle">Creates and/or updates the config settings for the Forecasts module</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to create and/or update the config settings for the Forecasts module as json data.  It extends
+    the core config endpoint by adding the functionality to create
+    the Timeperiods and updates existing Opportunities for use in the Forecasts module.
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+    <code class="codesample">
+        {
+            "is_setup": 1,
+            "is_upgrade": 0,
+            "has_commits": 1,
+            "timeperiod_type": "chronological",
+            "timeperiod_interval": "Annual",
+            "timeperiod_leaf_interval": "Quarter",
+            "timeperiod_start_date": "2013-01-01",
+            "timeperiod_shown_forward": 2,
+            "timeperiod_shown_backward": 2,
+            "forecast_ranges": "show_binary",
+            "buckets_dom": "commit_stage_binary_dom",
+            "show_binary_ranges": {
+                "include": {
+                    "min": 70,
+                    "max": 100
+                },
+                "exclude": {
+                    "min": 0,
+                    "max": 69
+                }
+            },
+            "show_buckets_ranges": {
+                "include": {
+                    "min": 85,
+                    "max": 100
+                },
+                "upside": {
+                    "min": 70,
+                    "max": 84
+                },
+                "exclude": {
+                    "min": 0,
+                    "max": 69
+                }
+            },
+            "sales_stage_won": [
+                "Closed Won"
+            ],
+            "sales_stage_lost": [
+                "Closed Lost"
+            ],
+            "show_worksheet_likely": 1,
+            "show_worksheet_best": 1,
+            "show_worksheet_worst": 0,
+            "show_projected_likely": 1,
+            "show_projected_best": 1,
+            "show_projected_worst": 0,
+            "show_forecasts_commit_warnings": 1
+        }
+    </code>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        {
+            "is_setup": 1,
+            "is_upgrade": 0,
+            "has_commits": 1,
+            "timeperiod_type": "chronological",
+            "timeperiod_interval": "Annual",
+            "timeperiod_leaf_interval": "Quarter",
+            "timeperiod_start_date": "2013-01-01",
+            "timeperiod_shown_forward": 2,
+            "timeperiod_shown_backward": 2,
+            "forecast_ranges": "show_binary",
+            "buckets_dom": "commit_stage_binary_dom",
+            "show_binary_ranges": {
+                "include": {
+                    "min": 70,
+                    "max": 100
+                },
+                "exclude": {
+                    "min": 0,
+                    "max": 69
+                }
+            },
+            "show_buckets_ranges": {
+                "include": {
+                    "min": 85,
+                    "max": 100
+                },
+                "upside": {
+                    "min": 70,
+                    "max": 84
+                },
+                "exclude": {
+                    "min": 0,
+                    "max": 69
+                }
+            },
+            "sales_stage_won": [
+                "Closed Won"
+            ],
+            "sales_stage_lost": [
+                "Closed Lost"
+            ],
+            "show_worksheet_likely": 1,
+            "show_worksheet_best": 1,
+            "show_worksheet_worst": 0,
+            "show_projected_likely": 1,
+            "show_projected_best": 1,
+            "show_projected_worst": 0,
+            "show_forecasts_commit_warnings": 1
+        }
+    </code>
+</div>

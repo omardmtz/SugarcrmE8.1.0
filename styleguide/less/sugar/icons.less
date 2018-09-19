@@ -1,0 +1,67 @@
+/* ICONS
+  ----------------*/
+
+.fa {
+  -webkit-font-smoothing: antialiased;
+  color: @grayLight;
+}
+
+.fa-warning {
+  color: @yellow;
+}
+
+a:not(.disabled):hover > .fa {
+  color: @gray;
+}
+
+a:not(.disabled).active > .fa,
+a:not(.disabled):active > .fa {
+  color: @black;
+}
+
+.btn.active:focus > .fa-favorite,
+.btn.active:hover > .fa-favorite {
+  color: @gray !important;
+}
+
+.fa-favorite::before {
+  content: "\f006";
+}
+
+.btn.active > .fa-favorite::before,
+.fa-favorite.active::before {
+  content: "\f005";
+}
+
+.wide {
+  width: 98%;
+  text-align: center;
+}
+
+.fa {
+  &-updated { color: @blue; }
+  &-added { color: @green; }
+  &-error { color: @red; }
+}
+
+i.fa-white,
+.btn.fa-white,
+span.fa-white {
+  color: @white !important;
+}
+
+/* NEW SKIN START */
+
+a > .fa {
+  /* override */
+  color: @black;
+}
+
+/* override */
+.fa-favorite,
+.btn > .fa-favorite,
+.btn.active > .fa-favorite {
+  color: @black !important;
+}
+
+/* NEW SKIN END */

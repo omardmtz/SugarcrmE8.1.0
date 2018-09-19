@@ -1,0 +1,798 @@
+#!groovy
+
+import java.util.UUID
+import groovy.json.JsonSlurper
+
+// Default IdM image to use throughout the pipeline.
+idmDefaultImage = ''
+
+podTemplate(
+    label: 'IdentityProvider-pipeline',
+    containers: [
+        // Used to build the container image
+        containerTemplate(
+            name: 'docker',
+            image: 'docker',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        containerTemplate(
+            name: 'elasticsearch',
+            image: 'docker.elastic.co/elasticsearch/elasticsearch:5.4.2',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        // Used to download proper Sugarcrm build from honeycomb
+        containerTemplate(
+            name: 'python',
+            image: 'python',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        // Used to deploy service to k8s
+        containerTemplate(
+            name: 'kubectl',
+            image: 'lachlanevenson/k8s-kubectl',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        // Used to compile and run iam-operator
+        containerTemplate(
+            name: 'golang',
+            image: 'golang:latest',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        // Used to deploy hydra by iam-operator
+        containerTemplate(
+            name: 'hydra',
+            image: 'registry.sugarcrm.net/identity-provider/hydra:idm-master-http',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        // Used to perform jobs of mysql provisioning for hydra by iam-operator
+        containerTemplate(
+            name: 'busybox',
+            image: 'busybox:latest',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        // Used to perform mysql provisioning for hydra by iam-operator
+        containerTemplate(
+            name: 'mysql',
+            image: 'mysql:5.7.14',
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+    ],
+    volumes: [
+        // Required docker socket to be able to build container images. This will use
+        // the docker service available on the k8s node directly.
+        hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')
+    ]
+) {
+    node('IdentityProvider-pipeline') {
+        ansiColor('xterm') {
+            // Git commit hash. Is used for labeling docker containers.
+            idmRevision = ''
+
+            // Bag of IdM baked images where steps can retrieve from.
+            idmImages = [:]
+            idmServiceImage = ''
+            idmDefaultImage = ''
+
+            mangoInstalledBaseImage = 'registry.sugarcrm.net/identity-provider/idm-mango-installed'
+
+            // k8s namespace for the entire pipeline.
+            // We use `localhost` suffix for Hydra hack to skip ssl verification that is not done for hosts w/ localhost suffix.
+            idmNS = "IdentityProvider-${env.BRANCH_NAME}-localhost".toLowerCase()
+            // k8s namespace for iam and OIDC setup.
+            idmIamNS = "${idmNS}-iam"
+
+            stage('SCM IdentityProvider') {
+                pullRequestStatus(description: 'SCM IdentityProvider') {
+                    checkout scm
+                    sh "git rev-parse --short HEAD > .git/commit-id"
+                    idmRevision = readFile('.git/commit-id').trim()
+                }
+            }
+
+            if (env.CHANGE_ID) {
+                stage('Commit Message check') {
+                    pullRequestStatus(description: 'Commit Message check') {
+                        echo "Checking PR number in the commit message. It must include corresponding ticket number."
+                        checkCommitTitleForJiraTicketNumber{}
+                    }
+                }
+            }
+
+            stage('Create Images') {
+                pullRequestStatus(description: 'Create Images') {
+                    container(name:'docker') {
+                        sh "sed -e 's/%%IamNS%%/${idmNS}/g' tests/behat/db/fixtures.sql -i"
+                        parallel(
+                                lib_php71: { createIdmImage('php71') },
+                                service: { createIdmServiceImage() },
+                        )
+
+                        // set default image as long as it's baked.
+                        idmDefaultImage = idmImages['php71']
+                    }
+                }
+            }
+
+            stage('Code-standards check') {
+                pullRequestStatus(description: 'Code-standards check') {
+                    changedFiles = valueFromSh("git diff --name-only --diff-filter=ACMRTUXB origin/${env.CHANGE_TARGET} HEAD | tr '\n' ' '")
+                    container(name:'docker') {
+                        echo 'Running code-style only for minimal support version of PHP. PHP 7.1'
+                        sh """
+                        docker run --rm -i ${idmDefaultImage} /bin/bash -c \
+                        'vendor/bin/php-cs-fixer fix \
+                        --config=.php_cs.dist --diff --dry-run --verbose --using-cache=no \
+                        --path-mode=intersection ${changedFiles}'
+                        """
+                    }
+                }
+            }
+
+            stage('Unit tests') {
+                pullRequestStatus(description: 'Unit tests') {
+                    container(name:'docker') {
+                        parallel(
+                                php71: { runIdmPhpUnitSuite('php71', 'Unit Tests') },
+                        )
+                    }
+                }
+            }
+
+            stage('Functional tests') {
+                pullRequestStatus(description: 'Functional tests') {
+                    container(name:'docker') {
+                        parallel(
+                                php71: { runIdmPhpUnitSuite('php71', 'Functional Tests') },
+                        )
+                    }
+                }
+            }
+
+            stage('Fetch Mango build') {
+                pullRequestStatus(description: 'Fetch Mango build') {
+                    container(name:'python') {
+                        sh """#!/usr/bin/env python
+import urllib.request, urllib.error, json, re
+
+artifact = 'Build Ent'
+user_feature_author = '${env.CHANGE_AUTHOR}'
+pr_number_match = re.findall(r'\\b[A-Za-z]+[-_]?\\d+\\b', '${env.CHANGE_TITLE.replaceAll("'", "\\\\'")}')
+user_feature_branch = pr_number_match[0] if len(pr_number_match) > 0 else ''
+team_feature_author = 'avlasov'
+team_feature_branch = 'idm_80_hardening'
+deploy_feature_data_url = "http://honeycomb.sugarcrm.io/rest/v1/deploy/%s%s"
+deploy_master_data_url = 'https://honeycomb.sugarcrm.io/rest/v1/builds/active'
+build_url = "http://honeycomb.sugarcrm.io/download/deploy/{author}{branch}/{number}/SugarEnt-{version}{branch}.zip"
+build_url_master = "https://honeycomb.sugarcrm.io/download/train/{version}/{number}/SugarEnt-{version}.zip"
+out = "sugarcrm.zip"
+github_to_honeycomb_authors = {
+    'alex-vlasov': 'avlasov',
+    'ddolbik': 'ddolbik',
+    'kolotaev': 'ekolotaev',
+}
+
+class SkipFetchException(Exception): pass
+
+def get_honey_comb_author_name(github_name):
+    if github_name in github_to_honeycomb_authors:
+        return github_to_honeycomb_authors[github_name]
+    else:  # try to extract author name from modern standard h-comb form.
+        return github_name.split('-sugarcrm')[0]
+
+def get_feature_build(author, branch):
+    url = deploy_feature_data_url % (author, branch)
+    print('Trying to fetch Mango build for author: %s and branch: %s' % (author, branch))
+    with urllib.request.urlopen(url) as response:
+        build_number = None
+        data = json.loads(response.read().decode())
+
+        if 'build_log' not in data or not data['build_log']:
+            raise SystemExit('build_log information was not found for the latest deployment.')
+
+        for task in data['build_log']:
+            if task['status'] == artifact:
+                if task['state'] == 'success':
+                    build_number = data['build_number']
+                else:
+                    raise SystemExit('Latest Mango "%s" is not ready. Current status is "%s".'
+                                     % (artifact, task['state']))
+
+        if not build_number:
+            raise SystemExit('There is no information for artifact "%s" for the latest deployment.' % artifact)
+
+        tag = '%s%s_%s' % (author, branch, build_number)
+        return build_url.format(author=author, branch=branch, version=data['version'], number=build_number), tag
+
+
+def get_master_build(url):
+    print('Trying to fetch the latest Mango build. Looking for it in: %s' % url)
+    build_number = None
+    with urllib.request.urlopen(url) as response:
+        data = json.loads(response.read().decode())
+        version, train_identifier = None, None
+
+        for archive in data:
+            if archive['mango_branch'] == 'master':
+                build_number = archive['build_number']
+                version = archive['version']
+                break
+
+        if not build_number or not version:
+            raise SystemExit('There is no information for the latest master Mango build')
+
+        return build_url_master.format(version=version, number=build_number), '%s_%s' % ('master', build_number)
+
+# Main action.
+user_feature_author = get_honey_comb_author_name(user_feature_author)
+try:
+    build_url, tag = get_feature_build(user_feature_author, user_feature_branch)
+except urllib.error.HTTPError as e:
+    try:
+        # For PRs not to master we are not interested in team feature branches.
+        if '${env.CHANGE_TARGET}' != 'master':
+            raise SkipFetchException('Team feature branch is not needed for IdP branch: %s' % '${env.CHANGE_TARGET}')
+        print(str(e) + '. Falling back to team feature branch.')
+        build_url, tag = get_feature_build(team_feature_author, team_feature_branch)
+    except (urllib.error.HTTPError, SkipFetchException) as e:
+        print(str(e) + '. Falling back to master Mango build.')
+        build_url, tag = get_master_build(deploy_master_data_url)
+
+if build_url and tag:
+    print('Fetching %s build...' % build_url)
+    urllib.request.urlretrieve(build_url, out)
+    with open('mango-build-number', 'w') as f:
+        f.write(str(tag.replace('-', '').lower()))
+else:
+    raise SystemExit('No useful Mango build was found at all!')
+                """
+                    }
+                }
+
+                // Store the sugarcrm installed image name for later usage.
+                mangoInstalledBaseImage = mangoInstalledBaseImage + ':' + readFile('mango-build-number').trim()
+            }
+
+            stage('Install SugarCRM') {
+                pullRequestStatus(description: 'Install SugarCRM') {
+                    try {
+                        mangoBuild = "mango-built"
+                        mangoInstallNet = "mango-install-net"
+                        behatTestsEnvElastic = "behat-tests-env-elastic"
+
+                        container(name:'docker') {
+                            // Unpack downloaded Mango build into 'sugarcrm' directory inside bootstrap.
+                            sh """
+                            mkdir tests/docker/bootstrap/mango/sugarcrm
+                            unzip sugarcrm.zip -d tests/docker/bootstrap/mango/sugarcrm
+                            mv tests/docker/bootstrap/mango/sugarcrm/Sug*/* tests/docker/bootstrap/mango/sugarcrm/
+                            rm sugarcrm.zip
+                            """
+
+                            // Ensure containers and networks we want to create do not exist.
+                            cleanupMangoInstall()
+
+                            sh """
+                            echo 'Installing SugarCRM.'
+                            docker network create --driver bridge ${mangoInstallNet}
+                            docker run --name=${behatTestsEnvElastic} \
+                            --network=${mangoInstallNet} -p 9200:9200 \
+                            -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" -e "xpack.security.enabled=false" \
+                            -d docker.elastic.co/elasticsearch/elasticsearch:5.4.2
+                            """
+
+                            withCredentials([string(credentialsId: 'SUGAR_LICENSE_KEY', variable: 'SUGAR_LICENSE_KEY')]) {
+                                sh """
+                                cd tests/docker/bootstrap/mango
+                                docker build -t ${mangoBuild} .
+                                docker run --name=${mangoBuild} --network=${mangoInstallNet} \
+                                -e SUGAR_LICENSE_KEY="${env.SUGAR_LICENSE_KEY}" -p 80:80 -d ${mangoBuild}
+                                sleep 10
+
+                                echo 'Creating image with installed SugarCRM. Image: ${mangoInstalledBaseImage}'
+                                docker exec -i ${mangoBuild} curl "http://localhost/install.php?goto=SilentInstall&cli=true"
+
+                                docker commit ${mangoBuild} ${mangoInstalledBaseImage}
+                                docker push ${mangoInstalledBaseImage}
+                                """
+                            }
+
+                        }
+                    } finally {
+                        container(name:'docker') {
+                            cleanupMangoInstall()
+                        }
+                    }
+                }
+            }
+
+            try {
+                stage('Deploy OIDC environment') {
+                    pullRequestStatus(description: 'Deploy OIDC environment') {
+                        iamOperatorScm()
+
+                        container(name: 'golang') {
+                            sh """
+                            go get -u github.com/jteeuwen/go-bindata/...
+                            curl https://glide.sh/get | sh
+                            """
+
+                            dir('iam-operator/assets/pipeline/identity-provider') {
+                                sh "sed -e 's/%%IDM_REVISION%%/${idmRevision}/g' deployment.yaml.template > deployment.yaml"
+                            }
+                            dir('iam-operator/assets/pipeline/hydra') {
+                                sh "sed -e 's/%%IAM_NAMESPACE%%/${idmIamNS}/g' config.yaml.template > config.yaml"
+                            }
+                            dir('iam-operator/assets') {
+                                sh 'go-bindata -pkg assets pipeline/...'
+                            }
+                            dir('iam-operator') {
+                                sh """
+                                mkdir -p /go/src/github.com/sugarcrm
+                                ln -s \$(pwd) /go/src/github.com/sugarcrm/iam-operator
+                                cd /go/src/github.com/sugarcrm/iam-operator
+                                glide install
+                                GOOS=linux GOARCH=386 go build -o ./iam-operator-pipeline
+                                """
+                            }
+                        }
+
+                        // iam-operator as a client of OIDC (Hydra)
+                        def clientId, clientSecret
+
+                        container(name: 'kubectl') {
+                            cleanupKubernetes()
+                            retry(2) {
+                                sh """
+                                sleep 30
+                                kubectl create namespace ${idmNS}
+                                """
+                            }
+
+                            timeout(time: 6, unit: 'MINUTES') {
+                                dir('iam-operator') {
+                                    sh """
+                                    IAM_NAMESPACE=${idmIamNS} IDM_REVISION=${idmRevision} `pwd`/iam-operator-pipeline deploy --context pipeline
+                                    """
+                                }
+                            }
+
+                            clientId = valueFromSh(
+                                "kubectl --namespace=${idmIamNS} get secret oidc-client-iam -o yaml | grep CLIENT_ID | sed -e 's/^[ \t]*//' | cut -d' ' -f2 | base64 -d"
+                            )
+
+                            clientSecret = valueFromSh(
+                                "kubectl --namespace=${idmIamNS} get secret oidc-client-iam -o yaml | grep CLIENT_SECRET | sed -e 's/^[ \t]*//' | cut -d' ' -f2 | base64 -d"
+                            )
+
+                        }
+
+                        container(name: 'golang') {
+                            def basicAuth = valueFromSh("echo -n '${clientId}:${clientSecret}' | base64 -w 0 -")
+
+                            def iamOperatorToken = valueFromSh(
+                                """
+                                curl -X POST \
+                                http://hydra.${idmIamNS}/oauth2/token \
+                                -H 'authorization: Basic ${basicAuth}' \
+                                -H 'cache-control: no-cache' \
+                                -H 'content-type: application/x-www-form-urlencoded' \
+                                -d 'grant_type=client_credentials&scope=hydra hydra.*' \
+                            """
+                            )
+
+                            iamOperatorToken = parseJson(iamOperatorToken)['access_token']
+
+                            // @todo check what client params we really need.
+                            sh """
+                            curl -X POST \
+                            http://hydra.${idmIamNS}/clients \
+                            -H 'authorization: Bearer ${iamOperatorToken}' \
+                            -H 'cache-control: no-cache' \
+                            -H 'content-type: application/json' \
+                            -d '{
+                              "id": "mangoOIDCClientId",
+                              "client_name": "mangoOIDCClientId",
+                              "client_secret": "mangoOIDCClientSecret",
+                              "client_uri": "http://behat-tests-mango-oidc.${idmNS}",
+                              "redirect_uris": ["http://localhost/consumer"],
+                              "scope": "openid offline hydra.clients hydra.keys.get idp.auth.password https://apis.sugarcrm.com/auth/crm profile email address phone",
+                              "grant_types": ["authorization_code","refresh_token","client_credentials","implicit","urn:ietf:params:oauth:grant-type:jwt-bearer"],
+                              "response_types": ["token","code","id_token"]
+                            }' \
+                            """
+
+                            def mangoBasicAuth = valueFromSh("echo -n 'mangoOIDCClientId:mangoOIDCClientSecret' | base64 -w 0 -")
+
+                            def mangoToken = valueFromSh(
+                                """
+                                curl -X POST \
+                                http://hydra.${idmIamNS}/oauth2/token \
+                                -H 'authorization: Basic ${mangoBasicAuth}' \
+                                -H 'cache-control: no-cache' \
+                                -H 'content-type: application/x-www-form-urlencoded' \
+                                -d 'grant_type=client_credentials&scope=hydra.keys.get' \
+                            """
+                            )
+
+                            mangoToken = parseJson(mangoToken)['access_token']
+
+                            def clients = valueFromSh(
+                                """
+                                curl -X GET \
+                                http://hydra.${idmIamNS}/clients \
+                                -H 'authorization: Bearer ${iamOperatorToken}' \
+                                -H 'cache-control: no-cache' \
+                                -H 'content-type: application/json' \
+                            """
+                            )
+                            echo clients
+
+                            def keys = valueFromSh(
+                                """
+                                curl -X POST \
+                                  http://hydra.${idmIamNS}/keys/mangoOIDCKeySet \
+                                  -H 'authorization: Bearer ${iamOperatorToken}' \
+                                  -H 'cache-control: no-cache' \
+                                  -H 'content-type: application/x-www-form-urlencoded' \
+                                  -d '{"alg":"RS256"}' \
+                            """
+                            )
+                            echo keys
+
+                            def policies =  valueFromSh(
+                                """
+                                curl -X POST \
+                                  http://hydra.${idmIamNS}/policies \
+                                  -H 'authorization: Bearer ${iamOperatorToken}' \
+                                  -H 'cache-control: no-cache' \
+                                  -H 'content-type: application/x-www-form-urlencoded' \
+                                  -d '{"actions":["get"],"effect":"allow","id":"mangoOIDCKeySet","subjects":["mangoOIDCClientId"],"resources":["rn:hydra:keys:mangoOIDCKeySet:private","rn:hydra:keys:mangoOIDCKeySet:public"]}' \
+                            """
+                            )
+                            echo policies
+
+                            def keysResult = valueFromSh(
+                                """
+                                curl -X GET \
+                                  http://hydra.${idmIamNS}/keys/mangoOIDCKeySet \
+                                  -H 'authorization: Bearer ${mangoToken}' \
+                                  -H 'cache-control: no-cache' \
+                            """
+                            )
+                            echo keysResult
+                        }
+                    }
+                }
+
+                stage('Deploy environment for Behat') {
+                    pullRequestStatus(description: 'Deploy environment for Behat') {
+                        container(name:'docker') {
+                            sh """
+                            cd tests/docker/openldap
+                            docker build -t registry.sugarcrm.net/identity-provider/idm-open-ldap:latest .
+                            docker push registry.sugarcrm.net/identity-provider/idm-open-ldap:latest
+                            """
+                        }
+
+                        container(name:'docker') {
+                            sh """
+                            cd tests/docker/saml
+                            docker build -t registry.sugarcrm.net/identity-provider/samlserver:latest .
+                            docker push registry.sugarcrm.net/identity-provider/samlserver:latest
+                            cd ../saml-test
+                            docker build -t registry.sugarcrm.net/identity-provider/samlserver-test:latest .
+                            docker push registry.sugarcrm.net/identity-provider/samlserver-test:latest
+                            """
+                        }
+
+                        container(name:'kubectl') {
+                            sh """
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/selenium-deployment.yaml
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/selenium-service.yaml
+
+                            cat k8s/pipeline/idm-pod.yaml \
+                            | sed -e "s~%%IDM_IMAGE%%~${idmDefaultImage}~g" \
+                            | kubectl --namespace ${idmNS} create -f -
+
+                            cat k8s/pipeline/mango/base-deployment.yaml \
+                            | sed -e "s~%%MANGO_INSTALLED_IMAGE%%~${mangoInstalledBaseImage}~g" \
+                            | kubectl --namespace ${idmNS} create -f -
+
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/mango/base-services.yaml
+
+                            kubectl --namespace ${idmNS} create configmap mango-config --from-file=k8s/pipeline/mango/config/
+
+                            cat k8s/pipeline/mango/ldap-deployment.yaml \
+                            | sed -e "s~%%MANGO_INSTALLED_IMAGE%%~${mangoInstalledBaseImage}~g" \
+                            | kubectl --namespace ${idmNS} create -f -
+
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/mango/ldap-service.yaml
+
+                            cat k8s/pipeline/mango/saml-base-deployment.yaml \
+                            | sed -e "s~%%MANGO_INSTALLED_IMAGE%%~${mangoInstalledBaseImage}~g" \
+                            | kubectl --namespace ${idmNS} create -f -
+
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/mango/saml-base-service.yaml
+
+                            cat k8s/pipeline/mango/saml-same-window-deployment.yaml \
+                            | sed -e "s~%%MANGO_INSTALLED_IMAGE%%~${mangoInstalledBaseImage}~g" \
+                            | kubectl --namespace ${idmNS} create -f -
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/mango/saml-same-window-service.yaml
+
+                            cat k8s/pipeline/mango/saml-same-window-no-user-provision-deployment.yaml \
+                            | sed -e "s~%%MANGO_INSTALLED_IMAGE%%~${mangoInstalledBaseImage}~g" \
+                            | kubectl --namespace ${idmNS} create -f -
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/mango/saml-same-window-no-user-provision-service.yaml
+
+                            cat k8s/pipeline/mango/oidc-deployment.yaml \
+                            | sed -e "s~%%MANGO_INSTALLED_IMAGE%%~${mangoInstalledBaseImage}~g" \
+                            | sed -e "s~%%OP_SERVICE_URL%%~http://hydra.${idmIamNS}~g" \
+                            | sed -e "s~%%IDP_SERVICE_URL%%~http://idp.${idmIamNS}~g" \
+                            | sed -e "s~%%IDM_NAMESPACE%%~${idmNS}~g" \
+                            | kubectl --namespace ${idmNS} create -f -
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/mango/oidc-service.yaml
+
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/ldap-deployment.yaml
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/ldap-service.yaml
+
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/saml-deployment.yaml
+                            kubectl --namespace ${idmNS} create -f k8s/pipeline/saml-service.yaml
+                            """
+                        }
+                    }
+                }
+
+                stage('Behat tests') {
+                    pullRequestStatus(description: 'Behat tests') {
+                        container(name:'kubectl') {
+                            // Wait until all the required deployments are available.
+                            retry(10) {
+                                sh """
+                                sleep 5
+                                # debug information.
+                                kubectl get namespaces
+                                kubectl --namespace ${idmNS} get services
+                                kubectl --namespace ${idmNS} get pod
+                                kubectl --namespace ${idmIamNS} get services
+                                kubectl --namespace ${idmIamNS} get pod
+
+                                echo "Mango OIDC time: "
+                                kubectl --namespace ${idmNS} exec -i \$(kubectl --namespace ${idmNS} get pods | grep 'behat-tests-mango-oidc' | cut -d' ' -f 1) date
+                                echo "IdP time: "
+                                kubectl --namespace ${idmIamNS} exec -i \$(kubectl --namespace ${idmIamNS} get pods | grep 'idp-' | cut -d' ' -f 1) date
+                                echo "Hydra time: "
+                                kubectl --namespace ${idmIamNS} exec -i \$(kubectl --namespace ${idmIamNS} get pods | grep 'hydra' | cut -d' ' -f 1) date
+
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://behat-tests-mango
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://behat-tests-mango-ldap
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://behat-tests-mango-saml-base
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://behat-tests-mango-saml-same-window
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://behat-tests-mango-saml-same-window-no-user-provision
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://behat-tests-mango-oidc.${idmNS}
+
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://selenium:4444/wd/hub
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://saml-server
+
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://hydra.${idmIamNS}/.well-known/openid-configuration
+                                kubectl --namespace ${idmNS} exec -i idm -- curl -XGET http://idp.${idmIamNS}
+                                
+                                """
+                            }
+
+                            parallel(
+                                    default: {runBehatSuite('default', 'http://behat-tests-mango')},
+                                    ldap: {runBehatSuite('ldap', 'http://behat-tests-mango-ldap')},
+                                    saml: {runBehatSuite('saml', 'http://behat-tests-mango-saml-base')},
+                                    oidc: {runBehatSuite('oidc', "http://behat-tests-mango-oidc.${idmNS}")},
+                                    soap: {runBehatSuite('soap', 'http://multiple-instances-are-used')},
+                                    rest: {runBehatSuite('rest', "http://We-dont-use-mango-there")}
+                            )
+                        }
+                    }
+                }
+            } finally {
+                try {
+                    stage('Collect logs') {
+                        pullRequestStatus(description: 'Collect logs') {
+                            container(name:'kubectl') {
+                                collectLogs()
+                            }
+                        }
+                    }
+                } finally {
+                    stage('Cleanup') {
+                        pullRequestStatus(description: 'Cleanup') {
+                            container(name:'kubectl') {
+                                retry(3) {
+                                    cleanupKubernetes()
+                                }
+                            }
+                        }
+                    }
+                    if(env.BRANCH_NAME != "master") {
+                        stage('Cleanup Jenkins') {
+                            cleanWs()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Creates IdentityProvider image based on given platform (matches Dockerfile extension by platform).
+// Push image for later usage by k8s. TODO: can we try to do it locally?
+def createIdmImage(platform) {
+    def image = "registry.sugarcrm.net/identity-provider/idm:${idmRevision}_${platform}"
+    sh "docker build -t ${image} -f Dockerfile.${platform} ."
+    idmImages[platform] = image
+    sh "docker push ${image}"
+}
+
+// Creates IdentityProvider Service image.
+// Push image for later usage by k8s. TODO: can we try to do it locally?
+def createIdmServiceImage() {
+    idmServiceImage  = "registry.sugarcrm.net/identity-provider/identity-provider-test:${idmRevision}"
+    sh "docker build -t ${idmServiceImage} -f tests/docker/deploy/Dockerfile ."
+    sh "docker push ${idmServiceImage}"
+}
+
+// Runs specific PHPUnit tests suite in container based on particular image.
+def runIdmPhpUnitSuite(platform, suite) {
+    sh """
+    docker run --rm -i ${idmImages[platform]} /bin/bash -c "./ci.sh && vendor/bin/phpunit --testsuite '${suite}'"
+    """
+}
+
+// SCM iam-operator repo
+def iamOperatorScm() {
+    checkout(changelog: false, poll: false,
+            scm: [$class                           : 'GitSCM',
+                  branches                         : [[name: "master"]],
+                  doGenerateSubmoduleConfigurations: false,
+                  extensions                       : [
+                          [$class: 'CloneOption', shallow: true],
+                          [$class: 'RelativeTargetDirectory', relativeTargetDir: 'iam-operator'],
+                  ],
+                  submoduleCfg                     : [],
+                  userRemoteConfigs                : [
+                      [credentialsId: 'github-keys', url: 'https://github.com/sugarcrm/iam-operator.git']
+                  ]
+            ]
+    )
+}
+
+// Removes previously created containers and networks used for Mango installation.
+def cleanupMangoInstall() {
+    sh """
+    docker ps -a | grep ${mangoBuild} && docker rm -fv ${mangoBuild} || echo "Skip..."
+    docker ps -a | grep ${behatTestsEnvElastic} && docker rm -fv ${behatTestsEnvElastic} || echo "Skip..."
+    docker network ls | grep ${mangoInstallNet} && docker network rm ${mangoInstallNet} || echo "Skip..."
+    """
+}
+
+// Removes k8s previously created pods, deployments, et al.
+def cleanupKubernetes() {
+    sh """
+    kubectl get namespace | grep ${idmNS} && kubectl delete namespace ${idmNS} || echo "Skip..."
+    kubectl get namespace | grep ${idmIamNS} && kubectl delete namespace ${idmIamNS} || echo "Skip..."
+    """
+}
+
+// Runs specific Behat suite.
+def runBehatSuite(suite, mangoUrl) {
+    sh """
+    kubectl --namespace ${idmNS} exec -i idm \
+    -- tests/behat/behat.sh \
+    -u ${mangoUrl} \
+    -s ${suite} \
+    -i http://idp.${idmIamNS} \
+    -e selenium \
+    -l ldap \
+    -h http://hydra.${idmIamNS} \
+    -n ${idmNS}
+    """
+}
+
+// Collects all logs and prints them.
+def collectLogs() {
+    def mangos = [
+        // name: pod's label
+        'Local': 'behat-tests-mango',
+        'LDAP': 'behat-tests-mango-ldap',
+        'OIDC': 'behat-tests-mango-oidc',
+        'SAML base': 'behat-tests-mango-saml-base',
+        'SAML same window': 'behat-tests-mango-saml-same-window',
+        'SAML no user provision': 'behat-tests-mango-saml-same-window-no-user-provision',
+    ]
+
+    echo "*********** COLLECTING LOGS ***********"
+
+    echo "*********** For Mango instances: ***********"
+    sh """
+    echo "Mango common install.log"
+    kubectl --namespace ${idmNS} exec -i \$(kubectl --namespace ${idmNS} get pod -l "app=${mangos['Local']}" -o jsonpath='{.items[0].metadata.name}') cat install.log || echo "Skip..."
+    echo "\n\n"
+    """
+    for (kv in mapToList(mangos)) {
+        sh """
+        echo "Mango ${kv[0]} sugarcrm.log"
+        kubectl --namespace ${idmNS} exec -i \$(kubectl --namespace ${idmNS} get pod -l "app=${kv[1]}" -o jsonpath='{.items[0].metadata.name}') cat sugarcrm.log || echo "Skip..."
+        echo "\n\n"
+        """
+        sh """
+        echo "Mango ${kv[0]} apache error_log"
+        kubectl --namespace ${idmNS} exec -i \$(kubectl --namespace ${idmNS} get pod -l "app=${kv[1]}" -o jsonpath='{.items[0].metadata.name}') cat /var/www/html/php_errors.log || echo "Skip..."
+        echo "\n\n"
+        """
+    }
+
+    echo "*********** For Complementary services: ***********"
+    sh """
+    echo "*********** Identity Provider Service logs ***********"
+    kubectl --namespace ${idmIamNS} logs -lapp=idp || echo "Skip..."
+    echo "\n\n"
+    """
+
+    sh """
+    echo "*********** Hydra logs ***********"
+    kubectl --namespace ${idmIamNS} logs -lapp=hydra || echo "Skip..."
+    echo "\n\n"
+    """
+
+    sh """
+    echo "*********** Simple SAML Server logs ***********"
+    kubectl --namespace ${idmNS} logs -lapp=saml-server || echo "Skip..."
+    echo "\n\n"
+    """
+
+    sh """
+    echo "*********** LDAP Server logs ***********"
+    kubectl --namespace ${idmNS} logs -lapp=ldap || echo "Skip..."
+    echo "\n\n"
+    """
+
+    sh """
+    echo "*********** Behat tests runner logs ***********"
+    kubectl --namespace ${idmNS} logs idm || echo "Skip..."
+    echo "\n\n"
+    """
+}
+
+// Run bash script and return its result whatever it is.
+def valueFromSh(command) {
+  def filename = "cmd-${UUID.randomUUID()}"
+  sh """
+      ${command} > ${filename}
+  """
+  def value = readFile(filename).trim()
+  sh "rm ${filename}"
+  return value
+}
+
+// Parse json.
+@NonCPS
+def parseJson(jsonString) {
+    def lazyMap = new JsonSlurper().parseText(jsonString)
+
+    def m = [:]
+    m.putAll(lazyMap)
+    return m
+}
+
+// Helper, used to iterate through map - Jenkins Pipeline can't iterate a map.
+// mapToList(['a': 'A', 'b': 'B']) -> [['a', 'A'], ['b', 'B']]
+@NonCPS
+List<List<?>> mapToList(Map map) {
+    return map.collect { it ->
+        [it.key, it.value]
+    }
+}

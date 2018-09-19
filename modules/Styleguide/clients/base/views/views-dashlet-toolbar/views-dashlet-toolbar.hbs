@@ -1,0 +1,44 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<section id="list-basic">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+  <p>Documentation is available in the <a href="#Styleguide/docs/dashboards-dashlets">Dashlets documentation page</a> for the components that are commonly combined in a dashlet.</p>
+
+  <h3>Example dashlet toolbar</h3>
+  <div id="example_view" class="example-view dashlet thumbnail collapsed">
+  </div>
+
+  <h3>General markup</h3>
+<pre class="prettyprint linenums">
+&lt;div class="dashlet-header"&gt;
+  &lt;div class="btn-toolbar pull-right"&gt;
+    &lt;span class="dashlet-toolbar"&gt;
+      &lt;a data-dashletaction="toggleMinify" rel="tooltip" data-placement="bottom" title="Open/Close" class="dashlet-toggle btn btn-invisible minify"&gt;
+        &lt;i class="fa fa-chevron-up"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;div class="btn-group"&gt;
+        &lt;a data-toggle="dropdown" rel="tooltip" title="Configure" class="dropdown-toggle btn btn-invisible"&gt;
+          &lt;i data-action="loading" class="fa fa-cog"&gt;&lt;/i&gt;
+        &lt;/a&gt;
+        &lt;ul class="dropdown-menu left"&gt;
+          ...default config options...
+        &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;h4 data-toggle="dashlet" class="dashlet-title"&gt;Example dashlet title&lt;/h4&gt;
+&lt;/div&gt;</pre>
+</section>

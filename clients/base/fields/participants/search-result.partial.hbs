@@ -1,0 +1,13 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<span class="label label-module label-module-mini label-{{module}}" title="{{getModuleName module plural=true}}">{{moduleIconLabel module}}</span> {{#if name_is_erased}}<span class="label">{{/if}}{{name}}{{#if name_is_erased}}</span>{{/if}}{{#if field_name}}, {{field_name}}: {{field_value}}{{/if}}{{#unless email}} <span class="select2-result-status"><span class="flag error"><i class="fa fa-times"></i><i class="fa fa-envelope"></i></span> {{str "LBL_GUEST_WILL_NOT_RECEIVE_INVITE" module}}</span>{{/unless}}

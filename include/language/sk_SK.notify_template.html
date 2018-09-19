@@ -1,0 +1,356 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: Quote_Subject -->
+SugarCRM Quote - {QUOTE_SUBJECT}
+<!-- END: Quote_Subject -->
+<!-- BEGIN: Quote -->
+{ASSIGNER} pridelil Kvótu užívateľovi {ASSIGNED_USER}.
+
+Predmet: {QUOTE_SUBJECT}
+Stav: {QUOTE_STATUS}
+Očakávaný dátum uzatvorenia: {QUOTE_CLOSEDATE}
+Popis: {QUOTE_DESCRIPTION}
+
+Môžete prezrieť túto Kvótu, tu:
+<{URL}>
+<!-- END: Quote -->
+
+
+<!-- BEGIN: Account_Subject -->
+SugarCRM Účet - {ACCOUNT_NAME}
+<!-- END: Account_Subject -->
+<!-- BEGIN: Account -->
+{ASSIGNER} pridelil Účet  užívateľovi {ASSIGNED_USER}.
+
+Meno: {ACCOUNT_NAME}
+Typ: {ACCOUNT_TYPE}
+Popis: {ACCOUNT_DESCRIPTION}
+
+Môžete prezrieť  tento Účet, tu:
+<{URL}>
+<!-- END: Account -->
+
+
+<!-- BEGIN: Case_Subject -->
+SugarCRM Case - Udalosť - {CASE_SUBJECT}
+<!-- END: Case_Subject -->
+<!-- BEGIN: Case -->
+{ASSIGNER} pridelil Udalosť-Case  užívateľovi {ASSIGNED_USER}.
+
+Predmet: {CASE_SUBJECT}
+Priorita: {CASE_PRIORITY}
+Stav: {CASE_STATUS}
+Popis: {CASE_DESCRIPTION}
+
+Môžete prezrieť túto Case-Udalosť, tu:
+<{URL}>
+<!-- END: Case -->
+
+
+<!-- BEGIN: Task_Subject -->
+SugarCRM Úlohy - {TASK_SUBJECT}
+<!-- END: Task_Subject -->
+<!-- BEGIN: Task -->
+{ASSIGNER} pridelil Úlohu  užívateľovi {ASSIGNED_USER}.
+
+Predmet: {TASK_SUBJECT}
+Priorita: {TASK_PRIORITY}
+Due Date: {TASK_DUEDATE}
+Stav: {TASK_STATUS}
+Popis: {TASK_DESCRIPTION}
+
+Môžete prezrieť túto Úlohu, tu:
+<{URL}>
+<!-- END: Task -->
+
+
+<!-- BEGIN: Meeting_Subject -->
+SugarCRM Schôdzka/Stretnutie - {MEETING_SUBJECT}
+<!-- END: Meeting_Subject -->
+<!-- BEGIN: Meeting -->
+To: {MEETING_TO},
+
+{ASSIGNER} Vás pozval na schôdzku/stretnutie
+
+Predmet: {MEETING_SUBJECT}
+Stav: {MEETING_STATUS}
+Čas zahájenia: {MEETING_STARTDATE}
+Trvanie: {MEETING_HOURS}h, {MEETING_MINUTES}m
+<!-- BEGIN: Meeting_External_API -->
+URL Schôdzky: {MEETING_URL}
+<!-- END: Meeting_External_API -->
+Popis: {MEETING_DESCRIPTION}
+
+Prijať toto stretnutie:
+<{ACCEPT_URL}&accept_status=accept>
+
+Pokusne Prijať toto stretnutie
+<{ACCEPT_URL}&accept_status=tentative>
+
+Odmietnuť túto schôdzku
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Meeting -->
+
+<!-- BEGIN: MeetingSpecial_Subject -->
+SugarCRM Schôdzka - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingSpecial -->
+{ASSIGNER} pridelil schôdzku užívateľovi {ASSIGNED_USER}.
+
+Predmet: {MEETING_SUBJECT}
+Stav: {MEETING_STATUS}
+Čas zahájenia: {MEETING_STARTDATE}
+Trvanie: {MEETING_HOURS}h, {MEETING_MINUTES}m
+Popis: {MEETING_DESCRIPTION}
+
+Môžete prezrieť  túto Schôdzku, tu:
+<{URL}>
+<!-- END: MeetingSpecial -->
+
+
+<!-- BEGIN: Email_Subject -->
+SugarCRM Email - {EMAIL_SUBJECT}
+<!-- END: Email_Subject -->
+<!-- BEGIN: Email -->
+{ASSIGNER} pridelil Email užívateľovi {ASSIGNED_USER}.
+
+Predmet: {EMAIL_SUBJECT}
+Date Sent: {EMAIL_DATESENT}
+
+Môžete prezrieť tento Email, tu:
+<{URL}>
+<!-- END: Email -->
+
+
+
+
+
+
+<!-- BEGIN: Contact_Subject -->
+SugarCRM Kontakt - {CONTACT_NAME}
+<!-- END: Contact_Subject -->
+<!-- BEGIN: Contact -->
+{ASSIGNER} pridelil Kontakt užívateľovi {ASSIGNED_USER}.
+
+Meno: {CONTACT_NAME}
+Popis: {CONTACT_DESCRIPTION}
+
+Môžete prezrieť tento Kontakt, tu:
+<{URL}>
+<!-- END: Contact -->
+
+
+<!-- BEGIN: Lead_Subject -->
+SugarCRM Lead - Vedený - {LEAD_NAME}
+<!-- END: Lead_Subject -->
+<!-- BEGIN: Lead -->
+{ASSIGNER} pridelil Lead-a/Vedeného/, užívateľovi  {ASSIGNED_USER}.
+
+Meno: {LEAD_NAME}
+Lead Source: {LEAD_SOURCE}
+Stav: {LEAD_STATUS}
+Popis: {LEAD_DESCRIPTION}
+
+Môžete prezrieť tohto Lead-a/Vedeného. tu:
+<{URL}>
+<!-- END: Lead -->
+
+
+<!-- BEGIN: Opportunity_Subject -->
+SugarCRM Príležitosť - {OPPORTUNITY_NAME}
+<!-- END: Opportunity_Subject -->
+<!-- BEGIN: Opportunity -->
+{ASSIGNER} pridelil príležitosť užívateľovi {ASSIGNED_USER}.
+
+Meno: {OPPORTUNITY_NAME}
+Čiastka: {OPPORTUNITY_AMOUNT}
+Očakávaný dátum uzatvorenia: {OPPORTUNITY_CLOSEDATE}
+Sales Stage: {OPPORTUNITY_STAGE}
+Popis: {OPPORTUNITY_DESCRIPTION}
+
+Môžete prezrieť túto Príležitosť, tu:
+<{URL}>
+<!-- END: Opportunity -->
+
+
+<!-- BEGIN: Bug_Subject -->
+SugarCRM Bug/Chrobák - {BUG_SUBJECT}
+<!-- END: Bug_Subject -->
+<!-- BEGIN: Bug -->
+{ASSIGNER} pridelil Bug/Chrobáka užívateľovi {ASSIGNED_USER}.
+
+Bug Number: {BUG_BUG_NUMBER}
+Predmet: {BUG_SUBJECT}
+Typ: {BUG_TYPE}
+Priorita: {BUG_PRIORITY}
+Stav: {BUG_STATUS}
+Rozlíšenie {BUG_RESOLUTION}
+Verzia:{BUG_RELEASE}
+Popis: {BUG_DESCRIPTION}
+Prihlásenie práce: {BUG_WORK_LOG}
+
+Môžete prezrieť tohto Bug/Chrobáka, tu:
+<{URL}>
+<!-- END: Bug -->
+
+
+<!-- BEGIN: Default_Subject -->
+SugarCRM - Pridelenia {OBJECT}
+<!-- END: Default_Subject -->
+<!-- BEGIN: Default -->
+{ASSIGNER} pridelil {OBJECT} užívateľovi {ASSIGNED_USER}.
+
+Môžete prezrieť  tento {OBJECT}, tu:
+<{URL}>
+<!-- END: Default -->
+
+<!-- BEGIN: Call_Subject -->
+SugarCRM Volania - {CALL_SUBJECT}
+<!-- END: Call_Subject -->
+<!-- BEGIN: Call -->
+Komu: {CALL_TO},
+ {ASSIGNER} Vás pozval k elektronickému rozhovoru
+Predmet: {CALL_SUBJECT}
+Stav: {CALL_STATUS}
+Čas zahájenia: {CALL_STARTDATE}
+Trvanie: {CALL_HOURS}h, {CALL_MINUTES}m
+Popis: {CALL_DESCRIPTION}
+
+Prijať toto volanie:
+<{ACCEPT_URL}&accept_status=accept>
+
+ Pokusne prijať toto volanie
+<{ACCEPT_URL}&accept_status=tentative>
+
+Odmietnuť toto volanie
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Call -->
+
+<!-- BEGIN: CallSpecial_Subject -->
+SugarCRM Volanie - {CALL_SUBJECT}
+<!-- END: CallSpecial_Subject -->
+<!-- BEGIN: CallSpecial -->
+{ASSIGNER} pridelil volanie užívateľovi {ASSIGNED_USER}.
+
+Predmet: {CALL_SUBJECT}
+Stav: {CALL_STATUS}
+Čas zahájenia: {CALL_STARTDATE}
+Trvanie: {CALL_HOURS}h, {CALL_MINUTES}m
+Popis: {CALL_DESCRIPTION}
+
+Môžete prezrieť tpoto volanie, tu:
+<{URL}>
+<!-- END: CallSpecial -->
+
+<!-- BEGIN: Campaign_Subject -->
+SugarCRM Kampaň - {CAMPAIGN_NAME}
+<!-- END: Campaign_Subject -->
+<!-- BEGIN: Campaign -->
+{ASSIGNER} pridelil Kampaň užívateľovi {ASSIGNED_USER}.
+
+Predmet: {CAMPAIGN_NAME}
+Čiastka: {CAMPAIGN_AMOUNT}
+Dátum uzavretia: {CAMPAIGN_CLOSEDATE}
+Stav: {CAMPAIGN_STATUS}
+Popis: {CAMPAIGN_DESCRIPTION}
+
+Môžete prezrieť  túto Kampaň, tu:
+<{URL}>
+<!-- END: Campaign -->
+
+<!-- BEGIN: Quota_Subject -->
+SugarCRM Kvóty - Vaša Kvóta pre {QUOTA_TIMEPERIOD}
+<!-- END: Quota_Subject -->
+<!-- BEGIN: Quota -->
+{ASSIGNER} pridelil Kvótu užívateľovi {ASSIGNED_USER}.
+
+Čiastka: {QUOTA_AMOUNT}
+Časová perióda: {QUOTA_TIMEPERIOD}
+
+Môžete prezrieť toto pridelenie Kvóty, tu:
+<{QUOTA_URL}>
+<!-- END: Quota -->
+
+<!-- BEGIN: KBDocument_Subject -->
+SugarCRM Dokument - {KBDOCUMENT_NAME}
+<!-- END: KBDocument_Subject -->
+<!-- BEGIN: KBDocument -->
+
+{NOTIFICATION_MESSAGE}
+
+Meno: {KBDOCUMENT_NAME}
+Dátum vytvorenia:{KBDOCUMENT_DATE_CREATED}
+Vytvoril: {KBDOCUMENT_CREATED_BY}
+Stav: {KBDOCUMENT_STATUS}
+Popis: {KBDOCUMENT_DESCRIPTION}
+
+Môžete prezrieť tento Dokument, tu:
+<{URL}>
+<!-- END: KBDocument -->
+
+<!-- BEGIN: Contract_Subject -->
+SugarCRM Kontrakt - {CONTRACT_NAME}
+<!-- END: Contract_Subject -->
+<!-- BEGIN: Contract-->
+
+{ASSIGNER} pridelil Kontrakt užívateľovi {ASSIGNED_USER}.
+
+Môžete prezrieť tento Kontrakt, tu:
+<{URL}>
+<!-- END:Contract-->
+
+<!-- BEGIN: ContractSpecial_Subject -->
+SugarCRM Kontrakt - {CONTRACT_NAME}
+<!-- END: ContractSpecial_Subject -->
+<!-- BEGIN: ContractSpecial -->
+
+Váš kontrakt: {CONTRACT_NAME} bude zastaralý od {CONTRACT_END_DATE}.
+
+Môžete prezrieť tento Kontrakt, tu:
+<{URL}>
+<!-- END:ContractSpecial-->
+
+<!-- BEGIN: MeetingReminder_Subject -->
+Stretnutie pripomenutie - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingReminder -->
+Názov: {MEETING_SUBJECT}
+Kedy: {MEETING_STARTDATE}
+Umiestnenie: {MEETING_LOCATION}
+Vytvoril: {MEETING_CREATED_BY}
+<!-- END: MeetingReminder -->
+
+<!-- BEGIN: CallReminder_Subject -->
+Volanie pripomienka - {CALL_SUBJECT}
+<!-- END: CallReminder_Subject -->
+<!-- BEGIN: CallReminder -->
+Názov: {CALL_SUBJECT}
+Kedy: {CALL_STARTDATE}
+Vytvoril: {CALL_CREATED_BY}
+<!-- END: CallReminder -->
+
+<!-- BEGIN: Note_Subject -->
+SugarCRM Note - {NOTE_SUBJECT}
+<!-- END: Note_Subject -->
+<!-- BEGIN: Note -->
+{ASSIGNER} has assigned a Note to {ASSIGNED_USER}.
+
+Subject: {NOTE_SUBJECT}
+Description: {NOTE_DESCRIPTION}
+
+You may review this Note at:
+<{URL}>
+<!-- END: Note -->

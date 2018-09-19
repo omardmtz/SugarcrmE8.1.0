@@ -1,0 +1,57 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+			<form name="AddDataSetEditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="DataSets">
+			<input type="hidden" name="report_id" value="{REPORT_ID}">
+			<input type="hidden" name="action" value="Save">
+			<input type="hidden" name="return_module" value="ReportMaker">
+			<input type="hidden" name="return_id" value="{REPORT_ID}">
+			<input type="hidden" name="return_action" value="DetailView">
+			<input type="hidden" name="name">
+			<input type="hidden" name='data_set_id' >
+			</form>
+</table>
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="20%"  nowrap><slot>{MOD.LBL_LIST_NAME}</slot></td>
+	<td scope="col" width="15%"  nowrap><slot>{MOD.LBL_LIST_OUTPUT_DEFAULT}</slot></td>
+	<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_LIST_ORDER_Y}</slot></td>
+	<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_EXPORTABLE}</slot></td>
+	<td scope="col" width="20%"  nowrap><slot>{MOD.LBL_LIST_HEADER}</slot></td>
+	<td scope="col" width="10%" ><slot>&nbsp;</slot></td>
+	</tr>
+	
+<!-- BEGIN: row -->
+<tr height="20" class="{ROW_COLOR}S1">
+				<td scope="row" nowrap valign=TOP ><slot>{DATA_SET.NAME}</slot></td>
+    	    	<td nowrap valign=TOP ><slot>{DATA_SET.OUTPUT_DEFAULT}</slot></td>
+    			<td nowrap valign=TOP ><slot>{DATA_SET.LIST_ORDER_Y}</slot></td>
+    			<td valign=TOP ><slot><input type='checkbox' disabled=disabled class='checkbox' {DATA_SET.EXPORTABLE} /></slot></td>
+    			<td valign=TOP ><slot><input type='checkbox' disabled=disabled class='checkbox' {DATA_SET.HEADER} /></slot></td>
+    		<td nowrap align="center" valign=TOP>
+    		<slot>
+            {DATA_SET.UP_BUTTON}
+            {DATA_SET.DOWN_BUTTON}
+    		{DATA_SET.EDIT_BUTTON}
+            {DATA_SET.DELETE_BUTTON}
+    		</slot></td>
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: main -->

@@ -1,0 +1,275 @@
+/* JSTREE
+  ----------------*/
+
+/* override the jstree css loader */
+
+.jstree {
+  ul,
+  li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  ul li {
+    display: block;
+    min-height: 18px;
+    line-height: 18px;
+    white-space: nowrap;
+    margin-left: 18px;
+    min-width: 18px;
+  }
+
+  > ul > li {
+    margin-left: 0;
+  }
+
+  li > a {
+    display: inline-block;
+    line-height: 16px;
+    height: 16px;
+    color: black;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 1px 2px;
+    margin: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    > ins {
+      height: 16px;
+      width: 16px;
+
+      &.jstree-icon::before {
+        content: "\f007";
+      }
+    }
+
+    > .jstree-icon {
+      margin-right: 3px;
+    }
+  }
+
+  ins {
+    display: inline-block;
+    text-decoration: none;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.jstree-rtl li {
+  margin-left: 0;
+  margin-right: 18px;
+}
+
+.jstree-rtl > ul > li {
+  margin-right: 0;
+}
+
+.jstree-rtl li > a > .jstree-icon {
+  margin-left: 3px;
+  margin-right: 0;
+}
+
+li.jstree-open > ul {
+  display: block;
+}
+
+li.jstree-closed > ul {
+  display: none;
+}
+
+.jstree-sugar {
+  padding: 10px;
+
+  ins::before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  li.jstree-last {
+    background: transparent;
+  }
+
+  li.jstree-open > a > ins,
+  li.jstree-closed > a > ins,
+  li.jstree-leaf > a > ins {
+    display: none;
+  }
+
+  .jstree-open > ins::before {
+    content: "\f07c";
+  }
+
+  .jstree-closed > ins::before {
+    content: "\f07b";
+  }
+
+  .jstree-closed > ins:hover,
+  .jstree-open > ins:hover {
+    cursor: pointer;
+  }
+
+  ins {
+    margin-right: 5px !important;
+  }
+
+  .jstree-hovered {
+    background-color: transparent !important;
+  }
+
+  .jstree-clicked {
+    color: @gray !important;
+  }
+
+  li,
+  a {
+    color: @blue !important;
+  }
+
+  .jstree-leaf.parent > ins::before {
+    content: "\f062";
+  }
+
+  a.jstree-loading .jstree-icon {
+    background: url("@{baseUrl}/img/throbber.gif") center center no-repeat !important;
+  }
+
+  a.jstree-search {
+    color: aqua;
+  }
+
+  .jstree-search {
+    font-style: italic;
+  }
+
+  .jstree-no-dots {
+    li,
+    .jstree-leaf > ins {
+      background: transparent;
+    }
+
+    .jstree-open > ins {
+      background-position: -18px 0;
+    }
+
+    .jstree-closed > ins {
+      background-position: 0 0;
+    }
+  }
+
+  .jstree-no-icons {
+    a .jstree-icon {
+      display: none;
+    }
+
+    .jstree-checkbox {
+      display: inline-block;
+    }
+  }
+
+  .jstree-no-checkboxes .jstree-checkbox {
+    display: none !important;
+  }
+
+  .jstree-checked > a > .jstree-checkbox {
+    background-position: -38px -19px;
+  }
+
+  .jstree-checked > a > .jstree-checkbox:hover {
+    background-position: -38px -37px;
+  }
+
+  .jstree-unchecked > a > .jstree-checkbox {
+    background-position: -2px -19px;
+  }
+
+  .jstree-unchecked > a > .jstree-checkbox:hover {
+    background-position: -2px -37px;
+  }
+
+  .jstree-undetermined > a > .jstree-checkbox {
+    background-position: -20px -19px;
+  }
+
+  .jstree-undetermined > a > .jstree-checkbox:hover {
+    background-position: -20px -37px;
+  }
+
+  .jstree-locked a {
+    color: silver;
+    cursor: default;
+  }
+}
+
+.dashlet-options .dropdown-menu .jstree.jstree-sugar {
+  padding: 0;
+
+  ul.list li {
+    padding: 0;
+    text-indent: 4px;
+
+    & > a {
+      padding: 10px 0;
+    }
+
+    &.jstree-leaf > a {
+      padding: 5px 0;
+    }
+  }
+}
+
+#jstree-marker.jstree-sugar {
+  background: url("@{baseUrl}/img/.png") -41px -57px no-repeat !important;
+  text-indent: -100px;
+}
+#vakata-dragged.jstree-sugar ins { background: transparent !important; }
+#vakata-dragged.jstree-sugar .jstree-ok { background: url("@{baseUrl}/img/.png") -2px -53px no-repeat !important; }
+#vakata-dragged.jstree-sugar .jstree-invalid { background: url("@{baseUrl}/img/.png") -18px -53px no-repeat !important; }
+
+#vakata-contextmenu.jstree-sugar-context,
+#vakata-contextmenu.jstree-sugar-context li ul {
+  background: #f0f0f0;
+  border: 1px solid #979797;
+  -moz-box-shadow: 1px 1px 2px #999;
+  -webkit-box-shadow: 1px 1px 2px #999;
+  box-shadow: 1px 1px 2px #999;
+}
+#vakata-contextmenu.jstree-sugar-context a { color: black; }
+
+#vakata-contextmenu.jstree-sugar-context a:hover,
+#vakata-contextmenu.jstree-sugar-context .vakata-hover > a {
+  padding: 0 5px;
+  background: #e8eff7;
+  border: 1px solid #aecff7;
+  color: black;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+#vakata-contextmenu.jstree-sugar-context li.jstree-contextmenu-disabled a,
+#vakata-contextmenu.jstree-sugar-context li.jstree-contextmenu-disabled a:hover {
+  color: silver;
+  background: transparent;
+  border: 0;
+  padding: 1px 4px;
+}
+
+#vakata-contextmenu.jstree-sugar-context li.vakata-separator {
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  margin: 0;
+}
+#vakata-contextmenu.jstree-sugar-context li ul { margin-left: -4px; }

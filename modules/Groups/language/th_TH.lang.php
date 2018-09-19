@@ -1,0 +1,26 @@
+<?php
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+$mod_strings = array ( 
+	'LBL_MODULE_NAME'			=> 'กลุ่ม',
+	'LBL_MODULE_NAME_SINGULAR'		=> 'กลุ่ม',
+	'LBL_GROUP_NAME'			=> 'ชื่อกลุ่ม:',
+	'LBL_DESCRIPTION'			=> 'คำอธิบาย:',
+	'LBL_TEAM'					=> 'ทีม:',
+	// ListView
+	'LBL_LIST_TITLE'			=> 'กลุ่ม',
+	// Links
+	'LNK_ALL_GROUPS'			=> 'กลุ่มทั้งหมด',
+	'LNK_NEW_GROUP'				=> 'สร้างกลุ่ม',
+	'LNK_CONVERT_USER'			=> 'แปลงผู้ใช้เป็นกลุ่ม', 
+);
+?>

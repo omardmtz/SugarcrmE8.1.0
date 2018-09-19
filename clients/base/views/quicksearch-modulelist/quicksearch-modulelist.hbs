@@ -1,0 +1,28 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="module-dropdown" data-toggle="dropdown">
+    <span data-label="module-icons">
+        {{partial 'module-avatar' this this.moduleIcons}}
+    </span>
+    <div class="module-dropdown-button btn btn-invisible" track="click:globalsearch-dropdown"><i class="fa fa-caret-down"></i></div>
+</div>
+<ul class="dropdown-menu module-dropdown-list">
+    <li class="menu-item ellipsis_inline{{#if searchModuleFilter.allSelected}} selected{{/if}}" data-action="select-all" title="{{str 'LBL_SEARCH_ALL_MODULES'}}">
+        <i class="fa fa-check"></i><span>{{str 'LBL_SEARCH_ALL_MODULES'}}</span>
+    </li>
+    {{#each searchModuleFilter.models}}
+        <li class="menu-item ellipsis_inline{{#if attributes.selected}} selected{{/if}}" data-module="{{id}}" data-action="select-module" title="{{getModuleName id plural=true}}">
+            <i class="fa fa-check"></i><span>{{getModuleName id plural=true}}</span>
+        </li>
+    {{/each}}
+</ul>

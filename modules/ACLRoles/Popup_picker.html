@@ -1,0 +1,69 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- $Id: Popup_picker.html 56510 2010-05-17 18:54:49Z jenny $ -->
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+<script type="text/javascript" src="include/javascript/popup_helper.js?v={VERSION_MARK}"></script>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr>
+<td>
+xxxxx
+<form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
+{sugar_csrf_form_token}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td scope="row" nowrap="nowrap">{MOD.LBL_NAME}</td>
+<td ><input type="text" size="10" tabindex='1' name="name"  value="{NAME}" /></td>
+<td rowspan='2' valign="top" align="right">
+<input type="hidden" name="module" value="{MODULE_NAME}" />
+<input type="hidden" name="action" value="Popup" />
+<input type="hidden" name="query" value="true" />
+<input type="hidden" name="func_name" value="" />
+<input type="hidden" name="request_data" value="{request_data}" />
+<input type="hidden" name="populate_parent" value="false" />
+<input type="hidden" name="refresh_page" value="true" />
+<input type="hidden" name="record_id" value="" />
+<input type="submit" name="button" class="button" id="search_form_submit"
+	title="{APP.LBL_SEARCH_BUTTON_TITLE}"
+	value="{APP.LBL_SEARCH_BUTTON_LABEL}" />
+<input type="hidden" name="mode" value="{MULTI_SELECT}" />
+</td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</table>
+
+<!-- END: SearchHeader -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+<tr height="20" >
+<td scope="col"  NOWRAP>{CHECKALL}</td>
+<td scope="col" width="50%"  nowrap="nowrap"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_NAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="50%"  nowrap="nowrap"><a href="{ORDER_BY}description" class="listViewThLinkS1" >{MOD.LBL_DESCRIPTION}{arrow_start}{description_arrow}{arrow_end}</a></td>
+</tr>
+<!-- BEGIN: row -->
+<tr height="20" class="{ROW_COLOR}S1">
+<td valign='top'>{PREROW}</td>	
+<td scope='row' valign="top"><a href="#" onclick="send_back('ACLRoles','{ROLE.ID}');" >{ROLE.NAME}</a></td>
+<td valign="top">{ROLE.DESCRIPTION}</td>
+</tr>
+
+<!-- END: row -->
+</table>
+{ASSOCIATED_JAVASCRIPT_DATA}
+<!-- END: main -->

@@ -1,0 +1,59 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<div class="longHelpTitle">Activities on the home page</div>
+<div class="summary">
+<h2>Summary:</h2>
+  This endpoint lists activities across the entire sytstem. It uses a subscription model, and can be queried like a normal bean collection, but without search, ordering or filtering.
+</div>
+<div class="params">
+<h2>Query Parameters:</h2>
+<table>
+  <tr><th>Param</td><th>Description</td><th>Optional</td></tr>
+  <tr><td>max_num</td><td>A maximum number of records to return</td><td>Optional</td></tr>
+  <tr><td>offset</td><td>How many records to skip over before records are returned</td><td>Optional</td></tr>
+</table>
+</div>
+<div class="input">
+<h2>Input Example:</h2>
+This endpoint does not accept any input
+</div>
+<div class="output">
+  <h2>Output Example:</h2>
+<pre class="pre-scrollable">
+{
+    "next_offset": 20, <span class="note">This will be set to -1 when there are no more records after this "page".</span>
+    "records": [{
+        "id": "22fb8b16-de1d-f1dc-b15b-51240efde177",
+        "date_entered": "2013-02-19T23:47:11+00:00",
+        "date_modified": "2013-02-19T23:47:11+00:00",
+        "created_by": "1",
+        "deleted": "0",
+        "parent_id": "f5bb0331-2c0f-5c7c-b4db-5123caac0056",
+        "parent_type": "Contacts",
+        "activity_type": "post", <span class="note">This will be the type of activity performed.</span>
+        "data": {
+            "value": "This is a test post on a contact I'm subscribed to."
+        },
+        "comment_count": 0, <span class="note">This will be set to the total number of comments on the post.</span>
+        "last_comment": { <span class="note">This will be the last comment on the post, which can be used to create a comment model on the frontend.</span>
+            "deleted": 0,
+            "data": []
+        },
+        "fields": [],
+        "first_name": null,
+        "last_name": "Administrator",
+        "created_by_name": " Administrator" <span class="note">This will be the locale-formatted full name of the user.</span>
+    }, ... ]
+}
+</pre>
+</div>

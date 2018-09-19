@@ -1,0 +1,390 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Returns all of the current users recently viewed records.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            module_list
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of modules to return recently viewed records.
+            <br>
+            Example: <code>Accounts,Contacts</code>
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            fields
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Comma delimited list of fields to return. The field date_modified will always be returned.
+            <br>
+            Example: <code>id,name</code>
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            date
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The date expression. Filter recently viewed records from this date.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            limit
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            A maximum number of records to return. Default is 20.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            offset
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The number of records to skip over before records are returned. Default is 0.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+http://{site_url}/rest/v10/recent?module_list=Accounts%2CContacts
+</pre>
+<strong>Note:</strong> GET endpoint parameters are passed in the form of a query string.
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            next_offset
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The next offset to start fetching additional records.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            records
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            An array of recently viewed records.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "next_offset":-1,
+   "records":[
+      {
+         "my_favorite":false,
+         "following":false,
+         "id":"e4213959-35cd-119b-5cd6-5342e8be16f6",
+         "name":"Leila Purifoy",
+         "date_entered":"2014-04-07T13:58:50-04:00",
+         "date_modified":"2014-04-07T13:58:50-04:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "doc_owner":"",
+         "description":"",
+         "deleted":false,
+         "assigned_user_id":"seed_will_id",
+         "assigned_user_name":"Will Westin",
+         "team_count":"",
+         "team_name":[
+            {
+               "id":"East",
+               "name":"East",
+               "name_2":"",
+               "primary":true
+            },
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":false
+            }
+         ],
+         "email":[
+            {
+               "email_address":"support62@example.biz",
+               "invalid_email":false,
+               "opt_out":true,
+               "primary_address":false,
+               "reply_to_address":false
+            },
+            {
+               "email_address":"sales39@example.com",
+               "invalid_email":false,
+               "opt_out":false,
+               "primary_address":true,
+               "reply_to_address":true
+            }
+         ],
+         "email1":"sales39@example.com",
+         "email2":"support62@example.biz",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "email_addresses_non_primary":"",
+         "salutation":"",
+         "first_name":"Leila",
+         "last_name":"Purifoy",
+         "full_name":"Leila Purifoy",
+         "title":"President",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "department":"",
+         "do_not_call":false,
+         "phone_home":"(841) 469-8223",
+         "phone_mobile":"(286) 010-9553",
+         "phone_work":"(369) 075-2809",
+         "phone_other":"",
+         "phone_fax":"",
+         "primary_address_street":"345 Sugar Blvd.",
+         "primary_address_street_2":"",
+         "primary_address_street_3":"",
+         "primary_address_city":"Santa Monica",
+         "primary_address_state":"NY",
+         "primary_address_postalcode":"52255",
+         "primary_address_country":"USA",
+         "alt_address_street":"",
+         "alt_address_street_2":"",
+         "alt_address_street_3":"",
+         "alt_address_city":"",
+         "alt_address_state":"",
+         "alt_address_postalcode":"",
+         "alt_address_country":"",
+         "assistant":"",
+         "assistant_phone":"",
+         "picture":"",
+         "email_and_name1":"",
+         "lead_source":"Trade Show",
+         "account_name":"Sea Region Inc",
+         "account_id":"b1cd3a55-7e84-e53b-954e-5342e85b63f1",
+         "dnb_principal_id":"",
+         "opportunity_role_fields":"",
+         "opportunity_role_id":"",
+         "opportunity_role":"",
+         "reports_to_id":"",
+         "report_to_name":"",
+         "birthdate":"",
+         "portal_name":"LeilaPurifoy5",
+         "portal_active":true,
+         "portal_password":true,
+         "portal_password1":null,
+         "portal_app":"",
+         "preferred_language":"",
+         "campaign_id":"",
+         "campaign_name":"",
+         "c_accept_status_fields":"",
+         "m_accept_status_fields":"",
+         "accept_status_id":"",
+         "accept_status_name":"",
+         "accept_status_calls":"",
+         "accept_status_meetings":"",
+         "sync_contact":false,
+         "mkto_sync":false,
+         "mkto_id":null,
+         "mkto_lead_score":null,
+         "_acl":{
+            "fields":{
+
+            }
+         },
+         "_module":"Contacts",
+         "_last_viewed_date":"2014-04-07T14:43:46-04:00"
+      },
+      {
+         "my_favorite":false,
+         "following":false,
+         "id":"e8f7eb6d-2647-7e57-df30-5342e83c622d",
+         "name":"Draft Diversified Energy Inc",
+         "date_entered":"2014-04-07T13:58:50-04:00",
+         "date_modified":"2014-04-07T13:58:50-04:00",
+         "modified_user_id":"1",
+         "modified_by_name":"Administrator",
+         "created_by":"1",
+         "created_by_name":"Administrator",
+         "doc_owner":"",
+         "description":"",
+         "deleted":false,
+         "assigned_user_id":"seed_max_id",
+         "assigned_user_name":"Max Jensen",
+         "team_count":"",
+         "team_name":[
+            {
+               "id":"West",
+               "name":"West",
+               "name_2":"",
+               "primary":true
+            }
+         ],
+         "email":[
+            {
+               "email_address":"dev.kid.kid@example.de",
+               "invalid_email":false,
+               "opt_out":false,
+               "primary_address":true,
+               "reply_to_address":false
+            },
+            {
+               "email_address":"info.sales@example.co.uk",
+               "invalid_email":false,
+               "opt_out":false,
+               "primary_address":false,
+               "reply_to_address":false
+            }
+         ],
+         "email1":"dev.kid.kid@example.de",
+         "email2":"info.sales@example.co.uk",
+         "invalid_email":false,
+         "email_opt_out":false,
+         "email_addresses_non_primary":"",
+         "facebook":"",
+         "twitter":"",
+         "googleplus":"",
+         "account_type":"Customer",
+         "industry":"Education",
+         "annual_revenue":"",
+         "phone_fax":"",
+         "billing_address_street":"111 Silicon Valley Road",
+         "billing_address_street_2":"",
+         "billing_address_street_3":"",
+         "billing_address_street_4":"",
+         "billing_address_city":"Los Angeles",
+         "billing_address_state":"CA",
+         "billing_address_postalcode":"26022",
+         "billing_address_country":"USA",
+         "rating":"",
+         "phone_office":"(790) 406-0049",
+         "phone_alternate":"",
+         "website":"www.phonesugar.de",
+         "ownership":"",
+         "employees":"",
+         "ticker_symbol":"",
+         "shipping_address_street":"111 Silicon Valley Road",
+         "shipping_address_street_2":"",
+         "shipping_address_street_3":"",
+         "shipping_address_street_4":"",
+         "shipping_address_city":"Los Angeles",
+         "shipping_address_state":"CA",
+         "shipping_address_postalcode":"26022",
+         "shipping_address_country":"USA",
+         "parent_id":"",
+         "sic_code":"",
+         "duns_num":"",
+         "parent_name":"",
+         "campaign_id":"",
+         "campaign_name":"",
+         "_acl":{
+            "fields":{
+
+            }
+         },
+         "_module":"Accounts",
+         "_last_viewed_date":"2014-04-07T14:43:36-04:00"
+      }
+   ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Version</th>
+        <th>API</th>
+        <th>Change</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            7.2.0
+        </td>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/recent</code> GET endpoint.
+        </td>
+    </tr>
+    </tbody>
+</table>

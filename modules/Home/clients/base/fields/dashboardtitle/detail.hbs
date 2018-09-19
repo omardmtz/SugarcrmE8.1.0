@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="dropdown">
+<a class="dropdown-toggle btn btn-invisible btn-link" data-toggle="dropdown" href="javascript:void(0);">{{value}}<i class="fa fa-caret-down"></i></a>
+<ul class="dropdown-menu">
+    {{!
+        FIXME TY-1464: Don't hardcode the "Dashboards" module.
+    }}
+    <li><a href="javascript:void(0);" data-action="manager"><i class="fa fa-bars"></i> {{str "LBL_MANAGE_DASHBOARDS" "Dashboards"}}</a></li>
+    <li class="divider"></li>
+    {{#if dashboards}}
+        {{#each this.dashboards.models}}
+            <li><a href="javascript:void(0);" data-id="{{fieldValue this "id"}}">{{fieldValue this "name"}}</a></li>
+        {{/each}}
+    {{else}}
+        <li>
+            <div class="alert-process">
+                <strong>{{loading 'LBL_ALERT_TITLE_LOADING'}}</strong>
+            </div>
+        </li>
+    {{/if}}
+</ul>
+</div>

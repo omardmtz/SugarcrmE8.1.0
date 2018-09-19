@@ -1,0 +1,119 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<style>
+  .example-chart {
+    height: 400px;
+    width: 100%;
+    position: relative;
+  }
+</style>
+
+<section id="implementation">
+  <div class="page-header">
+    <p class="lead">{{{meta.description}}}</p>
+  </div>
+
+      <div class="row-fluid">
+
+        <div class="span6">
+          <h3>Sugar7 Sucrose Charts</h3>
+          <p>The set of standard chart types currently used in Sugar7 are:</p>
+          <ul>
+            <li><a href="http://sucrose.io?type=multibar" target="_blank">Multibar</a> (vertical and horizontal)</li>
+            <li><a href="http://sucrose.io?type=line" target="_blank">Line</a> (for reports detail view and dashlets)</li>
+            <li><a href="http://sucrose.io?type=pie" target="_blank">Pie</a> (basic and donut)</li>
+            <li><a href="http://sucrose.io?type=funnel" target="_blank">Funnel</a> (value relative to area)</li>
+            <li><a href="http://sucrose.io?type=pareto" target="_blank">Pareto</a> (for forecasting dashlets)</li>
+            <li><a href="http://sucrose.io?type=bubble" target="_blank">Bubble</a> (for top 10 sales dashlet)</li>
+            <li><a href="http://sucrose.io?type=tree" target="_blank">Tree</a> (for organization chart dashlet)</li>
+          </ul>
+          <p>Visit the <a href="http://sucrose.io">Sucrose Charts</a> website for complete documentation and additional chart types.</p>
+
+          <h3>Simple Chart Example</h3>
+          <div id="chart" class="example-chart">
+            <svg class="sucrose sc-chart"></svg>
+          </div>
+        </div> <!-- end col -->
+
+
+        <div class="span6">
+          <h3>Simple Chart Instance</h3>
+          <p>Creating new chart using default parameters and setting data model.</p>
+          <h4>HTML</h4>
+<pre class="prettyprint lang-html">
+  &lt;div id="chart1"&gt;
+    &lt;svg>&lt;/svg&gt;
+  &lt;/div&gt;
+</pre>
+          <h4>Javascript</h4>
+<pre class="prettyprint lang-js">
+  var chart = sucrose.charts.multibarChart().colorData('default');
+
+  d3.select('#chart svg')
+    .datum(data)
+    .call(chart);
+</pre>
+          <h4>JSON</h4>
+<pre class="prettyprint lang-json">
+var data = {
+  "properties": {
+    "title": "Forecasting for Q1 2017",
+    "groups": [
+      {"label": "Mark Gibson"},
+      {"label": "Terence Li"},
+      {"label": "James Joplin"},
+      {"label": "Amy McCray"},
+      {"label": "My Opps"}
+    ],
+    "xDataType": "ordinal",
+    "yDataType": "currency"
+  },
+  "data": [
+    {
+      "key": "Qualified",
+      "values": [
+        {"x": 1, "y": 50},
+        {"x": 2, "y": 80},
+        {"x": 3, "y": 0},
+        {"x": 4, "y": 100},
+        {"x": 5, "y": 100}
+      ]
+    },
+    {
+      "key": "Proposal",
+      "values": [
+        {"x": 1, "y": 50},
+        {"x": 2, "y": 80},
+        {"x": 3, "y": 0},
+        {"x": 4, "y": 100},
+        {"x": 5, "y": 90}
+      ]
+    },
+    {
+      "key": "Negotiation",
+      "values": [
+        {"x": 1, "y": 10},
+        {"x": 2, "y": 50},
+        {"x": 3, "y": 0},
+        {"x": 4, "y": 40},
+        {"x": 5, "y": 40}
+      ]
+    }
+  ]
+}
+</pre>
+        </div> <!-- end col -->
+
+      </div> <!-- end row -->
+
+</section>

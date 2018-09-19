@@ -1,0 +1,71 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<tfoot>
+<tr id="forecastsWorksheetTotalsFilteredTotals">
+    {{#each this.leftColumns}}
+        <td>&nbsp;</td>
+    {{/each}}
+    <td colspan='{{before_colspan}}'>{{str "LBL_DISPLAYED_TOTAL" "Forecasts"}}</td>
+
+    {{#each this.totalsTemplateObj.orderedFields}}
+        {{#if display}}
+            <td class="tright">
+                {{#if access}}
+                    {{formatCurrency filtered}}
+                {{else}}
+                    {{{this.noAccessDataErrorTemplate}}}
+                {{/if}}
+            </td>
+        {{/if}}
+    {{/each}}
+
+
+    {{#if this.after_colspan}}
+         <td colspan='{{after_colspan}}'>&nbsp;</td>
+    {{/if}}
+
+    {{#each this.rightColumns}}
+        <td>&nbsp;</td>
+    {{/each}}
+</tr>
+
+<tr id="forecastsWorksheetTotalsOverallTotals">
+    {{#each this.leftColumns}}
+        <td>&nbsp;</td>
+    {{/each}}
+
+    <td colspan='{{before_colspan}}'>{{str "LBL_OVERALL_TOTAL" "Forecasts"}}</td>
+
+    {{#each this.totalsTemplateObj.orderedFields}}
+        {{#if display}}
+            <td class="tright">
+                {{#if access}}
+                    {{formatCurrency overall}}
+                {{else}}
+                    {{{this.noAccessDataErrorTemplate}}}
+                {{/if}}
+            </td>
+        {{/if}}
+    {{/each}}
+
+    {{#if this.after_colspan}}
+         <td colspan='{{after_colspan}}'>&nbsp;</td>
+    {{/if}}
+
+    {{#each this.rightColumns}}
+        <td>&nbsp;</td>
+    {{/each}}
+</tr>
+</tfoot>
+
+

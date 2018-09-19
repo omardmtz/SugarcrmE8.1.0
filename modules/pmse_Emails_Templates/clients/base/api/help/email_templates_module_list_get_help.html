@@ -1,0 +1,168 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Get the related module list for a module
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will retrieve a list of related modules that can be accessed in
+    the Process Email Templates definition from the specified module.  Input
+    parameters are passed in as the URL query string.  Pagination is supported.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>module_list</td>
+            <td>String</td>
+            <td>
+                The name of the module the retrieved module list is related to.
+            </td>
+            <td>True</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+rest/v11/pmse_Emails_Templates/Quotes/find_modules?module_list=Quotes
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>search</td>
+            <td>String</td>
+            <td>The value of the input module_list parameter.</td>
+        </tr>
+        <tr>
+            <td>success</td>
+            <td>Boolean</td>
+            <td>Whether the related module list has been successfully retrieved.</td>
+        </tr>
+        <tr>
+            <td>result</td>
+            <td>Array</td>
+            <td>An array of related module objects.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "search":"Quotes",
+    "success":true,
+    "result":[
+        {
+            "value":"Quotes",
+            "text":"\u003CQuotes\u003E",
+            "module":"Quotes",
+            "module_label":"Quotes",
+            "module_name":"Quotes",
+            "relationship":"Quotes"
+        },
+        {
+            "value":"billing_accounts",
+            "text":"Accounts (Bill to Account: billing_accounts)",
+            "module":"Accounts",
+            "module_label":"Accounts",
+            "module_name":"Accounts",
+            "relationship":"quotes_billto_accounts"
+        },
+        {
+            "value":"shipping_accounts",
+            "text":"Accounts (Ship to Account: shipping_accounts)",
+            "module":"Accounts",
+            "module_label":"Accounts",
+            "module_name":"Accounts",
+            "relationship":"quotes_shipto_accounts"
+        },
+        {
+            "value":"billing_contacts",
+            "text":"Contacts (Bill to Contact: billing_contacts)",
+            "module":"Contacts",
+            "module_label":"Contacts",
+            "module_name":"Contacts",
+            "relationship":"quotes_contacts_billto"
+        },
+        {
+            "value":"shipping_contacts",
+            "text":"Contacts (Ship to Contact: shipping_contacts)",
+            "module":"Contacts",
+            "module_label":"Contacts",
+            "module_name":"Contacts",
+            "relationship":"quotes_contacts_shipto"
+        },
+        {
+            "value":"contracts",
+            "text":"Contracts (Contracts: contracts)",
+            "module":"Contracts",
+            "module_label":"Contracts",
+            "module_name":"Contracts",
+            "relationship":"contracts_quotes"
+        },
+        {
+            "value":"opportunities",
+            "text":"Opportunities (Opportunity: opportunities)",
+            "module":"Opportunities",
+            "module_label":"Opportunities",
+            "module_name":"Opportunities",
+            "relationship":"quotes_opportunities"
+        },
+        {
+            "value":"assigned_user_link",
+            "text":"Users (Assigned to User: assigned_user_link)",
+            "module":"Users",
+            "module_label":"Users",
+            "module_name":"Users",
+            "relationship":"quotes_assigned_user"
+        },
+        {
+            "value":"created_by_link",
+            "text":"Users (Created by User: created_by_link)",
+            "module":"Users",
+            "module_label":"Users",
+            "module_name":"Users",
+            "relationship":"quotes_created_by"
+        },
+        {
+            "value":"modified_user_link",
+            "text":"Users (Modified by User: modified_user_link)",
+            "module":"Users",
+            "module_label":"Users",
+            "module_name":"Users",
+            "relationship":"quotes_modified_user"
+        }
+    ]
+}
+</pre>

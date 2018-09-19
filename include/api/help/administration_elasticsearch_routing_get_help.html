@@ -1,0 +1,75 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    [ADMIN] Elasticsearch index routing
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint returns an overview of the current read and write indices per module. This routing information is
+    based on the configured index routing strategies and the index configuration per module. Note that this output
+    shows the default routing only as no context is available to determine dynamic routing strategies. This endpoint
+    is only available to administrators.
+</span>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "Contacts":{
+        "strategy":"static",
+        "routing":{
+            "write_index":"autobr2583_contacts",
+            "read_indices":[
+                "autobr2583_contacts"
+            ]
+        }
+    },
+    "Accounts":{
+        "strategy":"static",
+        "routing":{
+            "write_index":"autobr2583_shared",
+            "read_indices":[
+                "autobr2583_shared"
+            ]
+        }
+    },
+    "Emails":{
+        "strategy":"rolling",
+        "routing":{
+            "write_index":"autobr2583_emails_201503",
+            "read_indices":[
+                "autobr2583_emails_201503",
+                "autobr2583_emails_201502",
+                "autobr2583_emails_201501"
+            ]
+        }
+    }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Administration/elasticsearch/routing</code> GET endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,51 @@
+table.edit.view th, table.edit.view td {
+    padding: 10px !important;
+}
+
+table.edit.view .padding-0 {
+    padding: 0 !important;
+}
+
+table.edit.view .left {
+    text-align: left;
+}
+
+table.edit.view .padding-bottom-20 {
+    padding-bottom: 20px;
+}
+
+table.edit.view td.bg-white {
+    background-color: #FFFFFF;
+}
+
+table.edit.view td.title {
+    background-color: #EFEFEF;
+    color: #343434;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+table.edit.view td.title.active {
+    background-color: #A0E8FB;
+    color: #1E5563;
+}
+
+table.edit.view td.title div.tba-container {
+    width: 100%;
+    position: relative;
+}
+
+table.edit.view td.title div.tba-container input[type=checkbox] {
+    position: absolute;
+    left: 10px;
+    top: 16px;
+}
+
+table.edit.view td.title div.tba-container label {
+    text-overflow: ellipsis;
+    min-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    padding: 15px 30px;
+}

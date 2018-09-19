@@ -1,0 +1,93 @@
+::-webkit-input-placeholder {
+  text-align: right;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: right;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: right;
+}
+
+:-ms-input-placeholder {
+  text-align: right;
+}
+
+.pull-left {
+  float: right;
+}
+
+.pull-right {
+  float: left;
+}
+
+[class*="span"].pull-right,
+.row-fluid [class*="span"].pull-right {
+  float: left;
+}
+
+[class*="span"].pull-left,
+.row-fluid [class*="span"].pull-left {
+  float: right;
+}
+
+.row-fluid [class*="span"] {
+  float: right;
+}
+
+.row-fluid .offset1:first-child {
+  margin-right: (@fluidGridColumnWidth * 1) + (@fluidGridGutterWidth * (1 - 1)) + (@fluidGridGutterWidth);
+  margin-left: initial;
+}
+
+.btn-group + .btn-group {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+@double-angle-right: "\f101";
+@double-angle-left: "\f100";
+@chevron-left: "\f053";
+@chevron-right: "\f054";
+
+.fa-angle-double-left::before {
+  content: @double-angle-right;
+}
+
+.fa-angle-double-right::before {
+  content: @double-angle-left;
+}
+
+.fa-chevron-left::before {
+  content: @chevron-right;
+}
+
+.fa-chevron-right::before {
+  content: @chevron-left;
+}
+
+#sugarcrm .dropdown:not(.notification-list) .btn-group {
+  border-radius: 0;
+}
+
+#sugarcrm .dropdown:not(.notification-list) .btn-group > .btn:first-child {
+  border-top-right-radius: @baseBorderRadius;
+  border-bottom-right-radius: @baseBorderRadius;
+}
+
+#sugarcrm .btn-group > .btn:last-child,
+#sugarcrm .dropdown:not(.notification-list) .btn-group > .dropdown-toggle {
+  border-top-left-radius: @baseBorderRadius;
+  border-bottom-left-radius: @baseBorderRadius;
+}
+
+.btn {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.nav-tabs > li,
+.nav-pills > li {
+  float: right;
+}

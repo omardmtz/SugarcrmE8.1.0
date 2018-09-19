@@ -1,0 +1,35 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: users -->
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20">
+		<td scope="col" width="20%" ><slot>{MOD.LBL_LIST_NAME}</slot></td>
+		<td scope="col" width="25%" ><slot>{MOD.LBL_LIST_TITLE}</slot></td>
+		<td scope="col" width="25%" ><slot>{MOD.LBL_LIST_DEPARTMENT}</slot></td>
+		<td scope="col" width="20%" ><slot>{MOD.LBL_LIST_REPORTS_TO}</slot></td>
+		<td scope="col" width="10%" ><slot>&nbsp;</slot></td>
+	</tr>
+<!-- BEGIN: row -->
+	<tr height="20" class="{ROW_COLOR}S1">
+		<td scope='row' bgcolor="{BG_COLOR}" valign=TOP class="{ROW_COLOR}S1"><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.ID}" >{USER.FIRST_NAME} {USER.LAST_NAME}</a></slot></td>
+    	<td valign="top" bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1"><slot>{USER.TITLE}</slot></td>
+    	<td valign="top" bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1"><slot>{USER.DEPARTMENT}</slot></td>
+    	<td valign="top" bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" nowrap="nowrap"><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.REPORTS_TO_ID}">{USER.REPORTS_TO_NAME}</a></slot></td>
+    	<td valign="top" bgcolor="{BG_COLOR}" class="{ROW_COLOR}S1" align="center" nowrap="nowrap"><slot><a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Users&record={USER.ID}{RETURN_URL}">{EDIT_INLINE_PNG}</a> <a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Users&record={USER.ID}{RETURN_URL}">{APP.LNK_EDIT}</a>&nbsp; <a class="listViewTdToolsS1" onClick="return confirm('{MOD.NTC_REMOVE_TEAM_MEMBER_CONFIRMATION}')" href="{URL_PREFIX}index.php?action=RemoveUserFromTeam&module=Teams&record={USER.ID}&team_record={RECORD_ID}{RETURN_URL}">{DELETE_INLINE_PNG}</a> <a class="listViewTdToolsS1" onClick="return confirm('{MOD.NTC_REMOVE_TEAM_MEMBER_CONFIRMATION}')" href="{URL_PREFIX}index.php?action=RemoveUserFromTeam&module=Teams&record={USER.ID}&team_record={RECORD_ID}{RETURN_URL}">{APP.LNK_REMOVE}</a></slot></td>
+	</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: users -->

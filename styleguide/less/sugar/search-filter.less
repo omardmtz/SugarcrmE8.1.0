@@ -1,0 +1,649 @@
+/* SEARCH FILTER
+  ----------------*/
+
+// search filter widget
+.search-filter {
+  .filter {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  // outer wrapper
+  .control-group {
+    padding: 5px 8px;
+    margin-bottom: 0;
+    border-top: @borderWidget;
+  }
+}
+
+// search filter inputs
+.filter-view {
+  border: @inputBorder;
+  //display: table-row;
+  position: relative;
+  white-space: nowrap;
+  margin-left: 0;
+  background-color: @white;
+  margin-bottom: 0;
+  overflow: hidden;
+  min-height: 28px;
+  box-sizing: border-box;
+
+  .table-cell {
+    vertical-align: top;
+    padding: 3px 0;
+
+    &.full-width {
+      padding: 0;
+    }
+  }
+
+  border-radius: @baseBorderRadius;
+  .user-select(none);
+
+  .choice-related,
+  .choice-filter {
+    padding: 4px;
+    display: inline-block;
+    height: 20px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    margin-top: 0;
+    margin-right: 3px;
+    font-size: @fontSizeSmall;
+    font-weight: bold;
+    line-height: 10px;
+    border-width: 0;
+    color: @white;
+    cursor: text;
+
+    &.choice-filter-clickable:focus {
+      .tab-focus();
+    }
+
+    .choice-filter-label {
+      vertical-align: top;
+    }
+
+    .choice-filter-close {
+      font-size: 14px;
+      height: 12px;
+      width: 16px;
+      display: inline-block;
+      margin: -2px -2px 0 0;
+
+      &:focus {
+        .tab-focus()
+      }
+
+      i {
+        color: fade(@white, 70%);
+        // line-height: 12px;
+        // vertical-align: top;
+        &:hover {
+          color: @white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  // select2 filter pills
+  .select2-container {
+    &.related-filter,
+    &.search-filter {
+      vertical-align: top;
+      margin-left: 3px;
+    }
+
+    &.select2-container-disabled .select2-choice {
+      .select2-arrow {
+        background: none;
+
+        .fa-caret-down {
+          display: none;
+        }
+      }
+    }
+
+    &.select2-container-active {
+      .select2-search-choice,
+      .select2-choice {
+        .tab-focus();
+      }
+    }
+
+    .select2-choices {
+      padding: 2px 4px 1px 0;
+      border: none;
+      background-image: none;
+      background-color: transparent;
+      box-shadow: none;
+
+      .select2-input {
+        box-sizing: border-box;
+        height: 24px;
+        font-size: @baseFontSize;
+      }
+    }
+
+    .select2-search-choice,
+    .select2-choice {
+      padding: 0;
+      font-size: @fontSizeSmall;
+      background: none;
+      border: none;
+      height: 20px;
+      border-radius: 0;
+      box-shadow: none;
+
+      span {
+        display: inline-block;
+        margin-right: 0;
+        font-weight: 600;
+        vertical-align: top;
+        line-height: 11px;
+      }
+
+      .select2-arrow {
+        display: none;
+      }
+
+      .select2-chosen {
+        border-radius: 10px 0 0 10px;
+        color: @gray;
+        padding: 4px 4px 4px 6px;
+        line-height: 13px;
+        height: 12px;
+        background: @grayLighter;
+
+        i.fa {
+          margin-left: 4px;
+        }
+
+        &:hover {
+          background: darken(@grayLighter, 10%);
+        }
+      }
+
+      .select2-choice-related,
+      .select2-choice-filter {
+        border-radius: 0 10px 10px 0;
+        padding: 4px 6px 4px 4px;
+        display: inline-block;
+        line-height: 12px;
+      }
+
+      .select2-choice-filter {
+        background: @gray;
+        color: @white;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+
+      .filter-disabled a {
+        background: @grayLighter;
+        color: @gray;
+        cursor: pointer;
+
+        &:hover {
+          color: @gray;
+        }
+      }
+
+      &.select2-locked {
+        padding-right: 0 !important;
+      }
+    }
+
+    &.select2-container-multi.select2-choices-pills-close .select2-search-choice {
+      padding: 1px 0 0 4px !important;
+      height: 23px;
+      margin: 0;
+      box-sizing: border-box;
+
+      div {
+        span.select2-choice-type {
+          margin-right: 2px;
+          margin-top: 0;
+
+          &[disabled=disabled]:hover {
+            background: @grayLighter;
+          }
+        }
+      }
+
+      a.select2-choice-filter {
+        padding-right: 20px;
+      }
+
+      span.select2-choice-type {
+        border-radius: 10px 0 0 10px;
+        color: @gray;
+        padding: 4px 4px 4px 6px;
+        margin-right: 5px;
+        margin-top: 3px;
+        line-height: 12px;
+        height: 12px;
+        background: @grayLighter;
+
+        &:hover {
+          background: darken(@grayLighter, 10%);
+        }
+      }
+    }
+
+    &.select2-container-disabled {
+      .select2-choices {
+        padding-right: 0;
+      }
+
+      .select2-choice .select2-chosen {
+        &:hover {
+          background: @grayLighter;
+        }
+      }
+    }
+  }
+  // search input field
+  .search-name {
+    width: 100%;
+    box-sizing: border-box;
+    height: 26px;
+    border: 0;
+    padding: 4px 8px;
+    box-shadow: none;
+    //the intent was to make the outer .filter-view div have a border
+    //but that is not working so an outline is needed on the input
+    &:focus {
+      .tab-focus();
+
+      box-shadow: none;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+  // clear search text
+  .add-on.fa-times {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 7px 10px;
+    color: @gray;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.extend {
+  background: @grayLighter;
+
+  .filter-header {
+    padding: 5px 8px;
+
+    .controls {
+      padding: 7px 0 0 10px;
+    }
+
+    .btn-primary {
+      min-width: 41px;
+    }
+
+    .btn-link + .btn-link {
+      margin-left: 1px;
+    }
+  }
+
+  .filter-body {
+    padding: 5px 0;
+    margin: 0 8px;
+    border-top: 1px dashed darken(@grayLighter, 15%);
+
+    > .row-fluid {
+      position: relative;
+      padding-right: 64px;
+      box-sizing: border-box;
+
+      &.massupdate {
+        padding: 0;
+        position: static;
+      }
+
+      .massupdate {
+        > .span3 {
+          display: table-row;
+          height: 28px;
+          position: relative;
+
+          > label {
+            display: table-cell;
+            height: inherit;
+            vertical-align: middle;
+            position: relative;
+          }
+        }
+      }
+    }
+    .controls[data-filter='value'] {
+      .input-prepend.input-append {
+        .add-on:first-child {
+          background: none;
+          color: @grayLight;
+          left: 0;
+          width: calc(~"30% - 6px");
+        }
+
+        .datepicker {
+          width: 70%;
+        }
+      }
+      //For flex-relate field
+      .flex-relate-module {
+        float: left;
+        width: 48.5%;
+      }
+
+      .flex-relate-record {
+        width: 48.5%;
+        margin-left: 3%;
+      }
+    }
+
+    .controls {
+      .filter-rows .input-append .add-on:first-child {
+        margin-left: 0;
+        min-width: 70px;
+        text-align: right;
+      }
+    }
+
+    input[type="checkbox"] {
+      margin: 0;
+      vertical-align: text-bottom;
+      display: inline-block;
+      position: absolute;
+      top: 8px;
+      left: 0;
+    }
+  }
+
+  // containing divs for create filter
+  .filter-value {
+    position: relative;
+
+    div.date {
+      width: 100%;
+
+      input[type="text"].datepicker,
+      input[type="text"].ui-timepicker-input {
+        width: 46%;
+        padding: 4px 3%;
+      }
+    }
+  }
+
+  .filter-actions {
+    position: absolute;
+    right: 0;
+    letter-spacing: -0.25em;
+  }
+
+  // inset form select2 controls
+  .select2-container {
+    width: 100%;
+
+    .select2-single-with-drop div b {
+      background-position: 0 0;
+    }
+
+    .select2-choice {
+      padding-left: 10px;
+    }
+
+    .select2-choices {
+      min-height: 20px;
+      border: 1px solid @grayLight;
+      background-image: none;
+      border-radius: @inputBorderRadius;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    .select2-search-field {
+      height: 16px;
+      line-height: 16px;
+      margin: 2px 0 3px 4px;
+
+      input[type="text"].select2-input {
+        padding: 0;
+        line-height: 16px;
+        height: 16px;
+        min-height: 16px;
+      }
+    }
+
+    .select2-search-choice {
+      padding: 0;
+      margin: 4px;
+      font-size: @baseFontSize;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+
+      span {
+        border-radius: 10px 0 0 10px;
+        background: darken(@grayLighter, 10%);
+        color: @gray;
+        padding: 2px 4px 2px 6px;
+        margin-right: 2px;
+      }
+
+      a,
+      span:last-child {
+        border-radius: 0 10px 10px 0;
+      }
+
+      span:last-child {
+        background: @grayLighter;
+      }
+
+      a {
+        background: @dropdownLinkBackgroundHover;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+
+      .filter-disabled a {
+        background: @grayLighter;
+        color: @gray;
+        cursor: pointer;
+
+        &:hover {
+          color: @gray;
+        }
+      }
+    }
+
+    .select2-select-legend {
+      .fa-plus {
+        margin-top: 3px;
+        line-height: 4px;
+      }
+    }
+  }
+
+  // adding this for mass update teamset
+  label {
+    padding-left: 16px;
+    line-height: 10px;
+    margin: 0;
+  }
+}
+
+// create search filter .extend
+.filter-options {
+  .filter-definition-container:first-child {
+    .filter-body {
+      border-top: none;
+      border-bottom: 1px dashed #d0d0d0;
+    }
+  }
+
+  .filter-header {
+    .controls {
+      padding: 0;
+    }
+
+    input[type="text"] {
+      padding-left: 9px;
+    }
+  }
+}
+
+.main-content {
+  .extend {
+    display: none;
+    border-top: @borderWidget;
+  }
+}
+
+// dropdown menu for filter pills
+.search-related-dropdown,
+.search-filter-dropdown {
+  border: 0 none;
+  width: auto;
+  margin-top: 5px;
+
+  &.select2-drop.select2-drop-active {
+    border: 1px solid darken(@grayLighter, 10%);
+    box-shadow: none;
+    border-radius: 2px;
+  }
+
+  .select2-results {
+    margin: 0;
+    padding: 0;
+    max-height: 235px;
+
+    li {
+      line-height: 26px;
+      border-bottom: @borderWidgetLight;
+    }
+
+    li:hover,
+    .select2-highlighted {
+      background: @dropdownLinkBackgroundHover;
+      color: @dropdownLinkColorHover;
+    }
+  }
+}
+
+.search-filter-dropdown {
+  .result-selected {//MOOT: this selector may be no longer used
+    display: block;
+    font-weight: bold;
+  }
+
+  .select2-result {
+    &.select2-result-border-top {
+      border-top: 1px solid darken(@grayLighter, 20%);
+    }
+
+    &.select2-result-border-bottom {
+      border-bottom: 1px solid darken(@grayLighter, 20%);
+    }
+
+    .select2-fa-prepend {
+      i.fa-check {
+        padding-right: 5px;
+      }
+
+      i.fa-plus {
+        padding-left: 1px;
+        padding-right: 7px;
+      }
+    }
+
+    .select2-no-icon {
+      padding-left: 20px;
+    }
+  }
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.drawer .dashablelist-filter {
+  > label {
+    position: relative;
+    left: 20px;
+    font-size: 11px;
+    color: @grayLight;
+    cursor: text;
+    margin-bottom: 0;
+  }
+
+  .search-filter {
+    .control-group {
+      background: none;
+    }
+
+    .filter-view {
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.filter.controls {
+  margin-left: 0 !important;
+}
+
+/* NEW SKIN START */
+
+// search filter widget
+.search-filter {
+  // outer wrapper
+  .control-group {
+    /* override with variable */
+    background: @contentBackground;
+  }
+}
+
+// search filter inputs
+.filter-view {
+  .choice-related,
+  .choice-filter {
+    /* additive */
+    position: relative;
+    top: -1px;
+
+    /* override */
+    border-radius: 4px;
+
+    /* override */
+    background: @PrimaryButton;
+  }
+
+  // select2 filter pills
+  .select2-container {
+    .select2-search-choice,
+    .select2-choice {
+      .select2-chosen {
+        /* override */
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+/* NEW SKIN END */

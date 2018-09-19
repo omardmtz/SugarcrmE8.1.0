@@ -1,0 +1,355 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+
+<!-- BEGIN: Quote_Subject -->
+견적서 관리 - {QUOTE_SUBJECT}
+<!-- END: Quote_Subject -->
+<!-- BEGIN: Quote -->
+{ASSIGNER}께서 다음 견적서를 {ASSIGNED_USER}에게 배정하였습니다.
+
+견적서명: {QUOTE_SUBJECT}
+상태: {QUOTE_STATUS}
+예상 수주일: {QUOTE_CLOSEDATE}
+설명: {QUOTE_DESCRIPTION}
+
+다음주소에서 현재 견적서 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Quote -->
+
+
+<!-- BEGIN: Account_Subject -->
+거래처 관리 - {ACCOUNT_NAME}
+<!-- END: Account_Subject -->
+<!-- BEGIN: Account -->
+{ASSIGNER}께서 다음 거래처를 {ASSIGNED_USER}에게 배정하였습니다.
+
+이름: {ACCOUNT_NAME}
+분류: {ACCOUNT_TYPE}
+설명: {ACCOUNT_DESCRIPTION}
+
+다음주소에서 현재 거래처 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Account -->
+
+
+<!-- BEGIN: Case_Subject -->
+요청사례 관리 - {CASE_SUBJECT}
+<!-- END: Case_Subject -->
+<!-- BEGIN: Case -->
+{ASSIGNER}께서 다음 요청사례를 {ASSIGNED_USER}에게 배정하였습니다.
+
+제목: {CASE_SUBJECT}
+우선순위: {CASE_PRIORITY}
+상태: {CASE_STATUS}
+설명: {CASE_DESCRIPTION}
+
+다음주소에서 현재 요청사례 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Case -->
+
+
+<!-- BEGIN: Task_Subject -->
+업무내역 관리 - {TASK_SUBJECT}
+<!-- END: Task_Subject -->
+<!-- BEGIN: Task -->
+{ASSIGNER}께서 다음 업무내역을 {ASSIGNED_USER}에게 배정하였습니다.
+
+제목: {TASK_SUBJECT}
+우선순위: {TASK_PRIORITY}
+마감일자: {TASK_DUEDATE}
+상태: {TASK_STATUS}
+설명: {TASK_DESCRIPTION}
+
+다음주소에서 현재 업무내역 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Task -->
+
+
+<!-- BEGIN: Meeting_Subject -->
+미팅 관리 - {MEETING_SUBJECT}
+<!-- END: Meeting_Subject -->
+<!-- BEGIN: Meeting -->
+수신: {MEETING_TO}
+
+{ASSIGNER}께서 당신을 다음 미팅에 초대하였습니다.
+
+제목: {MEETING_SUBJECT}
+시작일시: {MEETING_STARTDATE}
+종료일시: {MEETING_ENDDATE}
+<!-- BEGIN: Meeting_External_API -->
+미팅 URL: {MEETING_URL}
+<!-- END: Meeting_External_API -->
+설명: {MEETING_DESCRIPTION}
+
+미팅 참여를 수락하시려면 다음주소를 클릭해주세요:
+<{ACCEPT_URL}&accept_status=accept>
+
+미팅 참여가 확실하지 않으시면 다음주소를 클릭해주세요:
+<{ACCEPT_URL}&accept_status=tentative>
+
+미팅에 참석이 불가능하시면 다음 주소를 클릭해주세요:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Meeting -->
+
+<!-- BEGIN: MeetingSpecial_Subject -->
+미팅 관리 - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingSpecial -->
+{ASSIGNER}께서 다음 미팅을 {ASSIGNED_USER}에게 배정하였습니다.
+
+제목: {MEETING_SUBJECT}
+상태: {MEETING_STATUS}
+시작일시: {MEETING_STARTDATE}
+종료일시: {MEETING_ENDDATE}
+설명: {MEETING_DESCRIPTION}
+
+다음주소에서 현재 미팅 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: MeetingSpecial -->
+
+
+<!-- BEGIN: Email_Subject -->
+이메일 관리 - {EMAIL_SUBJECT}
+<!-- END: Email_Subject -->
+<!-- BEGIN: Email -->
+{ASSIGNER}께서 다음 이메일을 {ASSIGNED_USER}에게 배정하였습니다.
+
+제목: {EMAIL_SUBJECT}
+발송일시: {EMAIL_DATESENT}
+
+다음주소에서 현재 이메일 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Email -->
+
+
+
+
+
+
+<!-- BEGIN: Contact_Subject -->
+연락처관리 - {CONTACT_NAME}
+<!-- END: Contact_Subject -->
+<!-- BEGIN: Contact -->
+{ASSIGNER}께서 다음 연락처를 {ASSIGNED_USER}에게 배정하였습니다.
+
+이름: {CONTACT_NAME}
+설명: {CONTACT_DESCRIPTION}
+
+다음주소에서 현재 연락처 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Contact -->
+
+
+<!-- BEGIN: Lead_Subject -->
+관심고객 관리 - {LEAD_NAME}
+<!-- END: Lead_Subject -->
+<!-- BEGIN: Lead -->
+{ASSIGNER}께서 다음 관심고객을 {ASSIGNED_USER}에게 배정하였습니다.
+
+이름: {LEAD_NAME}
+관심고객 출처: {LEAD_SOURCE}
+상태: {LEAD_STATUS}
+설명: {LEAD_DESCRIPTION}
+
+다음주소에서 현재 관심고객 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Lead -->
+
+
+<!-- BEGIN: Opportunity_Subject -->
+영업기회 관리 - {OPPORTUNITY_NAME}
+<!-- END: Opportunity_Subject -->
+<!-- BEGIN: Opportunity -->
+{ASSIGNER}께서 다음 영업기회를 {ASSIGNED_USER}에게 배정하였습니다.
+
+이름: {OPPORTUNITY_NAME}
+금액: {OPPORTUNITY_AMOUNT}
+수주예상완료일시: {OPPORTUNITY_CLOSEDATE}
+영업단계: {OPPORTUNITY_STAGE}
+설명: {OPPORTUNITY_DESCRIPTION}
+
+다음주소에서 현재 영업기회 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Opportunity -->
+
+
+<!-- BEGIN: Bug_Subject -->
+결함 관리 - {BUG_SUBJECT}
+<!-- END: Bug_Subject -->
+<!-- BEGIN: Bug -->
+{ASSIGNER}께서 다음 결함요청사례를 {ASSIGNED_USER}에게 배정하였습니다.
+
+관리번호: {BUG_BUG_NUMBER}
+제목: {BUG_SUBJECT}
+종류: {BUG_TYPE}
+우선순위: {BUG_PRIORITY}
+상태: {BUG_STATUS}
+해결책: {BUG_RESOLUTION}
+배포: {BUG_RELEASE}
+설명: {BUG_DESCRIPTION}
+활동기록: {BUG_WORK_LOG}
+
+다음주소에서 현재 결함요청사례 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Bug -->
+
+
+<!-- BEGIN: Default_Subject -->
+{OBJECT} - {OBJECT}의 담당자가 변경되었습니다.
+<!-- END: Default_Subject -->
+<!-- BEGIN: Default -->
+{ASSIGNER}께서 다음 {OBJECT}을(를) {ASSIGNED_USER}에게 배정하였습니다.
+
+다음주소에서 현재 {OBJECT} 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Default -->
+
+<!-- BEGIN: Call_Subject -->
+전화상담 관리 - {CALL_SUBJECT}
+<!-- END: Call_Subject -->
+<!-- BEGIN: Call -->
+수신: {CALL_TO}
+ {ASSIGNER}께서 당신을 다음 상담전화에 초대하였습니다.
+제목: {CALL_SUBJECT}
+상태: {CALL_STATUS}
+시작일시: {CALL_STARTDATE}
+기간: {CALL_HOURS}시간, {CALL_MINUTES}분
+설명: {CALL_DESCRIPTION}
+
+상담요청 참여를 수락하시려면 다음주소를 클릭해주세요:
+<{ACCEPT_URL}&accept_status=accept>
+
+상담요청 참여가 확실하지 않으시면 다음주소를 클릭해주세요:
+<{ACCEPT_URL}&accept_status=tentative>
+
+상담요청 참석이 불가능하시면 다음 주소를 클릭해주세요:
+<{ACCEPT_URL}&accept_status=decline>
+
+<!-- END: Call -->
+
+<!-- BEGIN: CallSpecial_Subject -->
+전화상담 관리 - {CALL_SUBJECT}
+<!-- END: CallSpecial_Subject -->
+<!-- BEGIN: CallSpecial -->
+{ASSIGNER}께서 다음 상담요청을 {ASSIGNED_USER}에게 배정하였습니다.
+
+제목: {CALL_SUBJECT}
+상태: {CALL_STATUS}
+시작일시: {CALL_STARTDATE}
+기간: {CALL_HOURS}시간, {CALL_MINUTES}분
+설명: {CALL_DESCRIPTION}
+
+다음주소에서 현재 전화상담 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: CallSpecial -->
+
+<!-- BEGIN: Campaign_Subject -->
+캠페인 관리 - {CAMPAIGN_NAME}
+<!-- END: Campaign_Subject -->
+<!-- BEGIN: Campaign -->
+{ASSIGNER}께서 다음 캠페인을 {ASSIGNED_USER}에게 배정하였습니다.
+
+제목: {CAMPAIGN_NAME}
+금액: {CAMPAIGN_AMOUNT}
+마감일시: {CAMPAIGN_CLOSEDATE}
+상태: {CAMPAIGN_STATUS}
+설명: {CAMPAIGN_DESCRIPTION}
+
+다음주소에서 현재 캠페인 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: Campaign -->
+
+<!-- BEGIN: Quota_Subject -->
+분기 관리 - {QUOTA_TIMEPERIOD} 분기 할당
+<!-- END: Quota_Subject -->
+<!-- BEGIN: Quota -->
+{ASSIGNER}께서 다음 분기 할당량을 {ASSIGNED_USER}에게 배정하였습니다.
+
+금액: {QUOTA_AMOUNT}
+분기: {QUOTA_TIMEPERIOD}
+
+다음주소에서 현재 분기할당 정보를 확인할 수 있습니다:
+<{QUOTA_URL}>
+<!-- END: Quota -->
+
+<!-- BEGIN: KBDocument_Subject -->
+문서 관리 - {KBDOCUMENT_NAME}
+<!-- END: KBDocument_Subject -->
+<!-- BEGIN: KBDocument -->
+
+{NOTIFICATION_MESSAGE}
+
+이름: {KBDOCUMENT_NAME}
+생성일자: {KBDOCUMENT_DATE_CREATED}
+생성자: {KBDOCUMENT_CREATED_BY}
+상태: {KBDOCUMENT_STATUS}
+설명: {KBDOCUMENT_DESCRIPTION}
+
+다음주소에서 현재 문서 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END: KBDocument -->
+
+<!-- BEGIN: Contract_Subject -->
+계약 관리 - {CONTRACT_NAME}
+<!-- END: Contract_Subject -->
+<!-- BEGIN: Contract-->
+
+{ASSIGNER}께서 다음 계약을 {ASSIGNED_USER}에게 배정하였습니다.
+
+다음주소에서 현재 계약 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END:Contract-->
+
+<!-- BEGIN: ContractSpecial_Subject -->
+계약 관리 - {CONTRACT_NAME}
+<!-- END: ContractSpecial_Subject -->
+<!-- BEGIN: ContractSpecial -->
+
+다음 계약({CONTRACT_NAME})이(가) {CONTRACT_END_DATE}에 계약만료될 예정입니다.
+
+다음주소에서 현재 계약 정보를 확인할 수 있습니다:
+<{URL}>
+<!-- END:ContractSpecial-->
+
+<!-- BEGIN: MeetingReminder_Subject -->
+미팅 미리알림 - {MEETING_SUBJECT}
+<!-- END: MeetingSpecial_Subject -->
+<!-- BEGIN: MeetingReminder -->
+제목: {MEETING_SUBJECT}
+시작일시: {MEETING_STARTDATE}
+장소: {MEETING_LOCATION}
+생성자: {MEETING_CREATED_BY}
+<!-- END: MeetingReminder -->
+
+<!-- BEGIN: CallReminder_Subject -->
+상담요청 미리알림 - {CALL_SUBJECT}
+<!-- END: CallReminder_Subject -->
+<!-- BEGIN: CallReminder -->
+제목: {CALL_SUBJECT}
+시작일시: {CALL_STARTDATE}
+생성자: {CALL_CREATED_BY}
+<!-- END: CallReminder -->
+
+<!-- BEGIN: Note_Subject -->
+SugarCRM 참고 - {NOTE_SUBJECT}
+<!-- END: Note_Subject -->
+<!-- BEGIN: Note -->
+{ASSIGNER} 에 메모를 할당 한 {ASSIGNED_USER}.
+
+주제: {NOTE_SUBJECT}
+설명: {NOTE_DESCRIPTION}
+
+에 메모를 할당 한:
+<{URL}>
+<!-- END: Note -->

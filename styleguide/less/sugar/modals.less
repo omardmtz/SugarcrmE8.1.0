@@ -1,0 +1,241 @@
+/* MODALS
+  ----------------*/
+
+/* twitter-bootstrap import START */
+
+// Background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @zindexModalBackdrop;
+  background-color: @black;
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.8;
+}
+
+// Base modal
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  z-index: @zindexModal;
+  width: 560px;
+  margin-left: -280px;
+  background-color: @white;
+  background-clip: padding-box;
+  // Remove focus outline from opened modal
+  outline: none;
+
+  &.fade {
+    transition: 'opacity .3s linear, top .3s ease-out';
+    top: -25%;
+  }
+  &.fade.in { top: 10%; }
+}
+
+.modal-header {
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+  // Close icon
+  .close { margin-top: 2px; }
+  // Heading
+  h3 {
+    margin: 0;
+    line-height: 30px;
+  }
+}
+
+// Body (where all modal content resides)
+.modal-body {
+  position: relative;
+  overflow-y: auto;
+}
+// Remove bottom margin if need be
+.modal-form {
+  margin-bottom: 0;
+}
+
+// Footer (for actions)
+.modal-footer {
+  padding: 14px 15px 15px;
+  margin-bottom: 0;
+  text-align: right; // right align buttons
+  box-shadow: inset 0 1px 0 @white;
+  .clearfix(); // clear it in case folks use .pull-* classes on buttons
+
+  // Properly space out buttons
+  .btn + .btn {
+    margin-left: 5px;
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
+  // but override that for button groups
+  .btn-group .btn + .btn {
+    margin-left: -1px;
+  }
+  // and override it for block buttons as well
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+}
+
+/* twitter-bootstrap import END */
+
+.modal {
+  border: @borderWidget;
+  box-shadow: @shadowWidget;
+  border-radius: @baseBorderRadius;
+}
+
+//Generate fixed spanX modal widths
+.spanModalX (@index) when (@index > 0) {
+  .modal.span@{index},
+  row-fluid .modal.span@{index} { .spanModal(@index); }
+  .spanModalX(@index - 1);
+}
+
+.spanModal (@columns) {
+  width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+  margin-left: -((@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1)))/2;
+}
+.spanModalX (@gridColumns);
+
+// Back to white header preserving 3px rounding
+.modal-header {
+  border-radius: @baseBorderRadius @baseBorderRadius 0 0;
+}
+
+// Hack: Since we've used .record .record-cell, we can't just use record-cell by itself and had
+// to add .record to modal to pick up record styling. But that adds padding which causes overflow.
+// This reduces original span6 from 48.936170208% to 48% to circumnavigate scrollbars
+.modal-body.record .row-fluid .span6 {
+  width: 48%;
+}
+
+.modal-wide {
+  width: 700px;
+  margin-left: -350px;
+}
+
+.modal-body {
+  padding: 0 0 58px;
+  max-height: 400px;
+  // no navigation
+  .modal-content {
+    padding: 15px;
+    position: relative;
+    overflow: auto;
+    max-height: 370px;
+  }
+  // with tabbed navigation
+  // 56+316+30 = 402
+  &.with-nav {
+    padding-top: 56px;
+    overflow-y: hidden;
+
+    .modal-content {
+      max-height: 350px;
+    }
+  }
+  // with breadcrumb navigation
+  // 40+330+30 = 400
+  &.with-tab-nav {
+    padding-top: 40px;
+    overflow-y: hidden;
+
+    .modal-content {
+      height: 330px;
+    }
+  }
+
+  textarea {
+    text-align: left;
+  }
+}
+
+// created for admin settings
+.modal-wizard-start {
+  position: relative;
+  padding-top: 0;
+}
+
+.modal-navigation {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: @grayLighter;
+
+  .nav-tabs {
+    margin: 8px 0 0;
+    padding-left: 10px;
+  }
+
+  .breadcrumb.two {
+    padding: 2px 0 3px;
+
+    li {
+      padding: 0 1em;
+      width: 34%;
+      margin: 0;
+      box-sizing: border-box;
+
+      &:first-child {
+        padding-left: 0;
+        width: 33%;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        width: 33%;
+      }
+
+      a {
+        padding: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: @grayLighter;
+  border-top: @borderWidget;
+  box-sizing: border-box;
+  border-radius: 0 0 @baseBorderRadius @baseBorderRadius;
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.5;
+}
+
+.touch .modal-backdrop { /*SC-2000*/
+  display: none;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.progress-modal {
+  .progress-label {
+    line-height: 40px;
+  }
+
+  .progress {
+    margin-bottom: 22px;
+  }
+}

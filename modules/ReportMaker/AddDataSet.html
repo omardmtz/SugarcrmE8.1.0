@@ -1,0 +1,44 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+			<form name="AddDataSetEditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="DataSets">
+			<input type="hidden" name="report_id" value="{REPORT_ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+		<td>
+		<input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='Save'; return check_form('AddDataSetEditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " >
+		{REMOVE_BUTTON}
+		</td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+<td  scope="row"><slot>{MOD.LBL_DATA_SET}</slot></td>
+<td ><slot><input readonly name='name' type="text" size='35' value="{NAME}"><input name='data_set_id' type="hidden" value='{DATA_SET_ID}'>&nbsp;{CHANGE_BUTTON}</slot></td>
+<td  scope="row"><slot>&nbsp;</slot></td>
+<td  scope="row"><slot>&nbsp;</slot></td>
+</tr>
+
+
+	</table>
+</td>
+</tr></table>
+</form>
+<!-- END: main -->

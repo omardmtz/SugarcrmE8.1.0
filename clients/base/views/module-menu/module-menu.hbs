@@ -1,0 +1,51 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#if meta.short}}
+    <a class="module-list-link" href="#{{buildRoute module=module}}" data-route="#{{buildRoute module=module}}" track="click:{{module}}" tabindex="-1"><span class="label label-module label-module-mini label-{{module}}" title="{{getModuleName module plural=true}}">{{moduleIconLabel module}}</span>{{getModuleName module plural=true}}</a>
+{{else}}
+    <a class="btn btn-invisible btn-link module-name" href="#{{buildRoute module=module}}" data-route="#{{buildRoute module=module}}" track="click:me:{{module}}" aria-label="{{getModuleName module plural=true}}">{{getModuleName module plural=true}}</a>
+    {{#if actions}}
+    <button type="button" title="{{str 'LBL_LINK_MORE' module}}" data-toggle="dropdown" class="btn btn-invisible dropdown-toggle" track="click:{{name}}-dropdown" aria-label="{{getModuleName module plural=true}} - {{str 'LBL_LINK_MORE' module}}"><i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-menu scroll">
+        <ul role="menu">
+            {{#each actions}}
+                {{#if type}}
+                    {{#eq type 'divider'}}
+                        <li class="divider"></li>
+                    {{else}}
+                        {{field ../../../this template="detail"}}
+                    {{/eq}}
+                {{else}}
+                    <li><a class="ellipsis_inline" tabindex="-1"
+                           data-navbar-menu-item="{{label}}"
+                        {{#if event}}
+                           href="javascript:void(0);"
+                           data-event="{{event}}"
+                           track="click:{{event}}"
+                        {{else}}
+                           href="{{route}}"
+                           data-route="{{route}}"
+                           {{#if openwindow}}
+                           data-openwindow="true"
+                           {{/if}}
+                           track="click:{{route}}"
+                        {{/if}}>{{#if icon}}<i class="fa {{icon}}"></i>{{/if}}{{str label ../../module}}</a>
+                    </li>
+                {{/if}}
+            {{/each}}
+            <li class="divider" data-container="recently-viewed"></li>
+            <li class="divider" data-container="favorites"></li>
+        </ul>
+    </div>
+    {{/if}}
+{{/if}}

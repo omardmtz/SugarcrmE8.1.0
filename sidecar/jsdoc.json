@@ -1,0 +1,17 @@
+{
+    "opts": {
+        "destination": "./docs",
+        "encoding": "utf8",
+        "package": "./package.json",
+        "readme": "./README.md",
+        "recurse": true,
+        "template": "node_modules/ink-docstrap/template",
+        "tutorials": "./tutorials"
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "navType": "vertical"
+    }
+}

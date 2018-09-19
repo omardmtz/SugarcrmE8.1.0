@@ -1,0 +1,67 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="headerpane">
+    <h1>
+        {{#each meta.panels}}
+            {{#if header}}
+                {{#each grid}}
+                    {{#each this}}
+                        <span class="record-cell" data-type="{{type}}" data-name="{{name}}">
+                                    <span class="table-cell-wrapper">
+                                {{#if ../../this.labels}}
+                                    {{#unless dismiss_label}}
+                                        <span class="record-label" data-name="{{name}}">{{str label ../../../../../../this.module}}</span>
+                                    {{/unless}}
+                                {{/if}}
+                                        <span class="index{{index}}" data-fieldname="{{name}}" data-index="{{index}}">
+                                            {{field ../../../../this model=../../../../this.model template=../../../../this.action}}
+                                        </span>
+                                        {{#unless ../../../../createMode}}
+                                            {{#notHas name ../../../../../noEditFields}}
+                                                <span class="record-edit-link-wrapper" data-name="{{name}}">
+                                            <a class="record-edit-link btn btn-invisible" data-type="{{type}}"
+                                               data-name="{{name}}"><i class="fa fa-pencil"></i></a>
+                                        </span>
+                                            {{/notHas}}
+                                        {{/unless}}
+                            </span>
+                                </span>
+                    {{/each}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+        {{#if enableHeaderButtons}}
+            <div class="btn-toolbar pull-right">
+                {{#unless createMode}}
+                    {{#if showPrevNextBtnGroup}}
+                        <div class="btn-group btn-group-previous-next">
+                            <button class="btn btn-invisible previous-row{{#unless showPrevious}} disabled{{/unless}}"
+                                    data-action="scroll" data-action-type="prev"
+                                    data-id="{{fieldValue model "id"}}">
+                                <i class="fa fa-chevron-left"></i>
+                            </button>
+                            <button class="btn btn-invisible next-row{{#unless showNext}} disabled{{/unless}}"
+                                    data-action="scroll" data-action-type="next"
+                                    data-id="{{fieldValue model "id"}}">
+                                <i class="fa fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    {{/if}}
+                {{/unless}}
+                {{#each meta.buttons}}
+                    {{field ../this}}
+                {{/each}}
+            </div>
+        {{/if}}
+    </h1>
+</div>

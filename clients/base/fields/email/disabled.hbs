@@ -1,0 +1,26 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#each value}}
+    <div class="control-group email" data-emailaddress="{{email_address}}">
+        <div class="input-append">
+            <input type="text" class="existingAddress" data-id="{{email_address}}" value="{{email_address}}" disabled>
+        </div>
+        <div class="btn-toolbar prevent-mousedown">
+            <div class="btn-group" data-parentEmail="{{email_address}}">
+                <button type="button" class="{{#if primary_address}}active {{/if}}is_primary btn" disabled><i class="fa fa-star"></i></button>
+                <button type="button" class="{{#if opt_out}}active {{/if}}btn" disabled><i class="fa fa-ban"></i></button>
+                <button type="button" class="{{#if invalid_email}}active {{/if}}btn" disabled><i class="fa fa-exclamation-circle"></i></button>
+            </div>
+        </div>
+    </div>
+{{/each}}

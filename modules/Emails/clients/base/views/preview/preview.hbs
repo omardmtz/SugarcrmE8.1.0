@@ -1,0 +1,45 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="block preview-data">
+{{#each meta.panels}}
+{{#each fields}}
+    <div class="record-cell field-row{{#if ../hide}}{{#if ../../../hidePanel}} hide{{/if}} panel_hidden{{/if}}">
+        <span class="preview-lock-link-wrapper hide" data-name="{{name}}" rel="tooltip" data-original-title="{{str 'LBL_LOCKED_FIELD_RECORD_VIEW_TOOLTIP'}}" data-placement="left">
+            <i class="fa fa-lock"></i>
+        </span>
+        {{#if dismiss_label}}
+        <div class="field-value no-label" data-type="{{type}}" name="{{name}}" data-name="{{name}}">
+            {{field ../../../this model=../../../model template="preview"}}
+        </div>
+        {{else}}
+        <div class="field-label ellipsis_inline" data-name="{{name}}">
+            {{str label ../../../model.module}}
+        </div>
+        <div class="field-value" data-type="{{type}}" name="{{name}}" data-name="{{name}}">
+            {{field ../../../this model=../../../model template="preview"}}
+        </div>
+        {{/if}}
+    </div>
+{{/each}}
+{{/each}}
+    <div class="field-row">
+        <div class="field-label{{#unless hiddenPanelExists}} hide{{/unless}} show-hide-toggle">
+            <button class="btn btn-link btn-invisible more{{#if hideMoreButton}} hide{{/if}}"
+                    data-moreless="more"
+                    data-target=".panel_hidden">{{str "LBL_SHOW_MORE"}}...</button>
+            <button class="btn btn-link btn-invisible less{{#if hideLessButton}} hide{{/if}}"
+                    data-moreless="less"
+                    data-target=".panel_hidden">{{str "LBL_SHOW_LESS"}}</button>
+        </div>
+    </div>
+</div>

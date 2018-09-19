@@ -1,0 +1,47 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves an attached file for a specific field on a record.
+</span>
+
+<h2>Request Arguments</h2>
+<span class="lead">
+    This endpoint does not accept any request arguments.
+</span>
+
+<h2>Response Arguments</h2>
+<span class="lead">
+    The response from this request is an HTTP response with a forced download. This can be used in rendering images through the API or in offering immediate file downloads.
+</span>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+Cache-Control: no-cache, must-revalidate Connection: keep-alive Content-Encoding: gzip Content-Type: application/octet-stream Date: Mon, 30 Jan 2012 17:00:46 GMT Expires: Mon, 30 Jan 2012 17:00:45 GMT Last-Modified: Thu, 10 Nov 2011 19:01:31 GMT Transfer-Encoding: chunked Vary: Accept-Encoding...
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/file/:field</code> GET endpoint.
+        </td>
+    </tr>
+</table>

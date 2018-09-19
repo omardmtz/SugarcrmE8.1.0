@@ -1,0 +1,103 @@
+.form-horizontal {
+  .card2 {
+    .control-label-background {
+      .tright {
+        text-align: left !important;
+      }
+    }
+
+    [data-type=compose-actionbar] {
+      .fieldset-inline.edit {
+        .fieldset-field {
+          padding-left: initial;
+
+          &:first-child {
+            padding-left: 8px;
+          }
+        }
+
+        :first-child {
+          .actions.edit {
+            label {
+              padding-right: 6px;
+              padding-left: 6px;
+            }
+          }
+        }
+      }
+
+      .detail > .btn > .fa {
+        margin-left: 6px;
+        margin-right: initial;
+      }
+    }
+
+    [data-name=to_addresses][data-type=recipients] {
+      padding-right: 0;
+      padding-left: 103px;
+
+      [data-fieldname=to_addresses] {
+        a[data-name=to_addresses] {
+          right: initial;
+          left: -36px;
+        }
+      }
+
+      .compose-sender-options {
+        left: 0;
+        right: initial;
+      }
+    }
+
+    [data-name=parent_name] {
+      .select2-container.select2-parent.select2.inherit-width {
+        width: 99.99% !important;
+      }
+    }
+  }
+}
+
+.input-append {
+  .add-on {
+    right: -28px;
+    left: auto;
+  }
+
+  &.error .add-on {
+    right: -26px;
+    left: auto;
+  }
+
+  &.date.error .add-on.error-tooltip,
+  &.datetime.error .add-on.error-tooltip {
+    right: -42px;
+    left: auto;
+  }
+
+  &.date.error .add-on.error-tooltip + .add-on,
+  &.datetime.error .add-on.error-tooltip + .add-on {
+    right: -50px;
+    left: auto;
+  }
+
+  .datepicker {
+    text-align: right;
+  }
+}
+
+.control-group label {
+  padding-left: 1em;
+  padding-right: 0;
+}
+
+.controls.btn-fit {
+  &.controls-one {
+    padding-right: 0;
+    padding-left: 36px;
+  }
+
+  .btn {
+    right: auto;
+    left: 0;
+  }
+}

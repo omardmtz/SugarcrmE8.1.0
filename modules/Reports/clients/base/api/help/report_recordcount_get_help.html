@@ -1,0 +1,115 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    An API to get total number of filtered records from a saved report.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint will return total number of records from a saved report filtered by an expression.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            group_filters
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The group filter expression. Filter expressions are explained below.
+            Note that JSON-encoded filters can be specified as query parameters
+            in one of two ways for GET requests:
+            <ol>
+                <li>
+                    By specifying individual filter arguments as distinct parameters.
+                    Example: <code class="codesample">group_filters[0][name]=value</code>.
+                </li>
+                <li>
+                    By specifying the whole filter as a single JSON-encoded string.
+                    Example: <code class="codesample">group_filters=[{"name":"value"}]</code>.
+                </li>
+            </ol>
+            Example: <code class="codesample">group_filters[0][industry]=Engineering</code>.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <td>
+            use_saved_filters
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Flag to indicate whether or not to apply saved runtime filters if exists. The default value is false.
+            Example: <code class="codesample">use_saved_filters=true</code>.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request Example</h3>
+<pre class="pre-scrollable">
+GET /rest/v10/Reports/:id/record_count?group_filters[0][industry]=Engineering
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            record_count
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            Total number of filtered records.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "record_count": 5
+}
+</pre>

@@ -1,0 +1,118 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Append new node to target node as last child.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                module
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The name of sugar module that contains a nested set data and implements the NestedSetInterface.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                target
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The ID of record that will be used as target to append new node
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+    </tbody>
+</table>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+{
+    "name" : "Children Node 1"
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<span class="lead">
+    This endpoint does not return any response arguments.
+</span>
+
+<h3>Response</h3>
+<span class="lead">
+This endpoint returns a newly created bean
+<div class="code">
+    {
+        "my_favorite":false,
+        "following":"",
+        "id":"59fa8dd7-0f2c-4bfd-364f-54495f77fa3f",
+        "name":"Default title",
+        "date_entered":"2014-10-23T23:03:22+03:00",
+        "date_modified":"2014-10-23T23:03:22+03:00",
+        "modified_user_id":"1",
+        "modified_by_name":"Administrator",
+        "created_by":"1",
+        "created_by_name":"Administrator",
+        "doc_owner":"",
+        "description":"",
+        "deleted":false,
+        "source_id":"",
+        "source_type":"",
+        "source_meta":"",
+        "root":"be9b0c4a-8b78-1ffa-4f14-54481c2f6269",
+        "lft":118,
+        "rgt":119,
+        "level":1,
+        "_acl":{"fields":{}},
+        "_module":"Categories"
+    }
+</div>
+</span>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/append/:target</code> POST endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,99 @@
+table.reorderable-columns {
+  th[data-fieldname] {
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    /* Disable table.dataTable th > *   */
+    > div {
+      position: relative;
+      display: block;
+      overflow-x: visible;
+      white-space: normal;
+      word-break: normal;
+      vertical-align: middle;
+      text-overflow: initial;
+      padding: 0;
+      box-sizing: border-box;
+      width: calc(~"100% - 16px");
+      margin-left: 8px;
+
+      > div {
+        &[data-draggable="true"] {
+          padding: 8px 8px 8px 0;
+
+          /* Column being dragged */
+          &.ui-draggable-dragging {
+            background-color: @white;
+            z-index: 1;
+            cursor: ew-resize;
+          }
+        }
+
+        box-sizing: border-box;
+
+        /* Brings back styling of table.dataTable th > *   */
+        > span {
+          display: inline-block;
+          width: 100%;
+          overflow-x: hidden;
+          white-space: nowrap;
+          vertical-align: middle;
+          text-overflow: ellipsis;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+
+  /* Placeholder prepended to the th */
+  .th-droppable-placeholder {
+    width: 5px !important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -2px;
+
+    &.th-droppable-placeholder-highlight {
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 2;
+
+      &::before,
+      &::after {
+        font-family: FontAwesome;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 6px;
+        white-space: pre;
+        position: absolute;
+        top: 17px;
+        right: 4px;
+        float: right;
+        content: "\f0da";
+        font-weight: normal;
+      }
+
+      &::after {
+        left: 4px;
+        content: "\f0d9";
+      }
+    }
+
+    /* Placeholder appended to the last th */
+    &.th-droppable-placeholder-last {
+      right: -2px;
+      left: auto;
+    }
+  }
+}
+
+/* Fixed columns need special treatment for padding and position of placeholder */
+.no-touch .flex-list-view.left-actions.scroll-width table.dataTable.reorderable-columns th:nth-child(2) > div > div.th-droppable-placeholder {
+  left: -2px !important;
+}
+
+.no-touch .flex-list-view.right-actions.scroll-width table.dataTable.reorderable-columns th:nth-last-of-type(2) > div > div.th-droppable-placeholder-last {
+  right: -1px !important;
+}

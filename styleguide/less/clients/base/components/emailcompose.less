@@ -1,0 +1,136 @@
+// Email compose specific styles
+// Deprecated. Use sugar/emails.less instead along with the
+// Emails/create view. This file will be removed in a future release.
+
+.record {
+  div[data-name="to_addresses"].controls.btn-fit {
+    padding-right: 103px;
+
+    .select2-container {
+      margin-bottom: 4px;
+
+      .select2-choices {
+        max-height: 45px;
+        overflow-y: auto;
+        border-radius: @baseBorderRadius;
+      }
+
+      .select2-search-field input {
+        padding: 0 6px;
+        position: absolute;
+        height: 22px;
+        min-height: 22px;
+      }
+    }
+
+    .compose-sender-options {
+      position: absolute;
+      z-index: 2;
+      padding: 0;
+      top: 0;
+      right: 0;
+      background-color: @white;
+
+      .btn {
+        position: relative;
+        right: 0;
+      }
+    }
+  }
+
+  div[data-name="cc_addresses"].controls.btn-fit,
+  div[data-name="bcc_addresses"].controls.btn-fit {
+    .select2-container {
+      margin-bottom: 4px;
+    }
+  }
+
+  div[data-type="recipients"] {
+    &.controls.btn-fit {
+      .btn {
+        top: 0;
+        right: -36px;
+      }
+
+      .select2-container {
+        .select2-choices {
+          max-height: 45px;
+          overflow-y: auto;
+          border-radius: @baseBorderRadius;
+          box-shadow: 0 0 1px transparent;
+        }
+
+        .select2-search-field input {
+          padding: 0 6px;
+          position: absolute;
+          height: 22px;
+          min-height: 22px;
+        }
+
+        &.drop-highlight {
+          .select2-choices {
+            box-shadow: 0 0 1px transparent;
+            background-color: rgba(23, 109, 229, 0.075);
+          }
+
+          &.drop-hover {
+            .select2-choices {
+              background-color: @white;
+              border-color: rgba(23, 109, 229, 0.5);
+            }
+          }
+        }
+      }
+    }
+
+    &[data-name="compose_addressbook_selected_recipients"] {
+      .select2-search-choice {
+        &.select2-search-choice-focus {
+          background: #555;
+        }
+
+        .select2-search-choice-close {
+          display: none;
+        }
+      }
+    }
+  }
+
+  div[data-type="attachments"].controls {
+    input[type="file"] {
+      display: none;
+    }
+
+    .select2-search-field input {
+      padding: 0;
+      min-height: 26px;
+    }
+  }
+
+  div[data-type="compose-actionbar"] {
+    min-height: 0;
+    padding-bottom: 8px;
+    z-index: 2;
+
+    .normal {
+      min-height: 0;
+    }
+
+    .btn {
+      .fa {
+        margin-right: 6px;
+      }
+    }
+
+    .actions .dropdown-menu {
+      left: 0;
+      right: auto;
+    }
+
+    .btn.dropdown-toggle {
+      .fa {
+        margin-right: 0;
+      }
+    }
+  }
+}

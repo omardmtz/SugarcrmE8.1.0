@@ -1,0 +1,201 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieve information of the process record 
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint gets information for a process record 
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>The id of the process requiring action</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>idflow</td>
+            <td>string</td>
+            <td>The id of the process trigger sequence</td>
+            <td>true</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>case</td>
+            <td>object</td>
+            <td>Process record</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "case":
+    {
+        "flow":
+        {
+            "id":"b2d418ba-28ef-11e6-8ae6-6c4008960436",
+            "name":"",
+            "date_entered":"2016-06-02 18:27:42",
+            "date_modified":"2016-06-02 18:27:42",
+            "modified_user_id":"1",
+            "created_by":"1",
+            "description":null,
+            "deleted":"0",
+            "cas_id":"3",
+            "cas_index":"3",
+            "pro_id":"6e172e2c-2842-11e6-a4bb-6c4008960436",
+            "cas_previous":"2",
+            "cas_reassign_level":"0",
+            "bpmn_id":"7c62acc2-2842-11e6-9b9c-6c4008960436",
+            "bpmn_type":"bpmnActivity",
+            "cas_assignment_method":"static",
+            "cas_user_id":"1",
+            "cas_thread":"1",
+            "cas_flow_status":"FORM",
+            "cas_sugar_module":"Accounts",
+            "cas_sugar_object_id":"b2103fd0-28ef-11e6-8916-6c4008960436",
+            "cas_sugar_action":"None",
+            "cas_adhoc_type":"",
+            "cas_adhoc_parent_id":"",
+            "cas_adhoc_actions":"[\u0022link_cancel\u0022,\u0022approve\u0022,\u0022reject\u0022,\u0022edit\u0022]",
+            "cas_task_start_date":null,
+            "cas_delegate_date":"2016-06-02 18:27:42",
+            "cas_start_date":null,
+            "cas_finish_date":null,
+            "cas_due_date":null,
+            "cas_queue_duration":"0",
+            "cas_duration":"0",
+            "cas_delay_duration":"0",
+            "cas_started":"0",
+            "cas_finished":"0",
+            "cas_delayed":"0",
+            "assigned_user_id":"1",
+            "au_first_name":null,
+            "au_last_name":"Administrator",
+            "cbu_first_name":null,
+            "cbu_last_name":"Administrator",
+            "mbu_first_name":null,
+            "mbu_last_name":"Administrator",
+            "my_favorite":null
+        },
+        "reclaim":false,
+        "buttons":
+        [
+            {
+                "type":"button",
+                "name":"cancel_button",
+                "label":"Cancel",
+                "css_class":"btn-invisible btn-link",
+                "showOn":"edit",
+                "events":
+                {
+                    "click":"button:cancel_button:click"
+                }
+            },
+            {
+                "type":"rowaction",
+                "event":"case:approve",
+                "name":"approve_button",
+                "label":"Approve",
+                "css_class":"btn btn-success"
+            },
+            {
+                "type":"rowaction",
+                "event":"case:reject",
+                "name":"reject_button",
+                "label":"Reject",
+                "css_class":"btn btn-danger"
+            },
+            {
+                "type":"actiondropdown",
+                "name":"main_dropdown",
+                "primary":true,
+                "showOn":"view",
+                "buttons":
+                [
+                    {
+                        "type":"rowaction", 
+                        "event":"button:edit_button:click",
+                        "name":"edit_button",
+                        "label":"Edit",
+                        "acl_action":"edit"
+                    },
+                    {
+                        "type":"rowaction",
+                        "name":"history",
+                        "label":"History",
+                        "event":"case:history"
+                    },
+                    {
+                        "type":"rowaction",
+                        "name":"status",
+                        "label":"Status",
+                        "event":"case:status"
+                    },
+                    {
+                        "type":"rowaction",
+                        "name":"add-notes",
+                        "label":"Show Notes",
+                        "event":"case:add:notes"
+                    }
+                ]
+            }
+        ],
+        "readonly":[],
+        "required":[],
+        "title":
+        {
+            "time":
+            {
+                "expected_time_warning":false,
+                "expected_time_message":false,
+                "expected_time_view":false,
+                "expected_time":""
+            },
+            "process":"PD1",
+            "rec_name":"ABC3",
+            "activity":"Activity # 1"
+        },
+        "inboxId":"b2b6e20e-28ef-11e6-bba8-6c4008960436",
+        "flowId":"b2d418ba-28ef-11e6-8ae6-6c4008960436"
+    }
+}
+</pre>

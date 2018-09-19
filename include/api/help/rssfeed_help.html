@@ -1,0 +1,142 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Consumes an RSS feed as a proxy and returns the feed up to a certain number of entries.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>feed_url</td>
+        <td>String</td>
+        <td>A fully qualified URL to an RSS feed.</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>limit</td>
+        <td>Integer</td>
+        <td>Maximum number of entries to fetch. If not provided, the API will return up to <code>$sugar_config['rss_feed_max_entries']</code> or 20 if no config option is set.</td>
+        <td>False</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+http://{site_url}/rest/v10/rssfeed?feed_url=http%3A%2F%2Ffqd.rssfeed.url%2F&limit=10
+</pre>
+<strong>Note:</strong> GET endpoint parameters are passed in the form of a query string.
+
+<h2>Response Arguments</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>title</td>
+            <td>String</td>
+            <td>The title of the RSS Feed. This can be blank.</td>
+        </tr>
+        <tr>
+            <td>link</td>
+            <td>String</td>
+            <td>The URL to the source of the RSS Feed. This can be blank.</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>String</td>
+            <td>A description of the feed. This can be blank.</td>
+        </tr>
+        <tr>
+            <td>publication_date</td>
+            <td>Timestamp</td>
+            <td>A timestamp of when the feed was published.</td>
+        </tr>
+        <tr>
+            <td>entries</td>
+            <td>Array</td>
+            <td>
+                An array of entries, each of which will contain the following values:
+                <ul>
+                    <li>title</li>
+                    <li>description</li>
+                    <li>link</li>
+                    <li>publication_date</li>
+                    <li>source</li>
+                    <li>author</li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</span>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+    "feed":{
+        "title":"Sample Feed Title",
+        "link":"http:\/\/www.samplefeed.com\/feed-link-url.htm",
+        "description":"A sample of a feed description",
+        "publication_date":"Tue, 10 Aug 2014 13:38:55 -0800",
+        "entries":[
+            {
+                "title":"First entry title",
+                "description":"A blurb about the first entry. This will be HTML encoded on return.",
+                "link":"http:\/\/www.samplefeed.com\/feed-entry-1.htm",
+                "publication_date":"Tue, 10 Aug 2014 13:38:55 -0800",
+                "source":"Reuters",
+                "author":"John Doe"
+            },
+            {
+                "title":"Second entry title",
+                "description":"A blurb about the Second entry. This will be HTML encoded on return.",
+                "link":"http:\/\/www.samplefeed.com\/feed-entry-2.htm",
+                "publication_date":"Tue, 10 Aug 2014 13:38:55 -0800",
+                "source":"BBC",
+                "author":""
+            }
+        ]
+    }
+}
+</pre>
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;rssfeed&gt;</code> GET endpoint.
+        </td>
+    </tr>
+</table>

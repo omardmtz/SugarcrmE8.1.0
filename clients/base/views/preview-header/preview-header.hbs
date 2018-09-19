@@ -1,0 +1,32 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<h1 class="ellipsis_inline" rel="tooltip" data-placement="bottom" data-original-title="{{str "LBL_PREVIEW"}}">{{str "LBL_PREVIEW"}}</h1>
+{{#if layout.previewEdit}}<a data-action="edit" class="btn btn-invisible preview-edit-btn" track="click:preview-edit"><i class="fa fa-pencil"></i></a>{{/if}}
+<div class="btn-toolbar pull-right">
+    {{#if layout.previewEdit}}
+    <div class="preview-headerpane" align="right">
+        {{#each meta.buttons}}
+            {{field ../this}}
+        {{/each}}
+    </div>
+    {{/if}}
+    <div class="btn-group">
+        {{#unless layout.hideNextPrevious}}
+        <button type="button" class="btn btn-invisible btn-left{{#unless layout.previous}} disabled{{/unless}}" data-direction="left" {{#unless layout.previous}} tabindex="-1"{{/unless}} aria-label="{{str 'LBL_PREVIEW_PREVIOUS'}}"><i class="fa fa-chevron-left"></i></button>
+        <button type="button" class="btn btn-invisible btn-right{{#unless layout.next}} disabled{{/unless}}" data-direction="right" {{#unless layout.next}} tabindex="-1"{{/unless}} aria-label="{{str 'LBL_PREVIEW_NEXT'}}"><i class="fa fa-chevron-right"></i></button>
+        {{/unless}}
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-invisible closeSubdetail" data-action="close" data-toggle="tab" aria-label="{{str 'LBL_PREVIEW_CLOSE'}}"><i class="fa fa-times"></i></button>
+    </div>
+</div>

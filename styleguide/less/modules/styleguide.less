@@ -1,0 +1,552 @@
+// Styleguide.less
+// Do not add to bootstrap.less
+// ------------------------------------------------------------------------
+@baseUrl: "../../assets";
+@import "../../themes/clients/base/default/variables.less";
+@import "../fixed_variables.less";
+@import "../sugar/mixins.less";
+@import "../sugar/code.less";
+
+/* Special grid styles
+-------------------------------------------------- */
+.show-grid {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.show-grid [class*="span"] {
+  background-color: #eee;
+  text-align: center;
+  border-radius: 3px;
+  min-height: 30px;
+  line-height: 30px;
+}
+
+.show-grid:hover [class*="span"] {
+  background: darken(@grayLighter, 10%);
+}
+
+.show-grid .show-grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.show-grid .show-grid [class*="span"] {
+  background-color: #ccc;
+}
+
+/* Popover docs
+-------------------------------------------------- */
+.popover-well {
+  min-height: 160px;
+}
+
+.popover-well .popover {
+  display: block;
+}
+
+.popover-well .popover-wrapper {
+  width: 50%;
+  height: 160px;
+  float: left;
+  margin-left: 55px;
+  position: relative;
+}
+
+.popover-well .popover-menu-wrapper {
+  height: 80px;
+}
+
+/* Color swatches on LESS docs page
+-------------------------------------------------- */
+
+/* Sets the width of the td */
+.swatch-col,
+.hex {
+  width: 30px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  margin: -6px 0;
+  border-radius: 3px;
+  padding: 0;
+}
+
+.swatch-bordered {
+  width: 28px;
+  height: 18px;
+  border: 1px solid #ddd;
+}
+
+.cell-swatch {
+  display: block;
+  padding: 8px;
+  background-color: #c3deb7;
+  border-bottom: 1px solid @grayLighter;
+
+  span {
+    display: inline-block;
+    line-height: 18px;
+    width: 100%;
+    background-color: #a0c5e8;
+  }
+}
+
+/* Reset general styles
+-------------------------------------------------- */
+
+.dropdown-menu-container {
+  position: relative;
+  display: inline-block;
+  z-index: 1030;
+
+  a {
+    padding-left: 5px;
+  }
+
+  ul {
+    font-size: 12px;
+  }
+}
+
+td {
+  code {
+    display: inline-block;
+  }
+
+  pre {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+}
+
+.page-content {
+  margin: 20px;
+}
+
+.field-examples {
+  .record {
+    margin: 0;
+    padding: 0;
+    margin-left: 16px;
+  }
+
+  table.accordion .dataTable {
+    width: 100%;
+  }
+}
+
+.styleguide {
+  width: 100%;
+  border-right: none;
+
+  section {
+    padding-top: 0;
+  }
+
+  .container-fluid {
+    padding-bottom: 20px;
+  }
+
+  .page-header {
+    padding-bottom: 0;
+    margin: 0 0 14px;
+
+    h1 {
+      padding-bottom: 0;
+      margin-top: 0;
+      font-size: 26px;
+    }
+
+    small {
+      font-size: 18px;
+    }
+  }
+
+  .headerpane .record-cell:not(:last-child) {
+    float: left;
+  }
+
+  .headerpane .record-cell:last-child {
+    float: right;
+  }
+
+  .headerpane h1 {
+    padding: 17px;
+    display: inline-block;
+  }
+
+  .headerpane .btn-toolbar {
+    display: inline-block;
+  }
+
+  .headerpane .select2-container .select2-choice {
+    min-width: 200px;
+    font-size: 14px;
+  }
+
+  .subnav .btn-toolbar {
+    margin-right: 12px;
+  }
+}
+
+.subnav .btn-toolbar label {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Accordion table
+-------------------------------------------------- */
+table.accordion td.accordion-heading .accordion-toggle,
+table.accordion td.accordion-body {
+  padding: 0;
+}
+
+table.accordion {
+  border-left: 1px solid #e8e8e8;
+
+  h3 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .accordion-toggle,
+  .accordion-body {
+    padding: 0;
+  }
+
+  .accordion-body {
+    border-top: none;
+    overflow: visible;
+  }
+
+  .accordion-inner {
+    border: none;
+    overflow: hidden;
+
+    &.in {
+      overflow: hidden;
+      overflow: visible;
+      padding: 12px;
+    }
+
+    td span.edit {
+      margin-left: 0;
+    }
+  }
+
+  .accordion-heading {
+    float: none;
+
+    .accordion-toggle {
+      border: none;
+    }
+  }
+
+  .accordion-heading td,
+  .accordion-body td {
+    border-right: none;
+    border-left: none;
+  }
+
+  .list-view {
+    margin-top: -5px;
+  }
+
+  .dataTable {
+    width: 100%;
+  }
+}
+
+ul.sg-main {
+  list-style: none;
+}
+
+ul.sg-main i {
+  margin-right: 12px;
+  margin-bottom: 12px;
+  width: 1.25em;
+  display: inline-block;
+}
+
+ul.sg-main a {
+  margin-top: 8px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+/* Hero unit
+-------------------------------------------------- */
+.hero-unit {
+  padding: 20px;
+  font-size: 24px;
+
+  .cube {
+    height: 28px;
+    background: url('../../assets/img/badge_256g.png') -3px 3px no-repeat;
+  }
+
+  h1 {
+    display: inline-block;
+    margin-top: 0;
+    font-size: 32px;
+  }
+
+  #s2id_find_patterns {
+    z-index: 1030;
+    font-size: 12px;
+    width: 200px;
+  }
+}
+
+/* Headerpane doc search
+-------------------------------------------------- */
+.section-search {
+  input {
+    width: 100%;
+    font-size: 18px;
+    height: 38px;
+    padding: 5px 28px 5px 8px;
+    box-sizing: border-box;
+  }
+
+  .btn-toolbar {
+    padding: 0;
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .btn {
+    line-height: 28px;
+    float: none;
+    margin-left: -45px;
+    width: 26px;
+    border: none;
+    border-left: 1px solid #cdcccb;
+  }
+}
+
+/* Example page
+------------------------- */
+.bootstrap-examples h4 {
+  margin: 10px 0 5px;
+}
+
+.bootstrap-examples p {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.bootstrap-examples .thumbnail {
+  margin-bottom: 9px;
+  background-color: @white;
+}
+
+.example-view {
+  padding: 8px;
+  margin-top: 10px;
+  background-color: #c2cd80;
+}
+
+/* Bootstrap code examples
+-------------------------------------------------- */
+
+/* Base class */
+.bs-docs-example {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: @white;
+  border: 1px solid darken(@grayLighter, 10%);
+  border-radius: 4px;
+}
+
+/* Echo out a label for the example */
+.bs-docs-example::after {
+  content: "Example";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid darken(@grayLighter, 10%);
+  color: #9da0a4;
+  border-radius: 4px 0;
+}
+
+/* Remove spacing between an example and it's code */
+.bs-docs-example + .prettyprint {
+  margin-top: -20px;
+  padding-top: 15px;
+}
+
+/* Google Pretty Print
+-------------------------------------------------- */
+
+.com { color: #93a1a1; }
+.lit { color: #195f91; }
+
+.pun,
+.opn,
+.clo { color: #93a1a1; }
+.fun { color: #dc322f; }
+
+.str,
+.atv { color: #d14; }
+
+.kwd,
+.linenums .tag { color: #1e347b; }
+
+.typ,
+.atn,
+.dec,
+.var { color: teal; }
+.pln { color: #48484c; }
+
+.prettyprint {
+  padding: 8px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+  -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+  box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 33px; /* IE indents via margin-left */
+}
+
+ol.linenums li {
+  padding-left: 12px;
+  color: #bebec5;
+  line-height: 18px;
+  text-shadow: 0 1px 0 @white;
+}
+
+/* Font Awesome icons
+-------------------------------------------------- */
+.the-icons {
+  margin-left: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.the-icons i {
+  font-size: 16px;
+  padding: 4px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.the-icons i:hover {
+  background-color: #eee;
+  border-radius: 3px;
+  font-size: 18px;
+  color: #555;
+  padding: 5px 4px 3px;
+}
+
+.chart-icon-container {
+  display: inline-block;
+  margin-right: 12px;
+  padding: 12px;
+}
+
+.filetype-thumbnails span.filetype-thumbnail {
+  margin: 0 12px 12px 0;
+  float: left;
+}
+
+.sugar-cube svg {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+
+.sugar-cube.sc-small svg {
+  width: 20px;
+  height: 20px;
+}
+
+.sugar-cube.sc-large svg {
+  width: 512px;
+  height: 512px;
+}
+
+.sugar-cube .sc-left,
+.sugar-cube .sc-right,
+.sugar-cube .sc-top {
+  fill: #ccc;
+  stroke-width: 0;
+
+  /*stroke-linecap: butt;
+  stroke: @black;
+  stroke-linejoin: miter;
+  stroke-opacity: 1*/
+}
+
+.sugar-cube .sc-top {
+  fill: #e41e26;
+}
+
+.sugar-cube .sc-right {
+  fill: #cecccb;
+}
+
+.sugar-cube .sc-left {
+  fill: #343433;
+}
+
+.sugar-cube.sc-white path {
+  fill: #fff;
+}
+
+.sugar-cube.sc-white path.sc-top {
+  opacity: 1;
+}
+
+.sugar-cube.sc-white path.sc-right {
+  opacity: 0.8;
+}
+
+.sugar-cube.sc-white path.sc-left {
+  opacity: 0.6;
+}
+
+.PrimaryButton {
+  background-color: @PrimaryButton;
+}
+
+.NavigationBar {
+  background-color: @NavigationBar;
+}
+
+.BorderColor {
+  background-color: @BorderColor;
+}
+
+/* Responsive
+-------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .container,
+  .container-fluid {
+    width: auto;
+    padding: 20px;
+  }
+}

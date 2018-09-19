@@ -1,0 +1,33 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="btn-toolbar pull-right">
+{{#each meta.buttons}}
+    {{#if type}}
+        {{field ../../this model=../../this.model}}
+    {{else}}
+        {{#if dropdown_buttons}}
+        <div class="btn-group">
+            {{#if ../../../this.canEdit}}
+                <button type="button" data-toggle="dropdown" rel="tooltip" title="{{str "LBL_DASHLET_CONFIGURE"}}" class="btn btn-invisible dropdown-toggle" data-placement="bottom" aria-label="{{str "LBL_DASHLET_CONFIGURE"}}" aria-haspopup="true" aria-expanded="false"><i data-action="loading" class="fa fa-cog" track="click:dashletToolbarCog"></i></button>
+            {{/if}}
+            <ul class="dropdown-menu left" role="menu">
+                {{#each dropdown_buttons}}
+                    <li role="menuitem">{{field ../../../../this model=../../../../this.model}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+    {{/if}}
+{{/each}}
+</div>
+<h4 data-toggle="dashlet" class="dashlet-title">{{meta.label}}</h4>

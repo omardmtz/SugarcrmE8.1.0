@@ -1,0 +1,110 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<!-- BEGIN: main -->
+
+<script>
+function togglemessage(){
+	if(this.document.getElementById('source_type').value=='Normal Message'){
+		this.document.getElementById('message').style.display='';
+		this.document.getElementById('custom').style.display='none';		
+	}
+	if(this.document.getElementById('source_type').value=='Custom Template'){
+		this.document.getElementById('message').style.display='none';
+		this.document.getElementById('custom').style.display='';
+	}
+	if(this.document.getElementById('source_type').value=='System Default'){
+		this.document.getElementById('message').style.display='none';
+		this.document.getElementById('custom').style.display='none';
+	}	
+//end function togglemessage
+}	
+function check_c_form(){
+	
+	if(this.document.getElementById('source_type').value=='Custom Template'){
+		
+		//check to ensure a custom template is picked
+		if(this.document.getElementById('custom_template_id').value==''){
+		alert('You must select a Custom Template or use a normal message');
+		return false;
+		}
+	}	
+	
+	return check_form('EditView');
+}	
+</script>
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+			<form name="EditView" method="POST" action="index.php">
+{sugar_csrf_form_token}
+			<input type="hidden" name="module" value="WorkFlowAlertShells">
+			<input type="hidden" name="module_tab" value="WorkFlow">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="parent_id" value="{PARENT_ID}">
+			<input type="hidden" name="workflow_id" value="{PARENT_ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+		<td><input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='Save'; return check_c_form();" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
+	<td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	<td align='right'>{ADMIN_EDIT}</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+<td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<td width="15%" scope="row"><slot>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+	<td width="35%" ><slot><input name='name' tabindex='1' size='35' maxlength='50' type="text" value="{NAME}"></slot></td>
+	<td width="15%" scope="row"><slot>&nbsp;</slot></td>
+	<td width="35%" ><slot>&nbsp;</slot></td>
+	</tr><tr>
+	<td scope="row"><slot>{MOD.LBL_ALERT_TYPE} <span class="required"></slot></td>
+	<td ><slot><select id='alert_type' name='alert_type' tabindex='2'>{ALERT_TYPE}</select></slot></td>
+	<td scope="row"><slot>{MOD.LBL_SOURCE_TYPE} <span class="required"></slot></td>
+	<td ><slot><select id='source_type' name='source_type' tabindex='2' onchange="togglemessage();">{SOURCE_TYPE}</select></slot></td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	</tr>
+	<tr id='custom'>
+	<td scope="row"><slot>{MOD.LBL_CUSTOM_TEMPLATE_NAME}</slot></td>
+	<td ><slot><select id='custom_template_id' name='custom_template_id' tabindex='2'>{EMAIL_TEMPLATE_OPTIONS}</select></slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	</tr>
+	<tr id='message'>
+	<td valign="top" scope="row"><slot>{MOD.LBL_ALERT_TEXT}</slot></td>
+	<td  colspan='3'><slot><textarea name='alert_text' tabindex='3' cols="60" rows="4">{ALERT_TEXT}</textarea></slot></td>
+	</tr>
+	</table>
+</td></tr></table>
+	</form>
+
+
+{JAVASCRIPT}
+<script>
+togglemessage();
+</script>
+
+<!-- END: main -->

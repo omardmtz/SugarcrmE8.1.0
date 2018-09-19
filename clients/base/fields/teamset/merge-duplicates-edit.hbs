@@ -1,0 +1,37 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+{{#each value}}
+    <div class="merge-row control-group">
+        <div class="controls">
+            {{#if id}}
+                <input type="checkbox" name="copy_{{../../name}}_{{@index}}"
+                       class="copy"
+                       data-action="copy"
+                       data-field-name="{{../../name}}"
+                       data-record-id="{{../../model.attributes.id}}"
+                       data-record-item-id="{{id}}" {{#if checked}}checked="checked"{{/if}} />
+                <label>{{name}}</label>
+                {{#if checked}}
+                    <button type="button"
+                            class="btn fourth {{#if primary}}active{{/if}}" name="primary"
+                            data-index="{{@index}}" rel="tooltip"
+                            data-placement="right"
+                            data-original-title="{{str "LBL_TEAM_PRIMARY"}}">
+                        <i class="fa fa-star"></i>
+                    </button>
+                {{/if}}
+                {{partial 'button-selected' ../../this this index=@index}}
+            {{/if}}
+        </div>
+    </div>
+{{/each}}

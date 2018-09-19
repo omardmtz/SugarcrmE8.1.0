@@ -1,0 +1,22 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<div class="quicksearch-tags-wrapper">
+	<div class="quicksearch-tags dropdown-menu hide">
+	    <span class="qs-tags-row qs-tag-icon"><i class="fa fa-tag"></i></span>
+	    {{#if tagCollection}}
+	        {{#each tagCollection}}
+	            <span class="qs-tags-row qs-tag"><a track="click:{{name}}" href="javascript:void(0);">{{name}}</a></span>
+	        {{/each}}
+	    {{/if}}
+	</div>
+</div>

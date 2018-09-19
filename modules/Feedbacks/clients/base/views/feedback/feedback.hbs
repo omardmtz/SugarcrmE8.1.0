@@ -1,0 +1,30 @@
+{{!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+--}}
+<a class="fa fa-times pull-right feedback-close" data-action="close"></a>
+{{#each meta.panels}}
+    <p>{{str label ../module}}</p>
+    {{#each fields}}
+        <div class="row-fluid control-group">
+            <h5>{{str label ../../module}}</h5>
+            <div class="controls span12">
+                {{field ../../this model=../../model template=template}}
+            </div>
+        </div>
+    {{/each}}
+{{/each}}
+<div class="row-fluid feedback-footer">
+    <span class="span12">
+        <button class="btn btn-primary pull-right span12" data-action="submit">{{str 'LBL_FEEDBACK_BTN_SUBMIT' module}}</button>
+    </span>
+</div>
+<aside>{{aside}}</aside>

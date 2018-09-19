@@ -1,0 +1,462 @@
+/* MERGE INTERFACE
+  ----------------*/
+
+@mergeFieldHeight: 30px;
+
+h4.merge-interface-header {
+  padding: 11px 0 0 20px;
+
+  .preview {
+    padding-top: 0;
+  }
+
+  button {
+    margin-right: 12px;
+
+    &.on {
+      color: @white !important;
+      text-shadow: none;
+      background: @gray !important;
+
+      > .fa {
+        color: @grayLighter !important;
+      }
+
+      &:focus {
+        background: @grayDark !important;
+      }
+    }
+  }
+}
+
+.merge-interface {
+  height: auto;
+  margin: 10px 0 0;
+
+  .fluid-div,
+  .fixed-div {
+    padding-bottom: 4px;
+  }
+
+  .fixed-div {
+    width: 140px;
+  }
+
+  .fixed-div aside,
+  .fixed-div label {
+    font-size: 11px;
+  }
+
+  .fixed-div aside a:hover {
+    text-decoration: none;
+  }
+
+  .fluid-div {
+    width: calc(~"100% - 150px");
+    display: inline-block;
+    white-space: nowrap;
+    overflow-y: hidden;
+    height: auto;
+    overflow-x: auto;
+
+    &.num-cols-2 {
+      .col {
+        width: calc(~"50% - 23px");
+      }
+    }
+
+    &.num-cols-3 {
+      .col {
+        width: calc(~"33.3% - 20px");
+      }
+    }
+
+    &.num-cols-4 {
+      .col {
+        width: calc(~"25% - 18px");
+      }
+    }
+
+    &.num-cols-5 {
+      .col {
+        width: calc(~"20% - 18px");
+      }
+    }
+  }
+
+  .col {
+    min-width: 130px;
+    width: 130px;
+    height: 100%;
+    display: inline-block;
+    margin: 2px 0 0 10px;
+    overflow: hidden;
+    padding: 0 1px 1px;
+
+    .primary-lbl {
+      cursor: move;
+      height: 20px;
+      margin: 0 0 5px;
+
+      span {
+        display: block;
+        margin: 0 0 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: #e9e9e9;
+        text-align: center;
+        font-size: 11px;
+        text-shadow: -1px -1px 1px @white;
+      }
+
+      span.primary-lbl-placeholder-span {
+        border: 0;
+        display: block;
+        border-radius: 1px;
+        margin: -18px 0 5px 0;
+        background: darken(@grayLighter, 5%);
+        min-height: 20px;
+      }
+
+      button {
+        position: relative;
+      }
+    }
+
+    &.pull-left {
+      margin-right: 5px;
+    }
+
+    .primary-lbl-placeholder {
+      border: 1px dotted black;
+      border-radius: 4px;
+
+      &.ui-sortable-disabled {
+        span {
+          background: transparent;
+        }
+      }
+
+      &.ui-sortable-disabled::before {
+        content: "\f05e";
+        padding-left: 61px;
+        font-family: 'FontAwesome';
+      }
+    }
+
+    .box {
+      border-radius: 3px;
+      border: 1px solid darken(@grayLighter, 10%);
+      box-shadow: 0 2px 4px darken(@grayLighter, 5%);
+      overflow: hidden;
+
+      .merge-edit {
+        display: none;
+      }
+
+      .merge-view {
+        display: block;
+      }
+    }
+
+    button.fa-times-circle {
+      margin-top: 1px;
+      line-height: 8px;
+    }
+  }
+
+  .col.primary-edit-mode { /* PRIMARY */
+    .box {
+      background: #f7f7f7;
+
+      .merge-row {
+        &.even,
+        &.odd {
+          background: none;
+        }
+
+        .controls > label {
+          width: calc(~"100% - 34px");
+        }
+      }
+
+      .merge-edit {
+        display: block;
+      }
+
+      .merge-view {
+        display: none;
+      }
+    }
+  }
+
+  .label-div {
+    .col {
+      margin-top: 30px;
+    }
+
+    aside {
+      margin-left: 10px;
+      line-height: 32px;
+
+      a:hover i {
+        text-decoration: none;
+      }
+    }
+  }
+
+  input[type=text] {
+    width: 98%;
+  }
+
+  input[type=password] {
+    width: 98%;
+  }
+
+  input[type=radio] {
+    width: 16px;
+    margin-right: 6px;
+  }
+
+  label input[type=checkbox] {
+    margin-top: 0;
+  }
+
+  textarea {
+    display: inline;
+  }
+
+  .merge-row {
+    width: auto;
+    margin: 0;
+    line-height: @mergeFieldHeight;
+    height: (@mergeFieldHeight + 5);
+    padding: 0 5px;
+    white-space: nowrap;
+
+    &.odd {
+      background: #fefbf4;
+    }
+
+    &.even {
+      background: #fdf9ea;
+    }
+
+    .ellipsis_inline {
+      display: inline-block !important;
+      width: 90%;
+    }
+
+    .select2-container {
+      width: calc(~"100% + 10px") !important;
+    }
+
+    textarea {
+      height: 18px;
+      width: 98%;
+      resize: none;
+    }
+
+    .controls {
+      width: 100%;
+      height: @mergeFieldHeight;
+      padding: 2px 0;
+      margin: 0;
+      position: relative;
+    }
+
+    &.control-group .controls > label {
+      width: 100%;
+      overflow: hidden;
+      margin: 0;
+      line-height: (@mergeFieldHeight + 5);
+      height: (@mergeFieldHeight + 5);
+      white-space: nowrap;
+      position: absolute;
+    }
+
+    &.control-group {
+      height: (@mergeFieldHeight + 5);
+    }
+
+    &.merge-row-field-parent {
+      height: 70px;
+
+      .controls label {
+        height: 75px;
+      }
+
+      .controls label > span > div {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+
+    &.merge-row-field-avatar {
+      height: 65px;
+
+      .controls label {
+        height: 60px;
+      }
+
+      .image_field {
+        top: 0;
+        left: 0;
+
+        label {
+          height: 50px;
+          width: 50px;
+          position: static;
+        }
+      }
+
+      .label-module {
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    &.merge-row-field-image {
+      height: 110px;
+
+      .controls label {
+        height: 100px;
+      }
+    }
+
+    &.merge-row-field-datetimecombo {
+      .controls label {
+        height: 75px;
+        overflow: visible;
+        width: calc(~"100% - 20px") !important;
+
+        input.datepicker,
+        input.ui-timepicker-input {
+          width: calc(~"50% - 18px");
+        }
+
+        input.ui-timepicker-input {
+          margin-left: 2px;
+        }
+      }
+
+      .input-append {
+        white-space: normal;
+        padding-top: 4px;
+
+        .add-on {
+          left: inherit;
+          right: 1px;
+          margin-left: -26px;
+        }
+      }
+    }
+
+    &.merge-row-field-currency {
+      height: 70px;
+
+      .controls label {
+        height: 75px;
+      }
+
+      .controls label > span > div {
+        width: 90%;
+        margin-left: 0;
+
+        .span4 {
+          width: 99%;
+        }
+
+        .converted {
+          display: block;
+          position: relative;
+        }
+
+        .original {
+          display: inline;
+          position: relative;
+        }
+
+        input {
+          width: 86px;
+        }
+      }
+    }
+
+    &.merge-row-field-teamset {
+      .controls {
+        label {
+          position: relative;
+          width: auto;
+          display: inline;
+          padding-right: 0.25em;
+        }
+
+        .btn {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .flex-relate-module,
+    .flex-relate-record {
+      float: left;
+    }
+  }
+}
+
+.record-merge-interface {
+  .merge-interface {
+    .rows-div {
+      position: relative;
+
+      .merge-row:nth-child(odd) {
+        background-color: lighten(@grayLighter, 1%);
+      }
+    }
+  }
+
+  overflow: hidden;
+}
+
+@iterations: 25;
+.loopingClass (@index) when (@index > 0) {
+  .merge-row-field-height@{index} {
+    height: (@index *(@mergeFieldHeight + 5)) !important;
+  }
+  .loopingClass(@index - 1);
+}
+
+.loopingClass (@iterations);
+
+@col-iterations: 4;
+@col-merge-threshold-step: 200;
+.colLoopingClass (@col-index) when (@col-index > 0) {
+  @col-media-query-threshold: e(%("%dpx", (900 + (@col-merge-threshold-step * (@col-index - 1)))));
+
+  @media screen and (max-width: @col-media-query-threshold) {
+    @col-class: @col-index + 1;
+
+    .merge-interface {
+      .num-cols-@{col-class} {
+        .merge-row.merge-row-field-datetimecombo {
+          height: 70px;
+
+          .controls label {
+            input.datepicker,
+            input.ui-timepicker-input {
+              width: calc(~"100% - 18px");
+            }
+
+            .ui-timepicker-input {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .colLoopingClass(@col-index - 1);
+}
+
+.colLoopingClass (@col-iterations);

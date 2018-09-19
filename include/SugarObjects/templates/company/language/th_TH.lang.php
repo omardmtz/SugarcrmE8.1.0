@@ -1,0 +1,118 @@
+<?php
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+
+$mod_strings = array (
+	'ACCOUNT_REMOVE_PROJECT_CONFIRM' => 'คุณแน่ใจหรือไม่ว่าต้องการย้ายบัญชีนี้ออกจากโครงการนี้',
+	'ERR_DELETE_RECORD' => 'ต้องระบุเลขที่ระเบียนเพื่อลบบัญชี',
+	'LBL_ACCOUNT_NAME' => 'ชื่อบริษัท:',
+	'LBL_ACCOUNT' => 'บริษัท:',
+	'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'กิจกรรม',
+	'LBL_ADDRESS_INFORMATION' => 'ข้อมูลที่อยู่',
+	'LBL_ANNUAL_REVENUE' => 'รายได้ต่อปี:',
+	'LBL_ANY_ADDRESS' => 'ที่อยู่ใดก็ได้:',
+    'LBL_ANY_EMAIL' => 'อีเมล:',
+	'LBL_ANY_PHONE' => 'โทรศัพท์ใดก็ได้:',
+	'LBL_ASSIGNED_TO_NAME' => 'ผู้ใช้:',
+	'LBL_RATING' => 'การจัดอันดับ',
+	'LBL_ASSIGNED_TO' => 'ระบุให้:',
+	'LBL_ASSIGNED_USER' => 'ระบุให้:',
+	'LBL_ASSIGNED_TO_ID' => 'ระบุให้:',
+	'LBL_BILLING_ADDRESS_CITY' => 'เมืองที่เรียกเก็บเงิน:',
+	'LBL_BILLING_ADDRESS_COUNTRY' => 'ประเทศที่เรียกเก็บเงิน:',
+	'LBL_BILLING_ADDRESS_POSTALCODE' => 'รหัสไปรษณีย์ที่เรียกเก็บเงิน:',
+	'LBL_BILLING_ADDRESS_STATE' => 'รัฐที่เรียกเก็บเงิน:',
+	'LBL_BILLING_ADDRESS_STREET_2' =>'ถนนที่เรียกเก็บเงิน 2',
+	'LBL_BILLING_ADDRESS_STREET_3' =>'ถนนที่เรียกเก็บเงิน 3',
+	'LBL_BILLING_ADDRESS_STREET_4' =>'ถนนที่เรียกเก็บเงิน 4',
+	'LBL_BILLING_ADDRESS_STREET' => 'ถนนที่เรียกเก็บเงิน:',
+	'LBL_BILLING_ADDRESS' => 'ที่อยู่ที่เรียกเก็บเงิน:',
+	'LBL_ACCOUNT_INFORMATION' => 'ข้อมูลบริษัท',
+	'LBL_CITY' => 'เมือง:',
+	'LBL_CONTACTS_SUBPANEL_TITLE' => 'ที่อยู่ติดต่อ',
+	'LBL_COUNTRY' => 'ประเทศ:',
+	'LBL_DATE_ENTERED' => 'วันที่สร้าง:',
+	'LBL_DATE_MODIFIED' => 'วันที่แก้ไข:',
+	'LBL_DESCRIPTION_INFORMATION' => 'ข้อมูลคำอธิบาย',
+	'LBL_DESCRIPTION' => 'คำอธิบาย:',
+	'LBL_DUPLICATE' => 'บัญชีอาจซ้ำกัน',
+    'LBL_EMAIL' => 'ที่อยู่อีเมล:',
+	'LBL_EMPLOYEES' => 'พนักงาน:',
+	'LBL_FAX' => 'โทรสาร:',
+	'LBL_INDUSTRY' => 'อุตสาหกรรม:',
+	'LBL_LIST_ACCOUNT_NAME' => 'ชื่อบัญชี',
+	'LBL_LIST_CITY' => 'เมือง',
+    'LBL_LIST_EMAIL_ADDRESS' => 'ที่อยู่อีเมล',
+	'LBL_LIST_PHONE' => 'โทรศัพท์',
+	'LBL_LIST_STATE' => 'รัฐ',
+	'LBL_LIST_WEBSITE' => 'เว็บไซต์',
+	'LBL_MEMBER_OF' => 'สมาชิกของ:',
+	'LBL_MEMBER_ORG_FORM_TITLE' => 'องค์กรสมาชิก',
+	'LBL_MEMBER_ORG_SUBPANEL_TITLE'=>'องค์กรสมาชิก',
+	'LBL_NAME'=>'ชื่อ:',
+    'LBL_OTHER_EMAIL_ADDRESS' => 'อีเมลอื่น:',
+	'LBL_OTHER_PHONE' => 'โทรศัพท์อื่น:',
+	'LBL_OWNERSHIP' => 'เจ้าของ:',
+	'LBL_PARENT_ACCOUNT_ID' => 'ID บัญชีหลัก',
+	'LBL_PHONE_ALT' => 'โทรศัพท์สำรอง:',
+	'LBL_PHONE_FAX' => 'โทรสาร:',
+	'LBL_PHONE_OFFICE' => 'โทรศัพท์ที่ทำงาน:',
+	'LBL_PHONE' => 'โทรศัพท์:',
+    'LBL_EMAIL_ADDRESS' => 'ที่อยู่อีเมล',
+    'LBL_EMAIL_ADDRESSES' => 'ที่อยู่อีเมล',
+	'LBL_POSTAL_CODE' => 'รหัสไปรษณีย์:',
+	'LBL_PUSH_BILLING' => 'การเรียกเก็บเงินแบบพุช',
+	'LBL_PUSH_SHIPPING' => 'การขนส่งแบบพุช',
+	'LBL_SAVE_ACCOUNT' => 'บันทึกบัญชี',
+	'LBL_SHIPPING_ADDRESS_CITY' => 'เมืองที่ส่งสินค้า:',
+	'LBL_SHIPPING_ADDRESS_COUNTRY' => 'ประเทศที่ส่งสินค้า:',
+	'LBL_SHIPPING_ADDRESS_POSTALCODE' => 'รหัสไปรษณีย์ที่ส่งสินค้า:',
+	'LBL_SHIPPING_ADDRESS_STATE' => 'รัฐที่ส่งสินค้า:',
+	'LBL_SHIPPING_ADDRESS_STREET_2' => 'ถนนที่ส่งสินค้า 2',
+	'LBL_SHIPPING_ADDRESS_STREET_3' => 'ถนนที่ส่งสินค้า 3',
+	'LBL_SHIPPING_ADDRESS_STREET_4' => 'ถนนที่ส่งสินค้า 4',
+	'LBL_SHIPPING_ADDRESS_STREET' => 'ถนนที่ส่งสินค้า:',
+	'LBL_SHIPPING_ADDRESS' => 'ที่อยู่ที่ส่งสินค้า:',
+
+	'LBL_STATE' => 'รัฐ:',
+	'LBL_TEAMS_LINK'=>'ทีม',
+	'LBL_TICKER_SYMBOL' => 'สัญลักษณ์:',
+	'LBL_TYPE' => 'ประเภท:',
+	'LBL_USERS_ASSIGNED_LINK'=>'ผู้ใช้ที่ระบุ',
+	'LBL_USERS_CREATED_LINK'=>'สร้างโดยผู้ใช้',
+	'LBL_USERS_MODIFIED_LINK'=>'ผู้ใช้ที่แก้ไข',
+	'LBL_VIEW_FORM_TITLE' => 'มุมมองบัญชี',
+	'LBL_WEBSITE' => 'เว็บไซต์:',
+    'LBL_LINKEDIN' => 'ID บริษัทใน Linkedin',
+    'LBL_FACEBOOK' => 'บัญชีผู้ใช้ Facebook',
+    'LBL_TWITTER' => 'บัญชีผู้ใช้ Twitter',
+    'LBL_GOOGLEPLUS' => 'Google Plus ID',
+
+	'LNK_ACCOUNT_LIST' => 'บัญชี',
+	'LNK_NEW_ACCOUNT' => 'สร้างบัญชี',
+
+	'MSG_DUPLICATE' => 'ระเบียนบัญชีที่คุณต้องการสร้างอาจซ้ำกับระเบียนบัญชีที่มีอยู่แล้ว ด้านล่างนี้เป็นรายชื่อของระเบียนบัญชีที่มีชื่อคล้ายกัน<br>คุณสามารถคลิกสร้างบัญชีเพื่อสร้างบัญชีใหม่นี้ต่อไป หรือเลือกบัญชีที่มีอยู่จากรายชื่อด้านล่าง',
+	'MSG_SHOW_DUPLICATES' => 'ระเบียนบัญชีที่คุณต้องการสร้างอาจซ้ำกับระเบียนบัญชีที่มีอยู่แล้ว ด้านล่างนี้เป็นรายชื่อของระเบียนบัญชีที่มีชื่อคล้ายกัน<br>คุณสามารถคลิกบันทึกเพื่อสร้างบัญชีใหม่นี้ต่อไป หรือคลิกยกเลิกเพื่อกลับสู่โมดูลโดยไม่สร้างบัญชี',
+
+	'NTC_COPY_BILLING_ADDRESS' => 'คัดลอกที่อยู่เรียกเก็บเงินไปยังที่อยู่จัดส่ง',
+	'NTC_COPY_BILLING_ADDRESS2' => 'คัดลอกเป็นที่อยู่จัดส่ง',
+	'NTC_COPY_SHIPPING_ADDRESS' => 'คัดลอกที่อยู่จัดส่งไปยังที่อยู่เรียกเก็บเงิน',
+	'NTC_COPY_SHIPPING_ADDRESS2' => 'คัดลอกเป็นที่อยู่เรียกเก็บเงิน',
+	'NTC_DELETE_CONFIRMATION' => 'คุณแน่ใจหรือไม่ว่าต้องการลบระเบียนนี้',
+	'NTC_REMOVE_ACCOUNT_CONFIRMATION' => 'คุณแน่ใจหรือไม่ว่าต้องการย้ายระเบียนนี้ออก',
+	'NTC_REMOVE_MEMBER_ORG_CONFIRMATION' => 'คุณแน่ใจหรือไม่ว่าต้องการนำระเบียนองค์กรสมาชิกนี้ออก',
+
+    'LBL_EDIT_BUTTON' => 'แก้ไข  ',
+    'LBL_REMOVE' => 'นำออก',
+
+);
+
+

@@ -1,0 +1,105 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Update a calendar event record of the specified type.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            all_recurrences
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Flag to update all events in a series.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Request</h3>
+<pre class="pre-scrollable">
+http://{site_url}/rest/v10/Meetings/2c9e5c09-6824-0d14-f5cb-5130321ac3cf?all_recurrences=true
+{
+    "name":"Department Meeting",
+    "description":"Weekly Department Meeting",
+    "date_start":"yyyy-mm-ddThh:mm:ss-00:00",
+    "date_end":"yyyy-mm-ddThh:mm:ss-00:00",
+    "repeat_type":"Weekly",
+    "repeat_interval":"1",  /* Every Week */
+    "repeat_dow":"25",      /* Tue and Fri */
+    "repeat_count":"4",     /* 4 Recurrences */
+    "repeat_until":"",
+}
+</pre>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record field&gt;
+        </td>
+        <td>
+            Returns the fields for the updated record.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record</code> PUT endpoint.
+        </td>
+    </tr>
+</table>

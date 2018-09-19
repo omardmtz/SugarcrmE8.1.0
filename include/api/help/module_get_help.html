@@ -1,0 +1,224 @@
+<!--
+/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * http://support.sugarcrm.com/Resources/Master_Subscription_Agreements/.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */
+-->
+<h2>Overview</h2>
+<span class="lead">
+    List records in a module. Searching, filtering and ordering can be applied to only fetch the records you are interested in. Additionally the set of returned fields can be restricted to speed up processing and reduce download times.
+</span>
+
+<h2>Request Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                q
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The search text to match records on. This will search through any fields on the module that has unified_search set to true.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                max_num
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                A maximum number of records to return.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                offset
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The number of records to skip over before records are returned.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                fields
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Comma delimited list of fields to return. The field date_modified will always be returned.
+                <br>
+                Example: <code>name,account_type,description</code>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                order_by
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                How to sort the returned records, in a comma delimited list with the direction appended to the column name after a colon.
+                <br>
+                Example: <code>name:DESC,account_type:DESC,date_modified:ASC</code>
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                favorites
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                Only fetch the current users favorited records.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                my_items
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                Only fetch items assigned to the current user.
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Response Arguments</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                next_offset
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                Displays the next offset for retrieval of additional results. -1 will be returned when there are no more records.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                records
+            </td>
+            <td>
+                Array
+            </td>
+            <td>
+                An array of results containing matched records.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Response</h3>
+<pre class="pre-scrollable">
+{
+   "next_offset":2,
+   "records":[
+      {
+         "id":"ecbf2a6c-261e-5fca-fbb6-512d093554b8",
+         "name":"Avery Software Co",
+         "date_modified":"2013-02-26T19:12:56+00:00",
+         "description":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         },
+         "_module":"Accounts",
+         "_search":{
+            "score":1
+         }
+      },
+      {
+         "id":"af5f8dae-7169-b497-1d77-512d0937ed81",
+         "name":"Avery Software Co",
+         "date_modified":"2013-02-26T19:12:56+00:00",
+         "description":"",
+         "my_favorite":false,
+         "_acl":{
+            "fields":{
+
+            }
+         },
+         "_module":"Accounts",
+         "_search":{
+            "score":1
+         }
+      }
+   ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;</code> GET endpoint.
+        </td>
+    </tr>
+</table>
